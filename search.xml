@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Esxi挂载iSCSI</title>
+      <link href="/19-11-26.html"/>
+      <url>/19-11-26.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>之前曾写过一篇对于Windows挂在iSCSI的文章，在后面的学习中发现Esxi也可以挂载iSCSI。下面主要简单的记录一下基本流程。</p><h1 id="配置openfiler"><a href="#配置openfiler" class="headerlink" title="配置openfiler"></a>配置openfiler</h1><p>在openfiler的web管理界面点击system然后配置Network Access Configuration把Esxi的IP地址添加进去</p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/1.png" alt=""></p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/2.png" alt=""></p><p>然后配置iSCSI  Targets，由于之前已经配置过所以直接修改Network ACL 即可把Esxi主机🖥的IP地址改为allow</p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/3.png" alt=""></p><h1 id="配置Esxi"><a href="#配置Esxi" class="headerlink" title="配置Esxi"></a>配置Esxi</h1><p>通过vSphere client连接Esxi服务器，连接成功如下图所示</p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/4.png" alt=""></p><p>点击配置然后点击添加存储适配器，选择添加软件iSCSI适配器</p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/5.png" alt=""></p><p>添加成功后，会发现多了一个iSCSISoftware Adapter</p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/6.png" alt=""></p><p>右键点击属性对其进行配置</p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/7.png" alt=""></p><p>网络配置</p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/8.png" alt=""></p><p>设置动态发现</p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/9.png" alt=""></p><p>点击右侧的存储然后添加存储</p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/10.png" alt=""></p><p>选择Lun创建的数据存储</p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/11.png" alt=""></p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/1.png" alt=""></p><p>后面这里都采取默认设置，可以根据自己需求来进行配置</p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/12.png" alt=""></p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/13.png" alt=""></p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/14.png" alt=""></p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/15.png" alt=""></p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/17.png" alt=""></p><p>到此已经挂载成功，可以对数据存储进行操作。上传下载文件等等</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 虚拟化 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>vCenter安装问题</title>
       <link href="/19-11-15.html"/>
       <url>/19-11-15.html</url>

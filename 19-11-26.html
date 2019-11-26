@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="之前曾写过一篇对于Windows挂在iSCSI的文章，在后面的学习中发现Esxi也可以挂载iSCSI。下面主要简单的记录一下基本流程。 配置openfiler在openfiler的web管理界面点击system然后配置Network Access Configuration把Esxi的IP地址添加进去   然后配置iSCSI  Targets，由于之前已经配置过所以直接修改Network ACL">
+<meta name="keywords" content="虚拟化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Esxi挂载iSCSI">
+<meta property="og:url" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;19-11-26.html">
+<meta property="og:site_name" content="嘲弄i">
+<meta property="og:description" content="之前曾写过一篇对于Windows挂在iSCSI的文章，在后面的学习中发现Esxi也可以挂载iSCSI。下面主要简单的记录一下基本流程。 配置openfiler在openfiler的web管理界面点击system然后配置Network Access Configuration把Esxi的IP地址添加进去   然后配置iSCSI  Targets，由于之前已经配置过所以直接修改Network ACL">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;11-26&#x2F;1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;11-26&#x2F;2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;11-26&#x2F;3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;11-26&#x2F;4.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;11-26&#x2F;5.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;11-26&#x2F;6.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;11-26&#x2F;7.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;11-26&#x2F;8.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;11-26&#x2F;9.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;11-26&#x2F;10.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;11-26&#x2F;11.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;11-26&#x2F;1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;11-26&#x2F;12.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;11-26&#x2F;13.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;11-26&#x2F;14.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;11-26&#x2F;15.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;11-26&#x2F;17.png">
+<meta property="og:updated_time" content="2019-11-26T14:41:17.757Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;11-26&#x2F;1.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/McRae.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/McRae.ico" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/McRae.ico">
+          
+        
+    
+
+    <!-- title -->
+    <title>Esxi挂载iSCSI</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/19-11-15.html"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://6-7.xyz/19-11-26.html" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://6-7.xyz/19-11-26.html&text=Esxi挂载iSCSI" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://6-7.xyz/19-11-26.html&title=Esxi挂载iSCSI" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://6-7.xyz/19-11-26.html&is_video=false&description=Esxi挂载iSCSI" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Esxi挂载iSCSI&body=Check out this article: https://6-7.xyz/19-11-26.html"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://6-7.xyz/19-11-26.html&title=Esxi挂载iSCSI" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://6-7.xyz/19-11-26.html&title=Esxi挂载iSCSI" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://6-7.xyz/19-11-26.html&title=Esxi挂载iSCSI" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://6-7.xyz/19-11-26.html&title=Esxi挂载iSCSI" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://6-7.xyz/19-11-26.html&name=Esxi挂载iSCSI&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#配置openfiler"><span class="toc-number">1.</span> <span class="toc-text">配置openfiler</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置Esxi"><span class="toc-number">2.</span> <span class="toc-text">配置Esxi</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Esxi挂载iSCSI
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">嘲弄i</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-11-26T13:41:13.000Z" itemprop="datePublished">2019-11-26</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/" rel="tag">虚拟化</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>之前曾写过一篇对于Windows挂在iSCSI的文章，在后面的学习中发现Esxi也可以挂载iSCSI。下面主要简单的记录一下基本流程。</p>
+<h1 id="配置openfiler"><a href="#配置openfiler" class="headerlink" title="配置openfiler"></a>配置openfiler</h1><p>在openfiler的web管理界面点击system然后配置Network Access Configuration把Esxi的IP地址添加进去</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/1.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/2.png" alt=""></p>
+<p>然后配置iSCSI  Targets，由于之前已经配置过所以直接修改Network ACL 即可把Esxi主机🖥的IP地址改为allow</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/3.png" alt=""></p>
+<h1 id="配置Esxi"><a href="#配置Esxi" class="headerlink" title="配置Esxi"></a>配置Esxi</h1><p>通过vSphere client连接Esxi服务器，连接成功如下图所示</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/4.png" alt=""></p>
+<p>点击配置然后点击添加存储适配器，选择添加软件iSCSI适配器</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/5.png" alt=""></p>
+<p>添加成功后，会发现多了一个iSCSISoftware Adapter</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/6.png" alt=""></p>
+<p>右键点击属性对其进行配置</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/7.png" alt=""></p>
+<p>网络配置</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/8.png" alt=""></p>
+<p>设置动态发现</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/9.png" alt=""></p>
+<p>点击右侧的存储然后添加存储</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/10.png" alt=""></p>
+<p>选择Lun创建的数据存储</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/11.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/1.png" alt=""></p>
+<p>后面这里都采取默认设置，可以根据自己需求来进行配置</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/12.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/13.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/14.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/15.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/17.png" alt=""></p>
+<p>到此已经挂载成功，可以对数据存储进行操作。上传下载文件等等</p>
+
+  </div>
+</article>
+
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#配置openfiler"><span class="toc-number">1.</span> <span class="toc-text">配置openfiler</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置Esxi"><span class="toc-number">2.</span> <span class="toc-text">配置Esxi</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://6-7.xyz/19-11-26.html" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://6-7.xyz/19-11-26.html&text=Esxi挂载iSCSI" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://6-7.xyz/19-11-26.html&title=Esxi挂载iSCSI" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://6-7.xyz/19-11-26.html&is_video=false&description=Esxi挂载iSCSI" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Esxi挂载iSCSI&body=Check out this article: https://6-7.xyz/19-11-26.html"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://6-7.xyz/19-11-26.html&title=Esxi挂载iSCSI" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://6-7.xyz/19-11-26.html&title=Esxi挂载iSCSI" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://6-7.xyz/19-11-26.html&title=Esxi挂载iSCSI" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://6-7.xyz/19-11-26.html&title=Esxi挂载iSCSI" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://6-7.xyz/19-11-26.html&name=Esxi挂载iSCSI&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 嘲弄i
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+
+
+
+
+   
+
+    </script>
+</body>
+</html>

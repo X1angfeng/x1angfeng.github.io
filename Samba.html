@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Samba是一款自由软件，用来让UNIX系列操作系统与微软的windows操作系统SMB&#x2F;CIFS网络协定做连结。Samba不仅可以存取及分享SMB的资料夹与打印机，本身还可以整合录入windows server网域，扮演着网域控制站以及加入活动目录。此软件在windows和unix系列操作系统之间搭建起一座桥梁让两者资源可以互通有无。">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux配置与应用Samba服务">
+<meta property="og:url" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;Samba.html">
+<meta property="og:site_name" content="嘲弄i">
+<meta property="og:description" content="Samba是一款自由软件，用来让UNIX系列操作系统与微软的windows操作系统SMB&#x2F;CIFS网络协定做连结。Samba不仅可以存取及分享SMB的资料夹与打印机，本身还可以整合录入windows server网域，扮演着网域控制站以及加入活动目录。此软件在windows和unix系列操作系统之间搭建起一座桥梁让两者资源可以互通有无。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;samba&#x2F;1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;samba&#x2F;3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;samba&#x2F;2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;samba&#x2F;7.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;samba&#x2F;8.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;samba&#x2F;11.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;samba&#x2F;12.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;samba&#x2F;15.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;samba&#x2F;net.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;samba&#x2F;student1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;samba&#x2F;student.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;samba&#x2F;teacher1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;samba&#x2F;ceo.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;samba&#x2F;ceo1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;samba&#x2F;salesuser.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;samba&#x2F;salesuser1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;samba&#x2F;salesuser2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;samba&#x2F;s.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;samba&#x2F;m.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;samba&#x2F;c.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;samba&#x2F;cc.png">
+<meta property="og:updated_time" content="2019-04-09T12:44:13.151Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;samba&#x2F;1.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/McRae.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/McRae.ico" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/McRae.ico">
+          
+        
+    
+
+    <!-- title -->
+    <title>Linux配置与应用Samba服务</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/NFS.html"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/DHCP.html"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://6-7.xyz/Samba.html" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://6-7.xyz/Samba.html&text=Linux配置与应用Samba服务" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://6-7.xyz/Samba.html&title=Linux配置与应用Samba服务" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://6-7.xyz/Samba.html&is_video=false&description=Linux配置与应用Samba服务" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Linux配置与应用Samba服务&body=Check out this article: https://6-7.xyz/Samba.html"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://6-7.xyz/Samba.html&title=Linux配置与应用Samba服务" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://6-7.xyz/Samba.html&title=Linux配置与应用Samba服务" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://6-7.xyz/Samba.html&title=Linux配置与应用Samba服务" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://6-7.xyz/Samba.html&title=Linux配置与应用Samba服务" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://6-7.xyz/Samba.html&name=Linux配置与应用Samba服务&description=&lt;blockquote&gt;
+&lt;p&gt;Samba是一款自由软件，用来让UNIX系列操作系统与微软的windows操作系统SMB/CIFS网络协定做连结。Samba不仅可以存取及分享SMB的资料夹与打印机，本身还可以整合录入windows server网域，扮演着网域控制站以及加入活动目录。此软件在windows和unix系列操作系统之间搭建起一座桥梁让两者资源可以互通有无。&lt;/p&gt;
+&lt;/blockquote&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#任务一"><span class="toc-number">1.</span> <span class="toc-text">任务一</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Samba软件的安装"><span class="toc-number">1.1.</span> <span class="toc-text">Samba软件的安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新建samba用户"><span class="toc-number">1.2.</span> <span class="toc-text">新建samba用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务启动"><span class="toc-number">1.3.</span> <span class="toc-text">服务启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关闭防火墙及SELinux"><span class="toc-number">1.4.</span> <span class="toc-text">关闭防火墙及SELinux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进行访问"><span class="toc-number">1.5.</span> <span class="toc-text">进行访问</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#windows客户端访问"><span class="toc-number">1.5.1.</span> <span class="toc-text">windows客户端访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux客户端访问"><span class="toc-number">1.5.2.</span> <span class="toc-text">Linux客户端访问</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#任务二"><span class="toc-number">2.</span> <span class="toc-text">任务二</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#建立用户以及群组"><span class="toc-number">2.1.</span> <span class="toc-text">建立用户以及群组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建立samba用户"><span class="toc-number">2.2.</span> <span class="toc-text">建立samba用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建立共享目录以及设置文件夹权限"><span class="toc-number">2.3.</span> <span class="toc-text">建立共享目录以及设置文件夹权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置samb配置文件的全局参数"><span class="toc-number">2.4.</span> <span class="toc-text">配置samb配置文件的全局参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#samba服务重新启动"><span class="toc-number">2.5.</span> <span class="toc-text">samba服务重新启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#客户端测试"><span class="toc-number">2.6.</span> <span class="toc-text">客户端测试</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#任务三"><span class="toc-number">3.</span> <span class="toc-text">任务三</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置企业一般文件权限"><span class="toc-number">3.1.</span> <span class="toc-text">配置企业一般文件权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置企业特殊文件权限"><span class="toc-number">3.2.</span> <span class="toc-text">配置企业特殊文件权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置企业严格文件权限"><span class="toc-number">3.3.</span> <span class="toc-text">配置企业严格文件权限</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Linux配置与应用Samba服务
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">嘲弄i</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-04-02T11:10:36.000Z" itemprop="datePublished">2019-04-02</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/Linux/">Linux</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/Linux/" rel="tag">Linux</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <blockquote>
+<p>Samba是一款自由软件，用来让UNIX系列操作系统与微软的windows操作系统SMB/CIFS网络协定做连结。Samba不仅可以存取及分享SMB的资料夹与打印机，本身还可以整合录入windows server网域，扮演着网域控制站以及加入活动目录。此软件在windows和unix系列操作系统之间搭建起一座桥梁让两者资源可以互通有无。</p>
+</blockquote>
+<a id="more"></a>
+
+<h1 id="任务一"><a href="#任务一" class="headerlink" title="任务一"></a><code>任务一</code></h1><p><span id="inline-green">安装Samba与共享用户的家目录</span></p>
+<h2 id="Samba软件的安装"><a href="#Samba软件的安装" class="headerlink" title="Samba软件的安装"></a>Samba软件的安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y samba</span><br></pre></td></tr></table></figure>
+
+ <img src="/img/samba/1.png">
+
+<h2 id="新建samba用户"><a href="#新建samba用户" class="headerlink" title="新建samba用户"></a>新建samba用户</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">useradd yhy -s /dev/null</span><br><span class="line">smbpasswd -a yhy</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/samba/3.png" alt=""></p>
+<h2 id="服务启动"><a href="#服务启动" class="headerlink" title="服务启动"></a>服务启动</h2><p>samba服务重新启动，并且设置开机启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service smb restart</span><br><span class="line">chkconfig smb on</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/samba/2.png" alt=""></p>
+<h2 id="关闭防火墙及SELinux"><a href="#关闭防火墙及SELinux" class="headerlink" title="关闭防火墙及SELinux"></a>关闭防火墙及SELinux</h2><p><img src="/img/samba/7.png" alt="">)<img src="/img/samba/8.png" alt=""></p>
+<h2 id="进行访问"><a href="#进行访问" class="headerlink" title="进行访问"></a>进行访问</h2><blockquote>
+<p><code>备注</code>： Windows客户端需要启用SMB协议的支持如果Win10 系统没有启用smb协议，可在控制面板中，启用该功能，Windows客户端访问配置服务器端和客户端电脑的IP地址无论是无线网卡还是有线网卡桥接，确保其在同一个网段即可。</p>
+</blockquote>
+<h3 id="windows客户端访问"><a href="#windows客户端访问" class="headerlink" title="windows客户端访问"></a>windows客户端访问</h3><p> <img src="/img/samba/11.png" alt="">)<img src="/img/samba/12.png" alt=""></p>
+<h3 id="Linux客户端访问"><a href="#Linux客户端访问" class="headerlink" title="Linux客户端访问"></a>Linux客户端访问</h3><p><img src="/img/samba/15.png" alt=""></p>
+<h1 id="任务二"><a href="#任务二" class="headerlink" title="任务二"></a>任务二</h1><p><span id="inline-yellow">配置学校samba服务器</span></p>
+<blockquote>
+<p>现学校需要配置一台samba服务器，老师需要把资料共享给学生，老师可以将自己的资源上传到服务器上，而学生只能下载资源，不能上传以及删除服务器上的资源。</p>
+</blockquote>
+<p><span id="inline-yellow">分析:</span>我们需要建立一个共享目录，只有teachers组用户可以读写该目录，而students用户组只能读取。具体操作如下</p>
+<h2 id="建立用户以及群组"><a href="#建立用户以及群组" class="headerlink" title="建立用户以及群组"></a>建立用户以及群组</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">groupadd students  #建立学生群组</span><br><span class="line">groupadd teachers  #建立教师群组</span><br><span class="line">useradd -g students student1  #建立学生用户并且加入学生群组</span><br><span class="line">useradd -g teachers teacher1  #建立教师用户并且加入教师群组</span><br></pre></td></tr></table></figure>
+
+<h2 id="建立samba用户"><a href="#建立samba用户" class="headerlink" title="建立samba用户"></a>建立samba用户</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">smbpasswd -a student1</span><br><span class="line">smbpasswd -a teacher1</span><br></pre></td></tr></table></figure>
+
+<h2 id="建立共享目录以及设置文件夹权限"><a href="#建立共享目录以及设置文件夹权限" class="headerlink" title="建立共享目录以及设置文件夹权限"></a>建立共享目录以及设置文件夹权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir /home/student  #在home下建立共享目录</span><br><span class="line">chgrp students /home/student1  #设置共享目录所属组为students</span><br><span class="line">chmod 757 /home/student  #设置共享目录权限</span><br><span class="line">chmod g+s /home/student  #设置特殊权限。目录下所有文件的所有属组会变成和目录一样的权限</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置samb配置文件的全局参数"><a href="#配置samb配置文件的全局参数" class="headerlink" title="配置samb配置文件的全局参数"></a>配置samb配置文件的全局参数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/samba/smb.conf</span><br></pre></td></tr></table></figure>
+
+<p><code>备注</code>浏览即可目前大部分不需要修改，只需在最后添加以下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[student]</span><br><span class="line">		path=/home/student</span><br><span class="line">		comment =student</span><br><span class="line">		write list=@teachers</span><br><span class="line">		valid users=@teachers @students   #主要此处有空格</span><br></pre></td></tr></table></figure>
+
+<h2 id="samba服务重新启动"><a href="#samba服务重新启动" class="headerlink" title="samba服务重新启动"></a>samba服务重新启动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service smb restart</span><br></pre></td></tr></table></figure>
+
+<h2 id="客户端测试"><a href="#客户端测试" class="headerlink" title="客户端测试"></a>客户端测试</h2><p><code>如果之前使用其他smb账号登录过，需要断开连接重新登录</code></p>
+<p><img src="/img/samba/net.png" alt=""></p>
+<p><code>student1登录</code></p>
+<p><img src="/img/samba/student1.png" alt="">)<img src="/img/samba/student.png" alt=""></p>
+<p><code>teacher1</code></p>
+<p><img src="/img/samba/teacher1.png" alt=""></p>
+<p>teacher1可以删除以及上传（teacher1具有读写权限）而student1则只能下载文件(没有相关权限)</p>
+<h1 id="任务三"><a href="#任务三" class="headerlink" title="任务三"></a><code>任务三</code></h1><p><span id="inline-blue">配置企业级Samba权限</span></p>
+<p><code>背景</code>配置公司的samba服务器，目录为/samba。/samba内有3个文件夹，市场部的文件夹market要求只有市场部的员工才可以修改，登录需要验证；销售部的文件夹sales要求只能销售部员工才能读取修改，登录时需要验证；pub是公共文件夹，所有用户都能够访问，允许所有登录者读取修改，登录时需要验证。user可以修改所有的工作目录。</p>
+<h2 id="配置企业一般文件权限"><a href="#配置企业一般文件权限" class="headerlink" title="配置企业一般文件权限"></a>配置企业一般文件权限</h2><p>第一步：建立共享目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /samba/market sales pub</span><br></pre></td></tr></table></figure>
+
+<p>第二步：建立用户群组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">groupadd marketusers		#建立市场部用户组</span><br><span class="line">groupadd salesusers			#建立销售部用户组</span><br><span class="line">useradd user -s /sbin/nologin	#建立user用户并指明不可用的shell</span><br></pre></td></tr></table></figure>
+
+<p>第三步：设置文件夹权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chmod 770 sales market</span><br><span class="line">chmod 777 pub</span><br><span class="line">chown :marketusers market</span><br><span class="line">chown :salesusers sales</span><br></pre></td></tr></table></figure>
+
+<p>第四步：备份配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /etc/samba/smb.conf /etc/samba/smb.conf.bak</span><br></pre></td></tr></table></figure>
+
+<p>第五步：编辑samba配置文件</p>
+<p><code>在最后添加如下内容</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[samba]</span><br><span class="line">		comment=samba share files</span><br><span class="line">		path=/samba</span><br><span class="line">		vaild=@marketusers @salesusers user</span><br><span class="line">		read only=no</span><br><span class="line">		create mask=666</span><br><span class="line">		directory mask=777</span><br></pre></td></tr></table></figure>
+
+<p>第六步：建立samba用户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">smbpasswd -a user</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置企业特殊文件权限"><a href="#配置企业特殊文件权限" class="headerlink" title="配置企业特殊文件权限"></a>配置企业特殊文件权限</h2><p>第一步：建立共享目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /home/sales</span><br><span class="line">mkdir /home/market</span><br></pre></td></tr></table></figure>
+
+<p>第二步：建立用户以及群组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">groupadd sales</span><br><span class="line">groupadd market</span><br><span class="line">useradd -g sales salesuser	#建立salesuser用户并加入sales组</span><br><span class="line">useradd -g market marketuser</span><br><span class="line">useradd ceo</span><br></pre></td></tr></table></figure>
+
+<p>第三步：建立samba访问账号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">smbpasswd -a salesuser</span><br><span class="line">smbpasswd -a marketuser</span><br><span class="line">smbpasswd -a ceo</span><br></pre></td></tr></table></figure>
+
+<p>第四步:设置文件夹的权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">chgrp sales /home/sales  #修改所属组为sales</span><br><span class="line">chgrp market /home/market</span><br><span class="line">chown ceo /home/sales</span><br><span class="line">chwon ceo /home/market	#修改目录的用户为ceo</span><br><span class="line">chmod 770 /home/sales</span><br><span class="line">chmod 770 /home/market</span><br><span class="line">chmod g+s /home/sales	#为目录加上setgid标识</span><br><span class="line">chmod g+s /home/market</span><br></pre></td></tr></table></figure>
+
+<p><code>备注</code>setgid权限只对于目录有效，任何用户在此目录下创建的文件都属于和该目录所属的组相同的组。</p>
+<p>第五步：修改配置文件</p>
+<p><code>修改内容如下</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">security =user</span><br><span class="line">[sales]</span><br><span class="line">		path=/home/sales</span><br><span class="line">		comment=sales</span><br><span class="line">		write liset=@sales ceo</span><br><span class="line">		valid users=@sales ceo</span><br><span class="line">		create mask=0770</span><br><span class="line">		directory mask=0770</span><br><span class="line">[market]</span><br><span class="line">		path=/home/market</span><br><span class="line">		comment=market</span><br><span class="line">		write liset=@market ceo</span><br><span class="line">		valid users=@market ceo</span><br><span class="line">		create mask=0770</span><br><span class="line">		directory mask=0770</span><br></pre></td></tr></table></figure>
+
+<p>第六步：重启服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service smb restart</span><br></pre></td></tr></table></figure>
+
+<p><span id="inline-purple">客户端验证即可</span></p>
+<p>ceo用户登录</p>
+<p><img src="/img/samba/ceo.png" alt=""></p>
+<p>可上传文件</p>
+<p><img src="/img/samba/ceo1.png" alt=""></p>
+<p>salesuser用户登录</p>
+<p><img src="/img/samba/salesuser.png" alt="">)<img src="/img/samba/salesuser1.png" alt=""></p>
+<h2 id="配置企业严格文件权限"><a href="#配置企业严格文件权限" class="headerlink" title="配置企业严格文件权限"></a>配置企业严格文件权限</h2><p>由于之前登录的时候会看到自己的共享目录以及没有权限访问的共享文件目录。所以下面我们对其进行优化🙃</p>
+<p>第一步：复制配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/samba</span><br><span class="line">cp smb.conf smb.conf.ceo</span><br><span class="line">cp smb.conf smb.conf.markets</span><br><span class="line">cp smb.conf smb.conf.sales</span><br></pre></td></tr></table></figure>
+
+<p>第二步：配置各自的配置文件</p>
+<p>smb.conf.ceo的配置文件的内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[sales]</span><br><span class="line">		path=/home/sales</span><br><span class="line">		comment=sales</span><br><span class="line">		writeable=yes</span><br><span class="line">		valid users=ceo</span><br><span class="line">		create mask=0770</span><br><span class="line">		directory mask=0770</span><br><span class="line">[market]</span><br><span class="line">		path=/home/market</span><br><span class="line">		comment=market</span><br><span class="line">		writeable=yes</span><br><span class="line">		valid users=ceo</span><br><span class="line">		create mask=0770</span><br><span class="line">		directory mask=0770</span><br></pre></td></tr></table></figure>
+
+<p>smb.conf.markets的配置文件的内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[market]</span><br><span class="line">		path=/home/market</span><br><span class="line">		comment=market</span><br><span class="line">		writeable=yes</span><br><span class="line">		valid users=@market</span><br><span class="line">		create mask=0770</span><br><span class="line">		directory mask=0770</span><br></pre></td></tr></table></figure>
+
+<p>smb.conf.sales的配置文件的内容如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[sales]</span><br><span class="line">		path=/home/sales</span><br><span class="line">		comment=sales</span><br><span class="line">		writeable=yes</span><br><span class="line">		valid users=@sales</span><br><span class="line">		create mask=0770</span><br><span class="line">		directory mask=0770</span><br></pre></td></tr></table></figure>
+
+<p>主配置文件smb.conf的内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">security=user</span><br><span class="line">		include=/etc/samba/smb.conf.%G</span><br><span class="line">		include=/etc/samba/smb.conf.%U</span><br></pre></td></tr></table></figure>
+
+<p>第三步：关闭防火墙以及selinux</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service iptables stop</span><br><span class="line">setenforce 0</span><br></pre></td></tr></table></figure>
+
+<p>第四步：重启服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service smb restart</span><br></pre></td></tr></table></figure>
+
+<p>第五步：客户端测试</p>
+<p>salesuser用户测试</p>
+<p><img src="/img/samba/salesuser2.png" alt="">)<img src="/img/samba/s.png" alt=""></p>
+<p>marketuser测试</p>
+<p><img src="/img/samba/m.png" alt=""></p>
+<p>ceo测试</p>
+<p><img src="/img/samba/c.png" alt="">)<img src="/img/samba/cc.png" alt=""></p>
+
+  </div>
+</article>
+
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#任务一"><span class="toc-number">1.</span> <span class="toc-text">任务一</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Samba软件的安装"><span class="toc-number">1.1.</span> <span class="toc-text">Samba软件的安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新建samba用户"><span class="toc-number">1.2.</span> <span class="toc-text">新建samba用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务启动"><span class="toc-number">1.3.</span> <span class="toc-text">服务启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关闭防火墙及SELinux"><span class="toc-number">1.4.</span> <span class="toc-text">关闭防火墙及SELinux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进行访问"><span class="toc-number">1.5.</span> <span class="toc-text">进行访问</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#windows客户端访问"><span class="toc-number">1.5.1.</span> <span class="toc-text">windows客户端访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux客户端访问"><span class="toc-number">1.5.2.</span> <span class="toc-text">Linux客户端访问</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#任务二"><span class="toc-number">2.</span> <span class="toc-text">任务二</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#建立用户以及群组"><span class="toc-number">2.1.</span> <span class="toc-text">建立用户以及群组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建立samba用户"><span class="toc-number">2.2.</span> <span class="toc-text">建立samba用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建立共享目录以及设置文件夹权限"><span class="toc-number">2.3.</span> <span class="toc-text">建立共享目录以及设置文件夹权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置samb配置文件的全局参数"><span class="toc-number">2.4.</span> <span class="toc-text">配置samb配置文件的全局参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#samba服务重新启动"><span class="toc-number">2.5.</span> <span class="toc-text">samba服务重新启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#客户端测试"><span class="toc-number">2.6.</span> <span class="toc-text">客户端测试</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#任务三"><span class="toc-number">3.</span> <span class="toc-text">任务三</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置企业一般文件权限"><span class="toc-number">3.1.</span> <span class="toc-text">配置企业一般文件权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置企业特殊文件权限"><span class="toc-number">3.2.</span> <span class="toc-text">配置企业特殊文件权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置企业严格文件权限"><span class="toc-number">3.3.</span> <span class="toc-text">配置企业严格文件权限</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://6-7.xyz/Samba.html" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://6-7.xyz/Samba.html&text=Linux配置与应用Samba服务" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://6-7.xyz/Samba.html&title=Linux配置与应用Samba服务" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://6-7.xyz/Samba.html&is_video=false&description=Linux配置与应用Samba服务" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Linux配置与应用Samba服务&body=Check out this article: https://6-7.xyz/Samba.html"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://6-7.xyz/Samba.html&title=Linux配置与应用Samba服务" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://6-7.xyz/Samba.html&title=Linux配置与应用Samba服务" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://6-7.xyz/Samba.html&title=Linux配置与应用Samba服务" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://6-7.xyz/Samba.html&title=Linux配置与应用Samba服务" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://6-7.xyz/Samba.html&name=Linux配置与应用Samba服务&description=&lt;blockquote&gt;
+&lt;p&gt;Samba是一款自由软件，用来让UNIX系列操作系统与微软的windows操作系统SMB/CIFS网络协定做连结。Samba不仅可以存取及分享SMB的资料夹与打印机，本身还可以整合录入windows server网域，扮演着网域控制站以及加入活动目录。此软件在windows和unix系列操作系统之间搭建起一座桥梁让两者资源可以互通有无。&lt;/p&gt;
+&lt;/blockquote&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 嘲弄i
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+
+
+
+
+   
+
+    </script>
+</body>
+</html>

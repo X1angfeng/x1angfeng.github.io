@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="博客是托管在coding与github上的，分别开启了https。但是Coding Pages提供的SSL&#x2F;TLS证书，每次申请成功后有效期是三个月，证书到期后可以继续免费申请。但是当我登陆进入Coding Pages服务的后台并点击重新申请证书时，竟然报错了！！报错信息如下  urn:acme:error:unauthorized:Invalid response from http:&#x2F;&#x2F;exm">
+<meta name="keywords" content="永远相信美好的事情即将发生！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Coding Pages申请SSL&#x2F;TLS证书错误">
+<meta property="og:url" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;ssl.html">
+<meta property="og:site_name" content="嘲弄i">
+<meta property="og:description" content="博客是托管在coding与github上的，分别开启了https。但是Coding Pages提供的SSL&#x2F;TLS证书，每次申请成功后有效期是三个月，证书到期后可以继续免费申请。但是当我登陆进入Coding Pages服务的后台并点击重新申请证书时，竟然报错了！！报错信息如下  urn:acme:error:unauthorized:Invalid response from http:&#x2F;&#x2F;exm">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-07T06:02:18.778Z">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/McRae.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/McRae.ico" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/McRae.ico">
+          
+        
+    
+
+    <!-- title -->
+    <title>Coding Pages申请SSL/TLS证书错误</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/vsphere.html"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/%F0%9F%90%8B.html"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://6-7.xyz/ssl.html" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://6-7.xyz/ssl.html&text=Coding Pages申请SSL/TLS证书错误" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://6-7.xyz/ssl.html&title=Coding Pages申请SSL/TLS证书错误" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://6-7.xyz/ssl.html&is_video=false&description=Coding Pages申请SSL/TLS证书错误" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Coding Pages申请SSL/TLS证书错误&body=Check out this article: https://6-7.xyz/ssl.html"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://6-7.xyz/ssl.html&title=Coding Pages申请SSL/TLS证书错误" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://6-7.xyz/ssl.html&title=Coding Pages申请SSL/TLS证书错误" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://6-7.xyz/ssl.html&title=Coding Pages申请SSL/TLS证书错误" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://6-7.xyz/ssl.html&title=Coding Pages申请SSL/TLS证书错误" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://6-7.xyz/ssl.html&name=Coding Pages申请SSL/TLS证书错误&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Coding Pages申请SSL/TLS证书错误
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">嘲弄i</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-07-07T05:46:13.000Z" itemprop="datePublished">2019-07-07</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>博客是托管在coding与github上的，分别开启了https。但是Coding Pages提供的SSL/TLS证书，每次申请成功后有效期是三个月，证书到期后可以继续免费申请。但是当我登陆进入Coding Pages服务的后台并点击重新申请证书时，竟然报错了！！报错信息如下</p>
+<blockquote>
+<p>urn:acme:error:unauthorized:Invalid response from <a href="http://exmaple.com/.well-known/acme-challenge/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" target="_blank" rel="noopener">http://exmaple.com/.well-known/acme-challenge/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</a>: xxxxxxxxx</p>
+</blockquote>
+<p>一时不知如何解决，无奈😔只能百度。找到了官方的帮助文档<a href="https://dev.tencent.com/help/doc/faq/coding-pages/ssh/tls" target="_blank" rel="noopener">链接🔗</a><br>里面有十分详细的说明，按照官方文档最终找到了解决方案</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">错误原因：无法获取正确的域名验证信息</span><br><span class="line">解决方式1：检查 DNS 的 CNAME 记录是否设置正确，静态 Pages 为 &lt;username&gt;.coding.me，动态 Pages 为 &lt;space_key&gt;.coding.io</span><br><span class="line">解决方式2：检查域名的 DNS 是否将海外线路解析到 Coding Pages 的服务器</span><br></pre></td></tr></table></figure>
+<p>显然是因为第二种原因才导致的报错，因为自己也把域名解析到了Github Pages。</p>
+<p><strong>解决方法</strong>：先暂停掉对境外线路的解析，再去Coding Pages界面开启https，成功后再开启对境外线路的解析。</p>
+
+  </div>
+</article>
+
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://6-7.xyz/ssl.html" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://6-7.xyz/ssl.html&text=Coding Pages申请SSL/TLS证书错误" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://6-7.xyz/ssl.html&title=Coding Pages申请SSL/TLS证书错误" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://6-7.xyz/ssl.html&is_video=false&description=Coding Pages申请SSL/TLS证书错误" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Coding Pages申请SSL/TLS证书错误&body=Check out this article: https://6-7.xyz/ssl.html"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://6-7.xyz/ssl.html&title=Coding Pages申请SSL/TLS证书错误" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://6-7.xyz/ssl.html&title=Coding Pages申请SSL/TLS证书错误" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://6-7.xyz/ssl.html&title=Coding Pages申请SSL/TLS证书错误" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://6-7.xyz/ssl.html&title=Coding Pages申请SSL/TLS证书错误" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://6-7.xyz/ssl.html&name=Coding Pages申请SSL/TLS证书错误&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 嘲弄i
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+
+
+
+
+   
+
+    </script>
+</body>
+</html>

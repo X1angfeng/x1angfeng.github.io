@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="​    近日使用Hexo和GithubPages搭建了属于自己的博客，从博客搭建开始到最后搭建成功一直都小心翼翼。生怕自己一不小心就会踩到莫名奇妙的坑🕳，搭建的过程比较的顺利没有出什么错误。直到昨天！！！">
+<meta name="keywords" content="hexo博客踩坑">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo博客踩坑">
+<meta property="og:url" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;hexo.html">
+<meta property="og:site_name" content="嘲弄i">
+<meta property="og:description" content="​    近日使用Hexo和GithubPages搭建了属于自己的博客，从博客搭建开始到最后搭建成功一直都小心翼翼。生怕自己一不小心就会踩到莫名奇妙的坑🕳，搭建的过程比较的顺利没有出什么错误。直到昨天！！！">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;code.jpg">
+<meta property="og:updated_time" content="2019-03-22T09:54:02.523Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;code.jpg">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/McRae.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/McRae.ico" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/McRae.ico">
+          
+        
+    
+
+    <!-- title -->
+    <title>Hexo博客踩坑</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/mood.html"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/office%E6%BF%80%E6%B4%BB.html"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://6-7.xyz/hexo.html" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://6-7.xyz/hexo.html&text=Hexo博客踩坑" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://6-7.xyz/hexo.html&title=Hexo博客踩坑" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://6-7.xyz/hexo.html&is_video=false&description=Hexo博客踩坑" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Hexo博客踩坑&body=Check out this article: https://6-7.xyz/hexo.html"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://6-7.xyz/hexo.html&title=Hexo博客踩坑" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://6-7.xyz/hexo.html&title=Hexo博客踩坑" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://6-7.xyz/hexo.html&title=Hexo博客踩坑" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://6-7.xyz/hexo.html&title=Hexo博客踩坑" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://6-7.xyz/hexo.html&name=Hexo博客踩坑&description=&lt;p&gt;​    近日使用Hexo和GithubPages搭建了属于自己的博客，从博客搭建开始到最后搭建成功一直都小心翼翼。生怕自己一不小心就会踩到莫名奇妙的坑🕳，搭建的过程比较的顺利没有出什么错误。直到昨天！！！" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Hexo博客踩坑
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">嘲弄i</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-01-26T15:11:57.000Z" itemprop="datePublished">2019-01-26</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/hexo/">hexo</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/hexo%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91/" rel="tag">hexo博客踩坑</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+<div class="article-gallery">
+    
+    <a class="gallery-item" href="/img/code.jpg" rel="gallery_ck3fwg6jc001bb4356jzigsbc">
+        <img src="/img/code.jpg" itemprop="image" />
+    </a>
+    
+</div>
+
+
+  <div class="content" itemprop="articleBody">
+    <p>​    近日使用Hexo和GithubPages搭建了属于自己的博客，从博客搭建开始到最后搭建成功一直都小心翼翼。生怕自己一不小心就会踩到莫名奇妙的坑🕳，搭建的过程比较的顺利没有出什么错误。直到昨天！！！<a id="more"></a></p>
+<p>​    GithubPages 呢在国内较慢，百度不收录，而CodingPages 在国内较快。因为还有几个腾讯云活动几块钱购买的域名还在闲置着，所以呢我就寻思着新建一个博客托管到CodingPages上面。在之前曾使用国外虚假身份证撸过国外学校的教育邮箱，当时是想申请AWS学生包来着，没想到最后翻车了申请了多次都没有申请成功。既然是教育邮箱那么肯定有很多优惠啊什么的，当时就申请了GitHub学生包等一些其他的东西。当时就突发奇想我可以把博客同时托管到两个平台上😂，于是最终就把博客托管到了用当时的GitHub账号的存储库下面。在此过程中需要创建SSH key所以就把之前的(C:\Users\Administrator\.ssh)文件夹下内容给删掉了。使用ssh-keygen -t rsa -C “邮箱地址”生成了新的密钥文件。新的博客最后也搭建成功了也可以正常访问<a href="https://www.6bl.xyz" target="_blank" rel="noopener">另外一个博客地址</a> 。好了废话讲了这么多肯定都听腻了，下面讲重点好了。</p>
+<p>​    之前博客科学上网的那篇文章一直没有写完(不是我不想写，因为实在太多了写不动了)，就想去再写一点内容。写了一部分内容后当我把博客推送到GitHub时出现了问题，没有推送成功。报错是下面所示的样子<img src="/img/error.png" alt="">大致看了一下报错的内容它这里说”Please make sure you have the correct access rights and the repository exists.”谷歌了一下原来是SSH key有问题。<img src="/img/chidai1.jpg" alt="">之前曾生成过一次SSH key但是两个网站是用的不同的GitHub账号，他们各自绑定的邮箱也是不同的所以才会报如此错误。所以就又删掉了(C:\Users\Administrator\.ssh)文件夹下内容，需要重新生成一下密钥文件。</p>
+<p>1.首先我得重新在git设置一下身份的名字和邮箱，Git Bash进入到需要提交的文件夹底下输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;yourname&quot;</span><br><span class="line"></span><br><span class="line">git config --global user.email“your@email.com&quot;</span><br></pre></td></tr></table></figure>
+
+<p>2.ssh-keygen -t rsa -C “<a href="mailto:your@email.com" target="_blank" rel="noopener">your@email.com</a>“（请填你设置的邮箱地址）一直回车即可。</p>
+<p><img src="/img/01.png" alt=""></p>
+<p>3.复制密钥文件内容（路径形如<code>C:\Users\Administrator\.ssh\id_rsa.pub</code>），粘贴到<a href="https://github.com/settings/keys" target="_blank" rel="noopener">New SSH Key</a>即可。<img src="/img/02.png" alt=""></p>
+<p>4.在命令行中(Git Bash)中输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<center>再输入yes当返回返回“You’ve successfully authenticated”即成功</center>
+
+<p>5.推送到GithubPages。在命令行（即Git Bash）依次输入以下命令， 返回<code>INFO Deploy done: git</code>即成功推送：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+
+  </div>
+</article>
+
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://6-7.xyz/hexo.html" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://6-7.xyz/hexo.html&text=Hexo博客踩坑" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://6-7.xyz/hexo.html&title=Hexo博客踩坑" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://6-7.xyz/hexo.html&is_video=false&description=Hexo博客踩坑" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Hexo博客踩坑&body=Check out this article: https://6-7.xyz/hexo.html"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://6-7.xyz/hexo.html&title=Hexo博客踩坑" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://6-7.xyz/hexo.html&title=Hexo博客踩坑" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://6-7.xyz/hexo.html&title=Hexo博客踩坑" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://6-7.xyz/hexo.html&title=Hexo博客踩坑" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://6-7.xyz/hexo.html&name=Hexo博客踩坑&description=&lt;p&gt;​    近日使用Hexo和GithubPages搭建了属于自己的博客，从博客搭建开始到最后搭建成功一直都小心翼翼。生怕自己一不小心就会踩到莫名奇妙的坑🕳，搭建的过程比较的顺利没有出什么错误。直到昨天！！！" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 嘲弄i
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+
+
+
+
+   
+
+    </script>
+</body>
+</html>

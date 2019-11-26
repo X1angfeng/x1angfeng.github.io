@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="访问控制列表（Access Control List，ACL） 是路由器和交换机接口的指令列表，用来控制端口进出的数据包。ACL适用于所有的被路由协议，如IP、IPX、AppleTalk等。ACL可以过滤网络中的流量，是控制访问的一种网络技术手段。ACL是物联网中保障系统安全性的重要技术，在设备硬件层安全基础上，通过对在软件层面对设备间通信进行访问控制，使用可编程方法指定访问规则，防止非法设备破">
+<meta name="keywords" content="ACL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ACL">
+<meta property="og:url" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;ACL.html">
+<meta property="og:site_name" content="嘲弄i">
+<meta property="og:description" content="访问控制列表（Access Control List，ACL） 是路由器和交换机接口的指令列表，用来控制端口进出的数据包。ACL适用于所有的被路由协议，如IP、IPX、AppleTalk等。ACL可以过滤网络中的流量，是控制访问的一种网络技术手段。ACL是物联网中保障系统安全性的重要技术，在设备硬件层安全基础上，通过对在软件层面对设备间通信进行访问控制，使用可编程方法指定访问规则，防止非法设备破">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;ACL&#x2F;banner.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;ACL&#x2F;Topology1.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;ACL&#x2F;A.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;ACL&#x2F;B.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;ACL&#x2F;C.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;ACL&#x2F;D.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;ACL&#x2F;E.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;ACL&#x2F;F.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;ACL&#x2F;G.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;ACL&#x2F;H.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;ACL&#x2F;I.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;ACL&#x2F;J.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;ACL&#x2F;Topology2.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;ACL&#x2F;1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;ACL&#x2F;2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;ACL&#x2F;3.png">
+<meta property="og:updated_time" content="2019-05-30T16:04:50.990Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;ACL&#x2F;banner.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/McRae.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/McRae.ico" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/McRae.ico">
+          
+        
+    
+
+    <!-- title -->
+    <title>ACL</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/su.html"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/test.html"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://6-7.xyz/ACL.html" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://6-7.xyz/ACL.html&text=ACL" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://6-7.xyz/ACL.html&title=ACL" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://6-7.xyz/ACL.html&is_video=false&description=ACL" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=ACL&body=Check out this article: https://6-7.xyz/ACL.html"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://6-7.xyz/ACL.html&title=ACL" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://6-7.xyz/ACL.html&title=ACL" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://6-7.xyz/ACL.html&title=ACL" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://6-7.xyz/ACL.html&title=ACL" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://6-7.xyz/ACL.html&name=ACL&description=&lt;img src=&#34;https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/banner.png&#34; width=&#34;80%&#34;&gt;
+访问控制列表（Access Control List，ACL） 是路由器和交换机接口的指令列表，用来控制端口进出的数据包。ACL适用于所有的被路由协议，如IP、IPX、AppleTalk等。ACL可以过滤网络中的流量，是控制访问的一种网络技术手段。ACL是物联网中保障系统安全性的重要技术，在设备硬件层安全基础上，通过对在软件层面对设备间通信进行访问控制，使用可编程方法指定访问规则，防止非法设备破坏系统安全，非法获取系统数据。"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ACL基础知识"><span class="toc-number">1.</span> <span class="toc-text">ACL基础知识</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ACL综合实验"><span class="toc-number">2.</span> <span class="toc-text">ACL综合实验</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ospf及ACL综合实验"><span class="toc-number">3.</span> <span class="toc-text">ospf及ACL综合实验</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        ACL
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">嘲弄i</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-05-29T12:16:38.000Z" itemprop="datePublished">2019-05-29</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1/">数据通信</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/ACL/" rel="tag">ACL</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/banner.png" width="80%">
+访问控制列表（Access Control List，ACL） 是路由器和交换机接口的指令列表，用来控制端口进出的数据包。ACL适用于所有的被路由协议，如IP、IPX、AppleTalk等。ACL可以过滤网络中的流量，是控制访问的一种网络技术手段。ACL是物联网中保障系统安全性的重要技术，在设备硬件层安全基础上，通过对在软件层面对设备间通信进行访问控制，使用可编程方法指定访问规则，防止非法设备破坏系统安全，非法获取系统数据。
+<a id="more"></a>
+
+<p>此篇博客主要讲ACL的一些基础配置，以及两个有关于自己平时学习上有关于ACL的综合实验。</p>
+<h1 id="ACL基础知识"><a href="#ACL基础知识" class="headerlink" title="ACL基础知识"></a>ACL基础知识</h1><h1 id="ACL综合实验"><a href="#ACL综合实验" class="headerlink" title="ACL综合实验"></a>ACL综合实验</h1><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/Topology1.jpg">
+
+<p><strong>实验要求</strong>：某公司有一台三层交换机，公司的服务器、部门A、部门B的用户都连接到这台交换机上，并有以下规定：</p>
+<ol>
+<li>完成PC、服务器、交换机、路由器的基础配置（包括接口地址、vlan划分、静态或者动态路由等）</li>
+<li>部门A和部门B的用户不允许访问FTP服务器和VOD服务器，但可以随时访问Mail服务器。</li>
+<li>内部用户可以通过代理192.168.3.100（提示：路由器R0的下接口地址）访问Internet，但不允许部门A的用户访问Internet。（路由器router0上方的网络模拟为外网Internet）</li>
+<li>部门A和部门B的总经理（IP地址分别为192.168.1.100和192.168.2.100）可以访问Internet和所有服务器。<blockquote>
+<p>提示：cisco 访问控制列表建立与规则书写的格式如下：<br>access-list 表号 permit（deny） 协议 源地址 目的地址 运算符 端口号<br>在接口下应用ACL的指令如下：<br>Ip access-group 表号 out (in)</p>
+</blockquote>
+</li>
+</ol>
+<p><span id="inline-blue">注意</span>此实验二层交换机不需要做配置<br>配置三层交换机<code>S1</code></p>
+<blockquote>
+<p>Switch&gt;<br>Switch&gt;en<br>Switch#conf t<br>Switch(config)#vlan 2<br>Switch(config-vlan)#exit<br>Switch(config)#vlan 3<br>Switch(config-vlan)#exit<br>Switch(config)#vlan 4<br>Switch(config-vlan)#exit<br>Switch(config)#int fa 0/1<br>Switch(config-if)#sw acc vlan 1<br>Switch(config-if)#exit<br>Switch(config)#int fa 0/2<br>Switch(config-if)#sw acc vlan 2<br>Switch(config-if)#exit<br>Switch(config)#int fa 0/3<br>Switch(config-if)#sw acc vlan 3<br>Switch(config-if)#exit<br>Switch(config)#int fa 0/4<br>Switch(config-if)#sw acc vlan 4<br>Switch(config-if)#exit<br>Switch(config)#int vlan 1<br>Switch(config-if)#ip add 192.168.1.1 255.255.255.0<br>Switch(config-if)#no shutdown<br>Switch(config-if)#exit<br>Switch(config)#int vlan 2<br>Switch(config-if)#ip add 192.168.2.1 255.255.255.0<br>Switch(config-if)#no shutdown<br>Switch(config-if)#exit<br>Switch(config)#int vlan 3<br>Switch(config-if)#ip add 192.168.3.1 255.255.255.0<br>Switch(config-if)#no shutdown<br>Switch(config-if)#exit<br>Switch(config)#int vlan 4<br>Switch(config-if)#ip add 192.168.4.1 255.255.255.0<br>Switch(config-if)#no shutdown<br>Switch(config-if)#exit<br>Switch(config)#ip routing<br>Switch(config)#router rip<br>Switch(config-router)#network 192.168.1.0<br>Switch(config-router)#network 192.168.2.0<br>Switch(config-router)#network 192.168.3.0<br>Switch(config-router)#network 192.168.4.0<br>Switch(config-router)#version 2<br>Switch(config)#ip access-list extended 100<br>Switch(config-ext-nacl)#permit ip host 192.168.1.100 any<br>Switch(config-ext-nacl)#deny ip 192.168.1.100 0.0.0.255 host 192.168.4.60<br>Switch(config-ext-nacl)#deny ip 192.168.1.100 0.0.0.255 host 192.168.4.70<br>Switch(config-ext-nacl)#deny ip 192.168.1.100 0.0.0.255 host 192.168.3.100<br>Switch(config-ext-nacl)#permit ip any any<br>Switch(config-ext-nacl)#int vlan 1<br>Switch(config-if)#ip access-group 100 in<br>Switch(config-if)#ip access-list extended 101<br>Switch(config-ext-nacl)#permit ip host 192.168.2.100 any<br>Switch(config-ext-nacl)#deny ip 192.168.2.100 0.0.0.255 host 192.168.4.60<br>Switch(config-ext-nacl)#deny ip 192.168.2.100 0.0.0.255 host 192.168.4.70<br>Switch(config-ext-nacl)#permit ip any any<br>Switch(config-ext-nacl)#int vlan 2<br>Switch(config-if)#ip access-group 101 in</p>
+</blockquote>
+<p>配置路由器<code>R1</code></p>
+<blockquote>
+<p>Router&gt;en<br>Router#conf t<br>Router(config)#int fa 0/0<br>Router(config-if)#ip add 192.168.3.100 255.255.255.0<br>Router(config-if)#no shutdown<br>Router(config-if)#exit<br>Router(config)#int fa 0/1<br>Router(config-if)#ip add 192.168.5.1 255.255.255.0<br>Router(config-if)#no shutdown<br>Router(config)#router rip<br>Router(config-router)#network 192.168.3.0<br>Router(config-router)#network 192.168.5.0<br>Router(config-router)#version 2</p>
+</blockquote>
+<p>结果验证<br>部门A经理上网—可以上网<br>Ping 192.168.3.100<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/A.png"><br>部门A经理访问Mail、FTP、VOD服务器—可以访问<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/B.png"><br>部门A用户上网—不能上网<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/C.png"><br>部门A用户访问Mail服务器—可以访问<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/D.png"><br>部门A用户访问FTP服务器和VOD服务器—不能访问<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/E.png"><br>部门B经理上网—可以上网<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/F.png"><br>部门B经理访问FTP、Mail、VOD服务器—可以访问<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/G.png"><br>部门B用户上网—可以上网<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/H.png"><br>部门B用户访问Mail服务器—可以访问<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/I.png"><br>部门B用户访问FTP服务器和VOD服务器—不能访问<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/J.png"></p>
+<h1 id="ospf及ACL综合实验"><a href="#ospf及ACL综合实验" class="headerlink" title="ospf及ACL综合实验"></a>ospf及ACL综合实验</h1><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/Topology2.jpg">
+
+<blockquote>
+<p>实验要求：</p>
+</blockquote>
+<ol>
+<li>S2、S3均是三层交换机，要求把PC1和PC2的网关配置在S3上，Server的网关配置在R4上；</li>
+<li>各个设备的接口地址在所属网段内自行选用，终端PC1、PC2及Server的地址如图所示；</li>
+<li>R1、R4、S2、S3的相应端口运行OSPF路由协议，各个区域的区域号由自己定义；</li>
+<li>在R4上通过引入直连路由的方式把Server所在的网段发布进OSPF路由进程；</li>
+<li>在S3上通过引入直连路由的方式把两台PC所在的网段发布进OSPF路由进程；</li>
+<li>通过在R1上配置ACL，使PC2所在的网段不能访问R1右侧公网，PC1所在的网段可以访问R1右侧公网但是不能访问公网中的Server。</li>
+</ol>
+<p>三层交换机<code>S1</code></p>
+<blockquote>
+<p>Switch&gt;en<br>Switch#conf t<br>Switch(config)#vlan 2<br>Switch(config-vlan)#exit<br>Switch(config)#vlan 3<br>Switch(config-vlan)#exit<br>Switch(config)#vlan 1<br>Switch(config-vlan)#exit<br>Switch(config)#int fa 0/1<br>Switch(config-if)#sw acc vlan 1<br>Switch(config-if)#exit<br>Switch(config)#int fa 0/2<br>Switch(config-if)#sw acc vlan 2<br>Switch(config-if)#exit<br>Switch(config)#int fa 0/3<br>Switch(config-if)#sw acc vlan 3<br>Switch(config-if)#exit<br>Switch(config)#int vlan 1<br>Switch(config-if)#ip add 192.168.11.1 255.255.255.0<br>Switch(config-if)#no shutdown<br>Switch(config-if)#exit<br>Switch(config)#int vlan 2<br>Switch(config-if)#ip add 192.168.22.1 255.255.255.0<br>Switch(config-if)#no shutdown<br>Switch(config-if)#exit<br>Switch(config)#int vlan 3<br>Switch(config-if)#ip add 13.0.0.1 255.255.255.0<br>Switch(config-if)#no shutdown<br>Switch(config-if)#exit<br>Switch(config)#ip routing<br>Switch(config)#router ospf 10<br>Switch(config-router)#network 192.168.11.0 0.0.0.255 area 1<br>Switch(config-router)#network 192.168.22.0 0.0.0.255 area 1<br>Switch(config-router)#network 13.0.0.0 0.0.0.255 area 1</p>
+</blockquote>
+<p>三层交换机<code>S2</code></p>
+<blockquote>
+<p>Switch&gt;en<br>Switch#conf t<br>Switch(config)#vlan 1<br>Switch(config-vlan)#exit<br>Switch(config)#vlan 2<br>Switch(config-vlan)#exit<br>Switch(config)#int fa 0/1<br>Switch(config-if)#sw acc vlan 1<br>Switch(config-if)#exit<br>Switch(config)#int vlan 1<br>Switch(config-if)#ip add 12.0.0.2 255.255.255.0<br>Switch(config-if)#no shutdown<br>Switch(config-if)#exit<br>Switch(config)#int fa 0/2<br>Switch(config-if)#sw acc vlan 2<br>Switch(config-if)#exit<br>Switch(config)#int vlan 2<br>Switch(config-if)#ip add 24.0.0.1 255.255.255.0<br>Switch(config-if)#no shutdown<br>Switch(config-if)#exit<br>Switch(config)#ip routing<br>Switch(config)#router ospf 10<br>Switch(config-router)#network 12.0.0.0 0.0.0.255 area 0<br>Switch(config-router)#network 24.0.0.0 0.0.0.255 area 2</p>
+</blockquote>
+<p>路由器<code>R1</code></p>
+<blockquote>
+<p>Router&gt;en<br>Router#conf t<br>Router(config)#int fa 0/0<br>Router(config-if)#ip add 13.0.0.2 255.255.255.0<br>Router(config-if)#no shutdown<br>Router(config-if)#exit<br>Router(config)#int fa 0/1<br>Router(config-if)#ip add 12.0.0.1 255.255.255.0<br>Router(config-if)#no shutdown<br>Router(config-if)#exit<br>Router(config)#router ospf 10<br>Router(config-router)#network 13.0.0.0 0.0.0.255 area 1<br>Router(config-router)#network 12.0.0.0 0.0.0.255 area 0<br>Router(config-router)#exit<br>Router(config)#ip access-list extended 100<br>Router(config-ext-nacl)#deny ip 192.168.11.0 0.0.0.255 host 8.8.8.8<br>Router(config-ext-nacl)#permit ip 192.168.11.0 0.0.0.255 any<br>Router(config-ext-nacl)#deny ip 192.168.22.0 0.0.0.255 any<br>Router(config-ext-nacl)#permit ip any any<br>Router(config-ext-nacl)#int fa 0/1<br>Router(config-if)#ip acc<br>Router(config-if)#ip access-group 100 out</p>
+</blockquote>
+<p>路由器<code>R2</code></p>
+<blockquote>
+<p>Router&gt;en<br>Router#conf t<br>Router(config)#int fa 0/0<br>Router(config-if)#ip add 24.0.0.2 255.255.255.0<br>Router(config-if)#no shutdown<br>Router(config-if)#exit<br>Router(config)#int fa 0/1<br>Router(config-if)#ip add 8.8.8.1 255.255.255.0<br>Router(config-if)#no shutdown<br>Router(config-if)#exit<br>Router(config)#router ospf 10<br>Router(config-router)#network 24.0.0.0 0.0.0.255 area 2<br>Router(config-router)#network 8.0.0.0 0.0.0.255 area 2</p>
+</blockquote>
+<p>验证<br><code>PC1</code>访问<code>R1</code>右侧公网—可以访问<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/1.png"><br><code>PC1</code>访问服务器—不能访问<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/2.png"><br><code>PC2</code>访问<code>R1</code>右侧公网—不能访问<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/3.png"></p>
+
+  </div>
+</article>
+
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ACL基础知识"><span class="toc-number">1.</span> <span class="toc-text">ACL基础知识</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ACL综合实验"><span class="toc-number">2.</span> <span class="toc-text">ACL综合实验</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ospf及ACL综合实验"><span class="toc-number">3.</span> <span class="toc-text">ospf及ACL综合实验</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://6-7.xyz/ACL.html" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://6-7.xyz/ACL.html&text=ACL" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://6-7.xyz/ACL.html&title=ACL" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://6-7.xyz/ACL.html&is_video=false&description=ACL" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=ACL&body=Check out this article: https://6-7.xyz/ACL.html"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://6-7.xyz/ACL.html&title=ACL" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://6-7.xyz/ACL.html&title=ACL" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://6-7.xyz/ACL.html&title=ACL" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://6-7.xyz/ACL.html&title=ACL" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://6-7.xyz/ACL.html&name=ACL&description=&lt;img src=&#34;https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/banner.png&#34; width=&#34;80%&#34;&gt;
+访问控制列表（Access Control List，ACL） 是路由器和交换机接口的指令列表，用来控制端口进出的数据包。ACL适用于所有的被路由协议，如IP、IPX、AppleTalk等。ACL可以过滤网络中的流量，是控制访问的一种网络技术手段。ACL是物联网中保障系统安全性的重要技术，在设备硬件层安全基础上，通过对在软件层面对设备间通信进行访问控制，使用可编程方法指定访问规则，防止非法设备破坏系统安全，非法获取系统数据。"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 嘲弄i
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+
+
+
+
+   
+
+    </script>
+</body>
+</html>

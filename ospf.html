@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="假设校园网通过一台三层交换机连到校园网出口路由器上，路由器再和校园外的另一台路由器连接。现要做适当配置，实现校园网内部主机与校园网外部主机之间的相互通信。为了简化网管的管理维护工作，学校决定采用OSPF协议实现互通。">
+<meta name="keywords" content="OSPF">
+<meta property="og:type" content="article">
+<meta property="og:title" content="路由器OSPF动态路由配置">
+<meta property="og:url" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;ospf.html">
+<meta property="og:site_name" content="嘲弄i">
+<meta property="og:description" content="假设校园网通过一台三层交换机连到校园网出口路由器上，路由器再和校园外的另一台路由器连接。现要做适当配置，实现校园网内部主机与校园网外部主机之间的相互通信。为了简化网管的管理维护工作，学校决定采用OSPF协议实现互通。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;ospf.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;2.png">
+<meta property="og:updated_time" content="2019-07-24T02:32:06.405Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;ospf.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/McRae.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/McRae.ico" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/McRae.ico">
+          
+        
+    
+
+    <!-- title -->
+    <title>路由器OSPF动态路由配置</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/media.html"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/%F0%9F%90%94.html"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://6-7.xyz/ospf.html" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://6-7.xyz/ospf.html&text=路由器OSPF动态路由配置" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://6-7.xyz/ospf.html&title=路由器OSPF动态路由配置" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://6-7.xyz/ospf.html&is_video=false&description=路由器OSPF动态路由配置" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=路由器OSPF动态路由配置&body=Check out this article: https://6-7.xyz/ospf.html"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://6-7.xyz/ospf.html&title=路由器OSPF动态路由配置" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://6-7.xyz/ospf.html&title=路由器OSPF动态路由配置" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://6-7.xyz/ospf.html&title=路由器OSPF动态路由配置" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://6-7.xyz/ospf.html&title=路由器OSPF动态路由配置" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://6-7.xyz/ospf.html&name=路由器OSPF动态路由配置&description=&lt;blockquote&gt;
+&lt;p&gt;假设校园网通过一台三层交换机连到校园网出口路由器上，路由器再和校园外的另一台路由器连接。现要做适当配置，实现校园网内部主机与校园网外部主机之间的相互通信。为了简化网管的管理维护工作，学校决定采用OSPF协议实现互通。&lt;/p&gt;
+&lt;/blockquote&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#技术原理"><span class="toc-number">1.</span> <span class="toc-text">技术原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验步骤"><span class="toc-number">2.</span> <span class="toc-text">实验步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验设备"><span class="toc-number">3.</span> <span class="toc-text">实验设备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#验证"><span class="toc-number">4.</span> <span class="toc-text">验证</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        路由器OSPF动态路由配置
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">嘲弄i</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-05-16T09:09:44.000Z" itemprop="datePublished">2019-05-16</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1/">数据通信</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/OSPF/" rel="tag">OSPF</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <blockquote>
+<p>假设校园网通过一台三层交换机连到校园网出口路由器上，路由器再和校园外的另一台路由器连接。现要做适当配置，实现校园网内部主机与校园网外部主机之间的相互通信。为了简化网管的管理维护工作，学校决定采用OSPF协议实现互通。</p>
+</blockquote>
+<a id="more"></a>
+
+<h1 id="技术原理"><a href="#技术原理" class="headerlink" title="技术原理"></a><strong>技术原理</strong></h1><p>🎈OSPF开放式最短路径优先协议，是目前网路中应用最广泛的路由协议之一。属于内部网管路由协议，能够适应各种规模的网络环境，是典型的链路状态协议。OSPF路由协议通过向全网扩散本设备的链路状态信息，使网络中每台设备最终同步一个具有全网链路状态的数据库，然后路由器采用SPF算法，以自己为根，计算到达其他网络的最短路径，最终形成全网路由信息。</p>
+<h1 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a><strong>实验步骤</strong></h1><p>🎈新建packet tracer拓扑图</p>
+<p>（1）在本实验中的三层交换机上划分VLAN10和VLAN20，其中VLAN10用于连接校园网主机，VLAN20用于连接R1。</p>
+<p>（2）路由器之间通过V35电缆通过串口连接，DCE端连接在R1上，配置其时钟频率64000。</p>
+<p>（3）主机和交换机通过直连线，主机与路由器通过交叉线连接。</p>
+<p>（4）在S3560上配置OSPF路由协议。</p>
+<p>（5）在路由器R1、R2上配置OSPF路由协议。</p>
+<p>（6）将PC1、PC2主机默认网关设置为与直连网路设备接口IP地址。</p>
+<p>（7）验证PC1、PC2主机之间可以互相通信；</p>
+<h1 id="实验设备"><a href="#实验设备" class="headerlink" title="实验设备"></a>实验设备</h1><p>PC 2台；Switch_3560 1台；Router-PT 2台；直连线；交叉线；DCE串口线</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ospf.png" alt=""></p>
+<p><code>PC1</code> </p>
+<p>​       IP:                 192.168.1.2</p>
+<p>​       Submask:        255.255.255.0</p>
+<p>​       Gateway:        192.168.1.1</p>
+<p><code>PC2</code></p>
+<p>​       IP:                 192.168.2.2</p>
+<p>​       Submask:        255.255.255.0</p>
+<p>​       Gateway:        192.168.2.1 </p>
+<p>🌈配置<code>S3560</code></p>
+<p>Switch&gt;en</p>
+<p>Switch#conf t</p>
+<p>Switch(config)#vlan 10</p>
+<p>Switch(config-vlan)#exit</p>
+<p>Switch(config)#vlan 20</p>
+<p>Switch(config-vlan)#exit</p>
+<p>Switch(config)#int fa 0/1</p>
+<p>Switch(config-if)#sw acc vlan 10</p>
+<p>Switch(config-if)#exit</p>
+<p>Switch(config)#int fa 0/2</p>
+<p>Switch(config-if)#sw acc vlan 20</p>
+<p>Switch(config-if)#exit</p>
+<p>Switch(config)#int vlan 10</p>
+<p>Switch(config-if)#ip add 192.168.1.1 255.255.255.0</p>
+<p>Switch(config-if)#no shutdown</p>
+<p>Switch(config-if)#exit</p>
+<p>Switch(config)#int fa 0/2</p>
+<p>Switch(config-if)#ip add 192.168.3.1 255.255.255.0</p>
+<p>Switch(config-if)#no shutdown </p>
+<p>Switch(config-if)#exit</p>
+<p>Switch(config)#router ospf 1</p>
+<p>Switch(config-router)#network 192.168.1.0 0.0.0.255 area 0</p>
+<p>Switch(config-router)#network 192.168.3.0 0.0.0.255 area 0 </p>
+<p>Switch(config-router)#end</p>
+<p>🌈<code>R1</code>的配置</p>
+<p>Router&gt;en</p>
+<p>Router#conf t</p>
+<p>Router(config)#int fa 0/0</p>
+<p>Router(config-if)#ip add 192.168.3.2 255.255.255.0</p>
+<p>Router(config-if)#no shutdown</p>
+<p>Router(config-if)#exit</p>
+<p>Router(config)#int serial 2/0</p>
+<p>Router(config-if)#ip add 192.168.4.1 255.255.255.0</p>
+<p>Router(config-if)#no shutdown</p>
+<p>Router(config-if)#clock  rate 64000</p>
+<p>Router(config-if)#exit</p>
+<p>Router(config)#router ospf 1</p>
+<p>Router(config-router)#network 192.168.3.0 0.0.0.255 area 0</p>
+<p>Router(config-router)#network 192.168.4.0 0.0.0.255 area 0</p>
+<p>Router(config-router)#end</p>
+<p>🌈<code>R2</code>的配置</p>
+<p>Router&gt;en</p>
+<p>Router#conf t</p>
+<p>Router(config)#int fa 0/0</p>
+<p>Router(config-if)#ip add 192.168.2.2 255.255.255.0</p>
+<p>Router(config-if)#no shutdown</p>
+<p>Router(config-if)#exit</p>
+<p>Router(config)#int serial 2/0</p>
+<p>Router(config-if)#ip add 192.168.4.2 255.255.255.0</p>
+<p>Router(config-if)#no shutdown</p>
+<p>Router(config-if)#exit</p>
+<p>Router(config)#router ospf 1</p>
+<p>Router(config-router)#network 192.168.4.0 0.0.0.255 area 0</p>
+<p>Router(config-router)#network 192.168.2.0 0.0.0.255 area 0</p>
+<p>Router(config-router)#end</p>
+<h1 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h1><p>PC1、PC2主机之间可以互相通信</p>
+<p><code>PC1</code> ping <code>PC2</code></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/1.png" alt=""></p>
+<p><code>PC2</code> ping <code>PC1</code></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/2.png" alt=""></p>
+
+  </div>
+</article>
+
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#技术原理"><span class="toc-number">1.</span> <span class="toc-text">技术原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验步骤"><span class="toc-number">2.</span> <span class="toc-text">实验步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验设备"><span class="toc-number">3.</span> <span class="toc-text">实验设备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#验证"><span class="toc-number">4.</span> <span class="toc-text">验证</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://6-7.xyz/ospf.html" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://6-7.xyz/ospf.html&text=路由器OSPF动态路由配置" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://6-7.xyz/ospf.html&title=路由器OSPF动态路由配置" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://6-7.xyz/ospf.html&is_video=false&description=路由器OSPF动态路由配置" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=路由器OSPF动态路由配置&body=Check out this article: https://6-7.xyz/ospf.html"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://6-7.xyz/ospf.html&title=路由器OSPF动态路由配置" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://6-7.xyz/ospf.html&title=路由器OSPF动态路由配置" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://6-7.xyz/ospf.html&title=路由器OSPF动态路由配置" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://6-7.xyz/ospf.html&title=路由器OSPF动态路由配置" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://6-7.xyz/ospf.html&name=路由器OSPF动态路由配置&description=&lt;blockquote&gt;
+&lt;p&gt;假设校园网通过一台三层交换机连到校园网出口路由器上，路由器再和校园外的另一台路由器连接。现要做适当配置，实现校园网内部主机与校园网外部主机之间的相互通信。为了简化网管的管理维护工作，学校决定采用OSPF协议实现互通。&lt;/p&gt;
+&lt;/blockquote&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 嘲弄i
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+
+
+
+
+   
+
+    </script>
+</body>
+</html>

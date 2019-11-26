@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="在使用VMware虚拟机时，有些情况下我们使用桥接的方式来进行上网。但是大多数情况下选择桥接的方式在虚拟机中是无法正常上网的。自己之前也曾遇到过这样的问题。。。">
+<meta name="keywords" content="VMware">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决VMware虚拟机桥接无法上网问题">
+<meta property="og:url" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;%F0%9F%90%94.html">
+<meta property="og:site_name" content="嘲弄i">
+<meta property="og:description" content="在使用VMware虚拟机时，有些情况下我们使用桥接的方式来进行上网。但是大多数情况下选择桥接的方式在虚拟机中是无法正常上网的。自己之前也曾遇到过这样的问题。。。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;wlan.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;china.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;bkl.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;xn.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;bridge.png">
+<meta property="og:updated_time" content="2019-06-23T02:52:41.529Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;wlan.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/McRae.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/McRae.ico" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/McRae.ico">
+          
+        
+    
+
+    <!-- title -->
+    <title>解决VMware虚拟机桥接无法上网问题</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/ospf.html"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/%F0%9F%99%83.html"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://6-7.xyz/%F0%9F%90%94.html" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://6-7.xyz/%F0%9F%90%94.html&text=解决VMware虚拟机桥接无法上网问题" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://6-7.xyz/%F0%9F%90%94.html&title=解决VMware虚拟机桥接无法上网问题" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://6-7.xyz/%F0%9F%90%94.html&is_video=false&description=解决VMware虚拟机桥接无法上网问题" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=解决VMware虚拟机桥接无法上网问题&body=Check out this article: https://6-7.xyz/%F0%9F%90%94.html"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://6-7.xyz/%F0%9F%90%94.html&title=解决VMware虚拟机桥接无法上网问题" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://6-7.xyz/%F0%9F%90%94.html&title=解决VMware虚拟机桥接无法上网问题" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://6-7.xyz/%F0%9F%90%94.html&title=解决VMware虚拟机桥接无法上网问题" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://6-7.xyz/%F0%9F%90%94.html&title=解决VMware虚拟机桥接无法上网问题" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://6-7.xyz/%F0%9F%90%94.html&name=解决VMware虚拟机桥接无法上网问题&description=&lt;p&gt;在使用VMware虚拟机时，有些情况下我们使用桥接的方式来进行上网。但是大多数情况下选择桥接的方式在虚拟机中是无法正常上网的。自己之前也曾遇到过这样的问题。。。" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        解决VMware虚拟机桥接无法上网问题
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">嘲弄i</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-05-16T06:29:28.000Z" itemprop="datePublished">2019-05-16</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/VMware/" rel="tag">VMware</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>在使用VMware虚拟机时，有些情况下我们使用桥接的方式来进行上网。但是大多数情况下选择桥接的方式在虚拟机中是无法正常上网的。自己之前也曾遇到过这样的问题。。。<a id="more"></a></p>
+<ol>
+<li><p><strong><em>查看本地网络是否安装VMware Bridge Protocol</em></strong></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/wlan.png" alt=""></p>
+<p>就像上图所示一样，我这里查看的是WLAN的属性。如果没有安装的话，选择安装即可。</p>
+</li>
+<li><p>查看本地IP地址</p>
+<p><code>win +r</code>输入<code>cmd</code>打开命令行，输入<code>ipconfig /all</code>查看物理机局域网内的信息</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/china.png" alt=""></p>
+<p>可以看到 </p>
+<p>​    网卡: Intel(R) Dual Band Wireless-AC 3165</p>
+<p>​    IPv4 地址 . . . . . . . . . . . . : 10.10.2.39(首选)<br>   子网掩码  . . . . . . . . . . . . : 255.255.252.0</p>
+<p>​    默认网关. . . . . . . . . . . . . : 10.10.0.1<br>   DNS 服务器  . . . . . . . . . . . : 202.96.209.5</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/bkl.jpg" alt=""></p>
+</li>
+<li><p>使用虚拟机网络编辑器</p>
+<p><code>需要使用管理员权限才可以进行操作</code>，还原默认设置然后设置桥接为如下图所示</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/xn.png" alt=""></p>
+<p>修改为如上图所示桥接到物理机的无线网卡上。然后设置虚拟机的设置修改为如下所示</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/bridge.png" alt=""></p>
+</li>
+<li><p>虚拟机开机测试</p>
+<p>开机后打开命令行查看一下是否成功，查看IP地址发现虚拟机和物理机在同一个网段下。</p>
+<p>虚拟机ping物理机,物理机ping虚拟机发现均可以ping通。同时也可以打开网页正常上网👾</p>
+</li>
+</ol>
+
+  </div>
+</article>
+
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://6-7.xyz/%F0%9F%90%94.html" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://6-7.xyz/%F0%9F%90%94.html&text=解决VMware虚拟机桥接无法上网问题" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://6-7.xyz/%F0%9F%90%94.html&title=解决VMware虚拟机桥接无法上网问题" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://6-7.xyz/%F0%9F%90%94.html&is_video=false&description=解决VMware虚拟机桥接无法上网问题" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=解决VMware虚拟机桥接无法上网问题&body=Check out this article: https://6-7.xyz/%F0%9F%90%94.html"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://6-7.xyz/%F0%9F%90%94.html&title=解决VMware虚拟机桥接无法上网问题" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://6-7.xyz/%F0%9F%90%94.html&title=解决VMware虚拟机桥接无法上网问题" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://6-7.xyz/%F0%9F%90%94.html&title=解决VMware虚拟机桥接无法上网问题" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://6-7.xyz/%F0%9F%90%94.html&title=解决VMware虚拟机桥接无法上网问题" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://6-7.xyz/%F0%9F%90%94.html&name=解决VMware虚拟机桥接无法上网问题&description=&lt;p&gt;在使用VMware虚拟机时，有些情况下我们使用桥接的方式来进行上网。但是大多数情况下选择桥接的方式在虚拟机中是无法正常上网的。自己之前也曾遇到过这样的问题。。。" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 嘲弄i
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+
+
+
+
+   
+
+    </script>
+</body>
+</html>

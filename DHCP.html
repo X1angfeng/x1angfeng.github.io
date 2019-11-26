@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="DHCP(Dynamic Host Configuration Protocol,动态主机配置协议)是一个简化主机IP地址分配管理的TCP&#x2F;IP协议。只要在网络中安装和配置了DHCP服务器，用户不用再自行输入任何数据，就可以将一台计算机接入到网络之中，所有入网的必要参数(包括IP地址、子网掩码、默认网关、DNS服务器的地址等)的设置都可交给DHCP服务器负责，它会自动的配置好。">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux配置与应用DHCP服务">
+<meta property="og:url" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;DHCP.html">
+<meta property="og:site_name" content="嘲弄i">
+<meta property="og:description" content="DHCP(Dynamic Host Configuration Protocol,动态主机配置协议)是一个简化主机IP地址分配管理的TCP&#x2F;IP协议。只要在网络中安装和配置了DHCP服务器，用户不用再自行输入任何数据，就可以将一台计算机接入到网络之中，所有入网的必要参数(包括IP地址、子网掩码、默认网关、DNS服务器的地址等)的设置都可交给DHCP服务器负责，它会自动的配置好。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;DHCP.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;ip.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;s.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;dhcp.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;c.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;b.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;cq.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;g.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;w.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;l.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;4.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;cq.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;g.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;5.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;6.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;7.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;8.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;9.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;ip.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;ip1.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;dhcp.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;cq.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;dhcrelay.png">
+<meta property="og:updated_time" content="2019-04-08T13:23:31.146Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;DHCP.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/McRae.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/McRae.ico" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/McRae.ico">
+          
+        
+    
+
+    <!-- title -->
+    <title>Linux配置与应用DHCP服务</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/Samba.html"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95%E5%B7%A5%E5%85%B7%E7%AE%B1%E5%BA%94%E7%94%A8%E4%B8%BE%E4%BE%8B.html"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://6-7.xyz/DHCP.html" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://6-7.xyz/DHCP.html&text=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://6-7.xyz/DHCP.html&title=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://6-7.xyz/DHCP.html&is_video=false&description=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Linux配置与应用DHCP服务&body=Check out this article: https://6-7.xyz/DHCP.html"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://6-7.xyz/DHCP.html&title=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://6-7.xyz/DHCP.html&title=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://6-7.xyz/DHCP.html&title=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://6-7.xyz/DHCP.html&title=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://6-7.xyz/DHCP.html&name=Linux配置与应用DHCP服务&description=&lt;blockquote&gt;
+&lt;p&gt;DHCP(Dynamic Host Configuration Protocol,动态主机配置协议)是一个简化主机IP地址分配管理的TCP/IP协议。只要在网络中安装和配置了DHCP服务器，用户不用再自行输入任何数据，就可以将一台计算机接入到网络之中，所有入网的必要参数(包括IP地址、子网掩码、默认网关、DNS服务器的地址等)的设置都可交给DHCP服务器负责，它会自动的配置好。&lt;/p&gt;
+&lt;/blockquote&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DHCP服务器的租约方式"><span class="toc-number">1.</span> <span class="toc-text">DHCP服务器的租约方式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目实施"><span class="toc-number">2.</span> <span class="toc-text">项目实施</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#任务一-配置与安装单IP作用域"><span class="toc-number">2.1.</span> <span class="toc-text">任务一   配置与安装单IP作用域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现步骤"><span class="toc-number">2.1.1.</span> <span class="toc-text">实现步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置本机ip地址"><span class="toc-number">2.1.1.1.</span> <span class="toc-text">配置本机ip地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装DHCP服务"><span class="toc-number">2.1.1.2.</span> <span class="toc-text">安装DHCP服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#复制DHCP的示例文件"><span class="toc-number">2.1.1.3.</span> <span class="toc-text">复制DHCP的示例文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#编辑DHCP的配置文件"><span class="toc-number">2.1.1.4.</span> <span class="toc-text">编辑DHCP的配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#重启DHCP服务"><span class="toc-number">2.1.1.5.</span> <span class="toc-text">重启DHCP服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#客户端验证"><span class="toc-number">2.1.1.6.</span> <span class="toc-text">客户端验证</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#任务二-架设企业级的DHCP服务器"><span class="toc-number">2.2.</span> <span class="toc-text">任务二 架设企业级的DHCP服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现步骤-1"><span class="toc-number">2.2.1.</span> <span class="toc-text">实现步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置本机ip地址-1"><span class="toc-number">2.2.1.1.</span> <span class="toc-text">配置本机ip地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置主机名和打开网络开关"><span class="toc-number">2.2.1.2.</span> <span class="toc-text">设置主机名和打开网络开关</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置主机名与主机IP对应解析"><span class="toc-number">2.2.1.3.</span> <span class="toc-text">设置主机名与主机IP对应解析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置默认搜索域名"><span class="toc-number">2.2.1.4.</span> <span class="toc-text">设置默认搜索域名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#重启网络服务"><span class="toc-number">2.2.1.5.</span> <span class="toc-text">重启网络服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#编辑DHCP配置文件"><span class="toc-number">2.2.1.6.</span> <span class="toc-text">编辑DHCP配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#重启DHCP服务-1"><span class="toc-number">2.2.1.7.</span> <span class="toc-text">重启DHCP服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#客户端验证-1"><span class="toc-number">2.2.1.8.</span> <span class="toc-text">客户端验证</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#任务三配置多IP作用域服务器"><span class="toc-number">2.3.</span> <span class="toc-text">任务三配置多IP作用域服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现步骤-2"><span class="toc-number">2.3.1.</span> <span class="toc-text">实现步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#开启路由转发功能"><span class="toc-number">2.3.1.1.</span> <span class="toc-text">开启路由转发功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#给网卡配置多个IP地址"><span class="toc-number">2.3.1.2.</span> <span class="toc-text">给网卡配置多个IP地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改DHCP配置文件"><span class="toc-number">2.3.1.3.</span> <span class="toc-text">修改DHCP配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#重启DHCP服务-2"><span class="toc-number">2.3.1.4.</span> <span class="toc-text">重启DHCP服务</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#任务四配置DHCP的中继服务"><span class="toc-number">2.4.</span> <span class="toc-text">任务四配置DHCP的中继服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现步骤-3"><span class="toc-number">2.4.1.</span> <span class="toc-text">实现步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置DHCP-relay"><span class="toc-number">2.4.1.1.</span> <span class="toc-text">配置DHCP relay</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#开启路由转发功能-1"><span class="toc-number">2.4.1.2.</span> <span class="toc-text">开启路由转发功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#运行DHCP服务"><span class="toc-number">2.4.1.3.</span> <span class="toc-text">运行DHCP服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置DHCP客户端"><span class="toc-number">2.4.1.4.</span> <span class="toc-text">配置DHCP客户端</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Linux配置与应用DHCP服务
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">嘲弄i</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-03-25T10:56:58.000Z" itemprop="datePublished">2019-03-25</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/Linux/">Linux</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/Linux/" rel="tag">Linux</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <blockquote>
+<p>DHCP(Dynamic Host Configuration Protocol,动态主机配置协议)是一个简化主机IP地址分配管理的TCP/IP协议。只要在网络中安装和配置了DHCP服务器，用户不用再自行输入任何数据，就可以将一台计算机接入到网络之中，所有入网的必要参数(包括IP地址、子网掩码、默认网关、DNS服务器的地址等)的设置都可交给DHCP服务器负责，它会自动的配置好。</p>
+</blockquote>
+<a id="more"></a>
+
+<h1 id="DHCP服务器的租约方式"><a href="#DHCP服务器的租约方式" class="headerlink" title="DHCP服务器的租约方式"></a>DHCP服务器的租约方式</h1><p>①限定租期：这种方式是一种动态分配的方式，并且可以很好的解决IP地址不够用的问题。</p>
+<p>②永久使用：采用这种方式的前提是IP地址足够使用，这样DHCP客户端就不必就不必频繁地向DHCP服务器提出续约的请求。</p>
+<p><img src="/img/DHCP.png" alt="客户机申请IP地址流程图"></p>
+<p>从图可以看出，DHCP服务工作分为6个阶段：</p>
+<p>1）发现阶段</p>
+<p>即DHCP客户端寻找DHCP服务器的过程，对于客户端发送DHCP发现(Discovery)报文。因为DHCP服务器对应于DHCP客户端是未知的，所以DHCP客户端发出的DHCP发现报文是广播包，源地址为0.0.0.0，目的地址为255.255.255.255。如果同一个网络内没有DHCP服务器，而该网关接口配置了DHCP中继（Relay)功能，则该接口即为DHCP的中继，DHCP中将继会将该DHCP报文的源IP地址修改为该接口的IP地址，而目的地址则为DHCP中继配置的DHCP服务器的IP地址。</p>
+<p>2）应答阶段</p>
+<p>网络上的所有支持TCP/IP的主机都会收到该DHCP发现报文，但是只有DHCP服务器会响应该报文。如果网络中存在多个DHCP服务器，则多个DHCP服务器均会回复该DHCP发现报文。</p>
+<p>3）地址请求阶段</p>
+<p>DHCP客户机收到若干个DHCP服务器响应的DHCP应答报文后，选择其中一个DHCP服务器作为目标DHCP服务器。选择策略通常为选择第一个响应的DHCP应答报文所属的DHCP服务器。然后以广播方式回答一个DHCP请求(Requset)报文，该报文中包含向目标DHCP的IP地址等信息。之所以是广播方式发出的，是为了通知其他DHCP服务器自己将选择该DHCP服务器所提供的IP地址。</p>
+<p>4）确认分配IP地址阶段</p>
+<p>DHCP服务器收到DHCP服务请求报文后，解析该报文请求IP地址所属的子网。并从dhcp.conf文件中与之匹配的子网（Subnet）中取出一个可用的IP地址（从可用地址段选择一个IP地址后，首先发送ICMP报文来ping该IP地址，如果收到该IP地址的ICMP报文，则抛弃该IP地址，重新选择IP地址继续进行ICMP报文测试，直到找到一个网络中没有人使用的IP地址，用以达到防止动态分配的IP地址与网络中其他设备的IP地址冲突的目的），设置在DHCP发现报文yiadress字段中，表示为该客户端分配的IP地址，并且为该租用（Lease）设置该子网配置的选项（Option),例如默认租用租期、最大租期、路由器等信息。</p>
+<p>DHCP从地址池中选择IP地址，以如下优先级进行选择：</p>
+<p>（1）当前已经存在的IP Mac的对应关系；</p>
+<p>（2）客户端以前的IP地址</p>
+<p>（3）读取发现报文中的Requested Ip Address Option的值，如果存在并且IP地址可用；</p>
+<p>（4）从配置的子网中选择IP地址</p>
+<p>5）更新租约阶段</p>
+<p>DHCP客户机获取到的IP地址都有一个租约，租约过期后，DHCP服务器将收回该IP地址，所以如果DHCP客户机想继续使用该IP地址，则必须更新租约。更新的方式就是，当当前租约期限过了一半的时候，DHCP客户机将会发送DHCP更新(Rrenew)报文来续约租期。或者DHCP客户机重新登录网络，当DHCP客户机重新登录后，发送一个以包含之前的DHCP服务器分配的IP地址信息的DHCP请求报文。</p>
+<p>6）确认新的租约阶段</p>
+<p>当DHCP服务器收到更新租约的请求后，会尝试让DHCP客户端继续使用该IP地址，并回答一个ACK报文。但是如果该IP地址无法再次分配给该DHCP客户端后，DHCP回复一个NAK报文，当DHCP客户机收到该NAK报文后，会重新发送DHCP发现报文来重新获取IP地址。</p>
+<h1 id="项目实施"><a href="#项目实施" class="headerlink" title="项目实施"></a>项目实施</h1><h2 id="任务一-配置与安装单IP作用域"><a href="#任务一-配置与安装单IP作用域" class="headerlink" title="任务一   配置与安装单IP作用域"></a><code>任务一</code>   配置与安装单IP作用域</h2><p>在某个局域网内有11台计算机，采用DHCP获取IP地址，地址段为192.168.16.1~192.168.16.14，子网掩码是255.255.225.240.其中IP地址192.168.16.1分配路由器，IP地址192.168.16.8和192.168.16.9分配给指定的Mac地址的主机，DNS服务器地址为8.8.8.8及114.114.114.114，配置一个DHCP服务器来动态分配IP地址。其中服务器本身IP地址为192.168.16.14。</p>
+<h3 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h3><h4 id="配置本机ip地址"><a href="#配置本机ip地址" class="headerlink" title="配置本机ip地址"></a>配置本机ip地址</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-eth0</span><br><span class="line">service network restart</span><br><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/dhcp/ip.png" alt="配置IP">)<img src="/img/dhcp/s.png" alt="查看IP"></p>
+<h4 id="安装DHCP服务"><a href="#安装DHCP服务" class="headerlink" title="安装DHCP服务"></a>安装DHCP服务</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install dhcp -y</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/dhcp/dhcp.png" alt=""></p>
+<h4 id="复制DHCP的示例文件"><a href="#复制DHCP的示例文件" class="headerlink" title="复制DHCP的示例文件"></a>复制DHCP的示例文件</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/share/doc/dhcp-4.1.1/dhcpd.conf.sample /etc/dhcp/dhcpd.conf</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/dhcp/c.png" alt=""></p>
+<h4 id="编辑DHCP的配置文件"><a href="#编辑DHCP的配置文件" class="headerlink" title="编辑DHCP的配置文件"></a>编辑DHCP的配置文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/dhcp/dhcp.conf</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/dhcp/b.png" alt=""></p>
+<h4 id="重启DHCP服务"><a href="#重启DHCP服务" class="headerlink" title="重启DHCP服务"></a>重启DHCP服务</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service dhcpd restart</span><br><span class="line">chkconfig dhcpd on 	#设置开机自启</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/dhcp/cq.png" alt=""></p>
+<h4 id="客户端验证"><a href="#客户端验证" class="headerlink" title="客户端验证"></a>客户端验证</h4><p>1）Windows客户端验证（由于无线路由器有dhcp功能，会干扰验证，可以尝试，插上网线，启用有线网卡的功能，并在虚拟机里的网络选项配置桥接到有线网卡）<br><img src="/img/dhcp/g.png" alt=""> <img src="/img/dhcp/w.png" alt=""><br>2）Linux客户端验证<br><img src="/img/dhcp/l.png" alt=""></p>
+<h2 id="任务二-架设企业级的DHCP服务器"><a href="#任务二-架设企业级的DHCP服务器" class="headerlink" title="任务二 架设企业级的DHCP服务器"></a><code>任务二</code> 架设企业级的DHCP服务器</h2><p>公司需要架设一台DHCP服务器，服务器IP地址为192.168.23.254，其余要求如下</p>
+<p><code>(1)</code>为子网192.168.23.0/24建立一个IP作用域，并将192.168.23.20~192.168.23.200范围之内的IP地址动态分配给客户机。</p>
+<p><code>(2)</code>子网中的DNS服务器地址为192.168.23.2与114.114.114.114，IP路由器地址为192.168.23.1，所在的网域名为bestyhy.com,将这些惨呼指定给客户机使用。</p>
+<p><code>(3)</code>为某台主机保留192.168.23.123，这个IP地址，DNS服务器地址为192.168.23.5.</p>
+<h3 id="实现步骤-1"><a href="#实现步骤-1" class="headerlink" title="实现步骤"></a>实现步骤</h3><h4 id="配置本机ip地址-1"><a href="#配置本机ip地址-1" class="headerlink" title="配置本机ip地址"></a>配置本机ip地址</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-eth0</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/dhcp/1.png" alt=""></p>
+<h4 id="设置主机名和打开网络开关"><a href="#设置主机名和打开网络开关" class="headerlink" title="设置主机名和打开网络开关"></a>设置主机名和打开网络开关</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/network</span><br></pre></td></tr></table></figure>
+
+<p><code>备注</code>:networking=yes打开网络的总开关，如果设置为no，那么本服务器将🙅‍不能提供任何网络功能。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NETWORKING=yes			#打开服务器网络总开关</span><br><span class="line">HOSTNAME=bestyhy.com    #设置主机名字为bestyhy.com</span><br></pre></td></tr></table></figure>
+
+<h4 id="设置主机名与主机IP对应解析"><a href="#设置主机名与主机IP对应解析" class="headerlink" title="设置主机名与主机IP对应解析"></a>设置主机名与主机IP对应解析</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/hosts </span><br><span class="line"></span><br><span class="line">192.168.23.254 		bestyhy.com</span><br></pre></td></tr></table></figure>
+
+<h4 id="设置默认搜索域名"><a href="#设置默认搜索域名" class="headerlink" title="设置默认搜索域名"></a>设置默认搜索域名</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/resolv.conf</span><br><span class="line"></span><br><span class="line">search 		bestyhy.com	</span><br><span class="line">nameserver	192.168.23.2</span><br></pre></td></tr></table></figure>
+
+<h4 id="重启网络服务"><a href="#重启网络服务" class="headerlink" title="重启网络服务"></a>重启网络服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service network restart</span><br><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/dhcp/2.png" alt=""></p>
+<h4 id="编辑DHCP配置文件"><a href="#编辑DHCP配置文件" class="headerlink" title="编辑DHCP配置文件"></a>编辑DHCP配置文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/dhcp/dhcp.conf</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/dhcp/3.png" alt="">)<img src="/img/dhcp/4.png" alt=""></p>
+<h4 id="重启DHCP服务-1"><a href="#重启DHCP服务-1" class="headerlink" title="重启DHCP服务"></a>重启DHCP服务</h4><p><img src="/img/dhcp/cq.png" alt=""></p>
+<h4 id="客户端验证-1"><a href="#客户端验证-1" class="headerlink" title="客户端验证"></a>客户端验证</h4><p>1）Windows客户端验证（由于无线路由器有dhcp功能，会干扰验证，可以尝试，插上网线，启用有线网卡的功能，并在虚拟机里的网络选项配置桥接到有线网卡）<br><img src="/img/dhcp/g.png" alt="">   <img src="/img/dhcp/5.png" alt="">  <img src="/img/dhcp/6.png" alt=""></p>
+<p>2）Linux客户端验证</p>
+<p><img src="/img/dhcp/7.png" alt="">  </p>
+<p> <img src="/img/dhcp/8.png" alt=""></p>
+<p> <img src="/img/dhcp/9.png" alt=""></p>
+<h2 id="任务三配置多IP作用域服务器"><a href="#任务三配置多IP作用域服务器" class="headerlink" title="任务三配置多IP作用域服务器"></a><code>任务三</code>配置多IP作用域服务器</h2><p><span id="inline-green">背景</span>公司原有机器为250台，IP地址规划为192.168.31.0/24网段，动态管理网络IP地址，现在要升级到500台，公司要求在保持原有IP地址规划不变的情况下扩容现有的网络IP地址。</p>
+<h3 id="实现步骤-2"><a href="#实现步骤-2" class="headerlink" title="实现步骤"></a>实现步骤</h3><h4 id="开启路由转发功能"><a href="#开启路由转发功能" class="headerlink" title="开启路由转发功能"></a>开启路由转发功能</h4><p><span id="inline-blue">备注</span>服务器的IP就是管理各网段的网管，也就是说DHCP服务器的网卡担当网关的功能，这需要打开DHCP服务器的转发功能（让两个网段的机器可以相互通信）</p>
+<p>①</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
+
+<p>找到net.ipv4.ip_forward=0,把0改为1。<span id="inline-blue">在命令模式下输入 / +自己想要搜索的内容然后回车即可快速找到相关信息。</span></p>
+<p>②通过shell命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo "1" &gt; /proc/sys/net/ipv4/ip_forword</span><br></pre></td></tr></table></figure>
+
+<p><code>sysctl -p</code>刷新修改的参数设置，使之立刻生效。</p>
+<h4 id="给网卡配置多个IP地址"><a href="#给网卡配置多个IP地址" class="headerlink" title="给网卡配置多个IP地址"></a>给网卡配置多个IP地址</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/sysconfig/network-scripts/</span><br><span class="line">vim ifcfg-eth0</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/dhcp/ip.jpg" alt=""></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp ifcfg-eth0 ifcfg-eth0:1</span><br><span class="line">vim  ifcfg-eth0:1</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/dhcp/ip1.jpg" alt=""></p>
+<p>使用<code>service network restart</code>命令重新启动网络服务，是IP地址生效。</p>
+<h4 id="修改DHCP配置文件"><a href="#修改DHCP配置文件" class="headerlink" title="修改DHCP配置文件"></a>修改DHCP配置文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/dhcp/dhcpd.conf</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/dhcp/dhcp.jpg" alt=""></p>
+<h4 id="重启DHCP服务-2"><a href="#重启DHCP服务-2" class="headerlink" title="重启DHCP服务"></a>重启DHCP服务</h4><p><img src="/img/dhcp/cq.png" alt=""></p>
+<h2 id="任务四配置DHCP的中继服务"><a href="#任务四配置DHCP的中继服务" class="headerlink" title="任务四配置DHCP的中继服务"></a><code>任务四</code>配置DHCP的中继服务</h2><p><span id="inline-purple">任务说明</span>DHCP客户端使用IP广播来寻找同一网段上的DHCP服务器。当服务器和客户端处在不同网段，即使被路由器分割开来时，路由器是不会转发这种广播包的。因此可能需要在每个网段上都设置一个DHCP服务器，虽然DHCP只消耗很小的一部分资源，但是多个DHCP服务器会带来管理上的不便。DHCP中继的使用使得一个DHCP服务器同时为多个网段服务的可能。在DHCP广播情况下，客户在本地网段广播一个DHCP发现分组。网关获得这个分组，如果配置了帮助地址，就将DHCP分组转发到特定地址。</p>
+<p><span id="inlie-green">背景</span>企业在组网时，根据实际需要划分了两个VLAN，中间通过一台Linux服务器连接。如何让一台DHCP服务器为多个网段提供服务。</p>
+<h3 id="实现步骤-3"><a href="#实现步骤-3" class="headerlink" title="实现步骤"></a>实现步骤</h3><p>两个网络中的IP作用域的配置与任务三相同，配置中继服务的两个IP地址分别为192.168.31.1和192.168.32.1</p>
+<h4 id="配置DHCP-relay"><a href="#配置DHCP-relay" class="headerlink" title="配置DHCP relay"></a>配置DHCP relay</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/dhcrelay</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/dhcp/dhcrelay.png" alt=""></p>
+<h4 id="开启路由转发功能-1"><a href="#开启路由转发功能-1" class="headerlink" title="开启路由转发功能"></a>开启路由转发功能</h4><p><span id="inline-blue">备注</span>服务器的IP就是管理各网段的网管，也就是说DHCP服务器的网卡担当网关的功能，这需要打开DHCP服务器的转发功能（让两个网段的机器可以相互通信）</p>
+<p>①</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
+
+<p>找到net.ipv4.ip_forward=0,把0改为1。<span id="inline-blue">在命令模式下输入 / +自己想要搜索的内容然后回车即可快速找到相关信息。</span></p>
+<p>②通过shell命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo "1" &gt; /proc/sys/net/ipv4/ip_forword</span><br></pre></td></tr></table></figure>
+
+<p><code>sysctl -p</code>刷新修改的参数设置，使之立刻生效。</p>
+<h4 id="运行DHCP服务"><a href="#运行DHCP服务" class="headerlink" title="运行DHCP服务"></a>运行DHCP服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service dhcpd restart</span><br><span class="line">chkconfig  dhcpd on</span><br></pre></td></tr></table></figure>
+
+<h4 id="配置DHCP客户端"><a href="#配置DHCP客户端" class="headerlink" title="配置DHCP客户端"></a>配置DHCP客户端</h4><p>通过<code>setup</code>命令，在use DHCP后面的[]中，按空格添加“*”</p>
+
+  </div>
+</article>
+
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DHCP服务器的租约方式"><span class="toc-number">1.</span> <span class="toc-text">DHCP服务器的租约方式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目实施"><span class="toc-number">2.</span> <span class="toc-text">项目实施</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#任务一-配置与安装单IP作用域"><span class="toc-number">2.1.</span> <span class="toc-text">任务一   配置与安装单IP作用域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现步骤"><span class="toc-number">2.1.1.</span> <span class="toc-text">实现步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置本机ip地址"><span class="toc-number">2.1.1.1.</span> <span class="toc-text">配置本机ip地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装DHCP服务"><span class="toc-number">2.1.1.2.</span> <span class="toc-text">安装DHCP服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#复制DHCP的示例文件"><span class="toc-number">2.1.1.3.</span> <span class="toc-text">复制DHCP的示例文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#编辑DHCP的配置文件"><span class="toc-number">2.1.1.4.</span> <span class="toc-text">编辑DHCP的配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#重启DHCP服务"><span class="toc-number">2.1.1.5.</span> <span class="toc-text">重启DHCP服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#客户端验证"><span class="toc-number">2.1.1.6.</span> <span class="toc-text">客户端验证</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#任务二-架设企业级的DHCP服务器"><span class="toc-number">2.2.</span> <span class="toc-text">任务二 架设企业级的DHCP服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现步骤-1"><span class="toc-number">2.2.1.</span> <span class="toc-text">实现步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置本机ip地址-1"><span class="toc-number">2.2.1.1.</span> <span class="toc-text">配置本机ip地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置主机名和打开网络开关"><span class="toc-number">2.2.1.2.</span> <span class="toc-text">设置主机名和打开网络开关</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置主机名与主机IP对应解析"><span class="toc-number">2.2.1.3.</span> <span class="toc-text">设置主机名与主机IP对应解析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置默认搜索域名"><span class="toc-number">2.2.1.4.</span> <span class="toc-text">设置默认搜索域名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#重启网络服务"><span class="toc-number">2.2.1.5.</span> <span class="toc-text">重启网络服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#编辑DHCP配置文件"><span class="toc-number">2.2.1.6.</span> <span class="toc-text">编辑DHCP配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#重启DHCP服务-1"><span class="toc-number">2.2.1.7.</span> <span class="toc-text">重启DHCP服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#客户端验证-1"><span class="toc-number">2.2.1.8.</span> <span class="toc-text">客户端验证</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#任务三配置多IP作用域服务器"><span class="toc-number">2.3.</span> <span class="toc-text">任务三配置多IP作用域服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现步骤-2"><span class="toc-number">2.3.1.</span> <span class="toc-text">实现步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#开启路由转发功能"><span class="toc-number">2.3.1.1.</span> <span class="toc-text">开启路由转发功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#给网卡配置多个IP地址"><span class="toc-number">2.3.1.2.</span> <span class="toc-text">给网卡配置多个IP地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改DHCP配置文件"><span class="toc-number">2.3.1.3.</span> <span class="toc-text">修改DHCP配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#重启DHCP服务-2"><span class="toc-number">2.3.1.4.</span> <span class="toc-text">重启DHCP服务</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#任务四配置DHCP的中继服务"><span class="toc-number">2.4.</span> <span class="toc-text">任务四配置DHCP的中继服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现步骤-3"><span class="toc-number">2.4.1.</span> <span class="toc-text">实现步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置DHCP-relay"><span class="toc-number">2.4.1.1.</span> <span class="toc-text">配置DHCP relay</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#开启路由转发功能-1"><span class="toc-number">2.4.1.2.</span> <span class="toc-text">开启路由转发功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#运行DHCP服务"><span class="toc-number">2.4.1.3.</span> <span class="toc-text">运行DHCP服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置DHCP客户端"><span class="toc-number">2.4.1.4.</span> <span class="toc-text">配置DHCP客户端</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://6-7.xyz/DHCP.html" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://6-7.xyz/DHCP.html&text=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://6-7.xyz/DHCP.html&title=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://6-7.xyz/DHCP.html&is_video=false&description=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Linux配置与应用DHCP服务&body=Check out this article: https://6-7.xyz/DHCP.html"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://6-7.xyz/DHCP.html&title=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://6-7.xyz/DHCP.html&title=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://6-7.xyz/DHCP.html&title=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://6-7.xyz/DHCP.html&title=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://6-7.xyz/DHCP.html&name=Linux配置与应用DHCP服务&description=&lt;blockquote&gt;
+&lt;p&gt;DHCP(Dynamic Host Configuration Protocol,动态主机配置协议)是一个简化主机IP地址分配管理的TCP/IP协议。只要在网络中安装和配置了DHCP服务器，用户不用再自行输入任何数据，就可以将一台计算机接入到网络之中，所有入网的必要参数(包括IP地址、子网掩码、默认网关、DNS服务器的地址等)的设置都可交给DHCP服务器负责，它会自动的配置好。&lt;/p&gt;
+&lt;/blockquote&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 嘲弄i
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+
+
+
+
+   
+
+    </script>
+</body>
+</html>

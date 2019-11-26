@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="keywords" content="虚拟化,Vmware">
+<meta property="og:type" content="article">
+<meta property="og:title" content="虚拟化VMware ESXi 6.7服务器与vCenter的安装与配置">
+<meta property="og:url" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;vsphere.html">
+<meta property="og:site_name" content="嘲弄i">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;desktop.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;1.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;xj.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;xj2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;xj3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;xj4.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;xj5.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;xj7.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;xj8.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;xj9.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;xj10.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;xj11.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;xj12.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;xj13.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;az1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;az2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;az3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;az4.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;az5.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;az6.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;az7.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;az8.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;az9.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;jm.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;jm1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;jm2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;jm3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;jm4.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;jm5.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;jm6.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vcenter.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vcenter1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vcenter2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vcenter3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vcenter4.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vcenter5.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vcenter6.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vcenter7.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vcenter8.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vcenter9.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vcenter10.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vcenter11.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vcenter12.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vcenter13.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vcenter14.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vcenter15.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vcenter16.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vcenter17.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vcenter18.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vcenter19.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vcenter20.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vcenter21.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vcenter22.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vcenter23.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vcenter24.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vcenter25.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vcenter26.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vcenter27.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vc1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vc2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vc3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vc4.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vc5.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vc6.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vc7.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vc8.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vc9.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vc10.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vc11.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vc12.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vc13.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vc14.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vc15.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;vc16.png">
+<meta property="og:updated_time" content="2019-10-28T15:07:04.905Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vsphere&#x2F;desktop.jpg">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/McRae.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/McRae.ico" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/McRae.ico">
+          
+        
+    
+
+    <!-- title -->
+    <title>虚拟化VMware ESXi 6.7服务器与vCenter的安装与配置</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/openfiler.html"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/ssl.html"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://6-7.xyz/vsphere.html" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://6-7.xyz/vsphere.html&text=虚拟化VMware ESXi 6.7服务器与vCenter的安装与配置" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://6-7.xyz/vsphere.html&title=虚拟化VMware ESXi 6.7服务器与vCenter的安装与配置" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://6-7.xyz/vsphere.html&is_video=false&description=虚拟化VMware ESXi 6.7服务器与vCenter的安装与配置" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=虚拟化VMware ESXi 6.7服务器与vCenter的安装与配置&body=Check out this article: https://6-7.xyz/vsphere.html"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://6-7.xyz/vsphere.html&title=虚拟化VMware ESXi 6.7服务器与vCenter的安装与配置" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://6-7.xyz/vsphere.html&title=虚拟化VMware ESXi 6.7服务器与vCenter的安装与配置" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://6-7.xyz/vsphere.html&title=虚拟化VMware ESXi 6.7服务器与vCenter的安装与配置" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://6-7.xyz/vsphere.html&title=虚拟化VMware ESXi 6.7服务器与vCenter的安装与配置" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://6-7.xyz/vsphere.html&name=虚拟化VMware ESXi 6.7服务器与vCenter的安装与配置&description=&lt;p&gt;&lt;img src=&#34;https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/desktop.jpg&#34; alt=&#34;首页&#34;&gt;&lt;/p&gt;" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vSphere虚拟化架构"><span class="toc-number">1.</span> <span class="toc-text">vSphere虚拟化架构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#虚拟机的好处"><span class="toc-number">1.1.</span> <span class="toc-text">虚拟机的好处</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要使用虚拟机："><span class="toc-number">1.2.</span> <span class="toc-text">为什么要使用虚拟机：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vSphere基础物理架构"><span class="toc-number">1.3.</span> <span class="toc-text">vSphere基础物理架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vSphere基本架构"><span class="toc-number">1.4.</span> <span class="toc-text">vSphere基本架构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Esxi"><span class="toc-number">2.</span> <span class="toc-text">Esxi</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Esxi服务器"><span class="toc-number">2.1.</span> <span class="toc-text">安装Esxi服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装步骤"><span class="toc-number">2.2.</span> <span class="toc-text">安装步骤</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vCenter"><span class="toc-number">3.</span> <span class="toc-text">vCenter</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装vCenter"><span class="toc-number">3.1.</span> <span class="toc-text">安装vCenter</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装vCenter-server-appliance"><span class="toc-number">3.1.1.</span> <span class="toc-text">安装vCenter server appliance</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装vCenter-server"><span class="toc-number">3.1.2.</span> <span class="toc-text">安装vCenter server</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        虚拟化VMware ESXi 6.7服务器与vCenter的安装与配置
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">嘲弄i</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-10-08T11:13:16.000Z" itemprop="datePublished">2019-10-08</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a> › <a class="category-link" href="/categories/%E8%99%9A%E6%8B%9F%E5%8C%96/Vmware/">Vmware</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/Vmware/" rel="tag">Vmware</a>, <a class="tag-link" href="/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/" rel="tag">虚拟化</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/desktop.jpg" alt="首页"></p>
+<a id="more"></a>
+
+<h1 id="vSphere虚拟化架构"><a href="#vSphere虚拟化架构" class="headerlink" title="vSphere虚拟化架构"></a>vSphere虚拟化架构</h1><p>vSphere是VNware公司在2001年基于云计算推出的一套企业级虚拟化解决方案、核心组件为ESXi。如今，经历了5个版本的改进，已经实现了虚拟化基础架构、高可用性、集中管理、性能监控等一体化解决方案。</p>
+<p><a href="https://baike.baidu.com/item/vSphere" target="_blank" rel="noopener">🔗详情点击</a></p>
+<h2 id="虚拟机的好处"><a href="#虚拟机的好处" class="headerlink" title="虚拟机的好处"></a>虚拟机的好处</h2><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/1.png" alt="img"></p>
+<h2 id="为什么要使用虚拟机："><a href="#为什么要使用虚拟机：" class="headerlink" title="为什么要使用虚拟机："></a>为什么要使用虚拟机：</h2><p>　　<strong>物理架构存在的问题：</strong></p>
+<ul>
+<li>　　难以复制和移动</li>
+<li>　　受制于一定的硬件组件</li>
+<li>　　生命周期短</li>
+<li>　　物理服务器的资源利用率低</li>
+</ul>
+<p>　　<strong>服务器虚拟化</strong><br>　　<strong>虚拟机与物理机相比</strong></p>
+<ul>
+<li>　　最大化利用物理机的资源，节省能耗</li>
+<li>　　更方便地获取计算资源</li>
+<li>　　硬件无关。虚机都是文件，方便迁移、保护</li>
+<li>　　生命周期更长，不会随着硬件变化而变化</li>
+<li>　　根据需求的变化，非常容易更改资源的分配</li>
+<li>　　更多高级功能</li>
+</ul>
+<p>　　在线的数据、虚拟机迁移<br>　　高可用<br>　　自动资源调配<br>　　云计算</p>
+<h2 id="vSphere基础物理架构"><a href="#vSphere基础物理架构" class="headerlink" title="vSphere基础物理架构"></a>vSphere基础物理架构</h2><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/2.png" alt="img"></p>
+<p>　　虚拟化服务器：又称x86服务器，可以由多个ESXi组成，通过网络服务提供CPU和内存资源，所有的虚拟机运行在该服务器中。<br>存储网络：用于存储所有的虚拟化数据，虚拟机的性能也与之息息相关。存储网络可以使用SAN、NAS等存储技术。</p>
+<h2 id="vSphere基本架构"><a href="#vSphere基本架构" class="headerlink" title="vSphere基本架构"></a>vSphere基本架构</h2><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/3.png" alt="vmware"></p>
+<p>1.架构服务<br>Infrastructure Service(架构服务)定义了 Computer、 Storage、 Network等三大部分<br>(1)计算机<br>计算机主要包括ESX和ESXi( vSphere5.0中仅有ESXI)、DRS(分布式资源调配)以及<br>Memory(内存)。<br>①ESX/ESXi<br>ESXI是在物理服务器上安装虚拟化管理服务用于管理底层硬件资源。安装ESXi的物理服务<br>器称为ESXi主机。是 Sphere虚拟化架构的基础。<br>②DRS<br>DRS(分布式资源调配)是 Sphere高级特性之一,动态调配虚拟机运行的ESXI主机,充分<br>利用物理服务器硬件资源。<br>③内存<br>Memory(内存)就是物理服务器以及虚拟机内存的管理。<br>(2)存储<br>Storage (存储)主要包括了VMFS、 Thin Provisioning、 Storage I/O Control。<br>VMFS (虚拟机文件系统)是跨越多个物理服务器实现虚拟化的基础。<br>Thin Provisioning (精简盘)是对虚拟机硬盘文件VMDK动态调配的技术。<br>Storage I/O Control(存储读写控制)是 vSphere高级特性之一,利用对存储读写的控制是存储达到更好的性能。<br>(3)网络<br>Network包括了 Distributed Switch、 Network I/O Control<br>Distributed Switch (分布式交换机)是Sphere虚拟化架构网络核心之一,是跨越多台ESXI主机的虚拟交换机。</p>
+<p>Network I/O Control(网络读写控制)是 vSphere高级特性之一,通过对网络读写的控制使网络达到更好的性能。<br>2应用服务<br>Application Service(应用服务)定义了 Availability、Security、Scalability等三大部分。<br>(1)可用性<br>Availability (可 用 性)包括了 vMation、Storage vMotion、High Availability、 Fault Tolerance、 Data Recovery。<br>①实时迁移<br>vMotion(实时迁移)是让运行在ESXi主机上的虚拟机可以在开机或关机状态下迁移到另外的ESXI主机上。<br>②存储实时迁移<br>Sterage vMotion(存储实时迁移)是让虚拟机所使用的存储文件在开机或关机状态下迁移到另的存储设备上。<br>③高可用性<br>High Availability(高可用性)是在ESXi主机出现故障的情况下,将虚拟机迁移到正常的ESXi主机运行,尽量避免由于ESXi主机故障而导致服务中断。<br>④容错<br>Fault Tolerance(容错)是让虚拟机同时在两台ESX主机上以主/从方式并发地运行,也就是所谓的虚拟机双机热备。当任意一台虚拟机出现故障,另外一台立即接替工作,对于用户而言感觉不到后台已经发生了故障切换。<br>⑤数据恢复<br>Data Recovery(数据恢复)是通过合理的备份机制对虚拟机进行备份,以便故障发生时能够快速恢复。<br>(2)安全性<br>Security包括 vShield Zones、 VMsafe。<br>vShield Zones是一种安全性虚拟工具,可用于显示和实施网络活动。<br>VMsafe安全API使第三方安全厂商可以在管理程序内部保护虚拟机。<br>(3)扩展性<br>Scalability括DRS、Hot Add。<br>①DRS<br>DRS(分布式资源调配)是 vSphere高级特性之一,动态调配虚拟机运行的ESXi主机,充分利用物理服务器硬件资源。<br>②热插拔<br>Hot Add(热拔插)使虚拟机能够在不关机的情况下增加CPU、内存、硬盘等</p>
+<p>3.vCenter Server<br>vSphere虚拟化架构的核心管理工具也是日常管理操作平台。vSphere虎拟化<br>性都必须依靠 vCenter Server实现,利用 vCenter Server可以集中管理多个ESXI主机及其虚拟机<br>4.虚拟机<br>Virtual Machine(虚拟机)对于用户来说,实际就是一台物理机,和物理机一样拥有CPU、内存、硬盘等硬件资源,安装操作系统以及应用程序后与物理服务器提供的服务完全一样。<br>5.私有云资源池/公有云<br>Private Cloud Resource Pool  (私有云资源池)由硬件资源组成，通过vSphere管理私有云所有资源。</p>
+<p>Public Cloud(公有云)私有云的延伸，可向外部提供云计算服务。</p>
+<h1 id="Esxi"><a href="#Esxi" class="headerlink" title="Esxi"></a>Esxi</h1><p>ESXi专为运行虚拟机、最大限度降低配置要求和简化部署而设计。只需几分钟时间，客户便可完成从安装到运行虚拟机的全过程，特别是在下载并安装预配置虚拟设备的时候。</p>
+<p>在VMware Virtual Appliance Marketplace 上有800多款为VMware hypervisor 创建的虚拟设备，如今，ESXi已经实现了与Virtual Appliance Marketplace的直接整合，使用户能够即刻下载并运行虚拟设备。这为即插即用型软件的交付与安装提供了一种全新和极其简化的方式。</p>
+<p><a href="https://baike.baidu.com/item/ESXi" target="_blank" rel="noopener">🔗详情点击</a></p>
+<h2 id="安装Esxi服务器"><a href="#安装Esxi服务器" class="headerlink" title="安装Esxi服务器"></a>安装Esxi服务器</h2><p>由于种种原因无法在物理机完成操作，只好使用VMware workstation来安装Esxi。</p>
+<p>使用的虚拟机是<a href="https://pan.baidu.com/s/1lbPFwUlxvoNkzyl2jQjPPQ" target="_blank" rel="noopener">VMware 15</a> </p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/1.jpg" alt="百度云链接"></p>
+<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><p>首先打开VMware workstation软件创建新的虚拟机并且采用自定义安装</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/xj.png" alt="新建虚拟机"></p>
+<p>选择稍后安装一个操作系统</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/xj2.png" alt="新建虚拟机"></p>
+<p>选择操作系统，点击VMware ESX选择版本为VMware ESXI 6.x的那个版本</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/xj3.png" alt="新建虚拟机"></p>
+<p>命名虚拟机名称并且选择虚拟机在自己电脑上的位置</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/xj4.png" alt="新建虚拟机"></p>
+<p>选择处理器的配置，这里可以根据自己的需求选择</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/xj5.png" alt="新建虚拟机"></p>
+<p>选择网络类型，这里使用桥接网络</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/xj7.png" alt="新建虚拟机"></p>
+<p>选择I/O控制器类型，选择为推荐的准虚拟化SCSI</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/xj8.png" alt="新建虚拟机"></p>
+<p>选择虚拟磁盘类型为SCSI</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/xj9.png" alt="新建虚拟机"></p>
+<p>选择创建新的虚拟磁盘</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/xj10.png" alt="新建虚拟机"></p>
+<p>指定虚拟磁盘的容量大小，在这分配200GB空间具体根据自己需求</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/xj11.png" alt="新建虚拟机"></p>
+<p>先不要点击完成，因为ESXI的镜像还没有挂载，点击自定义硬件</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/xj12.png" alt="新建虚拟机"></p>
+<p>选择挂载自己电脑上的ISO镜像文件</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/xj13.png" alt="新建虚拟机"></p>
+<p>选择完成后点击关闭然后再点击完成，然后打开虚拟机。会出现如下的界面</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/az1.png" alt="新建虚拟机"></p>
+<p>等待片刻，按回车键开始安装</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/az2.png" alt="新建虚拟机"></p>
+<p>按F11键接受协议并继续</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/az3.png" alt="新建虚拟机"></p>
+<p>选择安装的位置并按回车键继续安装</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/az4.png" alt="新建虚拟机"></p>
+<p>选择键盘布局，这里选择使用默认.</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/az5.png" alt="新建虚拟机"></p>
+<p>为root用户创建密码，需要选择安全性较高的的数字字母字符组合来作为密码</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/az6.png" alt="新建虚拟机"></p>
+<p>按下F11键开始正式的安装</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/az7.png" alt="新建虚拟机"></p>
+<p>接下来会进入这个安装进度界面，</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/az8.png" alt="新建虚拟机"></p>
+<p>等待2-3分钟后，安装完成按回车键重启系统</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/az9.png" alt="新建虚拟机"></p>
+<p>重启完成后界面如下</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/jm.png" alt="新建虚拟机"></p>
+<p>对系统进行配置，按F2键然后输入刚才创建的密码进入配置界面。</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/jm1.png" alt="新建虚拟机"></p>
+<p>Configure Managment Network来配置网络。配置静态IPV4地址</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/jm2.png" alt="新建虚拟机"></p>
+<p>配置DNS服务器地址</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/jm3.png" alt="新建虚拟机"></p>
+<p>按ESC键离开，会提示下面这个界面按Y同意重启网络</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/jm4.png" alt="新建虚拟机"></p>
+<p>Troubleshooting Options来开启SSH与Shell</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/jm5.png" alt="新建虚拟机"></p>
+<p>到此为止配置上基本完成了，下面在浏览器地址栏中输入刚才配置的IP地址<code>192.168.1.103</code>使用web界面对ESXI进行控制。使用root用户登录</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/jm6.png" alt="新建虚拟机"></p>
+<h1 id="vCenter"><a href="#vCenter" class="headerlink" title="vCenter"></a>vCenter</h1><p>Vcenter一般指 VMware vCenter™ Server<br>VMware vCenterServer 提供了一个可伸缩、可扩展的平台，为 虚拟化管理奠定了基础。 VMware vCenter Server（以前称为 VMware VirtualCenter），可集中管理 VMware vSphere 环境，与其他管理平台相比，极大地提高了 IT 管理员对虚拟环境的控制。<br>VMware vCenter Server：提高在虚拟基础架构每个级别上的集中控制和可见性，通过主动管理发挥 vSphere 潜能，是一个具有广泛合作伙伴体系支持的可伸缩、可扩展平台。</p>
+<p><a href="https://baike.baidu.com/item/vCenter" target="_blank" rel="noopener">🔗详情点击</a></p>
+<h2 id="安装vCenter"><a href="#安装vCenter" class="headerlink" title="安装vCenter"></a>安装vCenter</h2><p>vCenter主要有两种:一种是基于Windows的vCenter server它的功能和性能更强大！还有一种就是基于嵌入式linux的vCenter server appliance，使用小的虚拟化环境（主机小于50台，虚拟机少于1000个），使用这个部署起来更简单快捷。当然如果更大的虚拟化环境，就一定需要基于Windows的vCenter server了。随着版本的更迭，vmware去windows化越来越明显了，很多高级功能（跨集群迁移，vcsa ha等等）只有以vcsa方式部署才可能实现了，vcsa部署维护都要比传统windows+vCenterServer+MySQL方便，就是web管理界面还是不如原来的vsphere client好用。</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter.png" alt="vcenter"></p>
+<h3 id="安装vCenter-server-appliance"><a href="#安装vCenter-server-appliance" class="headerlink" title="安装vCenter server appliance"></a>安装vCenter server appliance</h3><p>在Windows上装载镜像</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter1.png" alt="vcenter"></p>
+<p>然后打开vcsa-ui-installer那个文件夹，在打开下面的那个win32目录，双击installer.exe即可开始安装。</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter2.png" alt="vcenter"></p>
+<p>安装分为两个阶段</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter3.png" alt="vcenter"></p>
+<p>勾选“我接受许可协议条款”</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter4.png" alt="vcenter"></p>
+<p>选择嵌入式 <strong>Platform Services Controller</strong></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter5.png" alt="vcenter"></p>
+<p>指定VCSA 6.7部署到ESXi主机或vCenter Server</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter6.png" alt="vcenter"></p>
+<p>会出现警告直接点是即可，下面配置VCSA 6.7虚拟机名称以及root密码。</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter7.png" alt="vcenter"></p>
+<p>选择部署大小</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter8.png" alt="vcenter"></p>
+<p>选择VCSA 6.7虚拟机存储</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter9.png" alt="vcenter"></p>
+<p>之前的设置部署大小为300GB，可是由于自己电脑没有那么大的存储空间23333。只好这样先装了</p>
+<p>配置VCSA 6.7虚拟机网络</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter10.png" alt="vcenter"></p>
+<p>确认第1阶段参数</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter11.png" alt="vcenter"></p>
+<p>开始第一阶段部署，部署的时间取决于物理服务器性能</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter12.png" alt="vcenter"></p>
+<p>第一阶段完成，开始第二阶段</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter13.png" alt="vcenter"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter14.png" alt="vcenter"></p>
+<p>配置系统时间</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter15.png" alt="vcenter"></p>
+<p>这里选择跟ESXI主机同步。当然也可以选择和NTP服务器时间相同。根据自己需求选择是否启用SSH</p>
+<p>SSO配置</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter16.png" alt="vcenter"></p>
+<p>确认是否加入CEIP</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter17.png" alt="vcenter"></p>
+<p>确认参数</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter18.png" alt="vcenter"></p>
+<p>点击确定开始第二阶段部署</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter19.png" alt="vcenter"></p>
+<p>开始部署</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter20.png" alt="vcenter"></p>
+<p>安装完成</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter21.png" alt="vcenter"></p>
+<p>打开VCSA 6.7控制台界面</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter22.png" alt="vcenter"></p>
+<p>在浏览器中输入VCSA 6.7的IP地址进行访问，VCSA 6.7提供H5以及FLASH两个选择，从初步使用看，H5功能比VCSA 6.5得到增强</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter23.png" alt="vcenter"></p>
+<p>输入SSO登录</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter24.png" alt="vcenter"></p>
+<p>VCSA 6.7 登录成功后界面如下</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter25.png" alt="vcenter"></p>
+<p>访问VMware vCenter Server Appliance Web</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter26.png" alt="vcenter"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter27.png" alt="vcenter"></p>
+<h3 id="安装vCenter-server"><a href="#安装vCenter-server" class="headerlink" title="安装vCenter server"></a>安装vCenter server</h3><p>当镜像挂载之后打开安装程序</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vc1.png" alt="vcenter"></p>
+<p>点击下一步继续安装</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vc2.png" alt="vcenter"></p>
+<p>选择接受许可协议条款</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vc3.png" alt="vcenter"></p>
+<p>选择部署类型，在这先暂时选择嵌入式部署。在以后会对外部部署进行安装。</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vc4.png" alt="vcenter"></p>
+<p>配置系统网络名称，输入windows server的IP地址</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vc5.png" alt="vcenter"></p>
+<p>vCenter Single Sign-On 配置</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vc6.png" alt="vcenter"></p>
+<p>选择vCenter Server服务账户</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vc7.png" alt="vcenter"></p>
+<p>数据库设置，选择嵌入式数据库</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vc8.png" alt="vcenter"></p>
+<p>配置端口</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vc9.png" alt="vcenter"></p>
+<p>选择安装目录</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vc10.png" alt="vcenter"></p>
+<p>加入客户体验提升计划</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vc11.png" alt="vcenter"></p>
+<p>点击完成开始安装</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vc12.png" alt="vcenter"></p>
+<p>安装过程时间根据机器性能决定，大概10分钟左右</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vc13.png" alt="vcenter"></p>
+<p>安装完成</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vc14.png" alt="vcenter"></p>
+<p>在客户机访问vSphere Web Client</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vc15.png" alt="vcenter"></p>
+<p>输入刚才设置的账号密码，然后登录成功</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vc16.png" alt="vcenter"></p>
+
+  </div>
+</article>
+
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vSphere虚拟化架构"><span class="toc-number">1.</span> <span class="toc-text">vSphere虚拟化架构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#虚拟机的好处"><span class="toc-number">1.1.</span> <span class="toc-text">虚拟机的好处</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要使用虚拟机："><span class="toc-number">1.2.</span> <span class="toc-text">为什么要使用虚拟机：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vSphere基础物理架构"><span class="toc-number">1.3.</span> <span class="toc-text">vSphere基础物理架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vSphere基本架构"><span class="toc-number">1.4.</span> <span class="toc-text">vSphere基本架构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Esxi"><span class="toc-number">2.</span> <span class="toc-text">Esxi</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Esxi服务器"><span class="toc-number">2.1.</span> <span class="toc-text">安装Esxi服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装步骤"><span class="toc-number">2.2.</span> <span class="toc-text">安装步骤</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vCenter"><span class="toc-number">3.</span> <span class="toc-text">vCenter</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装vCenter"><span class="toc-number">3.1.</span> <span class="toc-text">安装vCenter</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装vCenter-server-appliance"><span class="toc-number">3.1.1.</span> <span class="toc-text">安装vCenter server appliance</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装vCenter-server"><span class="toc-number">3.1.2.</span> <span class="toc-text">安装vCenter server</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://6-7.xyz/vsphere.html" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://6-7.xyz/vsphere.html&text=虚拟化VMware ESXi 6.7服务器与vCenter的安装与配置" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://6-7.xyz/vsphere.html&title=虚拟化VMware ESXi 6.7服务器与vCenter的安装与配置" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://6-7.xyz/vsphere.html&is_video=false&description=虚拟化VMware ESXi 6.7服务器与vCenter的安装与配置" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=虚拟化VMware ESXi 6.7服务器与vCenter的安装与配置&body=Check out this article: https://6-7.xyz/vsphere.html"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://6-7.xyz/vsphere.html&title=虚拟化VMware ESXi 6.7服务器与vCenter的安装与配置" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://6-7.xyz/vsphere.html&title=虚拟化VMware ESXi 6.7服务器与vCenter的安装与配置" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://6-7.xyz/vsphere.html&title=虚拟化VMware ESXi 6.7服务器与vCenter的安装与配置" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://6-7.xyz/vsphere.html&title=虚拟化VMware ESXi 6.7服务器与vCenter的安装与配置" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://6-7.xyz/vsphere.html&name=虚拟化VMware ESXi 6.7服务器与vCenter的安装与配置&description=&lt;p&gt;&lt;img src=&#34;https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/desktop.jpg&#34; alt=&#34;首页&#34;&gt;&lt;/p&gt;" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 嘲弄i
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+
+
+
+
+   
+
+    </script>
+</body>
+</html>

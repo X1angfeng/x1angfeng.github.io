@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="FTP用于在Internet上控制文件的双向传输。同时，它也是一个应用程序。基于不同的操作系统有不同的FTP应用程序，而所有这些应用程序都遵循同一种协议以传输文件。在FTP的使用中，用户经常遇到两个概念：“下载”和“上传”下载文件就是从远程主机复制文件到自己的电脑上💻；上传文件就是将自己电脑上💻的文件复制到远程计算机。">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux配置与管理FTP服务">
+<meta property="og:url" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;ftp.html">
+<meta property="og:site_name" content="嘲弄i">
+<meta property="og:description" content="FTP用于在Internet上控制文件的双向传输。同时，它也是一个应用程序。基于不同的操作系统有不同的FTP应用程序，而所有这些应用程序都遵循同一种协议以传输文件。在FTP的使用中，用户经常遇到两个概念：“下载”和“上传”下载文件就是从远程主机复制文件到自己的电脑上💻；上传文件就是将自己电脑上💻的文件复制到远程计算机。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;ftp.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;edquota.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;FTP&#x2F;2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;FTP&#x2F;3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;FTP&#x2F;1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;FTP&#x2F;admin.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;FTP&#x2F;user1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;FTP&#x2F;windows.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;FTP&#x2F;Linux.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;FTP&#x2F;delete.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;FTP&#x2F;admin1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;FTP&#x2F;grep.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;FTP&#x2F;pub.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;FTP&#x2F;pub1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;FTP&#x2F;get.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;FTP&#x2F;put.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;FTP&#x2F;put1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;FTP&#x2F;a.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;FTP&#x2F;b.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;FTP&#x2F;c.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;FTP&#x2F;d.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;FTP&#x2F;e.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;FTP&#x2F;f.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;FTP&#x2F;g.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;FTP&#x2F;h.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;FTP&#x2F;i.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;FTP&#x2F;j.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;FTP&#x2F;k.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;FTP&#x2F;l.png">
+<meta property="og:updated_time" content="2019-10-27T08:14:45.376Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;ftp.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/McRae.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/McRae.ico" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/McRae.ico">
+          
+        
+    
+
+    <!-- title -->
+    <title>Linux配置与管理FTP服务</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/test.html"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/media.html"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://6-7.xyz/ftp.html" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://6-7.xyz/ftp.html&text=Linux配置与管理FTP服务" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://6-7.xyz/ftp.html&title=Linux配置与管理FTP服务" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://6-7.xyz/ftp.html&is_video=false&description=Linux配置与管理FTP服务" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Linux配置与管理FTP服务&body=Check out this article: https://6-7.xyz/ftp.html"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://6-7.xyz/ftp.html&title=Linux配置与管理FTP服务" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://6-7.xyz/ftp.html&title=Linux配置与管理FTP服务" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://6-7.xyz/ftp.html&title=Linux配置与管理FTP服务" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://6-7.xyz/ftp.html&title=Linux配置与管理FTP服务" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://6-7.xyz/ftp.html&name=Linux配置与管理FTP服务&description=&lt;blockquote&gt;
+&lt;p&gt;FTP用于在Internet上控制文件的双向传输。同时，它也是一个应用程序。基于不同的操作系统有不同的FTP应用程序，而所有这些应用程序都遵循同一种协议以传输文件。在FTP的使用中，用户经常遇到两个概念：“下载”和“上传”下载文件就是从远程主机复制文件到自己的电脑上💻；上传文件就是将自己电脑上💻的文件复制到远程计算机。&lt;/p&gt;
+&lt;/blockquote&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#任务一"><span class="toc-number">1.</span> <span class="toc-text">任务一</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#设置IP地址"><span class="toc-number">1.1.</span> <span class="toc-text">设置IP地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装vsftpd文件"><span class="toc-number">1.2.</span> <span class="toc-text">安装vsftpd文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建立匿名用户主目录以及abc用户"><span class="toc-number">1.3.</span> <span class="toc-text">建立匿名用户主目录以及abc用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编辑配置文件"><span class="toc-number">1.4.</span> <span class="toc-text">编辑配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置vsftpd在系统中运行"><span class="toc-number">1.5.</span> <span class="toc-text">配置vsftpd在系统中运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#了解配置文件"><span class="toc-number">1.6.</span> <span class="toc-text">了解配置文件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#任务二"><span class="toc-number">2.</span> <span class="toc-text">任务二</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#磁盘分区与挂载"><span class="toc-number">2.1.</span> <span class="toc-text">磁盘分区与挂载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建立用户与用户组并设置权限"><span class="toc-number">2.2.</span> <span class="toc-text">建立用户与用户组并设置权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建quota，配置磁盘配额"><span class="toc-number">2.3.</span> <span class="toc-text">创建quota，配置磁盘配额</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编辑配置文件-1"><span class="toc-number">2.4.</span> <span class="toc-text">编辑配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建立用户独立文件"><span class="toc-number">2.5.</span> <span class="toc-text">建立用户独立文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#验证"><span class="toc-number">2.6.</span> <span class="toc-text">验证</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#user1-4"><span class="toc-number">2.6.1.</span> <span class="toc-text">user1~4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#admin"><span class="toc-number">2.6.2.</span> <span class="toc-text">admin</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#任务三"><span class="toc-number">3.</span> <span class="toc-text">任务三</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装相关文件"><span class="toc-number">3.1.</span> <span class="toc-text">安装相关文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建立用户"><span class="toc-number">3.2.</span> <span class="toc-text">建立用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置vsftpd-conf文件"><span class="toc-number">3.3.</span> <span class="toc-text">配置vsftpd.conf文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建立日志文件并修改权限"><span class="toc-number">3.4.</span> <span class="toc-text">建立日志文件并修改权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建立虚拟用户文件"><span class="toc-number">3.5.</span> <span class="toc-text">建立虚拟用户文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建立虚拟用户"><span class="toc-number">3.6.</span> <span class="toc-text">建立虚拟用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成数据库"><span class="toc-number">3.7.</span> <span class="toc-text">生成数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置数据文件的访问权限"><span class="toc-number">3.8.</span> <span class="toc-text">设置数据文件的访问权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改-etc-pam-d-vsftpd内容"><span class="toc-number">3.9.</span> <span class="toc-text">修改/etc/pam.d/vsftpd内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建用户的配置文件"><span class="toc-number">3.10.</span> <span class="toc-text">创建用户的配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重启服务"><span class="toc-number">3.11.</span> <span class="toc-text">重启服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#验证-1"><span class="toc-number">3.12.</span> <span class="toc-text">验证</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#任务四"><span class="toc-number">4.</span> <span class="toc-text">任务四</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置默认的vsftpd服务器"><span class="toc-number">4.1.</span> <span class="toc-text">配置默认的vsftpd服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置匿名用户访问和下载权限"><span class="toc-number">4.2.</span> <span class="toc-text">配置匿名用户访问和下载权限</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动服务"><span class="toc-number">4.2.1.</span> <span class="toc-text">启动服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试匿名用户的上传和下载权限"><span class="toc-number">4.2.2.</span> <span class="toc-text">测试匿名用户的上传和下载权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置匿名用户拥有完全权限"><span class="toc-number">4.2.3.</span> <span class="toc-text">配置匿名用户拥有完全权限</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置登录用户禁锢在家目录"><span class="toc-number">4.3.</span> <span class="toc-text">配置登录用户禁锢在家目录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#测试用户权限"><span class="toc-number">4.3.1.</span> <span class="toc-text">测试用户权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改配置文件"><span class="toc-number">4.3.2.</span> <span class="toc-text">修改配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重启服务-1"><span class="toc-number">4.3.3.</span> <span class="toc-text">重启服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试"><span class="toc-number">4.3.4.</span> <span class="toc-text">测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置实现现在某些用户访问"><span class="toc-number">4.4.</span> <span class="toc-text">配置实现现在某些用户访问</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置虚拟用户FTP访问"><span class="toc-number">4.5.</span> <span class="toc-text">配置虚拟用户FTP访问</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#新建虚拟用户名文件"><span class="toc-number">4.5.1.</span> <span class="toc-text">新建虚拟用户名文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将文件转换成数据库文件"><span class="toc-number">4.5.2.</span> <span class="toc-text">将文件转换成数据库文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改用户文件权限"><span class="toc-number">4.5.3.</span> <span class="toc-text">修改用户文件权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建虚拟用户的映射账户"><span class="toc-number">4.5.4.</span> <span class="toc-text">创建虚拟用户的映射账户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置用户认证信息"><span class="toc-number">4.5.5.</span> <span class="toc-text">配置用户认证信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开启虚拟用户访问"><span class="toc-number">4.5.6.</span> <span class="toc-text">开启虚拟用户访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#效果验证"><span class="toc-number">4.5.7.</span> <span class="toc-text">效果验证</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置虚拟用户拥有不同的文件权限"><span class="toc-number">4.6.</span> <span class="toc-text">配置虚拟用户拥有不同的文件权限</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#开启单独配置文件功能"><span class="toc-number">4.6.1.</span> <span class="toc-text">开启单独配置文件功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建立用户权限文件"><span class="toc-number">4.6.2.</span> <span class="toc-text">建立用户权限文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#效果验证-1"><span class="toc-number">4.6.3.</span> <span class="toc-text">效果验证</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Linux配置与管理FTP服务
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">嘲弄i</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-05-21T00:40:04.000Z" itemprop="datePublished">2019-05-21</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/Linux/">Linux</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/Linux/" rel="tag">Linux</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <blockquote>
+<p>FTP用于在Internet上控制文件的双向传输。同时，它也是一个应用程序。基于不同的操作系统有不同的FTP应用程序，而所有这些应用程序都遵循同一种协议以传输文件。在FTP的使用中，用户经常遇到两个概念：“下载”和“上传”下载文件就是从远程主机复制文件到自己的电脑上💻；上传文件就是将自己电脑上💻的文件复制到远程计算机。</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="任务一"><a href="#任务一" class="headerlink" title="任务一"></a>任务一</h1><p><code>配置企业文件下载服务器</code><br>某公司视频网站处于经营初期，为了提高公司的知名度，争取更多的用户资源，预把自己拥有的视频资源分享给互联网用户。具体要求如下<br><strong>(1)</strong>配置FTP匿名用户的主目录为/var/ftp/anon,下载带宽限制为100KB/S.<br><strong>(2)</strong>建立一个名为abc、口令为xyz的FTP账户，下载带宽限制为500KB/S.<br><strong>(3)</strong>设置FTP服务器，同时登录到FTP服务器的最大链接数为100；每个IP最大链接数为3；用户空闲时间超过限值为5分钟。<br><strong>(4)</strong>服务器IP地址为192.168.131.129<br><span id="inline-blue">任务实施</span></p>
+<h2 id="设置IP地址"><a href="#设置IP地址" class="headerlink" title="设置IP地址"></a>设置IP地址</h2><p>使用<code>setup</code>或者<code>vim /etc/sysconfig/network-scripts/ifcfg-eth0</code>来修改服务器的IP地址，然后使用<code>service network restart</code>重启网络服务。</p>
+<h2 id="安装vsftpd文件"><a href="#安装vsftpd文件" class="headerlink" title="安装vsftpd文件"></a>安装vsftpd文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install -y vsftpd #安装vsftpd</span><br><span class="line">rpm -qa |grep vsftpd #查询安装信息</span><br></pre></td></tr></table></figure>
+<h2 id="建立匿名用户主目录以及abc用户"><a href="#建立匿名用户主目录以及abc用户" class="headerlink" title="建立匿名用户主目录以及abc用户"></a>建立匿名用户主目录以及abc用户</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir /var/ftp/anon</span><br><span class="line">useradd -s /sbin/nologin abc #建立用户不允许本地登录</span><br><span class="line">passwd abc</span><br></pre></td></tr></table></figure>
+<h2 id="编辑配置文件"><a href="#编辑配置文件" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h2><p>编辑配置文件前首先使用<code>cp -p  /etc/vsftpd/vsftpd.conf  /etc/vsftpd/vsftpd.conf.bak</code>命令备份配置文件,然后使用<code>vim /etc/vsftpd/vsftpd.conf</code>命令编辑vsftpd配置文件，主要修改的内容如下:<br><code>注意</code>有的是需要修改的,有的是需要添加的</p>
+<p>anonymous_enable=yes<br>anon_root=/var/ftp/anon<br>anon_max_rate=100000<br>local_enable=yes<br>local_max_rate=500000<br>max_clinets=100<br>max_per_ip=3<br>connect_timeout=300</p>
+<h2 id="配置vsftpd在系统中运行"><a href="#配置vsftpd在系统中运行" class="headerlink" title="配置vsftpd在系统中运行"></a>配置vsftpd在系统中运行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chkconfig --levels 2335 vsftpd on #开机运行</span><br><span class="line">service vsftpd restart #重启服务</span><br></pre></td></tr></table></figure>
+<h2 id="了解配置文件"><a href="#了解配置文件" class="headerlink" title="了解配置文件"></a>了解配置文件</h2><p>anonymous_enable=yes #允许匿名用户登录<br>local_enable=yes #用户本地用户登录<br>write_enable=yes #允许本地用户具有写的权限<br>local_umask=022<br>#设置本地用户的文件生成掩码为022，默认为077；文件写入格式<br>anon_mkdir_write_enable=yes #允许匿名用户具有写的权限<br>dirmessage_enable=yes #激活上传/下载日子，当远程用户更改时提示<br>ascii_download_enable=yes #允许用户用ASCII格式来上传/下载文件<br>ftp_banner=welcome to you! #用户登录时提示欢迎词<br>userlist_enable=yes<br>#用户列表是否启用,当用户加入到/etc/vsftpd/ftpusers文件时，用户将不能访问FTP服务</p>
+<p>经过测试abc用户和匿名用户均可访问FTP服务器资源。</p>
+<h1 id="任务二"><a href="#任务二" class="headerlink" title="任务二"></a>任务二</h1><p><code>配置企业内部文件FTP配额</code><br><span id="inline-blue">背景</span>某工厂制造加工企业，接到一笔较大的生产订单，需要多部分联合开发配合完成，部门之间需要交换公共文件，同时也需要部门之间有各自保密的文件。<br><strong>(1)</strong>新建一个分区，10GB空间，ext3文件系统，挂载到/ftp下，作为FTP服务器数据存放的地方。<br><strong>(2)</strong>四个部门：dep1、dep2、dep3、dep4，分别对应目录<code>/ftp/dep1,/ftp/dep2,/ftp/dep3,/ftp/dep4</code>.另外设定一个公共目录/ftp/public<br><strong>(3)</strong>五个用户:admin,user1,user2,user3,user4。user1,user2,user3,user4对应的部门分别是dep1,dep2,dep3,dep4,他们只能访问属于自己部门的目录和public目录。admin管理员用户可以访问服务器上的任意一个目录。<br><strong>(4)</strong>用户访问权限控制:user1,user2,user3,user4在所能访问的目录，具有上传文件、下载文件的功能，但是不具有删除文件、更改文件权限等功能。admin管理员对所有目录有文件上传、下载、删除、权限更改等功能。<br><strong>(5)</strong>对每个部门定制一个quota，设置该账户的文件配额为1000个，磁盘配额为2GB。<br><strong>(6)</strong>禁止匿名用户访问</p>
+<h2 id="磁盘分区与挂载"><a href="#磁盘分区与挂载" class="headerlink" title="磁盘分区与挂载"></a>磁盘分区与挂载</h2><p>增加一块硬盘，然后使用下面命令进行分区，并把分区挂载情况写入/etc/fstab</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fdisk /dev/sdb</span><br><span class="line">mkfs.ext3 /dev/sdb1</span><br><span class="line">mkdir /ftp</span><br><span class="line">mount /dev/sdb1 /ftp -o usrquota,grpquota #挂载分区</span><br></pre></td></tr></table></figure>
+<p>使用<code>vim /etc/fstab</code>命令设置开机自动挂载,在文件最后增加如下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/dev/sdb1 /ftp ext3 defaults,usrquota,grpquota 0 0</span><br></pre></td></tr></table></figure>
+<h2 id="建立用户与用户组并设置权限"><a href="#建立用户与用户组并设置权限" class="headerlink" title="建立用户与用户组并设置权限"></a>建立用户与用户组并设置权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">groupadd dep1</span><br><span class="line">groupadd dep2</span><br><span class="line">groupadd dep3</span><br><span class="line">groupadd dep4</span><br><span class="line">groupadd market</span><br><span class="line">useradd -G dep1,market user1</span><br><span class="line">useradd -G dep2,market user2</span><br><span class="line">useradd -G dep3,market user3</span><br><span class="line">useradd -G dep4,market user4</span><br><span class="line">useradd -G dep1,dep2,dep3,dep4,market admin</span><br><span class="line">passwd user1</span><br><span class="line">passwd user2</span><br><span class="line">passwd user3</span><br><span class="line">passwd user4</span><br><span class="line">passwd admin</span><br><span class="line">mkdir /ftp/dep1</span><br><span class="line">mkdir /ftp/dep2</span><br><span class="line">mkdir /ftp/dep3</span><br><span class="line">mkdir /ftp/dep4</span><br><span class="line">mkdir /ftp/public</span><br><span class="line">chown user1:dep1 /ftp/dep1</span><br><span class="line">chown user2:dep2 /ftp/dep2</span><br><span class="line">chown user3:dep3 /ftp/dep3</span><br><span class="line">chown user4:dep4 /ftp/dep4</span><br><span class="line">chown admin:market /ftp/public</span><br><span class="line">chmod 770 /ftp/dep1</span><br><span class="line">chmod 770 /ftp/dep2</span><br><span class="line">chmod 770 /ftp/dep3</span><br><span class="line">chmod 770 /ftp/dep4</span><br><span class="line">chmod 770 /ftp/public</span><br></pre></td></tr></table></figure>
+<p>最终新建的用户、用户组、文件夹以及权限如下图所示<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ftp.png" alt=""></p>
+<h2 id="创建quota，配置磁盘配额"><a href="#创建quota，配置磁盘配额" class="headerlink" title="创建quota，配置磁盘配额"></a>创建quota，配置磁盘配额</h2><p>使用<code>setenforce 0</code>关闭SELinux</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">quotacheck -cuvg /dev/sdb1</span><br><span class="line">quotaon -a</span><br><span class="line">edquota -g dep1</span><br></pre></td></tr></table></figure>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/edquota.png" alt=""><br>使用<code>edquota -p dep1 -g dep2 dep3 dep4</code>命令把quota属性设置套用到其余用户组。</p>
+<h2 id="编辑配置文件-1"><a href="#编辑配置文件-1" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h2><p>使用<code>vim /etc/vsftpd/vsftpd.conf</code>修改或添加如下几处内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">anonymous_enable=NO</span><br><span class="line">local_root=/ftp</span><br><span class="line">user_config_dir=/etc/vsftpd/ftp_config_dir</span><br><span class="line">chroot_list_file=/etc/vsftpd/chroot_list</span><br></pre></td></tr></table></figure>
+<h2 id="建立用户独立文件"><a href="#建立用户独立文件" class="headerlink" title="建立用户独立文件"></a>建立用户独立文件</h2><p>使用<code>mkdir /etc/vsftpd/ftp_config_dir</code>命令建立每个用户独立文件存放的目录。使用<code>vim /etc/vsftpd/ftp_config_dir/user1</code>命令建立用户配置文件，内容如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmds_allowed=ABOR,ACCT,APPE,CWD,CDUP,HELP,LIST,MODE,MDTM,NOOP,NLST,PASS,PASV,PORT,PWD,QUIT,REIN,RETR,SITE,SIZE,STOR,STAT,STOU,STRU,SYST,TYPE,USER</span><br></pre></td></tr></table></figure>
+<p>使用命令<code>cd /etc/vsftpd/ftp_config_dir</code>进入到目录下，然后使用<code>cp user1 user2</code>,<code>cp user1 user3</code>,<code>cp user1 user4</code>复制配置文件</p>
+<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>使用windows作为客户端来进行验证，在资源管理器的地址栏或者，浏览器的地址栏中输入<code>ftp://192.168.131.129</code>可以看到以下内容<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/FTP/2.png" alt="">这里显示让我们输入账户以及密码才可以登陆。无法使用匿名用户访问<br>或者当使用cmd命令行输入<code>ftp 192.168.131.129</code>尝试用匿名用户登陆显示登陆失败。<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/FTP/3.png" alt=""><br>这是因为设置了禁止匿名用户访问所以才会这样，因此应该使用之前建立的用户登陆。为了区分登陆分别在/home/user1<del>4的文件夹下创建user1</del>user4文件夹。并且在/ftp/dep1<del>4目录下创建名为1</del>4的文件。<br>当各个部门用户登陆成功后分别会显示一个对应自己用户名字的文件夹<img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/FTP/1.png" alt="">)当管理员admin用户登陆成功后显示如下所示内容。<img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/FTP/admin.png" alt=""><br>下面测试使用cmd命令行的方式来进行登陆ftp服务器进行文件的上传以及下载。</p>
+<h3 id="user1-4"><a href="#user1-4" class="headerlink" title="user1~4"></a>user1~4</h3><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/FTP/user1.png" alt=""><br>因为操作都一样所以就截了一张图<br>查看windows客户端下载的文件<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/FTP/windows.png" alt=""><br><code>1~4</code>和<code>public</code>均为从服务器上下载下来的文件，<br>查看Linux服务器被上传的文件<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/FTP/Linux.png" alt=""><br>测试客户端是否能删除文件<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/FTP/delete.png" alt="">如图显示是无法删除的，到此为止测试各个部门的上传下载以及删除权限已经测试完毕。<br>测试用户的配额是否配置成功❓<br>可以搞一个这里搞一个centos的系统镜像来测试，大小为4.16GB.最终发现是无法放入的</p>
+<h3 id="admin"><a href="#admin" class="headerlink" title="admin"></a>admin</h3><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/FTP/admin1.png" alt=""><br>这里管理员用户对于四个部门的目录均具有上传、下载、删除的权限，理所当然对于公共目录public也同样具有最高的权限。</p>
+<h1 id="任务三"><a href="#任务三" class="headerlink" title="任务三"></a>任务三</h1><p><code>配置vsftp虚拟用户访问</code></p>
+<h2 id="安装相关文件"><a href="#安装相关文件" class="headerlink" title="安装相关文件"></a>安装相关文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install pam* -y</span><br><span class="line">yum install db4* -y</span><br></pre></td></tr></table></figure>
+
+<h2 id="建立用户"><a href="#建立用户" class="headerlink" title="建立用户"></a>建立用户</h2><p>建vsftpd服务宿主用户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd vsftpdadmin -s /sbin/nologin</span><br></pre></td></tr></table></figure>
+
+<p>建立vsftpd服务的宿主用户用来替换root用户，并不需要登录所以指定不可用shell。</p>
+<p>建立FTP虚拟宿主账户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd ftpuser -s /sbin/nologin</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置vsftpd-conf文件"><a href="#配置vsftpd-conf文件" class="headerlink" title="配置vsftpd.conf文件"></a>配置vsftpd.conf文件</h2><p>使用vim命令进行编辑，编辑前记得备份使用<code>cp /etc/vsftpd/vsftpd.conf /etc/vsftpd/vsftpd.conf.bak</code>来备份，vsftpd主配置文件，主要修改下面部分：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">anonymous_enable=NO </span><br><span class="line">chroot_list_enable=YES </span><br><span class="line">chroot_list_file=/etc/vsftpd/chroot_list</span><br></pre></td></tr></table></figure>
+
+<p><code>anonymous_enable=NO</code>不允许匿名用户访问，默认为YES,<code>chroot_list_enable=YES</code>不允许FTP用户离开自己的主目录,<code>chroot_list_file=/etc/vsftpd/chroot_list</code>搭配上面一行使用的，这条是锁定用户只能登录家目录的位置，如果不开启用户登录时就会报500 OOPS的错误。</p>
+<p id="div-border-left-blue">注意/etc/vsftpd/chroot_list本身是不存在的，需要自己手动创建。往里面输入账户一行一个</p>
+文件内具体代码的意义
+
+<blockquote>
+<p>local_enable=YES #允许本地用户访问<br> write_enable=YES #允许写入<br> local_umask=022 #上传后文件的掩码<br> dirmessage_enable=YES #开启目录标语<br> xferlog_enable=YES #开启日志<br> connect_from_port_20=YES #设定连接端口<br> xferlog_std_format=YES #设定vsftpd服务日子保存路径<br> idle_session_timeout=600 #会话超时时间<br> async_abor_enable=YES #支持异步传输功能<br> ascii_upload_enable=YES #支持ASCII模式上传功能<br> ascii_download_enable=YES #支持ASCII模式的下载功能<br> ftpd_banner=Welcome to blah FTP service. #FTP登录欢迎语<br> chroot_local_user=YES #禁止本地用户登录自己的FTP主目录<br> pam_service_name=vsftpd #设定pam服务下vsftpd的验证配置文件名<br> userlist_enable=YES #拒绝登录用户名单</p>
+</blockquote>
+<p>userlist_deny=NO </p>
+<p>TCP_wrappers=YES #限制主机对VSFTP服务器的访问<br> tcp_wrapper=YES<br> chroot_local_user=NO<br> guest_enable=YES #设定启用虚拟用户功能<br> guest_username=ftpuser #指定虚拟用户的宿主用户<br> virtual_use_local_privs=YES #设定虚拟用户的权限符合其宿主用户<br> user_config_dir=/etc/vsftpd/vconf #设定虚拟用户个人vsftp的配置文件存放路径</p>
+<h2 id="建立日志文件并修改权限"><a href="#建立日志文件并修改权限" class="headerlink" title="建立日志文件并修改权限"></a>建立日志文件并修改权限</h2> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">touch /var/log/vsftpd.log</span><br><span class="line">chown vsftpdadmin.vsftpdadmin /var/log/vsftpd.log</span><br></pre></td></tr></table></figure>
+<h2 id="建立虚拟用户文件"><a href="#建立虚拟用户文件" class="headerlink" title="建立虚拟用户文件"></a>建立虚拟用户文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /etc/vsftpd/vconf</span><br><span class="line">touch /etc/vsftpd/vconf/vir_user</span><br></pre></td></tr></table></figure>
+<h2 id="建立虚拟用户"><a href="#建立虚拟用户" class="headerlink" title="建立虚拟用户"></a>建立虚拟用户</h2><p>使用<code>vim /etc/vstfpd/vconf/vir_user</code>命令来编辑虚拟用户文件，添加如下内容。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">virtualuser #账号</span><br><span class="line">123456      #密码</span><br></pre></td></tr></table></figure>
+<p>使用<code>vim /etc/vsftpd/chroot_list</code>命令来锁定用户目录的配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">virtualuser</span><br><span class="line">virtual2</span><br></pre></td></tr></table></figure>
+<h2 id="生成数据库"><a href="#生成数据库" class="headerlink" title="生成数据库"></a>生成数据库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db_load -T -t hash -f /etc/vsftpd/vconf/vir_user /etc/vsftpd/vconf/vir_user.db</span><br></pre></td></tr></table></figure>
+<h2 id="设置数据文件的访问权限"><a href="#设置数据文件的访问权限" class="headerlink" title="设置数据文件的访问权限"></a>设置数据文件的访问权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 600 /etc/vsftpd/vconf/vir_user</span><br><span class="line">chmod 600 /etc/vsftpd/vconf/vir_user.db</span><br></pre></td></tr></table></figure>
+<h2 id="修改-etc-pam-d-vsftpd内容"><a href="#修改-etc-pam-d-vsftpd内容" class="headerlink" title="修改/etc/pam.d/vsftpd内容"></a>修改/etc/pam.d/vsftpd内容</h2><p>使用<code>vim /etc/pam.d/vsftpd</code>命令编辑文件，内容如下所示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#%PAM-1.0</span><br><span class="line">auth sufficient pam_userdb.so db=/etc/vsftpd/vconf/vir_user</span><br><span class="line">account sufficient pam_userdb.so db=/etc/vsftpd/vconf/vir_user</span><br></pre></td></tr></table></figure>
+<p><strong>备注</strong>：auth是对于用户的用户名口令进行验证，account是对于用户的账户有哪些权限、哪些限制进行验证，sufficent表示充分条件，pam_userdb.so表示该条审核将调用库函数pam_userdb.so进行。db=/etc/vsftpd/vconf/vir_user指定验证库函数将到这个指定的数据库中调用数据进行验证。</p>
+<h2 id="创建用户的配置文件"><a href="#创建用户的配置文件" class="headerlink" title="创建用户的配置文件"></a>创建用户的配置文件</h2><p>使用<code>vim /etc/vsftpd/vconf/virtualuser</code>创建用户配置文件。输入如下所示内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">local_root=/home/share</span><br><span class="line">anonymous_enable=NO</span><br><span class="line">write_enable=YES</span><br><span class="line">local_umask=0333</span><br><span class="line">anon_umask=0777</span><br><span class="line">file_open_mode=0777</span><br><span class="line">anon_upload_enable=YES</span><br><span class="line">anon_mkdir_write_enable=YES</span><br><span class="line">anon_other_write_enable=YES</span><br><span class="line">cmds_allowed=STOR,FEAT,REST,ABOR,CWD,LIST,MDTM,NLST,PASS,PASV,PORT,PWD,QUIT,RMD,RNFR,SIZE,TYPE,USER,ACCT,APPE,CDUP,HELP,MODE,NOOP,REIN,STAT,STOU,STRU,SYST,RETR</span><br><span class="line">idle_session_timeout=600</span><br><span class="line">data_connection_timeout=120</span><br><span class="line">max_clients=10</span><br><span class="line">max_per_ip=5</span><br><span class="line">local_max_rate=1048576</span><br></pre></td></tr></table></figure>
+
+<h2 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h2><p>使用<code>service vsftpd restart</code>或者<code>/etc/init.d/vsftpd restart</code></p>
+<h2 id="验证-1"><a href="#验证-1" class="headerlink" title="验证"></a>验证</h2><h1 id="任务四"><a href="#任务四" class="headerlink" title="任务四"></a>任务四</h1><p><code>部署专家级FTP服务器</code></p>
+<h2 id="配置默认的vsftpd服务器"><a href="#配置默认的vsftpd服务器" class="headerlink" title="配置默认的vsftpd服务器"></a>配置默认的vsftpd服务器</h2><ol>
+<li><p>挂载系统光盘</p>
+<blockquote>
+<p>mount /dev/cdrom /mnt</p>
+</blockquote>
+</li>
+<li><p>安装vsftpd</p>
+<p>在此，使用rpm的安装方式来安装，安装包放在系统光盘的Packages目录中</p>
+<blockquote>
+<p>rpm -ivh /mnt/Packages/vsftpd-2.2.2-11.el6_4.1.x86_64.rpm </p>
+</blockquote>
+</li>
+<li><p>查看vsftpd配置文件</p>
+<blockquote>
+<p>grep -v “#” /etc/vsftpd/vsftpd.conf</p>
+</blockquote>
+<p> <img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/FTP/grep.png" alt=""></p>
+</li>
+<li><p>在系统中允许</p>
+<blockquote>
+<p>chkconfig –levels 235 vsftpd on<br>service vsftpd restart</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="配置匿名用户访问和下载权限"><a href="#配置匿名用户访问和下载权限" class="headerlink" title="配置匿名用户访问和下载权限"></a>配置匿名用户访问和下载权限</h2><h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><blockquote>
+<p>service vsftpd start</p>
+</blockquote>
+<p>测试前关闭selinux和防火墙</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service iptables stop</span><br><span class="line">setenforce 0</span><br></pre></td></tr></table></figure>
+
+<p>在客户机中测试用文件夹方式访问<a href="ftp://192.168.131.129" target="_blank" rel="noopener">ftp://192.168.131.129</a>.</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/FTP/pub.png" alt=""></p>
+<h3 id="测试匿名用户的上传和下载权限"><a href="#测试匿名用户的上传和下载权限" class="headerlink" title="测试匿名用户的上传和下载权限"></a>测试匿名用户的上传和下载权限</h3><p><code>注意:</code>使用匿名账户ftp登录(无密)，查看现在所有的工作目录为/，这个/并不是服务器的根目录，而是匿名用户自己的家目录，使用ls命令发现里面有一个pub文件。</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/FTP/pub1.png" alt=""></p>
+<p>匿名用户的家目录就是服务器上的/var/ftp目录。在服务器上建立一个可供下载的文件。使用<code>echo &quot;hello world&quot;&gt;/var/ftp/1.txt</code>新建一个内容为hello world的文件。回到客户机上使用<code>get 1.txt</code>命令下载文件。</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/FTP/get.png" alt="">)可以在客户机上查看到一个1.txt的文件。在客户机上把下载的文件重命名一下，来测试上传。<img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/FTP/put.png" alt="">上传时被拒绝，因为匿名用户默认只能下载而不能上传。测试系统的用户的上传权限，这里可以使用<code>useradd upload</code>新建一个upload用户，使用<code>passwd upload</code>来设置用户的密码。再次用客户机进行测试，用upload登录并上传11.txt文件，文件上传成功。<img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/FTP/put1.png" alt="">使用<code>ls -l /home/upload</code>命令查看上传文件的权限为644(因为配置文件中local_umask=022)</p>
+<h3 id="配置匿名用户拥有完全权限"><a href="#配置匿名用户拥有完全权限" class="headerlink" title="配置匿名用户拥有完全权限"></a>配置匿名用户拥有完全权限</h3><p>1.修改配置文件</p>
+<p>可以在配置文件中加入<code>anon_mkdir_write_enable=YES</code>和<code>anon_upload_enable=YES</code>使匿名用户具有上传删除的权限。</p>
+<p><span id="inline-purple">注意</span>当不知道如何配置要添加或者修改哪些选项时。可以使用man来找到答案<code>man vsftpd.conf</code>,查找与anon相关内容，找到anon_other_write_enable它的默认值是NO,所以设置为YES就可以允许上传、创建目录、并且删除、重命名等操作。</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/FTP/a.png" alt=""></p>
+<p>2.效果验证</p>
+<p>使用<code>service vsftpd reload</code>命令重新加载配置，然后在客户机上再次用匿名用户进行测试。</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/FTP/b.png" alt=""></p>
+<p>发现还是无法上传和删除文件，回到服务器后查看ftp目录的权限后发现它没有写的权限，所以是无法上传和删除的。</p>
+<p>3.修改权限</p>
+<p>选择暴力方法使用<code>chmod 777 /var/ftp</code>将权限设为最大，然后回到客户机登录发现直接报错了。因为我们把/ftp这个目录权限设为最大，这样匿名用户就可以为所欲为了。为了避免类事情的发生为安全起见所以vsfptd设置了不允许登录。</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/FTP/c.png" alt=""></p>
+<p>4.正确配置文件夹的权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">chmod 755 /var/ftp #把权限改为默认的755</span><br><span class="line">cd /var/ftp 	#进入ftp目录</span><br><span class="line">mkdir anon		#在目录下新建目录</span><br><span class="line">chmod 777 anon  #修改目录权限</span><br><span class="line">cp 1.txt anon	#复制文件到anon目录下</span><br><span class="line">cd anon			#进入anon目录</span><br><span class="line">ls -l			#查看1.txt的权限</span><br><span class="line">chmod 666 test.txt #修改文件权限为可写</span><br></pre></td></tr></table></figure>
+
+<p>5.测试</p>
+<p>回到客户机来测试能否删除1.txt文件和上传新的文件。</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/FTP/d.png" alt=""></p>
+<h2 id="配置登录用户禁锢在家目录"><a href="#配置登录用户禁锢在家目录" class="headerlink" title="配置登录用户禁锢在家目录"></a>配置登录用户禁锢在家目录</h2><p>vsftp用户登录系统后，当前目录一般为家目录，用户的各种操作均在此目录中实现，但是搭建的vsftpd服务器默认并不是我们想要的这样，用户是可以随意切换到系统中的其他目录中去的，这样就给系统的安全带来了很大的隐患。</p>
+<h3 id="测试用户权限"><a href="#测试用户权限" class="headerlink" title="测试用户权限"></a>测试用户权限</h3><p>使用upload用户登录到服务器，测试是否可以切换目录。</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/FTP/e.png" alt=""></p>
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>修改配置文件去掉<code>&quot;chroot_local_user=YES&quot;</code>前的注释符号#</p>
+<h3 id="重启服务-1"><a href="#重启服务-1" class="headerlink" title="重启服务"></a>重启服务</h3><p>可以使用<code>service vsftpd reload</code>命令重启服务器使刚才的配置生效。</p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>在客户机使用upload用户登录，切换到根目录然后使用ls命令来查看文件发现并不能看到根目录下的内容，只能看到自己家目录下的内容。</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/FTP/f.png" alt=""></p>
+<h2 id="配置实现现在某些用户访问"><a href="#配置实现现在某些用户访问" class="headerlink" title="配置实现现在某些用户访问"></a>配置实现现在某些用户访问</h2><blockquote>
+<p>vsftp服务和samba服务不一样，在samba服务中系统和samba用户是分开的，而在vsftp服务中，只要是系统默认用户就是vsftp用户。也就是说只要能够登录系统就可以登录vsftp服务器，这样做显然是不太合理的。</p>
+</blockquote>
+<p>1.查看配置vsftpd配置的相关文件</p>
+<p>在<code>/etc/vsftpd</code>目录下有一个user_list文件，使用cat命令来查看文件中的内容，发现都是拒绝登录vsftp服务器的用户。所以谁不可以登录就把账号写进这个文件中。</p>
+<p>2.添加拒绝账户到文件中</p>
+<p>使用<code>vim /etc/vsftpd/user_list</code>命令编辑文件在最后一行加入upload账户用以拒绝访问upload登录ftp服务器。然后重启服务</p>
+<p>3.效果验证</p>
+<p>回到客户机用upload登录，会显示失败。<img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/FTP/g.png" alt=""></p>
+<p><span id="inlie-blue">备注</span>这里登录失败的原因是应为把upload写进了user_list这个文件中，这个拒绝用户登录之所以生效是因为<code>/etc/vsftpd/vsftpd.conf</code>配置文件中默认有“user_list_enalbe=YES”这行设置，如果把此配置改成“user_list_enable=YES”那么就只有写进user_list文件中的用户才可以登录。</p>
+<h2 id="配置虚拟用户FTP访问"><a href="#配置虚拟用户FTP访问" class="headerlink" title="配置虚拟用户FTP访问"></a>配置虚拟用户FTP访问</h2><p>在vsftp服务器中，系统用户就是vsftp用户,那么vsftp账户也能够登录系统，为了系统安全考虑，运维人员往往需要只建立vsftp用户，而不希望登录系统，这时就需要用到vsftp服务器的虚拟账户功能。</p>
+<h3 id="新建虚拟用户名文件"><a href="#新建虚拟用户名文件" class="headerlink" title="新建虚拟用户名文件"></a>新建虚拟用户名文件</h3><p>使用<code>vim /etc/vsftpd/vuser</code>命令创建用于存放虚拟用户的文件。文件中奇数行为用户名，偶数行为密码。先在创建两个名分别为Tom和Jack,密码为qwe123的虚拟用户。</p>
+<h3 id="将文件转换成数据库文件"><a href="#将文件转换成数据库文件" class="headerlink" title="将文件转换成数据库文件"></a>将文件转换成数据库文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/vsftpd</span><br><span class="line">db_load -T -thash -f vuser vuser.db</span><br></pre></td></tr></table></figure>
+
+<p>参数-T指定转换后的文件类型为hash，参数-f指定转换后的文件名为vuser.db。可以使用<code>file vuser.db</code>来查看文件的类型。</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/FTP/h.png" alt=""></p>
+<h3 id="修改用户文件权限"><a href="#修改用户文件权限" class="headerlink" title="修改用户文件权限"></a>修改用户文件权限</h3><p>为了安全，不能让其他用户拥有vuser和vuser.db文件的任何权限。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 600 /etc/vsftpd/vuser</span><br><span class="line">chmod 600 /etc/vsftpd/vuser.db</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建虚拟用户的映射账户"><a href="#创建虚拟用户的映射账户" class="headerlink" title="创建虚拟用户的映射账户"></a>创建虚拟用户的映射账户</h3><p>虚拟用户创建之后，要给虚拟用户映射到一个系统账号，使用<code>useradd -d /opt/vuser -s /sbin/nologin vuser</code>命令新建一个虚拟用户的映射账号vuser,指定宿主目录为<code>/opt/vuser</code>,并指定不能登录系统。</p>
+<h3 id="配置用户认证信息"><a href="#配置用户认证信息" class="headerlink" title="配置用户认证信息"></a>配置用户认证信息</h3><p>使用<code>vim /etc/pam.d/vsftpd.vu</code>命令为虚拟用户创建pam认证模块，名字为vsftpd.vu。在认证文件中加入如下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">auth required pam_userdb.so db=/etc/vsftpd/vuser</span><br><span class="line">account required pam_userdb.so db=/etc/vsftpd/vuser</span><br></pre></td></tr></table></figure>
+
+<p>这里的vuser其实是vuser.db,这里省略了.db，否则会报错。</p>
+<h3 id="开启虚拟用户访问"><a href="#开启虚拟用户访问" class="headerlink" title="开启虚拟用户访问"></a>开启虚拟用户访问</h3><p>使用<code>vim /etc/vsftpd/vsftpd.conf</code>编辑配置文件，在文件的最后添加如下内容，注释掉<code>pam_service_name=vsftpd</code>。如下图所示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">guest_enable=YES</span><br><span class="line">guest_username=vuser</span><br><span class="line">pam_service_name=vsftpd.vu</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/FTP/i.png" alt=""></p>
+<h3 id="效果验证"><a href="#效果验证" class="headerlink" title="效果验证"></a>效果验证</h3><p>使用<code>service vsftpd restart</code>命令重启服务，用客户机进行测试。分别使用Tom和Jack登录并上传文件</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/FTP/j.png" alt=""></p>
+<p>使用<code>ls -l /opt/vuser</code>命令查看上传的文件的属主,发现属主均为vuser。</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/FTP/k.png" alt=""></p>
+<h2 id="配置虚拟用户拥有不同的文件权限"><a href="#配置虚拟用户拥有不同的文件权限" class="headerlink" title="配置虚拟用户拥有不同的文件权限"></a>配置虚拟用户拥有不同的文件权限</h2><h3 id="开启单独配置文件功能"><a href="#开启单独配置文件功能" class="headerlink" title="开启单独配置文件功能"></a>开启单独配置文件功能</h3><p>打开vsftpd.conf配置文件，加入以下一行内容，告诉配置文件在vu_dir目录下找用户的单独权限配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">user_config_dir=/etc/vsftpd/vu_dir</span><br></pre></td></tr></table></figure>
+
+<h3 id="建立用户权限文件"><a href="#建立用户权限文件" class="headerlink" title="建立用户权限文件"></a>建立用户权限文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /etc/vsftpd/vu_dir #新建vu_dir目录</span><br><span class="line">cd /etc/vsftpd/vu_dir #进入vu_dir目录</span><br><span class="line">touch Jack</span><br></pre></td></tr></table></figure>
+
+<p>使用man命令发现anon_umask(匿名上传)的默认权限为600，如国要改变Jack的上传权限为644的话，就把这个值设置为022即可。使用<code>vim Jack</code>命令编辑文件在文件中写入<code>anon_umask=022</code></p>
+<h3 id="效果验证-1"><a href="#效果验证-1" class="headerlink" title="效果验证"></a>效果验证</h3><p>重启服务后，用客户机登录Jack上传一个新的文件。</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/FTP/l.png" alt=""></p>
+
+  </div>
+</article>
+
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#任务一"><span class="toc-number">1.</span> <span class="toc-text">任务一</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#设置IP地址"><span class="toc-number">1.1.</span> <span class="toc-text">设置IP地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装vsftpd文件"><span class="toc-number">1.2.</span> <span class="toc-text">安装vsftpd文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建立匿名用户主目录以及abc用户"><span class="toc-number">1.3.</span> <span class="toc-text">建立匿名用户主目录以及abc用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编辑配置文件"><span class="toc-number">1.4.</span> <span class="toc-text">编辑配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置vsftpd在系统中运行"><span class="toc-number">1.5.</span> <span class="toc-text">配置vsftpd在系统中运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#了解配置文件"><span class="toc-number">1.6.</span> <span class="toc-text">了解配置文件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#任务二"><span class="toc-number">2.</span> <span class="toc-text">任务二</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#磁盘分区与挂载"><span class="toc-number">2.1.</span> <span class="toc-text">磁盘分区与挂载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建立用户与用户组并设置权限"><span class="toc-number">2.2.</span> <span class="toc-text">建立用户与用户组并设置权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建quota，配置磁盘配额"><span class="toc-number">2.3.</span> <span class="toc-text">创建quota，配置磁盘配额</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编辑配置文件-1"><span class="toc-number">2.4.</span> <span class="toc-text">编辑配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建立用户独立文件"><span class="toc-number">2.5.</span> <span class="toc-text">建立用户独立文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#验证"><span class="toc-number">2.6.</span> <span class="toc-text">验证</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#user1-4"><span class="toc-number">2.6.1.</span> <span class="toc-text">user1~4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#admin"><span class="toc-number">2.6.2.</span> <span class="toc-text">admin</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#任务三"><span class="toc-number">3.</span> <span class="toc-text">任务三</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装相关文件"><span class="toc-number">3.1.</span> <span class="toc-text">安装相关文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建立用户"><span class="toc-number">3.2.</span> <span class="toc-text">建立用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置vsftpd-conf文件"><span class="toc-number">3.3.</span> <span class="toc-text">配置vsftpd.conf文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建立日志文件并修改权限"><span class="toc-number">3.4.</span> <span class="toc-text">建立日志文件并修改权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建立虚拟用户文件"><span class="toc-number">3.5.</span> <span class="toc-text">建立虚拟用户文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建立虚拟用户"><span class="toc-number">3.6.</span> <span class="toc-text">建立虚拟用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成数据库"><span class="toc-number">3.7.</span> <span class="toc-text">生成数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置数据文件的访问权限"><span class="toc-number">3.8.</span> <span class="toc-text">设置数据文件的访问权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改-etc-pam-d-vsftpd内容"><span class="toc-number">3.9.</span> <span class="toc-text">修改/etc/pam.d/vsftpd内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建用户的配置文件"><span class="toc-number">3.10.</span> <span class="toc-text">创建用户的配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重启服务"><span class="toc-number">3.11.</span> <span class="toc-text">重启服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#验证-1"><span class="toc-number">3.12.</span> <span class="toc-text">验证</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#任务四"><span class="toc-number">4.</span> <span class="toc-text">任务四</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置默认的vsftpd服务器"><span class="toc-number">4.1.</span> <span class="toc-text">配置默认的vsftpd服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置匿名用户访问和下载权限"><span class="toc-number">4.2.</span> <span class="toc-text">配置匿名用户访问和下载权限</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动服务"><span class="toc-number">4.2.1.</span> <span class="toc-text">启动服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试匿名用户的上传和下载权限"><span class="toc-number">4.2.2.</span> <span class="toc-text">测试匿名用户的上传和下载权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置匿名用户拥有完全权限"><span class="toc-number">4.2.3.</span> <span class="toc-text">配置匿名用户拥有完全权限</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置登录用户禁锢在家目录"><span class="toc-number">4.3.</span> <span class="toc-text">配置登录用户禁锢在家目录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#测试用户权限"><span class="toc-number">4.3.1.</span> <span class="toc-text">测试用户权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改配置文件"><span class="toc-number">4.3.2.</span> <span class="toc-text">修改配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重启服务-1"><span class="toc-number">4.3.3.</span> <span class="toc-text">重启服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试"><span class="toc-number">4.3.4.</span> <span class="toc-text">测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置实现现在某些用户访问"><span class="toc-number">4.4.</span> <span class="toc-text">配置实现现在某些用户访问</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置虚拟用户FTP访问"><span class="toc-number">4.5.</span> <span class="toc-text">配置虚拟用户FTP访问</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#新建虚拟用户名文件"><span class="toc-number">4.5.1.</span> <span class="toc-text">新建虚拟用户名文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将文件转换成数据库文件"><span class="toc-number">4.5.2.</span> <span class="toc-text">将文件转换成数据库文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改用户文件权限"><span class="toc-number">4.5.3.</span> <span class="toc-text">修改用户文件权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建虚拟用户的映射账户"><span class="toc-number">4.5.4.</span> <span class="toc-text">创建虚拟用户的映射账户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置用户认证信息"><span class="toc-number">4.5.5.</span> <span class="toc-text">配置用户认证信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开启虚拟用户访问"><span class="toc-number">4.5.6.</span> <span class="toc-text">开启虚拟用户访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#效果验证"><span class="toc-number">4.5.7.</span> <span class="toc-text">效果验证</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置虚拟用户拥有不同的文件权限"><span class="toc-number">4.6.</span> <span class="toc-text">配置虚拟用户拥有不同的文件权限</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#开启单独配置文件功能"><span class="toc-number">4.6.1.</span> <span class="toc-text">开启单独配置文件功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建立用户权限文件"><span class="toc-number">4.6.2.</span> <span class="toc-text">建立用户权限文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#效果验证-1"><span class="toc-number">4.6.3.</span> <span class="toc-text">效果验证</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://6-7.xyz/ftp.html" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://6-7.xyz/ftp.html&text=Linux配置与管理FTP服务" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://6-7.xyz/ftp.html&title=Linux配置与管理FTP服务" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://6-7.xyz/ftp.html&is_video=false&description=Linux配置与管理FTP服务" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Linux配置与管理FTP服务&body=Check out this article: https://6-7.xyz/ftp.html"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://6-7.xyz/ftp.html&title=Linux配置与管理FTP服务" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://6-7.xyz/ftp.html&title=Linux配置与管理FTP服务" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://6-7.xyz/ftp.html&title=Linux配置与管理FTP服务" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://6-7.xyz/ftp.html&title=Linux配置与管理FTP服务" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://6-7.xyz/ftp.html&name=Linux配置与管理FTP服务&description=&lt;blockquote&gt;
+&lt;p&gt;FTP用于在Internet上控制文件的双向传输。同时，它也是一个应用程序。基于不同的操作系统有不同的FTP应用程序，而所有这些应用程序都遵循同一种协议以传输文件。在FTP的使用中，用户经常遇到两个概念：“下载”和“上传”下载文件就是从远程主机复制文件到自己的电脑上💻；上传文件就是将自己电脑上💻的文件复制到远程计算机。&lt;/p&gt;
+&lt;/blockquote&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 嘲弄i
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+
+
+
+
+   
+
+    </script>
+</body>
+</html>

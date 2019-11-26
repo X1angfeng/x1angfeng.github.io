@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="简介Openfiler是一个基于rPath Linux系统的免费ISCIS&#x2F;NAS应用。它是一个基于浏览器的免费网络存储管理实用程序，可以在单一框架中提供基于文件的网络连接存储 (NAS) 和基于块的存储区域网 (SAN)。Openfiler 支持 CIFS、NFS、HTTP&#x2F;DAV 和 FTP。Openfiler能把标准x86&#x2F;64架构的系统变成一个强大的NAS、SAN存储和IP存储网关，为管理">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="虚拟机安装openfiler">
+<meta property="og:url" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;openfiler.html">
+<meta property="og:site_name" content="嘲弄i">
+<meta property="og:description" content="简介Openfiler是一个基于rPath Linux系统的免费ISCIS&#x2F;NAS应用。它是一个基于浏览器的免费网络存储管理实用程序，可以在单一框架中提供基于文件的网络连接存储 (NAS) 和基于块的存储区域网 (SAN)。Openfiler 支持 CIFS、NFS、HTTP&#x2F;DAV 和 FTP。Openfiler能把标准x86&#x2F;64架构的系统变成一个强大的NAS、SAN存储和IP存储网关，为管理">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;0.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;4.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;5.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;6.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;7.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;8.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;9.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;10.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;11.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;12.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;13.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;14.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;15.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;16.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;17.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;18.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;19.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;20.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;21.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;22.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;23.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;24.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;25.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;26.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;27.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;28.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;29.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;30.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;31.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;32.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;33.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;34.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;35.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;36.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;37.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;38.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;39.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;40.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;41.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;42.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;43.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;44.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;45.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;46.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;47.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;48.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;49.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;50.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;51.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;52.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;53.png">
+<meta property="og:updated_time" content="2019-11-04T14:29:39.329Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;0.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/McRae.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/McRae.ico" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/McRae.ico">
+          
+        
+    
+
+    <!-- title -->
+    <title>虚拟机安装openfiler</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/vpn.html"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/vsphere.html"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://6-7.xyz/openfiler.html" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://6-7.xyz/openfiler.html&text=虚拟机安装openfiler" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://6-7.xyz/openfiler.html&title=虚拟机安装openfiler" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://6-7.xyz/openfiler.html&is_video=false&description=虚拟机安装openfiler" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=虚拟机安装openfiler&body=Check out this article: https://6-7.xyz/openfiler.html"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://6-7.xyz/openfiler.html&title=虚拟机安装openfiler" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://6-7.xyz/openfiler.html&title=虚拟机安装openfiler" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://6-7.xyz/openfiler.html&title=虚拟机安装openfiler" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://6-7.xyz/openfiler.html&title=虚拟机安装openfiler" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://6-7.xyz/openfiler.html&name=虚拟机安装openfiler&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#openfiler安装"><span class="toc-number">2.</span> <span class="toc-text">openfiler安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载openfiler镜像"><span class="toc-number">2.1.</span> <span class="toc-text">下载openfiler镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建虚拟机"><span class="toc-number">2.2.</span> <span class="toc-text">创建虚拟机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置openfiler-的iscsi目标服务器"><span class="toc-number">2.3.</span> <span class="toc-text">配置openfiler 的iscsi目标服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-重启进入操作系统"><span class="toc-number">2.3.1.</span> <span class="toc-text">1.重启进入操作系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-添加3块scsi硬盘"><span class="toc-number">2.3.2.</span> <span class="toc-text">2.添加3块scsi硬盘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-登录web界面"><span class="toc-number">2.3.3.</span> <span class="toc-text">3.登录web界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-磁盘配置RAID5"><span class="toc-number">2.3.4.</span> <span class="toc-text">4.磁盘配置RAID5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-创建逻辑卷"><span class="toc-number">2.3.5.</span> <span class="toc-text">5.创建逻辑卷</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-启动iscsi目标服务器"><span class="toc-number">2.3.6.</span> <span class="toc-text">6.启动iscsi目标服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-配置访问控制列表，iscsi目标服务器"><span class="toc-number">2.3.7.</span> <span class="toc-text">7.配置访问控制列表，iscsi目标服务器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#连接iscsi测试"><span class="toc-number">2.4.</span> <span class="toc-text">连接iscsi测试</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        虚拟机安装openfiler
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">嘲弄i</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-11-04T06:52:48.000Z" itemprop="datePublished">2019-11-04</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/Linux/" rel="tag">Linux</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Openfiler是一个基于rPath Linux系统的免费ISCIS/NAS应用。它是一个基于浏览器的免费网络存储管理实用程序，可以在单一框架中提供基于文件的网络连接存储 (NAS) 和基于块的存储区域网 (SAN)。Openfiler 支持 CIFS、NFS、HTTP/DAV 和 FTP。Openfiler能把标准x86/64架构的系统变成一个强大的NAS、SAN存储和IP存储网关，为管理员提供一个强大的管理平台，并能能应付未来的存储需求。依赖如VMware，Virtual Iron和Xen服务器虚拟化技术，Openfiler也可部署为一个虚拟机实例。<br>Openfiler的主要性能和优点：</p>
+<p>● 可靠性—Openfiler可以支持软件和硬件的RAID，能监测和预警，并且可以做卷的快照和快速恢复。<br>● 高可用性–Openfiler支持主动或被动的高可用性集群、多路径存储（MPIO）、块级别的复制。<br>● 性能–及时更新的Linux内核支持最新的CPU、网络和存储硬件。<br>● 可伸缩性—文件系统可扩展性最高可超出60TB，并能使文件系统大小可以在线的增长。</p>
+<h1 id="openfiler安装"><a href="#openfiler安装" class="headerlink" title="openfiler安装"></a>openfiler安装</h1><h2 id="下载openfiler镜像"><a href="#下载openfiler镜像" class="headerlink" title="下载openfiler镜像"></a>下载openfiler镜像</h2><p><a href="https://www.openfiler.com/community/download" target="_blank" rel="noopener">链接🔗</a></p>
+<h2 id="创建虚拟机"><a href="#创建虚拟机" class="headerlink" title="创建虚拟机"></a>创建虚拟机</h2><p>新建虚拟机，选择自定义</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/0.png" alt=""></p>
+<p>选择虚拟机兼容性</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/1.png" alt=""></p>
+<p>选择稍后安装操作系统</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/2.png" alt=""></p>
+<p>选择系统为Linux并且选择为Red Hat Enterprise Linux 5</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/3.png" alt=""></p>
+<p>命名虚拟机并且选择安装位置</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/4.png" alt=""></p>
+<p>处理器配置</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/5.png" alt=""></p>
+<p>虚拟机内存设置</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/6.png" alt=""></p>
+<p>设置网络类型，选择桥接</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/7.png" alt=""></p>
+<p>选择I/O控制器类型</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/8.png" alt=""></p>
+<p>选择磁盘类型</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/9.png" alt=""></p>
+<p>选择磁盘</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/10.png" alt=""></p>
+<p>指定磁盘容量</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/11.png" alt=""></p>
+<p>指定磁盘文件</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/12.png" alt=""></p>
+<p>选择挂载安装镜像</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/13.png" alt=""></p>
+<p>开启虚拟机，进入此界面按回车</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/14.png" alt=""></p>
+<p>点击下一步</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/15.png" alt=""></p>
+<p>选择适当的键盘</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/16.png" alt=""></p>
+<p>初始化磁盘，选择”Yes”</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/17.png" alt=""></p>
+<p>创建分区，选择”Yes”</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/18.png" alt=""></p>
+<p>选择使用静态的IP地址</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/19.png" alt=""></p>
+<p>配置网关与DNS服务器地址，这一步使用内网地址的话感觉DNS服务器配置与否都行。所以此处有点多余2333🤣</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/20.png" alt=""></p>
+<p>选择时区，选择上海</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/21.png" alt=""></p>
+<p>设置root密码</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/22.png" alt=""></p>
+<p>点击“Next”进行安装</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/23.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/24.png" alt=""></p>
+<p>安装完成，选择“Reboot”重启系统</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/25.png" alt=""></p>
+<h2 id="配置openfiler-的iscsi目标服务器"><a href="#配置openfiler-的iscsi目标服务器" class="headerlink" title="配置openfiler 的iscsi目标服务器"></a><strong>配置openfiler 的iscsi目标服务器</strong></h2><h3 id="1-重启进入操作系统"><a href="#1-重启进入操作系统" class="headerlink" title="1.重启进入操作系统"></a><strong>1.重启进入操作系统</strong></h3><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/26.png" alt=""></p>
+<h3 id="2-添加3块scsi硬盘"><a href="#2-添加3块scsi硬盘" class="headerlink" title="2.添加3块scsi硬盘"></a><strong>2.添加3块scsi硬盘</strong></h3><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/27.png" alt=""></p>
+<p>然后输入<code>init 6</code>重启操作系统，重新扫描scsi硬盘。</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/28.png" alt=""></p>
+<h3 id="3-登录web界面"><a href="#3-登录web界面" class="headerlink" title="3.登录web界面"></a><strong>3.登录web界面</strong></h3><p>登录地址就是启动时页面上显示的IP地址;用户名是：openfiler ， 密码是：password</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/29.png" alt=""></p>
+<h3 id="4-磁盘配置RAID5"><a href="#4-磁盘配置RAID5" class="headerlink" title="4.磁盘配置RAID5"></a><strong>4.磁盘配置RAID5</strong></h3><p>登录成功后界面如下所示</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/30.png" alt=""></p>
+<p>选择”Volumes”选项</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/31.png" alt=""></p>
+<p>选择右测得菜单栏“Block Devices”</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/32.png" alt=""></p>
+<p>点击刚添加的三块硬盘</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/33.png" alt=""></p>
+<p>创建raid分区类型</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/34.png" alt=""></p>
+<p>选择右侧的“Software RAID”</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/35.png" alt=""></p>
+<p>选择创建RAID5分区，点击“Add array”</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/36.png" alt=""></p>
+<h3 id="5-创建逻辑卷"><a href="#5-创建逻辑卷" class="headerlink" title="5.创建逻辑卷"></a><strong>5.创建逻辑卷</strong></h3><p>使用刚才创建好的raid5分区创建逻辑卷，点击“Volume Groups”</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/37.png" alt=""></p>
+<p>点击“create new physical volumes”，给卷组起一个名字叫“First”，选择物理卷“/dev/md0”</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/38.png" alt=""></p>
+<p>点击右侧的“Add volume”</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/39.png" alt=""></p>
+<p>创建卷，卷的名字叫“One”，卷描述“hello world”当然可以填其他的，容量调整为最大，FileSystem / Volume type： 选择 block(iSCSI,FC,etc)</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/40.png" alt=""></p>
+<h3 id="6-启动iscsi目标服务器"><a href="#6-启动iscsi目标服务器" class="headerlink" title="6.启动iscsi目标服务器"></a><strong>6.启动iscsi目标服务器</strong></h3><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/41.png" alt=""></p>
+<h3 id="7-配置访问控制列表，iscsi目标服务器"><a href="#7-配置访问控制列表，iscsi目标服务器" class="headerlink" title="7.配置访问控制列表，iscsi目标服务器"></a><strong>7.配置访问控制列表，iscsi目标服务器</strong></h3><p>选择“System”</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/42.png" alt=""></p>
+<p>选择允许访问的ip地址或一个网段，然后点击“update”</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/43.png" alt=""></p>
+<p>选择Volumes</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/44.png" alt=""></p>
+<p>选择右边的“iSCSI Targets”</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/45.png" alt=""></p>
+<p>添加一个target IQN</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/46.png" alt=""></p>
+<p>选择“LUN Mapping”，然后进行映射</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/47.png" alt=""></p>
+<p>选择“Network ACL”，“ACCESS”下面改成“Allow”，然后点击“update”</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/48.png" alt=""></p>
+<h2 id="连接iscsi测试"><a href="#连接iscsi测试" class="headerlink" title="连接iscsi测试"></a><strong>连接iscsi测试</strong></h2><p>打开iscsi发起程序，连接iscsi目标服务器</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/49.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/50.png" alt=""></p>
+<p>查看Windows磁盘管理，发现已经正常连接</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/51.png" alt=""></p>
+<p>新建一个分区</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/52.png" alt=""></p>
+<p>复制文件速度测试</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/53.png" alt=""></p>
+
+  </div>
+</article>
+
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#openfiler安装"><span class="toc-number">2.</span> <span class="toc-text">openfiler安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载openfiler镜像"><span class="toc-number">2.1.</span> <span class="toc-text">下载openfiler镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建虚拟机"><span class="toc-number">2.2.</span> <span class="toc-text">创建虚拟机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置openfiler-的iscsi目标服务器"><span class="toc-number">2.3.</span> <span class="toc-text">配置openfiler 的iscsi目标服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-重启进入操作系统"><span class="toc-number">2.3.1.</span> <span class="toc-text">1.重启进入操作系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-添加3块scsi硬盘"><span class="toc-number">2.3.2.</span> <span class="toc-text">2.添加3块scsi硬盘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-登录web界面"><span class="toc-number">2.3.3.</span> <span class="toc-text">3.登录web界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-磁盘配置RAID5"><span class="toc-number">2.3.4.</span> <span class="toc-text">4.磁盘配置RAID5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-创建逻辑卷"><span class="toc-number">2.3.5.</span> <span class="toc-text">5.创建逻辑卷</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-启动iscsi目标服务器"><span class="toc-number">2.3.6.</span> <span class="toc-text">6.启动iscsi目标服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-配置访问控制列表，iscsi目标服务器"><span class="toc-number">2.3.7.</span> <span class="toc-text">7.配置访问控制列表，iscsi目标服务器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#连接iscsi测试"><span class="toc-number">2.4.</span> <span class="toc-text">连接iscsi测试</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://6-7.xyz/openfiler.html" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://6-7.xyz/openfiler.html&text=虚拟机安装openfiler" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://6-7.xyz/openfiler.html&title=虚拟机安装openfiler" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://6-7.xyz/openfiler.html&is_video=false&description=虚拟机安装openfiler" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=虚拟机安装openfiler&body=Check out this article: https://6-7.xyz/openfiler.html"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://6-7.xyz/openfiler.html&title=虚拟机安装openfiler" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://6-7.xyz/openfiler.html&title=虚拟机安装openfiler" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://6-7.xyz/openfiler.html&title=虚拟机安装openfiler" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://6-7.xyz/openfiler.html&title=虚拟机安装openfiler" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://6-7.xyz/openfiler.html&name=虚拟机安装openfiler&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 嘲弄i
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a href="/music/">Music</a></li>
+         
+          <li><a href="https://github.com/X1angfeng" target="_blank" rel="noopener">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+
+
+
+
+   
+
+    </script>
+</body>
+</html>

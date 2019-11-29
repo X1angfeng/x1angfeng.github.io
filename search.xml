@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title>VMware workstation 不可恢复错误解决</title>
+      <link href="/19-11-28.html"/>
+      <url>/19-11-28.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>由于笔记本关机时，仍然在运行VMware里面的系统并没有正常的关机当再次开机时导致出现了如下错误</p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/19-11-28/1.png" alt=""></p><p>虚拟机是一种被挂起的状态，无法恢复到当时电脑关机时的状态。</p><h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>到虚拟机安装目录下删除掉一个文件即可</p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/19-11-28/2.png" alt=""></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> VMware </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>桌面虚拟化</title>
+      <link href="/19-11-27.html"/>
+      <url>/19-11-27.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="新建Esxi服务器"><a href="#新建Esxi服务器" class="headerlink" title="新建Esxi服务器"></a>新建Esxi服务器</h1><h1 id="搭建域控服务器"><a href="#搭建域控服务器" class="headerlink" title="搭建域控服务器"></a>搭建域控服务器</h1><h1 id="创建vCenter"><a href="#创建vCenter" class="headerlink" title="创建vCenter"></a>创建vCenter</h1><h1 id="搭建connection-server"><a href="#搭建connection-server" class="headerlink" title="搭建connection server"></a>搭建connection server</h1><h1 id="创建模板机"><a href="#创建模板机" class="headerlink" title="创建模板机"></a>创建模板机</h1><h1 id="测试连接"><a href="#测试连接" class="headerlink" title="测试连接"></a>测试连接</h1>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 虚拟化 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Esxi挂载iSCSI</title>
       <link href="/19-11-26.html"/>
       <url>/19-11-26.html</url>

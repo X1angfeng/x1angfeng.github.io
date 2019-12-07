@@ -1,10 +1,14 @@
-User-agent: * Allow: /
+User-agent: *
+Allow: /
 Allow: /archives/
+Allow: /categories/
+Allow: /tags/ 
+Allow: /resources/ 
 Disallow: /vendors/
 Disallow: /js/
 Disallow: /css/
 Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
-Sitemap: https://blog.1024littlebugs.com/sitemap.xml
-Sitemap: https://blog.1024littlebugs.com/baidusitemap.xml
+Sitemap: https://6-7.xyz/sitemap.xml
+Sitemap: https://6-7.xyz/baidusitemap.xml

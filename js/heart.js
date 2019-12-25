@@ -1,0 +1,3 @@
+// build time:Fri Mar 08 2019 16:11:26 GMT+0800 (中国标准时间)
+$("html,body").click(function(a){var t=new Array("♥","♥","♥");var o=Math.floor(Math.random()*t.length);var n=$("<b/>").text(t[o]);var e=a.pageX,i=a.pageY;n.css({"z-index":99999,top:i-20,left:e-8,position:"absolute",color:"#ff0000",animation:"heartbeat .25s infinite .15s"});$("body").append(n);n.animate({opacity:0},1500,function(){n.remove()});a.stopPropagation()});
+//rebuild by neat 

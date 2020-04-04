@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>linux下编译nginx报错Wno-implicit-fallthrough</title>
+      <link href="/20-1-10.html"/>
+      <url>/20-1-10.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> nginx </tag>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Windows Server安装flash</title>
       <link href="/20-1-3.html"/>
       <url>/20-1-3.html</url>

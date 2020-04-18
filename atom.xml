@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://6-7.xyz/"/>
-  <updated>2020-01-10T15:56:59.672Z</updated>
+  <updated>2020-04-18T07:14:11.689Z</updated>
   <id>https://6-7.xyz/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://6-7.xyz/20-1-10.html"/>
     <id>https://6-7.xyz/20-1-10.html</id>
     <published>2020-01-10T15:52:26.000Z</published>
-    <updated>2020-01-10T15:56:59.672Z</updated>
+    <updated>2020-04-18T07:14:11.689Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>解决方法有如下几种:</p><ol><li>更换gcc版本，具体是升级还是降级还需测试。</li><li>在报错的switch-case块中加上break。此时要对代码逻辑理解清楚，否则加上break有可能会破坏原来的逻辑。</li><li>编译时忽略Implicit fallthrough error这个错误。</li></ol><p>在这里采用的是第三种方法，编译时忽略Implicit fallthrough error这个错误。</p><p>进入到相关目录下，使用vim命令编辑Makefile文件，修改CFLAGS那一行。在后面加上<code>-Wno-implicit-fallthrough</code>即可忽略编译时的错误。</p>]]></content>
     
     <summary type="html">
     

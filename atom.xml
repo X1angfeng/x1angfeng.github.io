@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://6-7.xyz/"/>
-  <updated>2020-05-02T08:01:18.862Z</updated>
+  <updated>2020-05-18T08:33:40.460Z</updated>
   <id>https://6-7.xyz/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mavern阿里云仓库设置</title>
+    <link href="https://6-7.xyz/20-5-4.html"/>
+    <id>https://6-7.xyz/20-5-4.html</id>
+    <published>2020-05-04T07:34:09.000Z</published>
+    <updated>2020-05-18T08:33:40.460Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>使用国外的仓库速度不太理想，有的时候网络不好要花费很久的时间。因此选择换成国内的阿里云maven库主要步骤如下</p><p><strong>第一步，右击项目名称</strong></p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/20-5-4/1.png" alt=""></p><p><strong>第二步，创建setting.xml</strong></p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/20-5-4/2.png" alt=""></p><p><strong>第三步，填上这些即可</strong></p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/20-5-4/3.png" alt=""></p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus-aliyun<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>Nexus aliyun<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://maven.aliyun.com/repository/central<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+    
+      <category term="maven" scheme="https://6-7.xyz/tags/maven/"/>
+    
+  </entry>
   
   <entry>
     <title>UUPDL脚本下载Windows遇到由于吊销服务器已脱机，吊销功能无法检查吊销</title>
@@ -37,30 +61,6 @@
     
     
       <category term="Windows" scheme="https://6-7.xyz/tags/Windows/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>mavern阿里云仓库设置</title>
-    <link href="https://6-7.xyz/20-5-4.html"/>
-    <id>https://6-7.xyz/20-5-4.html</id>
-    <published>2020-05-02T07:34:09.000Z</published>
-    <updated>2020-05-18T08:28:37.191Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>使用国外的仓库速度不太理想，有的时候网络不好要花费很久的时间。因此选择换成国内的阿里云maven库主要步骤如下</p><p><strong>第一步，右击项目名称</strong></p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/20-5-4/1.png" alt=""></p><p><strong>第二步，创建setting.xml</strong></p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/20-5-4/2.png" alt=""></p><p><strong>第三步，填上这些即可</strong></p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/20-5-4/3.png" alt=""></p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus-aliyun<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>Nexus aliyun<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://maven.aliyun.com/repository/central<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-    
-    
-      <category term="maven" scheme="https://6-7.xyz/tags/maven/"/>
     
   </entry>
   

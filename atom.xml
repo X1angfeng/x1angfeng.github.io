@@ -41,6 +41,30 @@
   </entry>
   
   <entry>
+    <title>mavern阿里云仓库设置</title>
+    <link href="https://6-7.xyz/20-5-4.html"/>
+    <id>https://6-7.xyz/20-5-4.html</id>
+    <published>2020-05-02T07:34:09.000Z</published>
+    <updated>2020-05-18T08:28:37.191Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>使用国外的仓库速度不太理想，有的时候网络不好要花费很久的时间。因此选择换成国内的阿里云maven库主要步骤如下</p><p><strong>第一步，右击项目名称</strong></p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/20-5-4/1.png" alt=""></p><p><strong>第二步，创建setting.xml</strong></p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/20-5-4/2.png" alt=""></p><p><strong>第三步，填上这些即可</strong></p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/20-5-4/3.png" alt=""></p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus-aliyun<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>Nexus aliyun<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://maven.aliyun.com/repository/central<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+    
+      <category term="maven" scheme="https://6-7.xyz/tags/maven/"/>
+    
+  </entry>
+  
+  <entry>
     <title>解决AMD CPU 启动Android模拟器时无法安装Intel HAXM 的问题</title>
     <link href="https://6-7.xyz/20-5-2.html"/>
     <id>https://6-7.xyz/20-5-2.html</id>
@@ -465,31 +489,6 @@
     
     
       <category term="Linux" scheme="https://6-7.xyz/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>路由器OSPF动态路由配置</title>
-    <link href="https://6-7.xyz/ospf.html"/>
-    <id>https://6-7.xyz/ospf.html</id>
-    <published>2019-05-16T09:09:44.000Z</published>
-    <updated>2019-07-24T02:32:06.405Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote><p>假设校园网通过一台三层交换机连到校园网出口路由器上，路由器再和校园外的另一台路由器连接。现要做适当配置，实现校园网内部主机与校园网外部主机之间的相互通信。为了简化网管的管理维护工作，学校决定采用OSPF协议实现互通。</p></blockquote><a id="more"></a><h1 id="技术原理"><a href="#技术原理" class="headerlink" title="技术原理"></a><strong>技术原理</strong></h1><p>🎈OSPF开放式最短路径优先协议，是目前网路中应用最广泛的路由协议之一。属于内部网管路由协议，能够适应各种规模的网络环境，是典型的链路状态协议。OSPF路由协议通过向全网扩散本设备的链路状态信息，使网络中每台设备最终同步一个具有全网链路状态的数据库，然后路由器采用SPF算法，以自己为根，计算到达其他网络的最短路径，最终形成全网路由信息。</p><h1 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a><strong>实验步骤</strong></h1><p>🎈新建packet tracer拓扑图</p><p>（1）在本实验中的三层交换机上划分VLAN10和VLAN20，其中VLAN10用于连接校园网主机，VLAN20用于连接R1。</p><p>（2）路由器之间通过V35电缆通过串口连接，DCE端连接在R1上，配置其时钟频率64000。</p><p>（3）主机和交换机通过直连线，主机与路由器通过交叉线连接。</p><p>（4）在S3560上配置OSPF路由协议。</p><p>（5）在路由器R1、R2上配置OSPF路由协议。</p><p>（6）将PC1、PC2主机默认网关设置为与直连网路设备接口IP地址。</p><p>（7）验证PC1、PC2主机之间可以互相通信；</p><h1 id="实验设备"><a href="#实验设备" class="headerlink" title="实验设备"></a>实验设备</h1><p>PC 2台；Switch_3560 1台；Router-PT 2台；直连线；交叉线；DCE串口线</p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ospf.png" alt=""></p><p><code>PC1</code> </p><p>​       IP:                 192.168.1.2</p><p>​       Submask:        255.255.255.0</p><p>​       Gateway:        192.168.1.1</p><p><code>PC2</code></p><p>​       IP:                 192.168.2.2</p><p>​       Submask:        255.255.255.0</p><p>​       Gateway:        192.168.2.1 </p><p>🌈配置<code>S3560</code></p><p>Switch&gt;en</p><p>Switch#conf t</p><p>Switch(config)#vlan 10</p><p>Switch(config-vlan)#exit</p><p>Switch(config)#vlan 20</p><p>Switch(config-vlan)#exit</p><p>Switch(config)#int fa 0/1</p><p>Switch(config-if)#sw acc vlan 10</p><p>Switch(config-if)#exit</p><p>Switch(config)#int fa 0/2</p><p>Switch(config-if)#sw acc vlan 20</p><p>Switch(config-if)#exit</p><p>Switch(config)#int vlan 10</p><p>Switch(config-if)#ip add 192.168.1.1 255.255.255.0</p><p>Switch(config-if)#no shutdown</p><p>Switch(config-if)#exit</p><p>Switch(config)#int fa 0/2</p><p>Switch(config-if)#ip add 192.168.3.1 255.255.255.0</p><p>Switch(config-if)#no shutdown </p><p>Switch(config-if)#exit</p><p>Switch(config)#router ospf 1</p><p>Switch(config-router)#network 192.168.1.0 0.0.0.255 area 0</p><p>Switch(config-router)#network 192.168.3.0 0.0.0.255 area 0 </p><p>Switch(config-router)#end</p><p>🌈<code>R1</code>的配置</p><p>Router&gt;en</p><p>Router#conf t</p><p>Router(config)#int fa 0/0</p><p>Router(config-if)#ip add 192.168.3.2 255.255.255.0</p><p>Router(config-if)#no shutdown</p><p>Router(config-if)#exit</p><p>Router(config)#int serial 2/0</p><p>Router(config-if)#ip add 192.168.4.1 255.255.255.0</p><p>Router(config-if)#no shutdown</p><p>Router(config-if)#clock  rate 64000</p><p>Router(config-if)#exit</p><p>Router(config)#router ospf 1</p><p>Router(config-router)#network 192.168.3.0 0.0.0.255 area 0</p><p>Router(config-router)#network 192.168.4.0 0.0.0.255 area 0</p><p>Router(config-router)#end</p><p>🌈<code>R2</code>的配置</p><p>Router&gt;en</p><p>Router#conf t</p><p>Router(config)#int fa 0/0</p><p>Router(config-if)#ip add 192.168.2.2 255.255.255.0</p><p>Router(config-if)#no shutdown</p><p>Router(config-if)#exit</p><p>Router(config)#int serial 2/0</p><p>Router(config-if)#ip add 192.168.4.2 255.255.255.0</p><p>Router(config-if)#no shutdown</p><p>Router(config-if)#exit</p><p>Router(config)#router ospf 1</p><p>Router(config-router)#network 192.168.4.0 0.0.0.255 area 0</p><p>Router(config-router)#network 192.168.2.0 0.0.0.255 area 0</p><p>Router(config-router)#end</p><h1 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h1><p>PC1、PC2主机之间可以互相通信</p><p><code>PC1</code> ping <code>PC2</code></p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/1.png" alt=""></p><p><code>PC2</code> ping <code>PC1</code></p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/2.png" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;假设校园网通过一台三层交换机连到校园网出口路由器上，路由器再和校园外的另一台路由器连接。现要做适当配置，实现校园网内部主机与校园网外部主机之间的相互通信。为了简化网管的管理维护工作，学校决定采用OSPF协议实现互通。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="数据通信" scheme="https://6-7.xyz/categories/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1/"/>
-    
-    
-      <category term="OSPF" scheme="https://6-7.xyz/tags/OSPF/"/>
     
   </entry>
   

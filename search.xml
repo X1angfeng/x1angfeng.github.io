@@ -137,7 +137,7 @@
       <link href="/19-11-27.html"/>
       <url>/19-11-27.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="新建Esxi服务器"><a href="#新建Esxi服务器" class="headerlink" title="新建Esxi服务器"></a>新建Esxi服务器</h1><h1 id="搭建域控服务器"><a href="#搭建域控服务器" class="headerlink" title="搭建域控服务器"></a>搭建域控服务器</h1><h1 id="创建vCenter"><a href="#创建vCenter" class="headerlink" title="创建vCenter"></a>创建vCenter</h1><h1 id="搭建connection-server"><a href="#搭建connection-server" class="headerlink" title="搭建connection server"></a>搭建connection server</h1><h1 id="创建模板机"><a href="#创建模板机" class="headerlink" title="创建模板机"></a>创建模板机</h1><h1 id="测试连接"><a href="#测试连接" class="headerlink" title="测试连接"></a>测试连接</h1>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>太懒了以后再写吧</p><h1 id="新建Esxi服务器"><a href="#新建Esxi服务器" class="headerlink" title="新建Esxi服务器"></a>新建Esxi服务器</h1><h1 id="搭建域控服务器"><a href="#搭建域控服务器" class="headerlink" title="搭建域控服务器"></a>搭建域控服务器</h1><h1 id="创建vCenter"><a href="#创建vCenter" class="headerlink" title="创建vCenter"></a>创建vCenter</h1><h1 id="搭建connection-server"><a href="#搭建connection-server" class="headerlink" title="搭建connection server"></a>搭建connection server</h1><h1 id="创建模板机"><a href="#创建模板机" class="headerlink" title="创建模板机"></a>创建模板机</h1><h1 id="测试连接"><a href="#测试连接" class="headerlink" title="测试连接"></a>测试连接</h1>]]></content>
       
       
       
@@ -553,9 +553,9 @@
       
         <tags>
             
-            <tag> vlan </tag>
-            
             <tag> 路由 </tag>
+            
+            <tag> vlan </tag>
             
         </tags>
       

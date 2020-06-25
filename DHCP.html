@@ -10,39 +10,39 @@
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux配置与应用DHCP服务">
-<meta property="og:url" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;DHCP.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;521.ooo&#x2F;DHCP.html">
 <meta property="og:site_name" content="嘲弄i">
 <meta property="og:description" content="DHCP(Dynamic Host Configuration Protocol,动态主机配置协议)是一个简化主机IP地址分配管理的TCP&#x2F;IP协议。只要在网络中安装和配置了DHCP服务器，用户不用再自行输入任何数据，就可以将一台计算机接入到网络之中，所有入网的必要参数(包括IP地址、子网掩码、默认网关、DNS服务器的地址等)的设置都可交给DHCP服务器负责，它会自动的配置好。">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;DHCP.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;ip.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;s.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;dhcp.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;c.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;b.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;cq.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;g.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;w.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;l.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;1.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;2.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;3.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;4.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;cq.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;g.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;5.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;6.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;7.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;8.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;9.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;ip.jpg">
-<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;ip1.jpg">
-<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;dhcp.jpg">
-<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;cq.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;dhcp&#x2F;dhcrelay.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;DHCP.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;dhcp&#x2F;ip.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;dhcp&#x2F;s.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;dhcp&#x2F;dhcp.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;dhcp&#x2F;c.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;dhcp&#x2F;b.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;dhcp&#x2F;cq.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;dhcp&#x2F;g.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;dhcp&#x2F;w.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;dhcp&#x2F;l.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;dhcp&#x2F;1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;dhcp&#x2F;2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;dhcp&#x2F;3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;dhcp&#x2F;4.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;dhcp&#x2F;cq.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;dhcp&#x2F;g.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;dhcp&#x2F;5.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;dhcp&#x2F;6.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;dhcp&#x2F;7.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;dhcp&#x2F;8.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;dhcp&#x2F;9.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;dhcp&#x2F;ip.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;dhcp&#x2F;ip1.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;dhcp&#x2F;dhcp.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;dhcp&#x2F;cq.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;dhcp&#x2F;dhcrelay.png">
 <meta property="og:updated_time" content="2019-04-08T13:23:31.146Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;6-7.xyz&#x2F;img&#x2F;DHCP.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;DHCP.png">
     
     
         
@@ -118,16 +118,16 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://6-7.xyz/DHCP.html" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://6-7.xyz/DHCP.html&text=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://6-7.xyz/DHCP.html&title=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://6-7.xyz/DHCP.html&is_video=false&description=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Linux配置与应用DHCP服务&body=Check out this article: https://6-7.xyz/DHCP.html"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://6-7.xyz/DHCP.html&title=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://6-7.xyz/DHCP.html&title=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://6-7.xyz/DHCP.html&title=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://6-7.xyz/DHCP.html&title=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://6-7.xyz/DHCP.html&name=Linux配置与应用DHCP服务&description=&lt;blockquote&gt;
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://521.ooo/DHCP.html" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://521.ooo/DHCP.html&text=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://521.ooo/DHCP.html&title=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://521.ooo/DHCP.html&is_video=false&description=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Linux配置与应用DHCP服务&body=Check out this article: https://521.ooo/DHCP.html"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://521.ooo/DHCP.html&title=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://521.ooo/DHCP.html&title=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://521.ooo/DHCP.html&title=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://521.ooo/DHCP.html&title=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://521.ooo/DHCP.html&name=Linux配置与应用DHCP服务&description=&lt;blockquote&gt;
 &lt;p&gt;DHCP(Dynamic Host Configuration Protocol,动态主机配置协议)是一个简化主机IP地址分配管理的TCP/IP协议。只要在网络中安装和配置了DHCP服务器，用户不用再自行输入任何数据，就可以将一台计算机接入到网络之中，所有入网的必要参数(包括IP地址、子网掩码、默认网关、DNS服务器的地址等)的设置都可交给DHCP服务器负责，它会自动的配置好。&lt;/p&gt;
 &lt;/blockquote&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
@@ -325,16 +325,16 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://6-7.xyz/DHCP.html" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://6-7.xyz/DHCP.html&text=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://6-7.xyz/DHCP.html&title=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://6-7.xyz/DHCP.html&is_video=false&description=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Linux配置与应用DHCP服务&body=Check out this article: https://6-7.xyz/DHCP.html"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://6-7.xyz/DHCP.html&title=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://6-7.xyz/DHCP.html&title=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://6-7.xyz/DHCP.html&title=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://6-7.xyz/DHCP.html&title=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://6-7.xyz/DHCP.html&name=Linux配置与应用DHCP服务&description=&lt;blockquote&gt;
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://521.ooo/DHCP.html" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://521.ooo/DHCP.html&text=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://521.ooo/DHCP.html&title=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://521.ooo/DHCP.html&is_video=false&description=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Linux配置与应用DHCP服务&body=Check out this article: https://521.ooo/DHCP.html"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://521.ooo/DHCP.html&title=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://521.ooo/DHCP.html&title=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://521.ooo/DHCP.html&title=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://521.ooo/DHCP.html&title=Linux配置与应用DHCP服务" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://521.ooo/DHCP.html&name=Linux配置与应用DHCP服务&description=&lt;blockquote&gt;
 &lt;p&gt;DHCP(Dynamic Host Configuration Protocol,动态主机配置协议)是一个简化主机IP地址分配管理的TCP/IP协议。只要在网络中安装和配置了DHCP服务器，用户不用再自行输入任何数据，就可以将一台计算机接入到网络之中，所有入网的必要参数(包括IP地址、子网掩码、默认网关、DNS服务器的地址等)的设置都可交给DHCP服务器负责，它会自动的配置好。&lt;/p&gt;
 &lt;/blockquote&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>

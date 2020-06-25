@@ -2,12 +2,12 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>嘲弄i</title>
   
-  <subtitle>Running Noob!!!</subtitle>
+  <subtitle>只会写hello world和bug!!!</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://6-7.xyz/"/>
+  <link href="https://521.ooo/"/>
   <updated>2020-05-18T08:33:40.460Z</updated>
-  <id>https://6-7.xyz/</id>
+  <id>https://521.ooo/</id>
   
   <author>
     <name>嘲弄i</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>mavern阿里云仓库设置</title>
-    <link href="https://6-7.xyz/20-5-4.html"/>
-    <id>https://6-7.xyz/20-5-4.html</id>
+    <link href="https://521.ooo/20-5-4.html"/>
+    <id>https://521.ooo/20-5-4.html</id>
     <published>2020-05-04T07:34:09.000Z</published>
     <updated>2020-05-18T08:33:40.460Z</updated>
     
@@ -36,14 +36,14 @@
     
     
     
-      <category term="maven" scheme="https://6-7.xyz/tags/maven/"/>
+      <category term="maven" scheme="https://521.ooo/tags/maven/"/>
     
   </entry>
   
   <entry>
     <title>UUPDL脚本下载Windows遇到由于吊销服务器已脱机，吊销功能无法检查吊销</title>
-    <link href="https://6-7.xyz/20-5-3.html"/>
-    <id>https://6-7.xyz/20-5-3.html</id>
+    <link href="https://521.ooo/20-5-3.html"/>
+    <id>https://521.ooo/20-5-3.html</id>
     <published>2020-05-03T07:34:02.000Z</published>
     <updated>2020-05-02T08:01:18.862Z</updated>
     
@@ -60,14 +60,14 @@
     
     
     
-      <category term="Windows" scheme="https://6-7.xyz/tags/Windows/"/>
+      <category term="Windows" scheme="https://521.ooo/tags/Windows/"/>
     
   </entry>
   
   <entry>
     <title>解决AMD CPU 启动Android模拟器时无法安装Intel HAXM 的问题</title>
-    <link href="https://6-7.xyz/20-5-2.html"/>
-    <id>https://6-7.xyz/20-5-2.html</id>
+    <link href="https://521.ooo/20-5-2.html"/>
+    <id>https://521.ooo/20-5-2.html</id>
     <published>2020-05-02T05:54:19.000Z</published>
     <updated>2020-05-02T07:27:22.899Z</updated>
     
@@ -84,14 +84,14 @@
     
     
     
-      <category term="Android" scheme="https://6-7.xyz/tags/Android/"/>
+      <category term="Android" scheme="https://521.ooo/tags/Android/"/>
     
   </entry>
   
   <entry>
     <title>mysql_front连接报错，sql执行错误#3167的解决方案</title>
-    <link href="https://6-7.xyz/20-4-18.html"/>
-    <id>https://6-7.xyz/20-4-18.html</id>
+    <link href="https://521.ooo/20-4-18.html"/>
+    <id>https://521.ooo/20-4-18.html</id>
     <published>2020-04-18T13:22:16.000Z</published>
     <updated>2020-04-18T13:37:47.366Z</updated>
     
@@ -108,14 +108,14 @@
     
     
     
-      <category term="mysql" scheme="https://6-7.xyz/tags/mysql/"/>
+      <category term="mysql" scheme="https://521.ooo/tags/mysql/"/>
     
   </entry>
   
   <entry>
     <title>linux下编译nginx报错Wno-implicit-fallthrough</title>
-    <link href="https://6-7.xyz/20-1-10.html"/>
-    <id>https://6-7.xyz/20-1-10.html</id>
+    <link href="https://521.ooo/20-1-10.html"/>
+    <id>https://521.ooo/20-1-10.html</id>
     <published>2020-01-10T15:52:26.000Z</published>
     <updated>2020-04-18T07:14:11.689Z</updated>
     
@@ -132,16 +132,16 @@
     
     
     
-      <category term="nginx" scheme="https://6-7.xyz/tags/nginx/"/>
+      <category term="nginx" scheme="https://521.ooo/tags/nginx/"/>
     
-      <category term="Linux" scheme="https://6-7.xyz/tags/Linux/"/>
+      <category term="Linux" scheme="https://521.ooo/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>Windows Server安装flash</title>
-    <link href="https://6-7.xyz/20-1-3.html"/>
-    <id>https://6-7.xyz/20-1-3.html</id>
+    <link href="https://521.ooo/20-1-3.html"/>
+    <id>https://521.ooo/20-1-3.html</id>
     <published>2020-01-03T15:05:18.000Z</published>
     <updated>2020-01-03T15:36:42.233Z</updated>
     
@@ -162,8 +162,8 @@
   
   <entry>
     <title>VMware workstation 不可恢复错误解决</title>
-    <link href="https://6-7.xyz/19-11-28.html"/>
-    <id>https://6-7.xyz/19-11-28.html</id>
+    <link href="https://521.ooo/19-11-28.html"/>
+    <id>https://521.ooo/19-11-28.html</id>
     <published>2019-11-29T05:56:47.000Z</published>
     <updated>2019-11-29T06:07:37.693Z</updated>
     
@@ -180,18 +180,18 @@
     
     
     
-      <category term="VMware" scheme="https://6-7.xyz/tags/VMware/"/>
+      <category term="VMware" scheme="https://521.ooo/tags/VMware/"/>
     
   </entry>
   
   <entry>
     <title>桌面虚拟化</title>
-    <link href="https://6-7.xyz/19-11-27.html"/>
-    <id>https://6-7.xyz/19-11-27.html</id>
+    <link href="https://521.ooo/19-11-27.html"/>
+    <id>https://521.ooo/19-11-27.html</id>
     <published>2019-11-26T14:49:53.000Z</published>
-    <updated>2019-11-26T14:52:24.285Z</updated>
+    <updated>2020-05-28T04:36:17.597Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="新建Esxi服务器"><a href="#新建Esxi服务器" class="headerlink" title="新建Esxi服务器"></a>新建Esxi服务器</h1><h1 id="搭建域控服务器"><a href="#搭建域控服务器" class="headerlink" title="搭建域控服务器"></a>搭建域控服务器</h1><h1 id="创建vCenter"><a href="#创建vCenter" class="headerlink" title="创建vCenter"></a>创建vCenter</h1><h1 id="搭建connection-server"><a href="#搭建connection-server" class="headerlink" title="搭建connection server"></a>搭建connection server</h1><h1 id="创建模板机"><a href="#创建模板机" class="headerlink" title="创建模板机"></a>创建模板机</h1><h1 id="测试连接"><a href="#测试连接" class="headerlink" title="测试连接"></a>测试连接</h1>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>太懒了以后再写吧</p><h1 id="新建Esxi服务器"><a href="#新建Esxi服务器" class="headerlink" title="新建Esxi服务器"></a>新建Esxi服务器</h1><h1 id="搭建域控服务器"><a href="#搭建域控服务器" class="headerlink" title="搭建域控服务器"></a>搭建域控服务器</h1><h1 id="创建vCenter"><a href="#创建vCenter" class="headerlink" title="创建vCenter"></a>创建vCenter</h1><h1 id="搭建connection-server"><a href="#搭建connection-server" class="headerlink" title="搭建connection server"></a>搭建connection server</h1><h1 id="创建模板机"><a href="#创建模板机" class="headerlink" title="创建模板机"></a>创建模板机</h1><h1 id="测试连接"><a href="#测试连接" class="headerlink" title="测试连接"></a>测试连接</h1>]]></content>
     
     <summary type="html">
     
@@ -204,14 +204,14 @@
     
     
     
-      <category term="虚拟化" scheme="https://6-7.xyz/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/"/>
+      <category term="虚拟化" scheme="https://521.ooo/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/"/>
     
   </entry>
   
   <entry>
     <title>Esxi挂载iSCSI</title>
-    <link href="https://6-7.xyz/19-11-26.html"/>
-    <id>https://6-7.xyz/19-11-26.html</id>
+    <link href="https://521.ooo/19-11-26.html"/>
+    <id>https://521.ooo/19-11-26.html</id>
     <published>2019-11-26T13:41:13.000Z</published>
     <updated>2019-11-26T14:41:17.757Z</updated>
     
@@ -228,14 +228,14 @@
     
     
     
-      <category term="虚拟化" scheme="https://6-7.xyz/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/"/>
+      <category term="虚拟化" scheme="https://521.ooo/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/"/>
     
   </entry>
   
   <entry>
     <title>vCenter安装问题</title>
-    <link href="https://6-7.xyz/19-11-15.html"/>
-    <id>https://6-7.xyz/19-11-15.html</id>
+    <link href="https://521.ooo/19-11-15.html"/>
+    <id>https://521.ooo/19-11-15.html</id>
     <published>2019-11-15T07:55:02.000Z</published>
     <updated>2019-11-15T09:25:26.444Z</updated>
     
@@ -252,14 +252,14 @@
     
     
     
-      <category term="虚拟化" scheme="https://6-7.xyz/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/"/>
+      <category term="虚拟化" scheme="https://521.ooo/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/"/>
     
   </entry>
   
   <entry>
     <title>Windows server搭建vpn服务实验</title>
-    <link href="https://6-7.xyz/vpn.html"/>
-    <id>https://6-7.xyz/vpn.html</id>
+    <link href="https://521.ooo/vpn.html"/>
+    <id>https://521.ooo/vpn.html</id>
     <published>2019-11-06T07:13:28.000Z</published>
     <updated>2019-11-07T05:34:08.717Z</updated>
     
@@ -280,8 +280,8 @@
   
   <entry>
     <title>虚拟机安装openfiler</title>
-    <link href="https://6-7.xyz/openfiler.html"/>
-    <id>https://6-7.xyz/openfiler.html</id>
+    <link href="https://521.ooo/openfiler.html"/>
+    <id>https://521.ooo/openfiler.html</id>
     <published>2019-11-04T06:52:48.000Z</published>
     <updated>2019-11-04T14:29:39.329Z</updated>
     
@@ -298,14 +298,14 @@
     
     
     
-      <category term="Linux" scheme="https://6-7.xyz/tags/Linux/"/>
+      <category term="Linux" scheme="https://521.ooo/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>虚拟化VMware ESXi 6.7服务器与vCenter的安装与配置</title>
-    <link href="https://6-7.xyz/vsphere.html"/>
-    <id>https://6-7.xyz/vsphere.html</id>
+    <link href="https://521.ooo/vsphere.html"/>
+    <id>https://521.ooo/vsphere.html</id>
     <published>2019-10-08T11:13:16.000Z</published>
     <updated>2019-10-28T15:07:04.905Z</updated>
     
@@ -318,21 +318,21 @@
     </summary>
     
     
-      <category term="虚拟化" scheme="https://6-7.xyz/categories/%E8%99%9A%E6%8B%9F%E5%8C%96/"/>
+      <category term="虚拟化" scheme="https://521.ooo/categories/%E8%99%9A%E6%8B%9F%E5%8C%96/"/>
     
-      <category term="Vmware" scheme="https://6-7.xyz/categories/%E8%99%9A%E6%8B%9F%E5%8C%96/Vmware/"/>
+      <category term="Vmware" scheme="https://521.ooo/categories/%E8%99%9A%E6%8B%9F%E5%8C%96/Vmware/"/>
     
     
-      <category term="虚拟化" scheme="https://6-7.xyz/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/"/>
+      <category term="虚拟化" scheme="https://521.ooo/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/"/>
     
-      <category term="Vmware" scheme="https://6-7.xyz/tags/Vmware/"/>
+      <category term="Vmware" scheme="https://521.ooo/tags/Vmware/"/>
     
   </entry>
   
   <entry>
     <title>Coding Pages申请SSL/TLS证书错误</title>
-    <link href="https://6-7.xyz/ssl.html"/>
-    <id>https://6-7.xyz/ssl.html</id>
+    <link href="https://521.ooo/ssl.html"/>
+    <id>https://521.ooo/ssl.html</id>
     <published>2019-07-07T05:46:13.000Z</published>
     <updated>2019-11-07T06:02:18.778Z</updated>
     
@@ -353,8 +353,8 @@
   
   <entry>
     <title>启动docker WARNING IPv4 forwarding is disabled.解决方法</title>
-    <link href="https://6-7.xyz/%F0%9F%90%8B.html"/>
-    <id>https://6-7.xyz/🐋.html</id>
+    <link href="https://521.ooo/%F0%9F%90%8B.html"/>
+    <id>https://521.ooo/🐋.html</id>
     <published>2019-06-11T08:21:51.000Z</published>
     <updated>2019-06-11T15:09:29.458Z</updated>
     
@@ -367,17 +367,17 @@
     </summary>
     
     
-      <category term="Docker" scheme="https://6-7.xyz/categories/Docker/"/>
+      <category term="Docker" scheme="https://521.ooo/categories/Docker/"/>
     
     
-      <category term="Docker" scheme="https://6-7.xyz/tags/Docker/"/>
+      <category term="Docker" scheme="https://521.ooo/tags/Docker/"/>
     
   </entry>
   
   <entry>
     <title>一个很(⊙﹏⊙)的问题</title>
-    <link href="https://6-7.xyz/su.html"/>
-    <id>https://6-7.xyz/su.html</id>
+    <link href="https://521.ooo/su.html"/>
+    <id>https://521.ooo/su.html</id>
     <published>2019-06-05T06:15:18.000Z</published>
     <updated>2019-06-05T08:06:58.424Z</updated>
     
@@ -392,17 +392,17 @@
     </summary>
     
     
-      <category term="Linux" scheme="https://6-7.xyz/categories/Linux/"/>
+      <category term="Linux" scheme="https://521.ooo/categories/Linux/"/>
     
     
-      <category term="Linux" scheme="https://6-7.xyz/tags/Linux/"/>
+      <category term="Linux" scheme="https://521.ooo/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>ACL</title>
-    <link href="https://6-7.xyz/ACL.html"/>
-    <id>https://6-7.xyz/ACL.html</id>
+    <link href="https://521.ooo/ACL.html"/>
+    <id>https://521.ooo/ACL.html</id>
     <published>2019-05-29T12:16:38.000Z</published>
     <updated>2019-05-30T16:04:50.990Z</updated>
     
@@ -416,17 +416,17 @@
     </summary>
     
     
-      <category term="数据通信" scheme="https://6-7.xyz/categories/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1/"/>
+      <category term="数据通信" scheme="https://521.ooo/categories/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1/"/>
     
     
-      <category term="ACL" scheme="https://6-7.xyz/tags/ACL/"/>
+      <category term="ACL" scheme="https://521.ooo/tags/ACL/"/>
     
   </entry>
   
   <entry>
     <title>Test</title>
-    <link href="https://6-7.xyz/test.html"/>
-    <id>https://6-7.xyz/test.html</id>
+    <link href="https://521.ooo/test.html"/>
+    <id>https://521.ooo/test.html</id>
     <published>2019-05-28T12:40:18.000Z</published>
     <updated>2019-05-28T15:59:35.609Z</updated>
     
@@ -444,8 +444,8 @@
   
   <entry>
     <title>Linux配置与管理FTP服务</title>
-    <link href="https://6-7.xyz/ftp.html"/>
-    <id>https://6-7.xyz/ftp.html</id>
+    <link href="https://521.ooo/ftp.html"/>
+    <id>https://521.ooo/ftp.html</id>
     <published>2019-05-21T00:40:04.000Z</published>
     <updated>2019-10-27T08:14:45.376Z</updated>
     
@@ -460,17 +460,17 @@
     </summary>
     
     
-      <category term="Linux" scheme="https://6-7.xyz/categories/Linux/"/>
+      <category term="Linux" scheme="https://521.ooo/categories/Linux/"/>
     
     
-      <category term="Linux" scheme="https://6-7.xyz/tags/Linux/"/>
+      <category term="Linux" scheme="https://521.ooo/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>Linux搭建流媒体服务器</title>
-    <link href="https://6-7.xyz/media.html"/>
-    <id>https://6-7.xyz/media.html</id>
+    <link href="https://521.ooo/media.html"/>
+    <id>https://521.ooo/media.html</id>
     <published>2019-05-17T05:45:00.000Z</published>
     <updated>2019-10-27T08:14:47.334Z</updated>
     
@@ -485,10 +485,10 @@
     </summary>
     
     
-      <category term="Linux" scheme="https://6-7.xyz/categories/Linux/"/>
+      <category term="Linux" scheme="https://521.ooo/categories/Linux/"/>
     
     
-      <category term="Linux" scheme="https://6-7.xyz/tags/Linux/"/>
+      <category term="Linux" scheme="https://521.ooo/tags/Linux/"/>
     
   </entry>
   

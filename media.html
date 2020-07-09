@@ -66,7 +66,7 @@
     
     
     
-<link rel="stylesheet" type="text/css" href="/assets/css/DPlayer.min.css"><script src="/assets/js/DPlayer.min.js"></script></head>
+<script src="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css"></head>
 
 <body class="max-width mx-auto px3 ltr">
     
@@ -195,7 +195,7 @@
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/test.png" alt=""></p>
 <p>这里呢显示了绿屏，视频倒是可以播放。但是却看不到动画那么怎么解决呢❓</p>
 <p>操作流程为：工具-&gt;首选项-&gt;视频-&gt;显示-&gt;输出-&gt;OpenGL GLX视频输出。如下所示：</p>
-<div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","loop":true,"video":{"url":"https://b-l.oss-cn-hongkong.aliyuncs.com/viedo/vlc.mp4","pic":"https://b-l.oss-cn-hongkong.aliyuncs.com/picture/513116.png"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
+<div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","loop":true,"screenshot":"yes","video":{"url":"https://b-l.oss-cn-hongkong.aliyuncs.com/viedo/vlc.mp4","pic":"https://b-l.oss-cn-hongkong.aliyuncs.com/picture/513116.png"},"danmaku":{"api":"https://api.prprpr.me/dplayer/","token":"tokendemo"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
 
 <p>如果想要播放其他的文件夹下的视频的话，在网页端修改Media Directory<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/shezhi.png" alt=""></p>
 <p>下面我们来测试一下，换了文件夹视频能否正常播放呢❓经过测试依旧以可播放。</p>
@@ -218,7 +218,7 @@
 
 <p>到此就貌似好像大概或许应该可能就大功告成了，屁话少说测试一下就知道了。</p>
 <p>测试机为装有vlc播放器的windows 7，视频较短的话可以设置循环播放。因为很可能会有这种情况的发生，等你输完URL地址它就播放结束了，还是会提示之前的那种❌错误情况。测试和之前方法一样在这我输入的地址为<code>rstp://192.168.131.129:8554/1.mp4</code></p>
-<div id="dplayer1" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer1"),"theme":"#FADFA3","loop":true,"video":{"url":"https://b-l.oss-cn-hongkong.aliyuncs.com/viedo/test.mp4","pic":"https://b-l.oss-cn-hongkong.aliyuncs.com/picture/513116.png"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
+<div id="dplayer1" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer1"),"theme":"#FADFA3","loop":true,"screenshot":"yes","video":{"url":"https://b-l.oss-cn-hongkong.aliyuncs.com/viedo/test.mp4","pic":"https://b-l.oss-cn-hongkong.aliyuncs.com/picture/513116.png"},"danmaku":{"api":"https://api.prprpr.me/dplayer/","token":"tokendemo"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
 
 <center><p id="div-border-left-red">(⓿_⓿)到此终于大功告成</p></center>
 
@@ -476,5 +476,5 @@
 
     </script>
 	
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7},"log":false});</script></body>
 </html>

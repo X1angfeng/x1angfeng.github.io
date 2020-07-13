@@ -228,6 +228,26 @@
 
 
 
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script type="text/javascript">
+        var gitalk = new Gitalk({
+            clientID: 'c6ff414a0786b6146c9c',
+            clientSecret: 'e4dfd551c2bc5e18904a280404512789a855dce4',
+            id: md5(window.location.pathname),
+            repo: 'X1angfeng.github.io',
+            owner: 'X1angfeng',
+            admin: 'X1angfeng',
+            distractionFreeMode: ''
+        })
+        gitalk.render('gitalk-container')
+    </script>
+
+
+
         
           <div id="footer-post-container">
   <div id="footer-post">

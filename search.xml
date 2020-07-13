@@ -233,8 +233,6 @@
           
           <category> 虚拟化 </category>
           
-          <category> Vmware </category>
-          
       </categories>
       
       
@@ -899,11 +897,7 @@
       
       <categories>
           
-          <category> python </category>
-          
-          <category> C </category>
-          
-          <category> java </category>
+          <category> Code </category>
           
       </categories>
       

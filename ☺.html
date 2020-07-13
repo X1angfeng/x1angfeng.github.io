@@ -119,7 +119,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#技术原理"><span class="toc-number">1.</span> <span class="toc-text">技术原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验步骤"><span class="toc-number">2.</span> <span class="toc-text">实验步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验设备"><span class="toc-number">3.</span> <span class="toc-text">实验设备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#验证"><span class="toc-number">4.</span> <span class="toc-text">验证</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">技术原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">实验步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">3.</span> <span class="toc-text">实验设备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">4.</span> <span class="toc-text">验证</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -173,13 +173,14 @@
 <p>假设校园网通过一台三层交换机连到校园网出口路由器上，路由器再和校园外的另一台路由器连接。现要做适当配置，实现校园网内部主机与校园网外部主机之间的相互通信。为了简化网管的管理维护工作，学校决定采用RIPV2协议实现互通。</p>
 </blockquote>
 <a id="more"></a>
-
-<h1 id="技术原理"><a href="#技术原理" class="headerlink" title="技术原理"></a><strong>技术原理</strong></h1><ol>
-<li><strong>RIP(Routing Information Protocols,**</strong>路由信息协议)<strong>是应用较早、使用较普遍的IGP内部网管协议，使用于小型同类网络，是距离矢量协议；</strong></li>
-<li>RIP<strong>协议跳数作为衡量路径开销的，</strong>RIP<strong>协议里规定最大跳数为15；</strong></li>
-<li><strong>*RIP</strong>协议有两个版本：<strong>RIPv1</strong>和<strong>RIPv2</strong>，<strong>RIPv1</strong>属于有类路由协议，不支持<strong>VLSM</strong>，以广播形式进行路由信息的更新，更新周期为30秒；<strong>RIPv2</strong>属于无类路由协议，支持<strong>VLSM</strong>，以组播形式进行路由更细。</li>
+<h1><strong>技术原理</strong></h1>
+<ol>
+<li>**RIP(Routing Information Protocols,****路由信息协议)<strong>是应用较早、使用较普遍的IGP内部网管协议，使用于小型同类网络，是距离矢量协议；</strong></li>
+<li>RIP<strong>协议跳数作为衡量路径开销的，<strong>RIP</strong>协议里规定最大跳数为15；</strong></li>
+<li><em><strong>RIP</strong>协议有两个版本：<strong>RIPv1</strong>和</em><em>RIPv2</em>*，<strong>RIPv1</strong>属于有类路由协议，不支持<strong>VLSM</strong>，以广播形式进行路由信息的更新，更新周期为30秒；<strong>RIPv2</strong>属于无类路由协议，支持<strong>VLSM</strong>，以组播形式进行路由更细。</li>
 </ol>
-<h1 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a><strong>实验步骤</strong></h1><p> 建立建立packet tracer拓扑图</p>
+<h1><strong>实验步骤</strong></h1>
+<p>建立建立packet tracer拓扑图</p>
 <p>（1）在本实验中的三层交换机上划分VLAN10和VLAN20，其中VLAN10用于连接校园网主机，VLAN20用于连接R1。</p>
 <p>（2）路由器之间通过V.35电缆通过串口连接，DCE端连接在R1上，配置其时钟频率64000。</p>
 <p>（3）主机和交换机通过直连线，主机与路由器通过交叉线连接。</p>
@@ -187,34 +188,81 @@
 <p>（5）在路由器R1、R2上配置RIPV2路由协议。</p>
 <p>（6）将PC1、PC2主机默认网关设置为与直连网路设备接口IP地址。</p>
 <p>（7）验证PC1、PC2主机之间可以互相同信；</p>
-<h1 id="实验设备"><a href="#实验设备" class="headerlink" title="实验设备"></a><strong>实验设备</strong></h1><p>PC 2台；Switch_3560 1台；Router-PT 2台；直连线；交叉线；DCE 串口线</p>
+<h1><strong>实验设备</strong></h1>
+<p>PC 2台；Switch_3560 1台；Router-PT 2台；直连线；交叉线；DCE 串口线</p>
 <p><img src="/img/route/tuopu.png" alt=""></p>
 <p><code>PC1</code></p>
-<p>​    IP:                192.168.1.2    </p>
-<p>​    Submask:    255.255.255.0</p>
-<p>​    Gateway:    192.168.1.1</p>
+<p>​	IP:				192.168.1.2</p>
+<p>​	Submask:	255.255.255.0</p>
+<p>​	Gateway:	192.168.1.1</p>
 <p><code>PC2</code></p>
-<p>​    IP:                192.168.2.2</p>
-<p>​    Submask:    255.255.255.0</p>
-<p>​    Gateway:    192.168.2.1</p>
+<p>​	IP:				192.168.2.2</p>
+<p>​	Submask:	255.255.255.0</p>
+<p>​	Gateway:	192.168.2.1</p>
 <p>配置三层交换机<code>S3560</code></p>
 <blockquote>
-<p>Switch&gt;en<br>Switch#conf t<br>Switch(config)#vlan 10<br>Switch(config-vlan)#exit<br>Switch(config)#vlan 20<br>Switch(config-vlan)#exit<br>Switch(config)#int fa 0/1<br>Switch(config-if)#sw acc vlan 10<br>Switch(config-if)#exit<br>Switch(config)#int fa 0/2<br>Switch(config-if)#sw acc vlan 20<br>Switch(config-if)#exit<br>Switch(config)#int vlan 10</p>
-<p>Switch(config-if)#ip add 192.168.1.1 255.255.255.0<br>Switch(config-if)#no shutdown<br>Switch(config-if)#exit<br>Switch(config)#int vlan 20</p>
-<p>Switch(config-if)#ip add 192.168.3.1 255.255.255.0<br>Switch(config-if)#no shutdown<br>Switch(config-if)#exit<br>Switch(config)#ip routing<br>Switch(config)#router rip<br>Switch(config-router)#network 192.168.1.0<br>Switch(config-router)#network 192.168.3.0<br>Switch(config-router)#version 2</p>
+<p>Switch&gt;en<br>
+Switch#conf t<br>
+Switch(config)#vlan 10<br>
+Switch(config-vlan)#exit<br>
+Switch(config)#vlan 20<br>
+Switch(config-vlan)#exit<br>
+Switch(config)#int fa 0/1<br>
+Switch(config-if)#sw acc vlan 10<br>
+Switch(config-if)#exit<br>
+Switch(config)#int fa 0/2<br>
+Switch(config-if)#sw acc vlan 20<br>
+Switch(config-if)#exit<br>
+Switch(config)#int vlan 10</p>
+<p>Switch(config-if)#ip add 192.168.1.1 255.255.255.0<br>
+Switch(config-if)#no shutdown<br>
+Switch(config-if)#exit<br>
+Switch(config)#int vlan 20</p>
+<p>Switch(config-if)#ip add 192.168.3.1 255.255.255.0<br>
+Switch(config-if)#no shutdown<br>
+Switch(config-if)#exit<br>
+Switch(config)#ip routing<br>
+Switch(config)#router rip<br>
+Switch(config-router)#network 192.168.1.0<br>
+Switch(config-router)#network 192.168.3.0<br>
+Switch(config-router)#version 2</p>
 </blockquote>
 <p>配置路由器<code>R1</code></p>
 <blockquote>
-<p>Router&gt;en<br>Router#conf t<br>Router(config)#int fa 0/0<br>Router(config-if)#ip add 192.168.3.2 255.255.255.0<br>Router(config-if)#no shutdown</p>
-<p>Router(config-if)#exit<br>Router(config)#int serial 2/0<br>Router(config-if)#ip add 192.168.4.1 255.255.255.0<br>Router(config-if)#no shutdown<br>Router(config-if)#clock rate 64000</p>
-<p>Router(config)#router rip<br>Router(config-router)#network 192.168.3.0<br>Router(config-router)#network 192.168.4.0<br>Router(config-router)#version 2</p>
+<p>Router&gt;en<br>
+Router#conf t<br>
+Router(config)#int fa 0/0<br>
+Router(config-if)#ip add 192.168.3.2 255.255.255.0<br>
+Router(config-if)#no shutdown</p>
+<p>Router(config-if)#exit<br>
+Router(config)#int serial 2/0<br>
+Router(config-if)#ip add 192.168.4.1 255.255.255.0<br>
+Router(config-if)#no shutdown<br>
+Router(config-if)#clock rate 64000</p>
+<p>Router(config)#router rip<br>
+Router(config-router)#network 192.168.3.0<br>
+Router(config-router)#network 192.168.4.0<br>
+Router(config-router)#version 2</p>
 </blockquote>
 <p>配置路由器<code>R2</code></p>
 <blockquote>
-<p>Router&gt;en<br>Router#conf t<br>Router(config)#int serial 2/0<br>Router(config-if)#ip add 192.168.4.2 255.255.255.0<br>Router(config-if)#no shutdown<br>Router(config-if)#exit<br>Router(config)#int fa 0/0<br>Router(config-if)#ip add 192.168.2.1 255.255.255.0<br>Router(config-if)#no shutdown</p>
-<p>Router(config-if)#exit<br>Router(config)#router rip<br>Router(config-router)#network 192.168.2.0<br>Router(config-router)#network 192.168.4.0<br>Router(config-router)#version 2</p>
+<p>Router&gt;en<br>
+Router#conf t<br>
+Router(config)#int serial 2/0<br>
+Router(config-if)#ip add 192.168.4.2 255.255.255.0<br>
+Router(config-if)#no shutdown<br>
+Router(config-if)#exit<br>
+Router(config)#int fa 0/0<br>
+Router(config-if)#ip add 192.168.2.1 255.255.255.0<br>
+Router(config-if)#no shutdown</p>
+<p>Router(config-if)#exit<br>
+Router(config)#router rip<br>
+Router(config-router)#network 192.168.2.0<br>
+Router(config-router)#network 192.168.4.0<br>
+Router(config-router)#version 2</p>
 </blockquote>
-<h1 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h1><p>验证之前先查看路由表是否正确,正确的如下所示。</p>
+<h1>验证</h1>
+<p>验证之前先查看路由表是否正确,正确的如下所示。</p>
 <p><img src="/img/route/s3560.png" alt=""></p>
 <p><img src="/img/route/R0.png" alt=""></p>
 <p><img src="/img/route/R1.png" alt=""></p>
@@ -273,7 +321,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#技术原理"><span class="toc-number">1.</span> <span class="toc-text">技术原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验步骤"><span class="toc-number">2.</span> <span class="toc-text">实验步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验设备"><span class="toc-number">3.</span> <span class="toc-text">实验设备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#验证"><span class="toc-number">4.</span> <span class="toc-text">验证</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">技术原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">实验步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">3.</span> <span class="toc-text">实验设备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">4.</span> <span class="toc-text">验证</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">

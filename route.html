@@ -117,7 +117,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#技术原理"><span class="toc-number">1.</span> <span class="toc-text">技术原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验设备"><span class="toc-number">2.</span> <span class="toc-text">实验设备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验设备配置"><span class="toc-number">3.</span> <span class="toc-text">实验设备配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置PC的IP地址"><span class="toc-number">3.1.</span> <span class="toc-text">配置PC的IP地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置路由器"><span class="toc-number">3.2.</span> <span class="toc-text">配置路由器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结果验证"><span class="toc-number">4.</span> <span class="toc-text">结果验证</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">技术原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">实验设备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">3.</span> <span class="toc-text">实验设备配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置PC的IP地址"><span class="toc-number">3.1.</span> <span class="toc-text">配置PC的IP地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置路由器"><span class="toc-number">3.2.</span> <span class="toc-text">配置路由器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">4.</span> <span class="toc-text">结果验证</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -171,54 +171,51 @@
 <p>学校有新旧两个校区，每个校区是一个独立的局域网，为了使新旧校区能够正常相互通讯，共享资源。每个校区出口利用一台路由器进行连接，两台路由器间学校申请了一条专线进行相连，要求做适当配置实现两个校区的正常相互访问。</p>
 </blockquote>
 <a id="more"></a>
-
-<h1 id="技术原理"><a href="#技术原理" class="headerlink" title="技术原理"></a>技术原理</h1><p>①路由器属于网络层设备，能够根据IP包头的信息，选择一条最佳路径，将数据包转发出去。实现不同网段的主机之间的互相访问。路由器是根据路由表进行选路和转发的。而路由表里就是由一条条路由信息组成。</p>
+<h1>技术原理</h1>
+<p>①路由器属于网络层设备，能够根据IP包头的信息，选择一条最佳路径，将数据包转发出去。实现不同网段的主机之间的互相访问。路由器是根据路由表进行选路和转发的。而路由表里就是由一条条路由信息组成。</p>
 <p>②生成路由表主要有两种方法：手工配置和动态配置，即静态路由协议配置和动态路由协议配置。</p>
 <p>③静态路由是指有网络管理员手工配置的路由信息。</p>
 <p>④静态路由除了具有简单、高效、可靠的优点外，它的另一个好处是网络安全保密性高。</p>
 <p>⑤缺省路由可以看做是静态路由的一种特殊情况。当数据在查找路由表时，没有找到和目标相匹配的路由表项时，为数据指定路由。</p>
-<h1 id="实验设备"><a href="#实验设备" class="headerlink" title="实验设备"></a>实验设备</h1><p>pc 2台；Router-PT可扩展路由 2台；Switch_2960 2台；DCE 串口线；直连线；交叉线。</p>
+<h1>实验设备</h1>
+<p>pc 2台；Router-PT可扩展路由 2台；Switch_2960 2台；DCE 串口线；直连线；交叉线。</p>
 <img src="/img/route/tu.png">
-
-<h1 id="实验设备配置"><a href="#实验设备配置" class="headerlink" title="实验设备配置"></a>实验设备配置</h1><h2 id="配置PC的IP地址"><a href="#配置PC的IP地址" class="headerlink" title="配置PC的IP地址"></a>配置PC的IP地址</h2><p><code>PC1</code> </p>
-<p>   IP:                 192.168.1.2</p>
-<p>   Submask:        255.255.255.0</p>
-<p>   Gateway:        192.168.1.1</p>
+<h1>实验设备配置</h1>
+<h2 id="配置PC的IP地址">配置PC的IP地址</h2>
+<p><code>PC1</code></p>
+<p>IP:                 192.168.1.2</p>
+<p>Submask:        255.255.255.0</p>
+<p>Gateway:        192.168.1.1</p>
 <p><code>PC2</code></p>
 <p>​       IP:                 192.168.2.2</p>
 <p>​       Submask:        255.255.255.0</p>
 <p>​       Gateway:        192.168.2.1</p>
 <p><span id="inline-blue">测试网络连通状态</span></p>
-<p><code>PC1 ping PC2</code></p>
+<p><code>PC1 ping PC2  </code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping 192.168.2.2</span><br></pre></td></tr></table></figure>
-
 <p>由于没有配置路由器的缘故所以ping不通，下面我们对路由器进行配置</p>
-<h2 id="配置路由器"><a href="#配置路由器" class="headerlink" title="配置路由器"></a>配置路由器</h2><p><code>R1接口地址的配置</code></p>
+<h2 id="配置路由器">配置路由器</h2>
+<p><code>R1接口地址的配置</code></p>
 <p>进入接口fa 1/0，配置ip地址并开启接口</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">en   		//进入特权模式</span><br><span class="line">conf t		//进入配置模式</span><br><span class="line">int fa 1/0	//进入 fa 1/0接口</span><br><span class="line">ip add 192.168.1.1 255.255.255.0 //配置IP地址</span><br><span class="line">no shutdown //开启接口</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
-
 <p>进入接口serial 2/0 ，配置ip地址并开启接口，同时设置时钟</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int serial 2/0</span><br><span class="line">ip add 192.168.3.1 255.255.255.0 //此IP为下一跳的地址</span><br><span class="line">no shutdown //开启接口</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
-
 <p>设置时钟的指令：<code>clock rate 64000</code>（必须配置时钟才可通信）</p>
 <p><code>R2接口地址的配置</code></p>
 <p>进入接口fa 1/0，配置ip地址并开启接口</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">en   		//进入特权模式</span><br><span class="line">conf t		//进入配置模式</span><br><span class="line">int fa 1/0	//进入 fa 1/0接口</span><br><span class="line">ip add 192.168.2.1 255.255.255.0 //配置IP地址</span><br><span class="line">no shutdown //开启接口</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
-
 <p>进入接口serial 2/0 ，配置ip地址并开启接口，同时设置时钟</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int serial 2/0</span><br><span class="line">ip add 192.168.3.2 255.255.255.0 //此IP为下一跳的地址</span><br><span class="line">no shutdown //开启接口</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
-
 <p><code>配置静态路由：</code></p>
 <p>R1静态路由的配置，并查看路由是否出现在路由表条目中；</p>
-<p>​      <code>Router(config)#ip route 192.168.2.0 255.255.255.0 192.168.3.2</code></p>
-<p>R2静态路由的配置，并查看路由是否出现在路由表条目中；     </p>
+<p>​      <code> Router(config)#ip route 192.168.2.0 255.255.255.0 192.168.3.2</code></p>
+<p>R2静态路由的配置，并查看路由是否出现在路由表条目中；</p>
 <p><code>Router(config)#ip route 192.168.1.0 255.255.255.0 192.168.3.1</code></p>
-<h1 id="结果验证"><a href="#结果验证" class="headerlink" title="结果验证"></a>结果验证</h1><p><code>PC1 Ping  PC2</code> ping 192.168.2.2 </p>
+<h1>结果验证</h1>
+<p><code>PC1 Ping  PC2 </code> ping 192.168.2.2</p>
 <img src="/img/route/ping.png">
-
-<p><code>PC1 tracert  PC2</code>  Tracert  192.168.2.2 </p>
+<p><code>PC1 tracert  PC2</code>  Tracert  192.168.2.2</p>
 <img src="/img/route/tractert.png">
-
 <p>到此配置并验证完毕</p>
 
   </div>
@@ -272,7 +269,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#技术原理"><span class="toc-number">1.</span> <span class="toc-text">技术原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验设备"><span class="toc-number">2.</span> <span class="toc-text">实验设备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验设备配置"><span class="toc-number">3.</span> <span class="toc-text">实验设备配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置PC的IP地址"><span class="toc-number">3.1.</span> <span class="toc-text">配置PC的IP地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置路由器"><span class="toc-number">3.2.</span> <span class="toc-text">配置路由器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结果验证"><span class="toc-number">4.</span> <span class="toc-text">结果验证</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">技术原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">实验设备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">3.</span> <span class="toc-text">实验设备配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置PC的IP地址"><span class="toc-number">3.1.</span> <span class="toc-text">配置PC的IP地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置路由器"><span class="toc-number">3.2.</span> <span class="toc-text">配置路由器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">4.</span> <span class="toc-text">结果验证</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">

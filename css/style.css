@@ -535,6 +535,12 @@ body {
   background-size: 100% 6px;
   background-repeat: repeat-x;
 }
+.content .emoji {
+  height: 1.5em;
+  width: 1.5em;
+  margin: 0 0.05em 0 0.1em;
+  vertical-align: -0.1em;
+}
 @media (min-width: 540px) {
   .image-wrap {
     flex-direction: row;

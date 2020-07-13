@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="简介虚拟专用网络 VPN（Virtual Private Network）综合利用了密码、数字签名和 PKI 等技术，利用隧道协议，在不安全的公共网络上构建虚拟的专用数据通道，以保证其中数据的机密性和完整性。VPN 是企业网在公共网络上的扩展，可以开辟一条安全的隧道，保证两个端点或者两个局域网之间的安全通信。VPN 通过将因特网虚拟成一台路由器，将物理位置分散的局域网和主机虚拟成一个统一的虚拟企业">
+    <meta name="description" content="简介 虚拟专用网络 VPN（Virtual Private Network）综合利用了密码、数字签名和 PKI 等技术，利用隧道协议，在不安全的公共网络上构建虚拟的专用数据通道，以保证其中数据的机密性和完整性。VPN 是企业网在公共网络上的扩展，可以开辟一条安全的隧道，保证两个端点或者两个局域网之间的安全通信。VPN 通过将因特网虚拟成一台路由器，将物理位置分散的局域网和主机虚拟成一个统一的虚拟企">
 <meta name="keywords" content="永远相信美好的事情即将发生！">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Windows server搭建vpn服务实验">
 <meta property="og:url" content="https:&#x2F;&#x2F;521.ooo&#x2F;vpn.html">
 <meta property="og:site_name" content="嘲弄i">
-<meta property="og:description" content="简介虚拟专用网络 VPN（Virtual Private Network）综合利用了密码、数字签名和 PKI 等技术，利用隧道协议，在不安全的公共网络上构建虚拟的专用数据通道，以保证其中数据的机密性和完整性。VPN 是企业网在公共网络上的扩展，可以开辟一条安全的隧道，保证两个端点或者两个局域网之间的安全通信。VPN 通过将因特网虚拟成一台路由器，将物理位置分散的局域网和主机虚拟成一个统一的虚拟企业">
+<meta property="og:description" content="简介 虚拟专用网络 VPN（Virtual Private Network）综合利用了密码、数字签名和 PKI 等技术，利用隧道协议，在不安全的公共网络上构建虚拟的专用数据通道，以保证其中数据的机密性和完整性。VPN 是企业网在公共网络上的扩展，可以开辟一条安全的隧道，保证两个端点或者两个局域网之间的安全通信。VPN 通过将因特网虚拟成一台路由器，将物理位置分散的局域网和主机虚拟成一个统一的虚拟企">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;VPN&#x2F;1.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;VPN&#x2F;2.jpg">
@@ -143,7 +143,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#过程"><span class="toc-number">2.</span> <span class="toc-text">过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤-1："><span class="toc-number">2.1.</span> <span class="toc-text">步骤 1：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤2："><span class="toc-number">2.2.</span> <span class="toc-text">步骤2：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤-3："><span class="toc-number">2.3.</span> <span class="toc-text">步骤 3：</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤-1："><span class="toc-number">2.1.</span> <span class="toc-text">步骤 1：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤2："><span class="toc-number">2.2.</span> <span class="toc-text">步骤2：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤-3："><span class="toc-number">2.3.</span> <span class="toc-text">步骤 3：</span></a></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -183,47 +183,46 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>虚拟专用网络 VPN（Virtual Private Network）综合利用了密码、数字签名和 PKI 等技术，利用隧道协议，在不安全的公共网络上构建虚拟的专用数据通道，以保证其中数据的机密性和完整性。VPN 是企业网在公共网络上的扩展，可以开辟一条安全的隧道，保证两个端点或者两个局域网之间的安全通信。VPN 通过将因特网虚拟成一台路由器，将物理位置分散的局域网和主机虚拟成一个统一的虚拟企业网，从而保证数据通信的安全性。VPN 综合利用了隧道技术、加密技术、鉴别技术和密钥管理等技术，在公共网络上建立了一个虚拟的安全通道，以实现两个网络或者两台主机之间的安全连接，目前 VPN 主要有两类应用场景，其一是远程访问 VPN 模式，即企业员工从外地访问企业内部网络中的主机，当员工在外出差，需要访问企业内部网络中的机密信息时，为了避免信息传输过程中发生泄密，主机首先以 VPN 客户端的方式连接到企业的远程访问 VPN 服务器，这样远程主机访问内网数据时就会被加密传输，从而保证数据的安全性，如图 2-31 所示，</p>
+    <h1>简介</h1>
+<p>虚拟专用网络 VPN（Virtual Private Network）综合利用了密码、数字签名和 PKI 等技术，利用隧道协议，在不安全的公共网络上构建虚拟的专用数据通道，以保证其中数据的机密性和完整性。VPN 是企业网在公共网络上的扩展，可以开辟一条安全的隧道，保证两个端点或者两个局域网之间的安全通信。VPN 通过将因特网虚拟成一台路由器，将物理位置分散的局域网和主机虚拟成一个统一的虚拟企业网，从而保证数据通信的安全性。VPN 综合利用了隧道技术、加密技术、鉴别技术和密钥管理等技术，在公共网络上建立了一个虚拟的安全通道，以实现两个网络或者两台主机之间的安全连接，目前 VPN 主要有两类应用场景，其一是远程访问 VPN 模式，即企业员工从外地访问企业内部网络中的主机，当员工在外出差，需要访问企业内部网络中的机密信息时，为了避免信息传输过程中发生泄密，主机首先以 VPN 客户端的方式连接到企业的远程访问 VPN 服务器，这样远程主机访问内网数据时就会被加密传输，从而保证数据的安全性，如图 2-31 所示，</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/1.jpg" alt=""></p>
 <center><strong>图2-31 远程主机访问企业内网</strong></center>
-
 <p>其二当一个公司在多个城市设置有分公司时，为了保证企业分公司之间的数据传输安全，在每个局域网的出口处设置VPN 服务器，当局域网之间需要交换信息时，两个 VPN 服务器之间建立一条安全的隧道，保证数据在隧道中安全的传输，这种方式也被称为是网络到网络 VPN，适用于企业各个分支机构，商业合作伙伴之间的网络互连要求，如图 2-32 所示。</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/2.jpg" alt=""></p>
 <center><b>图2-32 企业分支机构之间的局域网连通</b></center>
-
 <p>本例中应用的场景是远程访问 VPN 模式，通过远程计算机访问企业内网的资源，具体实验拓扑图如图 2-33 所示，详细配置信息如表 1-1 所示，具体配置步骤如下：</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/3.jpg" alt=""></p>
 <center><b>图2-33 实验拓扑图</b></center>
-
 <center><b>表 1-1 网络设备主要功能介绍</b></center>
-
 <table>
 <thead>
 <tr>
-<th align="left"><strong>网络配置情况</strong></th>
-<th align="left"><strong>电脑设置内容</strong></th>
+<th style="text-align:left"><strong>网络配置情况</strong></th>
+<th style="text-align:left"><strong>电脑设置内容</strong></th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left"><strong>路由器（windows server 2008 模拟仿真）<br/>VMnet1：<br/>IP 地址：192.168.149.3<br/>子网掩码：255.255.255.0<br/>VMnet2:<br/>IP 地址：192.168.87.3<br/>子网掩码：255.255.255.0</strong></td>
-<td align="left"><strong>1、 完成网络 IP 地址配置；<br/>2、 完成 LAN 路由的设置；</strong></td>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>路由器（windows server 2008 模拟仿真）<br/>VMnet1：<br/>IP 地址：192.168.149.3<br/>子网掩码：255.255.255.0<br/>VMnet2:<br/>IP 地址：192.168.87.3<br/>子网掩码：255.255.255.0</strong></td>
+<td style="text-align:left"><strong>1、 完成网络 IP 地址配置；<br/>2、 完成 LAN 路由的设置；</strong></td>
 </tr>
 <tr>
-<td align="left"><strong>VPN 服务器（windows server 2008）<br/>VMnet2:<br/>IP 地址：192.168.87.5<br/>子网掩码：255.255.255.0<br/>默认网关：192.168.87.3<br/>VMnet3：<br/>IP 地址：192.168.171.3<br/>子网掩码：255.255.255.0</strong></td>
-<td align="left"><strong>1、 完成网络 IP 地址配置；<br/>2、完成 VPN 服务器搭建；</strong></td>
+<td style="text-align:left"><strong>VPN 服务器（windows server 2008）<br/>VMnet2:<br/>IP 地址：192.168.87.5<br/>子网掩码：255.255.255.0<br/>默认网关：192.168.87.3<br/>VMnet3：<br/>IP 地址：192.168.171.3<br/>子网掩码：255.255.255.0</strong></td>
+<td style="text-align:left"><strong>1、 完成网络 IP 地址配置；<br/>2、完成 VPN 服务器搭建；</strong></td>
 </tr>
 <tr>
-<td align="left"><strong>远程计算机的基本配置情况（XP 操作<br/>系统）<br/>VMnet1:<br/>IP 地址：192.168.149.6<br/>子网掩码：255.255.255.0<br/>默认网关：192.168.149.3</strong></td>
-<td align="left"><strong>1、 完成网络 IP 地址配置；<br/>2、 完成 VPN 客户端安装；<br/>3、 使用客户端拨号连接 VPN 服务器；<br/>4、 使用 PING 命令测试连通性；</strong></td>
+<td style="text-align:left"><strong>远程计算机的基本配置情况（XP 操作<br/>系统）<br/>VMnet1:<br/>IP 地址：192.168.149.6<br/>子网掩码：255.255.255.0<br/>默认网关：192.168.149.3</strong></td>
+<td style="text-align:left"><strong>1、 完成网络 IP 地址配置；<br/>2、 完成 VPN 客户端安装；<br/>3、 使用客户端拨号连接 VPN 服务器；<br/>4、 使用 PING 命令测试连通性；</strong></td>
 </tr>
-</tbody></table>
-<h1 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h1><h2 id="步骤-1："><a href="#步骤-1：" class="headerlink" title="步骤 1："></a>步骤 1：</h2><p>首先进行的是模拟路由器的配置，使用的是 windows 2008 操作系统来进行模拟设置，首先选择 VMware 菜单栏中的虚拟机选项，选择其中的设置选项，并选择添加，根据要求添加对应的网络适配器，并进行网络 IP 地址的设置，如图 2-34和图2-35 所示(这里不再详细讲如何在虚拟机中安装Windows server 2008)</p>
+</tbody>
+</table>
+<h1>过程</h1>
+<h2 id="步骤-1：">步骤 1：</h2>
+<p>首先进行的是模拟路由器的配置，使用的是 windows 2008 操作系统来进行模拟设置，首先选择 VMware 菜单栏中的虚拟机选项，选择其中的设置选项，并选择添加，根据要求添加对应的网络适配器，并进行网络 IP 地址的设置，如图 2-34和图2-35 所示(这里不再详细讲如何在虚拟机中安装Windows server 2008)</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/4.jpg" alt=""></p>
 <center><b>图2-34 添加多块网卡</b></center>
-
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/5.jpg" alt=""></p>
 <center><b>图2-35 配置IP地址<b></center>
-
 <p>windows server 2008默认是没有路由和远程访问这个服务的需要自行添加，具体步骤如下</p>
 <p>点击桌面左下角的服务器管理器，然后点击添加角色</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/6.jpg" alt=""></p>
@@ -246,7 +245,8 @@
 <p>配置完成后，将会看到在路由和远程访问中包含 IP 路由选择，其中包括常规和静态路由两个选项，这样模拟的路由器就已经配置完成了</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/16.jpg" alt=""></p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/17.jpg" alt=""></p>
-<h2 id="步骤2："><a href="#步骤2：" class="headerlink" title="步骤2："></a>步骤2：</h2><p>配置 VPN 服务器，首先根据实验要求完成网络适配器的添加，并进行 IP 地址的配置，</p>
+<h2 id="步骤2：">步骤2：</h2>
+<p>配置 VPN 服务器，首先根据实验要求完成网络适配器的添加，并进行 IP 地址的配置，</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/18.jpg" alt=""></p>
 <p>完成 IP 地址配置后，同样选择管理工具，路由和远程访问，右键选择配置并启用路由和远程访问，并在其中选择远程访问（拨号或 VPN）选项，单击下一步继续</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/19.jpg" alt=""></p>
@@ -260,7 +260,8 @@
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/24.jpg" alt=""></p>
 <p>为了能让远程计算机能够通过拨号接入到 VPN 服务器，需要首先为远程用户创建一个登录账号，右键我的电脑选择管理，在其中选择本地用户和组，在用户中创建用户 vpn，设置密码，并选择密码永不过期。右键该用户选择属性，在其中选择拨入选项卡，勾选允许访问，单击确定后，完成配置</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/25.jpg" alt=""></p>
-<h2 id="步骤-3："><a href="#步骤-3：" class="headerlink" title="步骤 3："></a>步骤 3：</h2><p>最后需要在远程计算机中新建 VPN 客户端，首先按照要求配置 IP 地址，并右键网上邻居选择属性，在其中选择创建一个新的连接，选择连接到我的工作场所的网络，单击下一步继续</p>
+<h2 id="步骤-3：">步骤 3：</h2>
+<p>最后需要在远程计算机中新建 VPN 客户端，首先按照要求配置 IP 地址，并右键网上邻居选择属性，在其中选择创建一个新的连接，选择连接到我的工作场所的网络，单击下一步继续</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/26.jpg" alt=""></p>
 <p>在网络连接选项页面，选择虚拟专用网络连接，单击下一步继续，输入公司名称，并输入 VPN 服务器的 IP 地址192.168.87.5，选择在我的桌面上添加一个到此连接的快捷方式</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/27.jpg" alt=""></p>
@@ -322,7 +323,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#过程"><span class="toc-number">2.</span> <span class="toc-text">过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤-1："><span class="toc-number">2.1.</span> <span class="toc-text">步骤 1：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤2："><span class="toc-number">2.2.</span> <span class="toc-text">步骤2：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤-3："><span class="toc-number">2.3.</span> <span class="toc-text">步骤 3：</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤-1："><span class="toc-number">2.1.</span> <span class="toc-text">步骤 1：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤2："><span class="toc-number">2.2.</span> <span class="toc-text">步骤2：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤-3："><span class="toc-number">2.3.</span> <span class="toc-text">步骤 3：</span></a></li></ol></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">

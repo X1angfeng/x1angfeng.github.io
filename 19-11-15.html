@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="在之前安装ESXI是选择采用桥接的方式，选择的是桥接到无线网卡。十分顺利的安装成功了，但是由于桥接这种方法在后来的使用之中发现有点不太方便。主要有以下弊端： 我们必须连接固定的WiFi网络;虚拟机中或者物理机的IP修改会带来很多麻烦。 ​    当切换所连接的网络之后，自己电脑的IP地址(内网)会发生相应的变化比如我在宿舍中连接的WiFi是在192.168.1.0这个网段下面的；连接自己手机的热点">
+    <meta name="description" content="在之前安装ESXI是选择采用桥接的方式，选择的是桥接到无线网卡。十分顺利的安装成功了，但是由于桥接这种方法在后来的使用之中发现有点不太方便。主要有以下弊端： 我们必须连接固定的WiFi网络;虚拟机中或者物理机的IP修改会带来很多麻烦。 ​	当切换所连接的网络之后，自己电脑的IP地址(内网)会发生相应的变化比如我在宿舍中连接的WiFi是在192.168.1.0这个网段下面的；连接自己手机的热点是17">
 <meta name="keywords" content="虚拟化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vCenter安装问题">
 <meta property="og:url" content="https:&#x2F;&#x2F;521.ooo&#x2F;19-11-15.html">
 <meta property="og:site_name" content="嘲弄i">
-<meta property="og:description" content="在之前安装ESXI是选择采用桥接的方式，选择的是桥接到无线网卡。十分顺利的安装成功了，但是由于桥接这种方法在后来的使用之中发现有点不太方便。主要有以下弊端： 我们必须连接固定的WiFi网络;虚拟机中或者物理机的IP修改会带来很多麻烦。 ​    当切换所连接的网络之后，自己电脑的IP地址(内网)会发生相应的变化比如我在宿舍中连接的WiFi是在192.168.1.0这个网段下面的；连接自己手机的热点">
+<meta property="og:description" content="在之前安装ESXI是选择采用桥接的方式，选择的是桥接到无线网卡。十分顺利的安装成功了，但是由于桥接这种方法在后来的使用之中发现有点不太方便。主要有以下弊端： 我们必须连接固定的WiFi网络;虚拟机中或者物理机的IP修改会带来很多麻烦。 ​	当切换所连接的网络之后，自己电脑的IP地址(内网)会发生相应的变化比如我在宿舍中连接的WiFi是在192.168.1.0这个网段下面的；连接自己手机的热点是17">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vCenter&#x2F;1.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;vCenter&#x2F;2.png">
@@ -171,7 +171,7 @@
   <div class="content" itemprop="articleBody">
     <p>在之前安装ESXI是选择采用桥接的方式，选择的是桥接到无线网卡。十分顺利的安装成功了，但是由于桥接这种方法在后来的使用之中发现有点不太方便。主要有以下弊端：</p>
 <p><strong>我们必须连接固定的WiFi网络;虚拟机中或者物理机的IP修改会带来很多麻烦。</strong></p>
-<p>​    当切换所连接的网络之后，自己电脑的IP地址(内网)会发生相应的变化比如我在宿舍中连接的WiFi是在192.168.1.0这个网段下面的；连接自己手机的热点是172.20.10.0网段下面的；连接同学的手机热点是192.168.43.0这个网段下面的。那么在不同的网段下面就需要修改自己物理机win10的IP地址或者虚拟机中ESXI的IP地址。比如上课当所连的WiFi分配的IP地址为192.168.43.0网段下，ESXI还为上次在宿舍设置的桥接IP地址时192.168.1.0网段下面。这时win10是无法ESXI的IP地址用vsphere client或者使用使用浏览器在web端对ESXI进行操作的。可以通过如下两种方法进行访问，但是这两种方法都不是一个很好的方法。如果修改ESXI的IP地址是可以访问ESXI的同时win10也是可以上网。但是这种方法有个弊端，vCenter可以安装在ESXI中也可以安装在Windows server中。问题就出在当它安装在ESXI中时，当我们要想访问它时。我们会通过IP地址账户密码进行访问。但是IP地址遭到了变化不在同一个网段之下的时候是ping不通的，我们也是访问不了的。可是vCenter要想修改IP地址必须访问<a href="http://ip:5480" target="_blank" rel="noopener">http://ip:5480</a> 来进行修改或者使用SSH远程连接vCenter使用相关命令来进行修改。根本无法访问肯定也是没办法修改的。</p>
+<p>​	当切换所连接的网络之后，自己电脑的IP地址(内网)会发生相应的变化比如我在宿舍中连接的WiFi是在192.168.1.0这个网段下面的；连接自己手机的热点是172.20.10.0网段下面的；连接同学的手机热点是192.168.43.0这个网段下面的。那么在不同的网段下面就需要修改自己物理机win10的IP地址或者虚拟机中ESXI的IP地址。比如上课当所连的WiFi分配的IP地址为192.168.43.0网段下，ESXI还为上次在宿舍设置的桥接IP地址时192.168.1.0网段下面。这时win10是无法ESXI的IP地址用vsphere client或者使用使用浏览器在web端对ESXI进行操作的。可以通过如下两种方法进行访问，但是这两种方法都不是一个很好的方法。如果修改ESXI的IP地址是可以访问ESXI的同时win10也是可以上网。但是这种方法有个弊端，vCenter可以安装在ESXI中也可以安装在Windows server中。问题就出在当它安装在ESXI中时，当我们要想访问它时。我们会通过IP地址账户密码进行访问。但是IP地址遭到了变化不在同一个网段之下的时候是ping不通的，我们也是访问不了的。可是vCenter要想修改IP地址必须访问http://ip:5480 来进行修改或者使用SSH远程连接vCenter使用相关命令来进行修改。根本无法访问肯定也是没办法修改的。</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vCenter/1.png" alt=""></p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vCenter/2.png" alt=""></p>
 <p>所以修改ESXI地址在某种情况下是不可取的，通过修改Windows 10IP地址呢是不会出现这么多问题的。But你修改了静态IP地址之后你Windows就没法上网了呀。如果需要查资料什么的用手机查起来并不是很方便，所以说体验起来也不是很友好。😂😂😂</p>

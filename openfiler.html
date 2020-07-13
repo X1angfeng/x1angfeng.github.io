@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="简介Openfiler是一个基于rPath Linux系统的免费ISCIS&#x2F;NAS应用。它是一个基于浏览器的免费网络存储管理实用程序，可以在单一框架中提供基于文件的网络连接存储 (NAS) 和基于块的存储区域网 (SAN)。Openfiler 支持 CIFS、NFS、HTTP&#x2F;DAV 和 FTP。Openfiler能把标准x86&#x2F;64架构的系统变成一个强大的NAS、SAN存储和IP存储网关，为管理">
+    <meta name="description" content="简介 Openfiler是一个基于rPath Linux系统的免费ISCIS&#x2F;NAS应用。它是一个基于浏览器的免费网络存储管理实用程序，可以在单一框架中提供基于文件的网络连接存储 (NAS) 和基于块的存储区域网 (SAN)。Openfiler 支持 CIFS、NFS、HTTP&#x2F;DAV 和 FTP。Openfiler能把标准x86&#x2F;64架构的系统变成一个强大的NAS、SAN存储和IP存储网关，为管">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="虚拟机安装openfiler">
 <meta property="og:url" content="https:&#x2F;&#x2F;521.ooo&#x2F;openfiler.html">
 <meta property="og:site_name" content="嘲弄i">
-<meta property="og:description" content="简介Openfiler是一个基于rPath Linux系统的免费ISCIS&#x2F;NAS应用。它是一个基于浏览器的免费网络存储管理实用程序，可以在单一框架中提供基于文件的网络连接存储 (NAS) 和基于块的存储区域网 (SAN)。Openfiler 支持 CIFS、NFS、HTTP&#x2F;DAV 和 FTP。Openfiler能把标准x86&#x2F;64架构的系统变成一个强大的NAS、SAN存储和IP存储网关，为管理">
+<meta property="og:description" content="简介 Openfiler是一个基于rPath Linux系统的免费ISCIS&#x2F;NAS应用。它是一个基于浏览器的免费网络存储管理实用程序，可以在单一框架中提供基于文件的网络连接存储 (NAS) 和基于块的存储区域网 (SAN)。Openfiler 支持 CIFS、NFS、HTTP&#x2F;DAV 和 FTP。Openfiler能把标准x86&#x2F;64架构的系统变成一个强大的NAS、SAN存储和IP存储网关，为管">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;0.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;openfiler&#x2F;1.png">
@@ -166,7 +166,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#openfiler安装"><span class="toc-number">2.</span> <span class="toc-text">openfiler安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载openfiler镜像"><span class="toc-number">2.1.</span> <span class="toc-text">下载openfiler镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建虚拟机"><span class="toc-number">2.2.</span> <span class="toc-text">创建虚拟机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置openfiler-的iscsi目标服务器"><span class="toc-number">2.3.</span> <span class="toc-text">配置openfiler 的iscsi目标服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-重启进入操作系统"><span class="toc-number">2.3.1.</span> <span class="toc-text">1.重启进入操作系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-添加3块scsi硬盘"><span class="toc-number">2.3.2.</span> <span class="toc-text">2.添加3块scsi硬盘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-登录web界面"><span class="toc-number">2.3.3.</span> <span class="toc-text">3.登录web界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-磁盘配置RAID5"><span class="toc-number">2.3.4.</span> <span class="toc-text">4.磁盘配置RAID5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-创建逻辑卷"><span class="toc-number">2.3.5.</span> <span class="toc-text">5.创建逻辑卷</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-启动iscsi目标服务器"><span class="toc-number">2.3.6.</span> <span class="toc-text">6.启动iscsi目标服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-配置访问控制列表，iscsi目标服务器"><span class="toc-number">2.3.7.</span> <span class="toc-text">7.配置访问控制列表，iscsi目标服务器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#连接iscsi测试"><span class="toc-number">2.4.</span> <span class="toc-text">连接iscsi测试</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">openfiler安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载openfiler镜像"><span class="toc-number">2.1.</span> <span class="toc-text">下载openfiler镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建虚拟机"><span class="toc-number">2.2.</span> <span class="toc-text">创建虚拟机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置openfiler-的iscsi目标服务器"><span class="toc-number">2.3.</span> <span class="toc-text">配置openfiler 的iscsi目标服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-重启进入操作系统"><span class="toc-number">2.3.1.</span> <span class="toc-text">1.重启进入操作系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-添加3块scsi硬盘"><span class="toc-number">2.3.2.</span> <span class="toc-text">2.添加3块scsi硬盘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-登录web界面"><span class="toc-number">2.3.3.</span> <span class="toc-text">3.登录web界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-磁盘配置RAID5"><span class="toc-number">2.3.4.</span> <span class="toc-text">4.磁盘配置RAID5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-创建逻辑卷"><span class="toc-number">2.3.5.</span> <span class="toc-text">5.创建逻辑卷</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-启动iscsi目标服务器"><span class="toc-number">2.3.6.</span> <span class="toc-text">6.启动iscsi目标服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-配置访问控制列表，iscsi目标服务器"><span class="toc-number">2.3.7.</span> <span class="toc-text">7.配置访问控制列表，iscsi目标服务器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#连接iscsi测试"><span class="toc-number">2.4.</span> <span class="toc-text">连接iscsi测试</span></a></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -211,10 +211,18 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Openfiler是一个基于rPath Linux系统的免费ISCIS/NAS应用。它是一个基于浏览器的免费网络存储管理实用程序，可以在单一框架中提供基于文件的网络连接存储 (NAS) 和基于块的存储区域网 (SAN)。Openfiler 支持 CIFS、NFS、HTTP/DAV 和 FTP。Openfiler能把标准x86/64架构的系统变成一个强大的NAS、SAN存储和IP存储网关，为管理员提供一个强大的管理平台，并能能应付未来的存储需求。依赖如VMware，Virtual Iron和Xen服务器虚拟化技术，Openfiler也可部署为一个虚拟机实例。<br>Openfiler的主要性能和优点：</p>
-<p>● 可靠性—Openfiler可以支持软件和硬件的RAID，能监测和预警，并且可以做卷的快照和快速恢复。<br>● 高可用性–Openfiler支持主动或被动的高可用性集群、多路径存储（MPIO）、块级别的复制。<br>● 性能–及时更新的Linux内核支持最新的CPU、网络和存储硬件。<br>● 可伸缩性—文件系统可扩展性最高可超出60TB，并能使文件系统大小可以在线的增长。</p>
-<h1 id="openfiler安装"><a href="#openfiler安装" class="headerlink" title="openfiler安装"></a>openfiler安装</h1><h2 id="下载openfiler镜像"><a href="#下载openfiler镜像" class="headerlink" title="下载openfiler镜像"></a>下载openfiler镜像</h2><p><a href="https://www.openfiler.com/community/download" target="_blank" rel="noopener">链接🔗</a></p>
-<h2 id="创建虚拟机"><a href="#创建虚拟机" class="headerlink" title="创建虚拟机"></a>创建虚拟机</h2><p>新建虚拟机，选择自定义</p>
+    <h1>简介</h1>
+<p>Openfiler是一个基于rPath Linux系统的免费ISCIS/NAS应用。它是一个基于浏览器的免费网络存储管理实用程序，可以在单一框架中提供基于文件的网络连接存储 (NAS) 和基于块的存储区域网 (SAN)。Openfiler 支持 CIFS、NFS、HTTP/DAV 和 FTP。Openfiler能把标准x86/64架构的系统变成一个强大的NAS、SAN存储和IP存储网关，为管理员提供一个强大的管理平台，并能能应付未来的存储需求。依赖如VMware，Virtual Iron和Xen服务器虚拟化技术，Openfiler也可部署为一个虚拟机实例。<br>
+Openfiler的主要性能和优点：</p>
+<p>● 可靠性—Openfiler可以支持软件和硬件的RAID，能监测和预警，并且可以做卷的快照和快速恢复。<br>
+● 高可用性–Openfiler支持主动或被动的高可用性集群、多路径存储（MPIO）、块级别的复制。<br>
+● 性能–及时更新的Linux内核支持最新的CPU、网络和存储硬件。<br>
+● 可伸缩性—文件系统可扩展性最高可超出60TB，并能使文件系统大小可以在线的增长。</p>
+<h1>openfiler安装</h1>
+<h2 id="下载openfiler镜像">下载openfiler镜像</h2>
+<p><a href="https://www.openfiler.com/community/download" target="_blank" rel="noopener">链接🔗</a></p>
+<h2 id="创建虚拟机">创建虚拟机</h2>
+<p>新建虚拟机，选择自定义</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/0.png" alt=""></p>
 <p>选择虚拟机兼容性</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/1.png" alt=""></p>
@@ -248,9 +256,9 @@
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/15.png" alt=""></p>
 <p>选择适当的键盘</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/16.png" alt=""></p>
-<p>初始化磁盘，选择”Yes”</p>
+<p>初始化磁盘，选择&quot;Yes&quot;</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/17.png" alt=""></p>
-<p>创建分区，选择”Yes”</p>
+<p>创建分区，选择&quot;Yes&quot;</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/18.png" alt=""></p>
 <p>选择使用静态的IP地址</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/19.png" alt=""></p>
@@ -265,15 +273,20 @@
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/24.png" alt=""></p>
 <p>安装完成，选择“Reboot”重启系统</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/25.png" alt=""></p>
-<h2 id="配置openfiler-的iscsi目标服务器"><a href="#配置openfiler-的iscsi目标服务器" class="headerlink" title="配置openfiler 的iscsi目标服务器"></a><strong>配置openfiler 的iscsi目标服务器</strong></h2><h3 id="1-重启进入操作系统"><a href="#1-重启进入操作系统" class="headerlink" title="1.重启进入操作系统"></a><strong>1.重启进入操作系统</strong></h3><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/26.png" alt=""></p>
-<h3 id="2-添加3块scsi硬盘"><a href="#2-添加3块scsi硬盘" class="headerlink" title="2.添加3块scsi硬盘"></a><strong>2.添加3块scsi硬盘</strong></h3><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/27.png" alt=""></p>
+<h2 id="配置openfiler-的iscsi目标服务器"><strong>配置openfiler 的iscsi目标服务器</strong></h2>
+<h3 id="1-重启进入操作系统"><strong>1.重启进入操作系统</strong></h3>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/26.png" alt=""></p>
+<h3 id="2-添加3块scsi硬盘"><strong>2.添加3块scsi硬盘</strong></h3>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/27.png" alt=""></p>
 <p>然后输入<code>init 6</code>重启操作系统，重新扫描scsi硬盘。</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/28.png" alt=""></p>
-<h3 id="3-登录web界面"><a href="#3-登录web界面" class="headerlink" title="3.登录web界面"></a><strong>3.登录web界面</strong></h3><p>登录地址就是启动时页面上显示的IP地址;用户名是：openfiler ， 密码是：password</p>
+<h3 id="3-登录web界面"><strong>3.登录web界面</strong></h3>
+<p>登录地址就是启动时页面上显示的IP地址;用户名是：openfiler ， 密码是：password</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/29.png" alt=""></p>
-<h3 id="4-磁盘配置RAID5"><a href="#4-磁盘配置RAID5" class="headerlink" title="4.磁盘配置RAID5"></a><strong>4.磁盘配置RAID5</strong></h3><p>登录成功后界面如下所示</p>
+<h3 id="4-磁盘配置RAID5"><strong>4.磁盘配置RAID5</strong></h3>
+<p>登录成功后界面如下所示</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/30.png" alt=""></p>
-<p>选择”Volumes”选项</p>
+<p>选择&quot;Volumes&quot;选项</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/31.png" alt=""></p>
 <p>选择右测得菜单栏“Block Devices”</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/32.png" alt=""></p>
@@ -285,16 +298,19 @@
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/35.png" alt=""></p>
 <p>选择创建RAID5分区，点击“Add array”</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/36.png" alt=""></p>
-<h3 id="5-创建逻辑卷"><a href="#5-创建逻辑卷" class="headerlink" title="5.创建逻辑卷"></a><strong>5.创建逻辑卷</strong></h3><p>使用刚才创建好的raid5分区创建逻辑卷，点击“Volume Groups”</p>
+<h3 id="5-创建逻辑卷"><strong>5.创建逻辑卷</strong></h3>
+<p>使用刚才创建好的raid5分区创建逻辑卷，点击“Volume Groups”</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/37.png" alt=""></p>
-<p>点击“create new physical volumes”，给卷组起一个名字叫“First”，选择物理卷“/dev/md0”</p>
+<p>点击“create new physical volumes&quot;，给卷组起一个名字叫“First”，选择物理卷“/dev/md0”</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/38.png" alt=""></p>
 <p>点击右侧的“Add volume”</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/39.png" alt=""></p>
 <p>创建卷，卷的名字叫“One”，卷描述“hello world”当然可以填其他的，容量调整为最大，FileSystem / Volume type： 选择 block(iSCSI,FC,etc)</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/40.png" alt=""></p>
-<h3 id="6-启动iscsi目标服务器"><a href="#6-启动iscsi目标服务器" class="headerlink" title="6.启动iscsi目标服务器"></a><strong>6.启动iscsi目标服务器</strong></h3><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/41.png" alt=""></p>
-<h3 id="7-配置访问控制列表，iscsi目标服务器"><a href="#7-配置访问控制列表，iscsi目标服务器" class="headerlink" title="7.配置访问控制列表，iscsi目标服务器"></a><strong>7.配置访问控制列表，iscsi目标服务器</strong></h3><p>选择“System”</p>
+<h3 id="6-启动iscsi目标服务器"><strong>6.启动iscsi目标服务器</strong></h3>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/41.png" alt=""></p>
+<h3 id="7-配置访问控制列表，iscsi目标服务器"><strong>7.配置访问控制列表，iscsi目标服务器</strong></h3>
+<p>选择“System”</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/42.png" alt=""></p>
 <p>选择允许访问的ip地址或一个网段，然后点击“update”</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/43.png" alt=""></p>
@@ -308,7 +324,8 @@
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/47.png" alt=""></p>
 <p>选择“Network ACL”，“ACCESS”下面改成“Allow”，然后点击“update”</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/48.png" alt=""></p>
-<h2 id="连接iscsi测试"><a href="#连接iscsi测试" class="headerlink" title="连接iscsi测试"></a><strong>连接iscsi测试</strong></h2><p>打开iscsi发起程序，连接iscsi目标服务器</p>
+<h2 id="连接iscsi测试"><strong>连接iscsi测试</strong></h2>
+<p>打开iscsi发起程序，连接iscsi目标服务器</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/49.png" alt=""></p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/openfiler/50.png" alt=""></p>
 <p>查看Windows磁盘管理，发现已经正常连接</p>
@@ -369,7 +386,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#openfiler安装"><span class="toc-number">2.</span> <span class="toc-text">openfiler安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载openfiler镜像"><span class="toc-number">2.1.</span> <span class="toc-text">下载openfiler镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建虚拟机"><span class="toc-number">2.2.</span> <span class="toc-text">创建虚拟机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置openfiler-的iscsi目标服务器"><span class="toc-number">2.3.</span> <span class="toc-text">配置openfiler 的iscsi目标服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-重启进入操作系统"><span class="toc-number">2.3.1.</span> <span class="toc-text">1.重启进入操作系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-添加3块scsi硬盘"><span class="toc-number">2.3.2.</span> <span class="toc-text">2.添加3块scsi硬盘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-登录web界面"><span class="toc-number">2.3.3.</span> <span class="toc-text">3.登录web界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-磁盘配置RAID5"><span class="toc-number">2.3.4.</span> <span class="toc-text">4.磁盘配置RAID5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-创建逻辑卷"><span class="toc-number">2.3.5.</span> <span class="toc-text">5.创建逻辑卷</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-启动iscsi目标服务器"><span class="toc-number">2.3.6.</span> <span class="toc-text">6.启动iscsi目标服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-配置访问控制列表，iscsi目标服务器"><span class="toc-number">2.3.7.</span> <span class="toc-text">7.配置访问控制列表，iscsi目标服务器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#连接iscsi测试"><span class="toc-number">2.4.</span> <span class="toc-text">连接iscsi测试</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">openfiler安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载openfiler镜像"><span class="toc-number">2.1.</span> <span class="toc-text">下载openfiler镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建虚拟机"><span class="toc-number">2.2.</span> <span class="toc-text">创建虚拟机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置openfiler-的iscsi目标服务器"><span class="toc-number">2.3.</span> <span class="toc-text">配置openfiler 的iscsi目标服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-重启进入操作系统"><span class="toc-number">2.3.1.</span> <span class="toc-text">1.重启进入操作系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-添加3块scsi硬盘"><span class="toc-number">2.3.2.</span> <span class="toc-text">2.添加3块scsi硬盘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-登录web界面"><span class="toc-number">2.3.3.</span> <span class="toc-text">3.登录web界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-磁盘配置RAID5"><span class="toc-number">2.3.4.</span> <span class="toc-text">4.磁盘配置RAID5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-创建逻辑卷"><span class="toc-number">2.3.5.</span> <span class="toc-text">5.创建逻辑卷</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-启动iscsi目标服务器"><span class="toc-number">2.3.6.</span> <span class="toc-text">6.启动iscsi目标服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-配置访问控制列表，iscsi目标服务器"><span class="toc-number">2.3.7.</span> <span class="toc-text">7.配置访问控制列表，iscsi目标服务器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#连接iscsi测试"><span class="toc-number">2.4.</span> <span class="toc-text">连接iscsi测试</span></a></li></ol></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">

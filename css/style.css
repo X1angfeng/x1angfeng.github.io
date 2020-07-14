@@ -9,25 +9,25 @@
   --color-link-decoration: $color-link-decoration;
   --color-text: #000;
   --color-accent-1: #000;
-  --color-accent-2: #000;
-  --color-quote: #000;
-  --color-selection-background: $color-selection-background;
+  --color-accent-2: #1a1a1a;
+  --color-quote: #330;
+  --color-selection-background: rgba(204,42,65,0.99);
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-background: $color-background-dark;
-    --color-footer-mobile-1: $color-footer-mobile-1-dark;
-    --color-footer-mobile-2: $color-footer-mobile-2-dark;
-    --color-border: $color-border-dark;
-    --color-meta: $color-meta-dark;
-    --color-background-code: $color-background-code-dark;
-    --color-link: $color-link-dark;
-    --color-link-decoration: $color-link-decoration-dark;
-    --color-text: $color-text-dark;
-    --color-accent-1: $color-accent-1-dark;
-    --color-accent-2: $color-accent-2-dark;
-    --color-quote: $color-quote-dark;
-    --color-selection-background: $color-selection-background-dark;
+    --color-background: #333;
+    --color-footer-mobile-1: #373737;
+    --color-footer-mobile-2: #474747;
+    --color-border: #999;
+    --color-meta: #999;
+    --color-background-code: #1f1f1f;
+    --color-link: rgba(223,102,119,0.99);
+    --color-link-decoration: rgba(223,102,119,0.99);
+    --color-text: #ddd8d5;
+    --color-accent-1: #000;
+    --color-accent-2: #000;
+    --color-quote: #330;
+    --color-selection-background: rgba(223,102,119,0.99);
   }
 }
 .inline {

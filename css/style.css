@@ -1288,7 +1288,7 @@ article .content .caption {
   }
 }
 .weixin-box {
-  position: absolute;
+  position: fixed;
   bottom: 43px;
   left: 10px;
   border-radius: 5px;

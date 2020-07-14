@@ -255,6 +255,8 @@
 
 
 
+
+
         
           <div id="footer-post-container">
   <div id="footer-post">
@@ -343,19 +345,48 @@
     </nav>
   </div>
 
+
 </footer>
 
-<!--<br><br><br>
 
-<div class="weixin-box">
-  <div class="weixin-menu">
-    <div class="weixin-hover">
-      <div class="weixin-description">扫码加我微信</div>
+<link rel="stylesheet" href="/js/fancybox/source/jquery.fancybox.min.css">
+<!-- fancybox大图查看 需jq -->
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<!--fancybox-->
+<script src="/js/fancybox/source/jquery.fancybox.min.js"></script>
+<script>
+  $('[data-fancybox="images"]').fancybox({//可选
+    thumbs : {
+      autoStart : true //缩略图
+    }
+  });
+  $('[data-fancybox]').fancybox({//启用函数，必须
+    //protect: true //图片右键不能下载，可选
+  });
+</script>
+
+
+
+
+<!--
+  <div class="weixin-box" style="text-align:left">
+    <div class="weixin-menu">
+      <div class="weixin-hover">
+        <div class="weixin-description">扫码加我微信</div>
+      </div>
+    </div>
+  </div>-->
+
+        
+    </div>
+    
+<div class="weixin-box" >
+    <div class="weixin-menu">
+      <div class="weixin-hover">
+        <div class="weixin-description">扫码加我微信</div>
+      </div>
     </div>
   </div>
-</div>-->
-
-    </div>
     <!-- styles -->
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 <link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">

@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="使用国外的仓库速度不太理想，有的时候网络不好要花费很久的时间。因此选择换成国内的阿里云maven库主要步骤如下 第一步，右击项目名称  第二步，创建setting.xml  第三步，填上这些即可  1234567&amp;lt;mirrors&amp;gt;    &amp;lt;mirror&amp;gt;        &amp;lt;id&amp;gt;nexus-aliyun&amp;lt;&#x2F;id&amp;gt;        &amp;lt;mirrorOf">
+    <meta name="description" content="使用国外的仓库速度不太理想，有的时候网络不好要花费很久的时间。因此选择换成国内的阿里云maven库主要步骤如下 第一步，右击项目名称  第二步，创建setting.xml  第三步，填上这些即可  12345678&amp;lt;mirrors&amp;gt;    &amp;lt;mirror&amp;gt;        &amp;lt;id&amp;gt;nexus-aliyun&amp;lt;&#x2F;id&amp;gt;        &amp;lt;mirrorO">
 <meta name="keywords" content="maven">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mavern阿里云仓库设置">
 <meta property="og:url" content="https:&#x2F;&#x2F;521.ooo&#x2F;20-5-4.html">
 <meta property="og:site_name" content="嘲弄i">
-<meta property="og:description" content="使用国外的仓库速度不太理想，有的时候网络不好要花费很久的时间。因此选择换成国内的阿里云maven库主要步骤如下 第一步，右击项目名称  第二步，创建setting.xml  第三步，填上这些即可  1234567&amp;lt;mirrors&amp;gt;    &amp;lt;mirror&amp;gt;        &amp;lt;id&amp;gt;nexus-aliyun&amp;lt;&#x2F;id&amp;gt;        &amp;lt;mirrorOf">
+<meta property="og:description" content="使用国外的仓库速度不太理想，有的时候网络不好要花费很久的时间。因此选择换成国内的阿里云maven库主要步骤如下 第一步，右击项目名称  第二步，创建setting.xml  第三步，填上这些即可  12345678&amp;lt;mirrors&amp;gt;    &amp;lt;mirror&amp;gt;        &amp;lt;id&amp;gt;nexus-aliyun&amp;lt;&#x2F;id&amp;gt;        &amp;lt;mirrorO">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;20-5-4&#x2F;1.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;20-5-4&#x2F;2.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;20-5-4&#x2F;3.png">
-<meta property="og:updated_time" content="2020-05-18T08:33:40.460Z">
+<meta property="og:updated_time" content="2020-07-13T16:02:15.958Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;20-5-4&#x2F;1.png">
     
@@ -177,7 +177,7 @@
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/20-5-4/2.png" alt=""></p>
 <p><strong>第三步，填上这些即可</strong></p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/20-5-4/3.png" alt=""></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus-aliyun<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>Nexus aliyun<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://maven.aliyun.com/repository/central<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus-aliyun<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>Nexus aliyun<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://maven.aliyun.com/repository/central<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
   </div>
 </article>
@@ -203,6 +203,8 @@
         })
         gitalk.render('gitalk-container')
     </script>
+
+
 
 
 
@@ -292,19 +294,48 @@
     </nav>
   </div>
 
+
 </footer>
 
-<!--<br><br><br>
 
-<div class="weixin-box">
-  <div class="weixin-menu">
-    <div class="weixin-hover">
-      <div class="weixin-description">扫码加我微信</div>
+<link rel="stylesheet" href="/js/fancybox/source/jquery.fancybox.min.css">
+<!-- fancybox大图查看 需jq -->
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<!--fancybox-->
+<script src="/js/fancybox/source/jquery.fancybox.min.js"></script>
+<script>
+  $('[data-fancybox="images"]').fancybox({//可选
+    thumbs : {
+      autoStart : true //缩略图
+    }
+  });
+  $('[data-fancybox]').fancybox({//启用函数，必须
+    //protect: true //图片右键不能下载，可选
+  });
+</script>
+
+
+
+
+<!--
+  <div class="weixin-box" style="text-align:left">
+    <div class="weixin-menu">
+      <div class="weixin-hover">
+        <div class="weixin-description">扫码加我微信</div>
+      </div>
+    </div>
+  </div>-->
+
+        
+    </div>
+    
+<div class="weixin-box" >
+    <div class="weixin-menu">
+      <div class="weixin-hover">
+        <div class="weixin-description">扫码加我微信</div>
+      </div>
     </div>
   </div>
-</div>-->
-
-    </div>
     <!-- styles -->
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 <link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">

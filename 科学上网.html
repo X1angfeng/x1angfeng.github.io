@@ -173,7 +173,7 @@
   
 <div class="article-gallery">
     
-    <a class="gallery-item" href="/img/1.jpg" rel="gallery_ckckoxv1j003pzo355ditaaji">
+    <a class="gallery-item" href="/img/1.jpg" rel="gallery_ckclf3x6j003xts35hugk156e">
         <img src="/img/1.jpg" itemprop="image" />
     </a>
     
@@ -286,6 +286,8 @@ SSR（ShadowsocksR）是 SS 的修改版，也算是增强版，是在SS 的基�
 
 
 
+
+
         
           <div id="footer-post-container">
   <div id="footer-post">
@@ -372,19 +374,48 @@ SSR（ShadowsocksR）是 SS 的修改版，也算是增强版，是在SS 的基�
     </nav>
   </div>
 
+
 </footer>
 
-<!--<br><br><br>
 
-<div class="weixin-box">
-  <div class="weixin-menu">
-    <div class="weixin-hover">
-      <div class="weixin-description">扫码加我微信</div>
+<link rel="stylesheet" href="/js/fancybox/source/jquery.fancybox.min.css">
+<!-- fancybox大图查看 需jq -->
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<!--fancybox-->
+<script src="/js/fancybox/source/jquery.fancybox.min.js"></script>
+<script>
+  $('[data-fancybox="images"]').fancybox({//可选
+    thumbs : {
+      autoStart : true //缩略图
+    }
+  });
+  $('[data-fancybox]').fancybox({//启用函数，必须
+    //protect: true //图片右键不能下载，可选
+  });
+</script>
+
+
+
+
+<!--
+  <div class="weixin-box" style="text-align:left">
+    <div class="weixin-menu">
+      <div class="weixin-hover">
+        <div class="weixin-description">扫码加我微信</div>
+      </div>
+    </div>
+  </div>-->
+
+        
+    </div>
+    
+<div class="weixin-box" >
+    <div class="weixin-menu">
+      <div class="weixin-hover">
+        <div class="weixin-description">扫码加我微信</div>
+      </div>
     </div>
   </div>
-</div>-->
-
-    </div>
     <!-- styles -->
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 <link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">

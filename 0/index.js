@@ -1,1 +1,0 @@
-"use strict";$(document).ready(function(){$("#fullpage").fullpage({loopBottom:!0,verticalCentered:!1})});

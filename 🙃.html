@@ -149,7 +149,7 @@
     
       <div class="outdated-warn">
         <i class="fas fa-exclamation-circle"></i>
-        这是一篇更新于 426 天前的文章，其中的信息可能已经有所发展或是发生改变。
+        这是一篇更新于 427 天前的文章，其中的信息可能已经有所发展或是发生改变。
       </div>
     
   
@@ -398,9 +398,37 @@
 <script src="/js/heart.js"></script>
 <script src="/js/crash_cheat.js"></script>
 <script src="/js/write.js"></script>
-<script src="/js/photo.js"></script>
 
 
+
+    <script src="/lib/clipboard/clipboard.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+      // copy-btn HTML
+      var btn = "<span class=\"btn-copy btn-copy-code tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+      btn += '<i class="far fa-clone"></i>';
+      btn += '</span>'; 
+      // mount it!
+      $(".highlight table").before(btn);
+      var clipboardCode = new ClipboardJS('btn-copy-code', {
+        text: function(trigger) {
+          return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+        }
+      });
+      var clipboardPermalink = new ClipboardJS('.btn-copy-permalink', {
+        text: function(trigger) {
+          return "https://521.ooo/%F0%9F%99%83.html"
+        }
+      });
+      var successCallback = function(e) {
+        e.trigger.setAttribute('aria-label', "复制成功!");
+        e.clearSelection();
+      }
+      clipboardCode.on('success', successCallback);
+      clipboardPermalink.on('success', successCallback);
+    })
+    </script>
+  
 
     
 <div class="weixin-box" >

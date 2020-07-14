@@ -163,7 +163,7 @@
   
 <div class="article-gallery">
     
-    <a class="gallery-item" href="/img/1.jpg" rel="gallery_ckclrc6ht003xyo357lc1243t">
+    <a class="gallery-item" href="/img/1.jpg" rel="gallery_ckclu00gx003r8s352f2z20s6">
         <img src="/img/1.jpg" itemprop="image" />
     </a>
     
@@ -472,9 +472,37 @@ SSR（ShadowsocksR）是 SS 的修改版，也算是增强版，是在SS 的基�
 <script src="/js/heart.js"></script>
 <script src="/js/crash_cheat.js"></script>
 <script src="/js/write.js"></script>
-<script src="/js/photo.js"></script>
 
 
+
+    <script src="/lib/clipboard/clipboard.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+      // copy-btn HTML
+      var btn = "<span class=\"btn-copy btn-copy-code tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+      btn += '<i class="far fa-clone"></i>';
+      btn += '</span>'; 
+      // mount it!
+      $(".highlight table").before(btn);
+      var clipboardCode = new ClipboardJS('btn-copy-code', {
+        text: function(trigger) {
+          return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+        }
+      });
+      var clipboardPermalink = new ClipboardJS('.btn-copy-permalink', {
+        text: function(trigger) {
+          return "https://521.ooo/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91.html"
+        }
+      });
+      var successCallback = function(e) {
+        e.trigger.setAttribute('aria-label', "复制成功!");
+        e.clearSelection();
+      }
+      clipboardCode.on('success', successCallback);
+      clipboardPermalink.on('success', successCallback);
+    })
+    </script>
+  
 
     
 <div class="weixin-box" >

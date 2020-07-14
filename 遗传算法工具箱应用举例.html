@@ -454,9 +454,37 @@
 <script src="/js/heart.js"></script>
 <script src="/js/crash_cheat.js"></script>
 <script src="/js/write.js"></script>
-<script src="/js/photo.js"></script>
 
 
+
+    <script src="/lib/clipboard/clipboard.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+      // copy-btn HTML
+      var btn = "<span class=\"btn-copy btn-copy-code tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+      btn += '<i class="far fa-clone"></i>';
+      btn += '</span>'; 
+      // mount it!
+      $(".highlight table").before(btn);
+      var clipboardCode = new ClipboardJS('btn-copy-code', {
+        text: function(trigger) {
+          return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+        }
+      });
+      var clipboardPermalink = new ClipboardJS('.btn-copy-permalink', {
+        text: function(trigger) {
+          return "https://521.ooo/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95%E5%B7%A5%E5%85%B7%E7%AE%B1%E5%BA%94%E7%94%A8%E4%B8%BE%E4%BE%8B.html"
+        }
+      });
+      var successCallback = function(e) {
+        e.trigger.setAttribute('aria-label', "复制成功!");
+        e.clearSelection();
+      }
+      clipboardCode.on('success', successCallback);
+      clipboardPermalink.on('success', successCallback);
+    })
+    </script>
+  
 
     
 <div class="weixin-box" >

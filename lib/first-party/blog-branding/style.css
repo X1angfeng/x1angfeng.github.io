@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'branding';
+  src:
+    url('fonts/branding.ttf?zaw3hy') format('truetype'),
+    url('fonts/branding.woff?zaw3hy') format('woff'),
+    url('fonts/branding.svg?zaw3hy#branding') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="fa-blog"], [class*=" fa-blog"] {
+  font-family: 'branding' !important;
+}
+
+.fa-leetcode:before {
+  content: "\e900";
+}
+.fa-unsplash:before {
+  content: "\e901";
+}

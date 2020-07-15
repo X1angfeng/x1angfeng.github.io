@@ -3,14 +3,14 @@
   --color-footer-mobile-1: #ededed;
   --color-footer-mobile-2: #dadada;
   --color-border: #666;
-  --color-meta: #666;
+  --color-meta: #000;
   --color-background-code: #ededed;
-  --color-link: #d480aa;
-  --color-link-decoration: $color-link-decoration;
+  --color-link: #000;
+  --color-link-decoration: #000;
   --color-text: #000;
   --color-accent-1: #000;
   --color-accent-2: #1a1a1a;
-  --color-quote: #330;
+  --color-quote: #cc2a41;
   --color-selection-background: rgba(204,42,65,0.99);
 }
 @media (prefers-color-scheme: dark) {
@@ -26,7 +26,7 @@
     --color-text: #ddd8d5;
     --color-accent-1: #000;
     --color-accent-2: #000;
-    --color-quote: #330;
+    --color-quote: #cc2a41;
     --color-selection-background: rgba(223,102,119,0.99);
   }
 }
@@ -477,7 +477,7 @@ body {
   background-color: var(--color-background);
   color: var(--color-text);
   font-display: swap;
-  font-weight: 400;
+  font-weight: 666;
   font-size: 14px;
   font-family: -apple-system, BlinkMacSystemFont, PingFang-SC-Regular, Hiragino Sans GB, Microsoft Yahei, Arial, sans-serif;
   line-height: 1.725;

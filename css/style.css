@@ -2235,6 +2235,63 @@ article .content .caption {
 #tag-cloud .tag-cloud-tags a:before {
   content: "#";
 }
+#footer {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 20px;
+  width: 100%;
+  color: var(--color-meta);
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-flow: row wrap;
+}
+#footer ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#footer li {
+  line-height: 15px;
+  margin-right: 12px;
+  border-right: 1px solid;
+  border-color: var(--color-border);
+  vertical-align: middle;
+}
+#footer li a {
+  margin-right: 12px;
+}
+#footer li:last-child {
+  margin-right: 0;
+  border-right: 0;
+}
+#footer li:last-child a {
+  margin-right: 0;
+}
+#footer a {
+  color: var(--color-meta);
+  text-decoration: none;
+}
+#footer a:hover {
+  text-decoration: underline;
+}
+#footer .footer-left {
+  height: 30px;
+  vertical-align: middle;
+  line-height: 30px;
+}
+@media (max-width: 39rem) {
+  #footer {
+    flex-flow: column;
+  }
+  #footer .footer-left {
+    margin-bottom: 4px;
+  }
+}
 .tooltipped {
   position: relative;
 }

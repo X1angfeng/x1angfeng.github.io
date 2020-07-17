@@ -2,9 +2,79 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://521.ooo/ll.html</loc>
+    <loc>https://521.ooo/sort/insertionSort.html</loc>
     
-    <lastmod>2020-07-17T00:04:50.509Z</lastmod>
+    <lastmod>2020-07-17T07:53:29.313Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://521.ooo/sort/shellSort.html</loc>
+    
+    <lastmod>2020-07-17T07:53:23.985Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://521.ooo/sort/mergeSort.html</loc>
+    
+    <lastmod>2020-07-17T07:53:18.423Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://521.ooo/sort/quickSort.html</loc>
+    
+    <lastmod>2020-07-17T07:53:13.444Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://521.ooo/sort/heapSort.html</loc>
+    
+    <lastmod>2020-07-17T07:53:08.516Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://521.ooo/sort/countingSort.html</loc>
+    
+    <lastmod>2020-07-17T07:53:03.469Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://521.ooo/sort/bucketSort.html</loc>
+    
+    <lastmod>2020-07-17T07:52:56.964Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://521.ooo/sort/radixSort.html</loc>
+    
+    <lastmod>2020-07-17T07:52:35.089Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://521.ooo/sort/selectionSort.html</loc>
+    
+    <lastmod>2020-07-17T05:17:52.723Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://521.ooo/sort/bubbleSort.html</loc>
+    
+    <lastmod>2020-07-17T05:17:52.722Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://521.ooo/sort/index.html</loc>
+    
+    <lastmod>2020-07-16T16:00:00.000Z</lastmod>
     
   </url>
   

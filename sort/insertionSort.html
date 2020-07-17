@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="插入排序 插入排序的代码实现虽然没有冒泡排序和选择排序那么简单粗暴，但它的原理应该是最容易理解的了，因为只要打过扑克牌的人都应该能够秒懂。插入排序是一种最简单直观的排序算法，它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。 插入排序和冒泡排序一样，也有一种优化算法，叫做拆半插入。 1. 算法步骤   将第一待排序序列第一个元素看做一个有序序列，把第二">
+<meta name="keywords" content="永远相信美好的事情即将发生！">
+<meta property="og:type" content="website">
+<meta property="og:title" content="嘲弄i">
+<meta property="og:url" content="https:&#x2F;&#x2F;521.ooo&#x2F;sort&#x2F;insertionSort.html">
+<meta property="og:site_name" content="嘲弄i">
+<meta property="og:description" content="插入排序 插入排序的代码实现虽然没有冒泡排序和选择排序那么简单粗暴，但它的原理应该是最容易理解的了，因为只要打过扑克牌的人都应该能够秒懂。插入排序是一种最简单直观的排序算法，它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。 插入排序和冒泡排序一样，也有一种优化算法，叫做拆半插入。 1. 算法步骤   将第一待排序序列第一个元素看做一个有序序列，把第二">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;sort&#x2F;res&#x2F;insertionSort.gif">
+<meta property="og:updated_time" content="2020-07-17T07:53:29.313Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;sort&#x2F;res&#x2F;insertionSort.gif">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/McRae.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/McRae.ico" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/McRae.ico">
+          
+        
+    
+    <!-- title -->
+    <title>嘲弄i</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- third-party styles -->
+    <!-- share-js -->
+
+  <link rel="stylesheet" href="/lib/share-js/css/share.min.css">
+
+
+<link rel="stylesheet" href="/lib/lightbox2/css/lightbox.min.css">
+
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ">
+    
+    <div class="wrapper index py4">
+        
+          <header id="header">
+  <a href="/">
+  
+    
+      <div id="logo" style="background-image: url(/images/avatar.png);"></div>
+    
+  
+    <div id="title">
+      <h1>嘲弄i</h1>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+       
+        <li>
+          <a href="/">
+             
+                <i class="fa-fw fa fa-home"></i>
+              
+            首页
+          </a>
+        </li>
+       
+        <li>
+          <a href="/archives/">
+             
+                <i class="fa-fw fa fa-align-left"></i>
+              
+            文章
+          </a>
+        </li>
+       
+        <li>
+          <a href="/categories/">
+             
+                <i class="fa-fw fas fa-hashtag"></i>
+              
+            分类
+          </a>
+        </li>
+       
+        <li>
+          <a href="/music/">
+             
+                <i class="fa-fw fa fa-music fa-music"></i>
+              
+            音乐
+          </a>
+        </li>
+       
+        <li>
+          <a href="/photos/">
+             
+                <i class="fa-fw fa fa-video fa-photo"></i>
+              
+            相册
+          </a>
+        </li>
+       
+        <li>
+          <a href="/search/">
+             
+                <i class="fa-fw fa fa-search fa-search"></i>
+              
+            搜索
+          </a>
+        </li>
+       
+        <li>
+          <a href="/atom.xml">
+             
+                <i class="fa-fw fas fa-rss"></i>
+              
+            订阅
+          </a>
+        </li>
+       
+        <li>
+          <a href="/about/">
+             
+                <i class="fa-fw fas fa-star"></i>
+              
+            关于
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+
+  <div class="content" itemprop="articleBody">
+    
+      <h1>插入排序</h1>
+<p>插入排序的代码实现虽然没有冒泡排序和选择排序那么简单粗暴，但它的原理应该是最容易理解的了，因为只要打过扑克牌的人都应该能够秒懂。插入排序是一种最简单直观的排序算法，它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。</p>
+<p>插入排序和冒泡排序一样，也有一种优化算法，叫做拆半插入。</p>
+<h2 id="1-算法步骤">1. 算法步骤</h2>
+<ol>
+<li>
+<p>将第一待排序序列第一个元素看做一个有序序列，把第二个元素到最后一个元素当成是未排序序列。</p>
+</li>
+<li>
+<p>从头到尾依次扫描未排序序列，将扫描到的每个元素插入有序序列的适当位置。（如果待插入的元素与有序序列中的某个元素相等，则将待插入元素插入到相等元素的后面。）</p>
+</li>
+</ol>
+<h2 id="2-动图演示">2. 动图演示</h2>
+<p><img src="res/insertionSort.gif" alt="动图演示"></p>
+<h2 id="3-JavaScript-代码实现">3. JavaScript 代码实现</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertionSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> len = arr.length;</span><br><span class="line">    <span class="keyword">var</span> preIndex, current;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">        preIndex = i - <span class="number">1</span>;</span><br><span class="line">        current = arr[i];</span><br><span class="line">        <span class="keyword">while</span>(preIndex &gt;= <span class="number">0</span> &amp;&amp; arr[preIndex] &gt; current) &#123;</span><br><span class="line">            arr[preIndex+<span class="number">1</span>] = arr[preIndex];</span><br><span class="line">            preIndex--;</span><br><span class="line">        &#125;</span><br><span class="line">        arr[preIndex+<span class="number">1</span>] = current;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-Python-代码实现">4. Python 代码实现</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">insertionSort</span><span class="params">(arr)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(arr)):</span><br><span class="line">        preIndex = i<span class="number">-1</span></span><br><span class="line">        current = arr[i]</span><br><span class="line">        <span class="keyword">while</span> preIndex &gt;= <span class="number">0</span> <span class="keyword">and</span> arr[preIndex] &gt; current:</span><br><span class="line">            arr[preIndex+<span class="number">1</span>] = arr[preIndex]</span><br><span class="line">            preIndex-=<span class="number">1</span></span><br><span class="line">        arr[preIndex+<span class="number">1</span>] = current</span><br><span class="line">    <span class="keyword">return</span> arr</span><br></pre></td></tr></table></figure>
+<h2 id="5-Go-代码实现">5. Go 代码实现</h2>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">insertionSort</span><span class="params">(arr []<span class="keyword">int</span>)</span> []<span class="title">int</span></span> &#123;</span><br><span class="line">4<span class="keyword">for</span> i := <span class="keyword">range</span> arr &#123;</span><br><span class="line">44preIndex := i - <span class="number">1</span></span><br><span class="line">44current := arr[i]</span><br><span class="line">44<span class="keyword">for</span> preIndex &gt;= <span class="number">0</span> &amp;&amp; arr[preIndex] &gt; current &#123;</span><br><span class="line">444arr[preIndex+<span class="number">1</span>] = arr[preIndex]</span><br><span class="line">444preIndex -= <span class="number">1</span></span><br><span class="line">44&#125;</span><br><span class="line">44arr[preIndex+<span class="number">1</span>] = current</span><br><span class="line">4&#125;</span><br><span class="line">4<span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="6-Java-代码实现">6. Java 代码实现</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InsertSort</span> <span class="keyword">implements</span> <span class="title">IArraySort</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] sort(<span class="keyword">int</span>[] sourceArray) <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">// 对 arr 进行拷贝，不改变参数内容</span></span><br><span class="line">        <span class="keyword">int</span>[] arr = Arrays.copyOf(sourceArray, sourceArray.length);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 从下标为1的元素开始选择合适的位置插入，因为下标为0的只有一个元素，默认是有序的</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 记录要插入的数据</span></span><br><span class="line">            <span class="keyword">int</span> tmp = arr[i];</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 从已经排序的序列最右边的开始比较，找到比其小的数</span></span><br><span class="line">            <span class="keyword">int</span> j = i;</span><br><span class="line">            <span class="keyword">while</span> (j &gt; <span class="number">0</span> &amp;&amp; tmp &lt; arr[j - <span class="number">1</span>]) &#123;</span><br><span class="line">                arr[j] = arr[j - <span class="number">1</span>];</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 存在比其小的数，插入</span></span><br><span class="line">            <span class="keyword">if</span> (j != i) &#123;</span><br><span class="line">                arr[j] = tmp;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> arr;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="7-PHP-代码实现">7. PHP 代码实现</h2>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertionSort</span><span class="params">($arr)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    $len = count($arr);</span><br><span class="line">    <span class="keyword">for</span> ($i = <span class="number">1</span>; $i &lt; $len; $i++) &#123;</span><br><span class="line">        $preIndex = $i - <span class="number">1</span>;</span><br><span class="line">        $current = $arr[$i];</span><br><span class="line">        <span class="keyword">while</span>($preIndex &gt;= <span class="number">0</span> &amp;&amp; $arr[$preIndex] &gt; $current) &#123;</span><br><span class="line">            $arr[$preIndex+<span class="number">1</span>] = $arr[$preIndex];</span><br><span class="line">            $preIndex--;</span><br><span class="line">        &#125;</span><br><span class="line">        $arr[$preIndex+<span class="number">1</span>] = $current;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> $arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    
+  </div>
+</article>
+
+        
+        <br><br>
+<footer id="footer" class="content">
+  
+  
+    <div  class="container " >
+      <!--相关登录 start-->
+        <!--弹出微信二维码 start-->
+        <!--
+        <div id="WechatImg" style="cursor:pointer;">
+          <img src="http://images.xiaowiba.com/2018/12/904156446.png" alt="contact" style="width:300px;height:150px;"></img>
+      </div>
+      <script>
+      function showWechat(){
+          document.getElementById("WechatImg").style.display = 'block';
+      }
+      function hideWechat(){
+          document.getElementById("WechatImg").style.display = 'none';
+      }
+      </script>-->
+    <!--弹出微信二维码 end-->
+    <!--onMouseOut="hideWechat()" onmouseover="showWechat()"-->
+    <!--这段借鉴(抄袭)小尾巴http://xiaowiba.com/的-->
+    
+    <span class="shaky copyrightnota"  style="font-family:'Comic Sans MS';">
+      <p id="shakywechat">(●'◡'●)ﾉ♥</p>
+      
+    </span>
+    &nbsp;&nbsp;
+    <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+        <script>
+            var now = new Date(); 
+            function createtime() { 
+                var grt= new Date("12/30/2018 12:49:00");//此处修改你的建站时间或者网站上线时间 
+                now.setTime(now.getTime()+250); 
+                days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+                hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+                if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+                mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+                seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+                snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+                document.getElementById("timeDate").innerHTML = "已存活 "+dnum+" 天 "; 
+                document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+            } 
+        setInterval("createtime()",250);
+        </script>
+        
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <span class="site-uv">
+          <i class="fa fa-user"></i> 访问人数
+          <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+        </span>
+        <span class="site-pv">
+          <i class="fa fa-eye"></i> 访问总量
+          <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+        </span>
+  </div>
+
+
+
+  
+
+  <!--暂时废弃因为不美观懒得改css了-->
+  <!--
+  <br>
+    &nbsp;&nbsp;&nbsp;
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 访问总量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+    
+  <br>
+      &nbsp;&nbsp;&nbsp;-->
+      <!--建站时间-->
+    <!--  <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+        <script>
+            var now = new Date(); 
+            function createtime() { 
+                var grt= new Date("12/30/2018 12:49:00");//此处修改你的建站时间或者网站上线时间 
+                now.setTime(now.getTime()+250); 
+                days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+                hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+                if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+                mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+                seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+                snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+                document.getElementById("timeDate").innerHTML = "博客已运行 "+dnum+" 天 "; 
+                document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+            } 
+        setInterval("createtime()",250);
+        </script>
+  
+  </div>
+-->
+
+
+</footer>
+
+    
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/first-party/blog-branding/style.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+<link rel="stylesheet" href="/lib/video.js/video-js.min.css"> 
+
+    <!-- jQuery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+
+
+<script src="/js/main.js"></script>
+
+<!-- Search -->
+
+
+
+<!-- Google Analytics -->
+
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-153778851-3', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+
+<!-- Baidu Analytics -->
+
+
+<!-- Share.js -->
+
+
+<!-- lightbox -->
+
+
+<!-- video.js -->
+
+
+<script src="/js/heart.js"></script>
+<script src="/js/crash_cheat.js"></script>
+<script src="/js/write.js"></script>
+
+
+
+
+   
+<div class="weixin-box" >
+    <div class="weixin-menu">
+      <div class="weixin-hover">
+        <div class="weixin-description">扫码加我微信</div>
+      </div>
+    </div>
+  </div>
+
+    
+    
+  <script>
+  POWERMODE.colorful = true;
+  POWERMODE.shake = false; 
+  document.body.addEventListener('input', POWERMODE);
+  </script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7},"log":false});</script></body>
+</html>

@@ -148,12 +148,12 @@
   
     <div class="postdate">
       <i class="fas fa-calendar"></i>
-      发表于 <time datetime="2019-03-25T10:56:58.000Z" itemprop="datePublished">2019-03-25</time>
+      发表于 <time datetime="2019-03-25T10:56:58.000Z" itemprop="datePublished">2019年03月25日</time>
     </div>
     
       <div class="postdate">
         <i class="fas fa-calendar-check"></i>
-        更新于 <time datetime="2019-04-08T13:23:31.146Z" itemprop="dateModified">2019-04-08</time>
+        更新于 <time datetime="2019-04-08T13:23:31.146Z" itemprop="dateModified">2019年04月08日</time>
       </div>
     
    |
@@ -241,7 +241,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/share/doc/dhcp-4.1.1/dhcpd.conf.sample /etc/dhcp/dhcpd.conf</span><br></pre></td></tr></table></figure>
 <p><img src="/img/dhcp/c.png" alt=""></p>
 <h4 id="编辑DHCP的配置文件">编辑DHCP的配置文件</h4>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/dhcp/dhcp.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">vim</span> /etc/dhcp/dhcp.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure>
 <p><img src="/img/dhcp/b.png" alt=""></p>
 <h4 id="重启DHCP服务">重启DHCP服务</h4>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service dhcpd restart</span><br><span class="line">chkconfig dhcpd on 	#设置开机自启</span><br></pre></td></tr></table></figure>
@@ -261,18 +261,18 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-eth0</span><br></pre></td></tr></table></figure>
 <p><img src="/img/dhcp/1.png" alt=""></p>
 <h4 id="设置主机名和打开网络开关">设置主机名和打开网络开关</h4>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/network</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim <span class="regexp">/etc/</span>sysconfig<span class="regexp">/network</span></span><br></pre></td></tr></table></figure>
 <p><code>备注</code>:networking=yes打开网络的总开关，如果设置为no，那么本服务器将🙅‍不能提供任何网络功能。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NETWORKING=yes			#打开服务器网络总开关</span><br><span class="line">HOSTNAME=bestyhy.com    #设置主机名字为bestyhy.com</span><br></pre></td></tr></table></figure>
 <h4 id="设置主机名与主机IP对应解析">设置主机名与主机IP对应解析</h4>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/hosts </span><br><span class="line"></span><br><span class="line">192.168.23.254 		bestyhy.com</span><br></pre></td></tr></table></figure>
 <h4 id="设置默认搜索域名">设置默认搜索域名</h4>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/resolv.conf</span><br><span class="line"></span><br><span class="line">search 		bestyhy.com	</span><br><span class="line">nameserver	192.168.23.2</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/resolv.conf</span><br><span class="line"></span><br><span class="line">search 		bestyhy<span class="selector-class">.com</span>	</span><br><span class="line">nameserver	<span class="number">192.168</span>.<span class="number">23.2</span></span><br></pre></td></tr></table></figure>
 <h4 id="重启网络服务">重启网络服务</h4>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service network restart</span><br><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service<span class="built_in"> network </span>restart</span><br><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
 <p><img src="/img/dhcp/2.png" alt=""></p>
 <h4 id="编辑DHCP配置文件">编辑DHCP配置文件</h4>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/dhcp/dhcp.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">vim</span> /etc/dhcp/dhcp.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure>
 <p><img src="/img/dhcp/3.png" alt=""><img src="/img/dhcp/4.png" alt=""></p>
 <h4 id="重启DHCP服务-v2">重启DHCP服务</h4>
 <p><img src="/img/dhcp/cq.png" alt=""></p>
@@ -289,19 +289,19 @@
 <h4 id="开启路由转发功能">开启路由转发功能</h4>
 <p><span id="inline-blue">备注</span>服务器的IP就是管理各网段的网管，也就是说DHCP服务器的网卡担当网关的功能，这需要打开DHCP服务器的转发功能（让两个网段的机器可以相互通信）</p>
 <p>①</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">vim</span> /etc/sysctl.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure>
 <p>找到net.ipv4.ip_forward=0,把0改为1。<span id="inline-blue">在命令模式下输入 / +自己想要搜索的内容然后回车即可快速找到相关信息。</span></p>
 <p>②通过shell命令</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo "1" &gt; /proc/sys/net/ipv4/ip_forword</span><br></pre></td></tr></table></figure>
 <p><code>sysctl -p</code>刷新修改的参数设置，使之立刻生效。</p>
 <h4 id="给网卡配置多个IP地址">给网卡配置多个IP地址</h4>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/sysconfig/network-scripts/</span><br><span class="line">vim ifcfg-eth0</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="regexp">/etc/</span>sysconfig<span class="regexp">/network-scripts/</span></span><br><span class="line">vim ifcfg-eth0</span><br></pre></td></tr></table></figure>
 <p><img src="/img/dhcp/ip.jpg" alt=""></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp ifcfg-eth0 ifcfg-eth0:1</span><br><span class="line">vim  ifcfg-eth0:1</span><br></pre></td></tr></table></figure>
 <p><img src="/img/dhcp/ip1.jpg" alt=""></p>
 <p>使用<code>service network restart</code>命令重新启动网络服务，是IP地址生效。</p>
 <h4 id="修改DHCP配置文件">修改DHCP配置文件</h4>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/dhcp/dhcpd.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">vim</span> /etc/dhcp/dhcpd.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure>
 <p><img src="/img/dhcp/dhcp.jpg" alt=""></p>
 <h4 id="重启DHCP服务-v3">重启DHCP服务</h4>
 <p><img src="/img/dhcp/cq.png" alt=""></p>
@@ -311,18 +311,18 @@
 <h3 id="实现步骤-v4">实现步骤</h3>
 <p>两个网络中的IP作用域的配置与任务三相同，配置中继服务的两个IP地址分别为192.168.31.1和192.168.32.1</p>
 <h4 id="配置DHCP-relay">配置DHCP relay</h4>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/dhcrelay</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim <span class="regexp">/etc/</span>sysconfig<span class="regexp">/dhcrelay</span></span><br></pre></td></tr></table></figure>
 <p><img src="/img/dhcp/dhcrelay.png" alt=""></p>
 <h4 id="开启路由转发功能-v2">开启路由转发功能</h4>
 <p><span id="inline-blue">备注</span>服务器的IP就是管理各网段的网管，也就是说DHCP服务器的网卡担当网关的功能，这需要打开DHCP服务器的转发功能（让两个网段的机器可以相互通信）</p>
 <p>①</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">vim</span> /etc/sysctl.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure>
 <p>找到net.ipv4.ip_forward=0,把0改为1。<span id="inline-blue">在命令模式下输入 / +自己想要搜索的内容然后回车即可快速找到相关信息。</span></p>
 <p>②通过shell命令</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo "1" &gt; /proc/sys/net/ipv4/ip_forword</span><br></pre></td></tr></table></figure>
 <p><code>sysctl -p</code>刷新修改的参数设置，使之立刻生效。</p>
 <h4 id="运行DHCP服务">运行DHCP服务</h4>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service dhcpd restart</span><br><span class="line">chkconfig  dhcpd on</span><br></pre></td></tr></table></figure>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service dhcpd restart</span><br><span class="line">chkconfig  dhcpd <span class="keyword">on</span></span><br></pre></td></tr></table></figure>
 <h4 id="配置DHCP客户端">配置DHCP客户端</h4>
 <p>通过<code>setup</code>命令，在use DHCP后面的[]中，按空格添加“*”</p>
 

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="十大经典排序算法  排序算法是《数据结构与算法》中最基本的算法之一。 排序算法可以分为内部排序和外部排序，内部排序是数据记录在内存中进行排序，而外部排序是因排序的数据很大，一次不能容纳全部的排序记录，在排序过程中需要访问外存。常见的内部排序算法有：插入排序、希尔排序、选择排序、冒泡排序、归并排序、快速排序、堆排序、基数排序等。用一张图概括：  关于时间复杂度：  平方阶 (O(n2)) 排序 各类">
+<meta name="keywords" content="排序,,python,javascript,GO,java,PHP">
+<meta property="og:type" content="website">
+<meta property="og:title" content="十大经典排序算法">
+<meta property="og:url" content="https:&#x2F;&#x2F;521.ooo&#x2F;sort&#x2F;index.html">
+<meta property="og:site_name" content="嘲弄i">
+<meta property="og:description" content="十大经典排序算法  排序算法是《数据结构与算法》中最基本的算法之一。 排序算法可以分为内部排序和外部排序，内部排序是数据记录在内存中进行排序，而外部排序是因排序的数据很大，一次不能容纳全部的排序记录，在排序过程中需要访问外存。常见的内部排序算法有：插入排序、希尔排序、选择排序、冒泡排序、归并排序、快速排序、堆排序、基数排序等。用一张图概括：  关于时间复杂度：  平方阶 (O(n2)) 排序 各类">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;travis-ci.org&#x2F;hustcc&#x2F;JS-Sorting-Algorithm.svg?branch=master">
+<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;sort&#x2F;res&#x2F;sort.png">
+<meta property="og:updated_time" content="2020-07-16T16:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;travis-ci.org&#x2F;hustcc&#x2F;JS-Sorting-Algorithm.svg?branch=master">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/McRae.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/McRae.ico" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/McRae.ico">
+          
+        
+    
+    <!-- title -->
+    <title>十大经典排序算法</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- third-party styles -->
+    <!-- share-js -->
+
+  <link rel="stylesheet" href="/lib/share-js/css/share.min.css">
+
+
+<link rel="stylesheet" href="/lib/lightbox2/css/lightbox.min.css">
+
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ">
+    
+    <div class="wrapper index py4">
+        
+          <header id="header">
+  <a href="/">
+  
+    
+      <div id="logo" style="background-image: url(/images/avatar.png);"></div>
+    
+  
+    <div id="title">
+      <h1>嘲弄i</h1>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+       
+        <li>
+          <a href="/">
+             
+                <i class="fa-fw fa fa-home"></i>
+              
+            首页
+          </a>
+        </li>
+       
+        <li>
+          <a href="/archives/">
+             
+                <i class="fa-fw fa fa-align-left"></i>
+              
+            文章
+          </a>
+        </li>
+       
+        <li>
+          <a href="/categories/">
+             
+                <i class="fa-fw fas fa-hashtag"></i>
+              
+            分类
+          </a>
+        </li>
+       
+        <li>
+          <a href="/music/">
+             
+                <i class="fa-fw fa fa-music fa-music"></i>
+              
+            音乐
+          </a>
+        </li>
+       
+        <li>
+          <a href="/photos/">
+             
+                <i class="fa-fw fa fa-video fa-photo"></i>
+              
+            相册
+          </a>
+        </li>
+       
+        <li>
+          <a href="/search/">
+             
+                <i class="fa-fw fa fa-search fa-search"></i>
+              
+            搜索
+          </a>
+        </li>
+       
+        <li>
+          <a href="/atom.xml">
+             
+                <i class="fa-fw fas fa-rss"></i>
+              
+            订阅
+          </a>
+        </li>
+       
+        <li>
+          <a href="/about/">
+             
+                <i class="fa-fw fas fa-star"></i>
+              
+            关于
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+
+  <div class="content" itemprop="articleBody">
+    
+      <h1>十大经典排序算法</h1>
+<p><a href="https://travis-ci.org/hustcc/JS-Sorting-Algorithm" target="_blank" rel="noopener"><img src="https://travis-ci.org/hustcc/JS-Sorting-Algorithm.svg?branch=master" alt="Build Status"></a></p>
+<p>排序算法是《数据结构与算法》中最基本的算法之一。</p>
+<p>排序算法可以分为内部排序和外部排序，内部排序是数据记录在内存中进行排序，而外部排序是因排序的数据很大，一次不能容纳全部的排序记录，在排序过程中需要访问外存。常见的内部排序算法有：<strong>插入排序、希尔排序、选择排序、冒泡排序、归并排序、快速排序、堆排序、基数排序</strong>等。用一张图概括：</p>
+<p><img src="res/sort.png" alt="十大经典排序算法 概览截图"></p>
+<p><strong>关于时间复杂度</strong>：</p>
+<ol>
+<li>平方阶 (O(n2)) 排序<br>
+各类简单排序：直接插入、直接选择和冒泡排序。</li>
+<li>线性对数阶 (O(nlog2n)) 排序<br>
+快速排序、堆排序和归并排序；</li>
+<li>O(n1+§)) 排序，§ 是介于 0 和 1 之间的常数。<br>
+希尔排序</li>
+<li>线性阶 (O(n)) 排序<br>
+基数排序，此外还有桶、箱排序。</li>
+</ol>
+<p><strong>关于稳定性</strong>：</p>
+<p>稳定的排序算法：冒泡排序、插入排序、归并排序和基数排序。</p>
+<p>不是稳定的排序算法：选择排序、快速排序、希尔排序、堆排序。</p>
+<p><strong>名词解释</strong>：</p>
+<p><strong>n</strong>：数据规模</p>
+<p><strong>k</strong>：“桶”的个数</p>
+<p><strong>In-place</strong>：占用常数内存，不占用额外内存</p>
+<p><strong>Out-place</strong>：占用额外内存</p>
+<p><strong>稳定性</strong>：排序后 2 个相等键值的顺序和排序之前它们的顺序相同</p>
+<p><strong>内容大纲</strong></p>
+<ol>
+<li><a href="bubbleSort.html">冒泡排序</a></li>
+<li><a href="selectionSort.html">选择排序</a></li>
+<li><a href="insertionSort.html">插入排序</a></li>
+<li><a href="shellSort.html">希尔排序</a></li>
+<li><a href="mergeSort.html">归并排序</a></li>
+<li><a href="quickSort.html">快速排序</a></li>
+<li><a href="heapSort.html">堆排序</a></li>
+<li><a href="countingSort.html">计数排序</a></li>
+<li><a href="bucketSort.html">桶排序</a></li>
+<li><a href="radixSort.html">基数排序</a></li>
+</ol>
+
+    
+  </div>
+</article>
+
+        
+        <br><br>
+<footer id="footer" class="content">
+  
+  
+    <div  class="container " >
+      <!--相关登录 start-->
+        <!--弹出微信二维码 start-->
+        <!--
+        <div id="WechatImg" style="cursor:pointer;">
+          <img src="http://images.xiaowiba.com/2018/12/904156446.png" alt="contact" style="width:300px;height:150px;"></img>
+      </div>
+      <script>
+      function showWechat(){
+          document.getElementById("WechatImg").style.display = 'block';
+      }
+      function hideWechat(){
+          document.getElementById("WechatImg").style.display = 'none';
+      }
+      </script>-->
+    <!--弹出微信二维码 end-->
+    <!--onMouseOut="hideWechat()" onmouseover="showWechat()"-->
+    <!--这段借鉴(抄袭)小尾巴http://xiaowiba.com/的-->
+    
+    <span class="shaky copyrightnota"  style="font-family:'Comic Sans MS';">
+      <p id="shakywechat">(●'◡'●)ﾉ♥</p>
+      
+    </span>
+    &nbsp;&nbsp;
+    <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+        <script>
+            var now = new Date(); 
+            function createtime() { 
+                var grt= new Date("12/30/2018 12:49:00");//此处修改你的建站时间或者网站上线时间 
+                now.setTime(now.getTime()+250); 
+                days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+                hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+                if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+                mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+                seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+                snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+                document.getElementById("timeDate").innerHTML = "已存活 "+dnum+" 天 "; 
+                document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+            } 
+        setInterval("createtime()",250);
+        </script>
+        
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <span class="site-uv">
+          <i class="fa fa-user"></i> 访问人数
+          <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+        </span>
+        <span class="site-pv">
+          <i class="fa fa-eye"></i> 访问总量
+          <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+        </span>
+  </div>
+
+
+
+  
+
+  <!--暂时废弃因为不美观懒得改css了-->
+  <!--
+  <br>
+    &nbsp;&nbsp;&nbsp;
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 访问总量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+    
+  <br>
+      &nbsp;&nbsp;&nbsp;-->
+      <!--建站时间-->
+    <!--  <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+        <script>
+            var now = new Date(); 
+            function createtime() { 
+                var grt= new Date("12/30/2018 12:49:00");//此处修改你的建站时间或者网站上线时间 
+                now.setTime(now.getTime()+250); 
+                days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+                hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+                if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+                mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+                seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+                snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+                document.getElementById("timeDate").innerHTML = "博客已运行 "+dnum+" 天 "; 
+                document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+            } 
+        setInterval("createtime()",250);
+        </script>
+  
+  </div>
+-->
+
+
+</footer>
+
+    
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/first-party/blog-branding/style.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+<link rel="stylesheet" href="/lib/video.js/video-js.min.css"> 
+
+    <!-- jQuery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+
+
+<script src="/js/main.js"></script>
+
+<!-- Search -->
+
+
+
+<!-- Google Analytics -->
+
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-153778851-3', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+
+<!-- Baidu Analytics -->
+
+
+<!-- Share.js -->
+
+
+<!-- lightbox -->
+
+
+<!-- video.js -->
+
+
+<script src="/js/heart.js"></script>
+<script src="/js/crash_cheat.js"></script>
+<script src="/js/write.js"></script>
+
+
+
+
+   
+<div class="weixin-box" >
+    <div class="weixin-menu">
+      <div class="weixin-hover">
+        <div class="weixin-description">扫码加我微信</div>
+      </div>
+    </div>
+  </div>
+
+    
+    
+  <script>
+  POWERMODE.colorful = true;
+  POWERMODE.shake = false; 
+  document.body.addEventListener('input', POWERMODE);
+  </script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7},"log":false});</script></body>
+</html>

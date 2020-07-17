@@ -128,12 +128,12 @@
   
     <div class="postdate">
       <i class="fas fa-calendar"></i>
-      发表于 <time datetime="2019-04-03T12:00:17.000Z" itemprop="datePublished">2019-04-03</time>
+      发表于 <time datetime="2019-04-03T12:00:17.000Z" itemprop="datePublished">2019年04月03日</time>
     </div>
     
       <div class="postdate">
         <i class="fas fa-calendar-check"></i>
-        更新于 <time datetime="2019-07-24T02:37:37.131Z" itemprop="dateModified">2019-07-24</time>
+        更新于 <time datetime="2019-07-24T02:37:37.131Z" itemprop="dateModified">2019年07月24日</time>
       </div>
     
    |
@@ -193,13 +193,13 @@
 <p>（2）将/usr/src共享给192.168.136.0网段，客户端对共享可写，并采用异步方式传输数据。</p>
 <p>（3）在上一个要求的基础上实施客户端上面所有用户身份都映射成nfsnobody</p>
 <h3 id="查看NFS程序是否安装">查看NFS程序是否安装</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#centos</span><br><span class="line">rpm -qa |grep nfs			#查看NFS是否安装</span><br><span class="line">rpm -qa |grep rpcbind		#查看RPC是否安装</span><br><span class="line">#Ubuntu</span><br><span class="line">dpkg-query -l nfs-common	#查看NFS是否安装</span><br><span class="line">dpkg-query -l rpcbind		#查看RPC是否安装</span><br></pre></td></tr></table></figure>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#centos</span></span><br><span class="line">rpm -qa |<span class="keyword">grep</span> nfs			<span class="comment">#查看NFS是否安装</span></span><br><span class="line">rpm -qa |<span class="keyword">grep</span> rpcbind		<span class="comment">#查看RPC是否安装</span></span><br><span class="line"><span class="comment">#Ubuntu</span></span><br><span class="line">dpkg-query -l nfs-common	<span class="comment">#查看NFS是否安装</span></span><br><span class="line">dpkg-query -l rpcbind		<span class="comment">#查看RPC是否安装</span></span><br></pre></td></tr></table></figure>
 <p><img src="/img/nfs/centos.png" alt=""><img src="/img/nfs/ubuntu.png" alt=""></p>
 <p>目前几乎所有的Linux发行版本都默认安装了NFS服务，如果没有的话输入命令自行安装即可。</p>
 <h3 id="备份NFS配置文件">备份NFS配置文件</h3>
 <p><code>cp /etc/exports /etc/exports.bak</code></p>
 <h3 id="编辑配置文件">编辑配置文件</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/exports</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim <span class="regexp">/etc/</span>exports</span><br></pre></td></tr></table></figure>
 <img src="/img/nfs/exports.png">
 <p><code>备注</code>：上面配置文件括号中的参数详细释义如下：</p>
 <p>rw:读写权限，只读权限的参数为ro</p>
@@ -207,31 +207,31 @@
 <p>no_root_squash:共享目录用户的属性，如果用户是root，那么对于这个共享目录来说就具有root权限。</p>
 <p>async：数据会先暂存于内存中，而不立即写入硬盘。</p>
 <h3 id="重启服务并设置开机自启">重启服务并设置开机自启</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">service rpcbind restart</span><br><span class="line">service nfs restart</span><br><span class="line">chkconfig rpcbind on</span><br><span class="line">chkconfig nfs on</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">service rpcbind restart</span><br><span class="line">service nfs restart</span><br><span class="line">chkconfig rpcbind on</span><br><span class="line">chkconfig nfs on</span><br></pre></td></tr></table></figure>
 <p><span id="inline-blue">注意要先开启rpcbind服务，然后在开启nfs服务,不然在客户机测试时会出现如下错误。</span></p>
 <img src="/img/nfs/rpc.png">
 <h3 id="服务器端设置-usr-src本地写权限">服务器端设置/usr/src本地写权限</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod o+w /use/src		#为其他用户添加写权限</span><br></pre></td></tr></table></figure>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">chmod</span> o+w /<span class="keyword">use</span>/src		<span class="comment">#为其他用户添加写权限</span></span><br></pre></td></tr></table></figure>
 <h3 id="在客户机上查看NFS服务器上的共享目录">在客户机上查看NFS服务器上的共享目录</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">showmount -e 192.168.136.156</span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">showmount -e <span class="number">192.168</span><span class="number">.136</span><span class="number">.156</span></span><br></pre></td></tr></table></figure>
 <h3 id="客户机上测试">客户机上测试</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /data/root		#建立本地挂载点</span><br><span class="line">mount 192.168.136.156:/root /data/root		#挂载远程资源到本地</span><br><span class="line">mkdir -p /tmp/src		#建立本地挂载点</span><br><span class="line">mount 192.168.136.156:/usr/src /tmp/src		#挂载远程资源到本地</span><br><span class="line">mount |tail -2			#查看挂载点的最后两行</span><br><span class="line">cd /data/root			#root用户进入目录测试需求1</span><br><span class="line">touch nfs</span><br><span class="line">cd /tmp/src				#普通用户进入目录测试需求2</span><br><span class="line">touch yhy</span><br></pre></td></tr></table></figure>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p <span class="string">/data/root</span>		<span class="comment">#建立本地挂载点</span></span><br><span class="line">mount 192.168.136.156:<span class="string">/root</span> <span class="string">/data/root</span>		<span class="comment">#挂载远程资源到本地</span></span><br><span class="line">mkdir -p <span class="string">/tmp/src</span>		<span class="comment">#建立本地挂载点</span></span><br><span class="line">mount 192.168.136.156:<span class="string">/usr/src</span> <span class="string">/tmp/src</span>		<span class="comment">#挂载远程资源到本地</span></span><br><span class="line">mount |tail -2			<span class="comment">#查看挂载点的最后两行</span></span><br><span class="line"><span class="keyword">cd</span> <span class="string">/data/root</span>			<span class="comment">#root用户进入目录测试需求1</span></span><br><span class="line">touch nfs</span><br><span class="line"><span class="keyword">cd</span> <span class="string">/tmp/src</span>				<span class="comment">#普通用户进入目录测试需求2</span></span><br><span class="line">touch yhy</span><br></pre></td></tr></table></figure>
 <p><code>我们可以在不同的挂载点下建立文件夹来测试需求</code></p>
 <h3 id="把所有用户都映射成nfsnobody">把所有用户都映射成nfsnobody</h3>
 <img src="/img/nfs/exports.jpg">
 <p>使用<code>chmod o-w /usr/src</code>命令清除之前的权限，使用<code>setfacl -m u:nfsnobody:rwx /usr/src</code>来设置访问控制列表。</p>
 <h3 id="客户机测试">客户机测试</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch bestyhy</span><br></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">touch bestyhy</span></span><br></pre></td></tr></table></figure>
 <img src="/img/nfs/no.png">
 <h3 id="客户写卸载NFS服务器">客户写卸载NFS服务器</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">umount /data/root</span><br><span class="line">umount /tmp/src</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">umount <span class="regexp">/data/</span>root</span><br><span class="line">umount <span class="regexp">/tmp/</span>src</span><br></pre></td></tr></table></figure>
 <p><span id="inline-green">若不能卸载则加上 <code>-lf</code>参数强制结束</span></p>
 <h2 id="任务二架设企业级NFS服务器"><code>任务二</code>架设企业级NFS服务器</h2>
 <p><span id="inline-purple">背景</span></p>
 <h3 id="备份NFS配置文件-v2">备份NFS配置文件</h3>
 <p><code>cp /etc/exports /etc/exports.bak</code></p>
 <h3 id="编辑配置文件-v2">编辑配置文件</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/exports</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim <span class="regexp">/etc/</span>exports</span><br></pre></td></tr></table></figure>
 <center>未完待续</center>
   </div>
 </article>

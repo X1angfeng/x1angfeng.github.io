@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="快速排序 快速排序是由东尼·霍尔所发展的一种排序算法。在平均状况下，排序 n 个项目要 Ο(nlogn) 次比较。在最坏状况下则需要 Ο(n2) 次比较，但这种状况并不常见。事实上，快速排序通常明显比其他 Ο(nlogn) 算法更快，因为它的内部循环（inner loop）可以在大部分的架构上很有效率地被实现出来。 快速排序使用分治法（Divide and conquer）策略来把一个串行（lis">
+<meta name="keywords" content="永远相信美好的事情即将发生！">
+<meta property="og:type" content="website">
+<meta property="og:title" content="嘲弄i">
+<meta property="og:url" content="https:&#x2F;&#x2F;521.ooo&#x2F;sort&#x2F;quickSort.html">
+<meta property="og:site_name" content="嘲弄i">
+<meta property="og:description" content="快速排序 快速排序是由东尼·霍尔所发展的一种排序算法。在平均状况下，排序 n 个项目要 Ο(nlogn) 次比较。在最坏状况下则需要 Ο(n2) 次比较，但这种状况并不常见。事实上，快速排序通常明显比其他 Ο(nlogn) 算法更快，因为它的内部循环（inner loop）可以在大部分的架构上很有效率地被实现出来。 快速排序使用分治法（Divide and conquer）策略来把一个串行（lis">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;sort&#x2F;res&#x2F;quickSort.gif">
+<meta property="og:updated_time" content="2020-07-17T07:53:13.444Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;sort&#x2F;res&#x2F;quickSort.gif">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/McRae.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/McRae.ico" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/McRae.ico">
+          
+        
+    
+    <!-- title -->
+    <title>嘲弄i</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- third-party styles -->
+    <!-- share-js -->
+
+  <link rel="stylesheet" href="/lib/share-js/css/share.min.css">
+
+
+<link rel="stylesheet" href="/lib/lightbox2/css/lightbox.min.css">
+
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ">
+    
+    <div class="wrapper index py4">
+        
+          <header id="header">
+  <a href="/">
+  
+    
+      <div id="logo" style="background-image: url(/images/avatar.png);"></div>
+    
+  
+    <div id="title">
+      <h1>嘲弄i</h1>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+       
+        <li>
+          <a href="/">
+             
+                <i class="fa-fw fa fa-home"></i>
+              
+            首页
+          </a>
+        </li>
+       
+        <li>
+          <a href="/archives/">
+             
+                <i class="fa-fw fa fa-align-left"></i>
+              
+            文章
+          </a>
+        </li>
+       
+        <li>
+          <a href="/categories/">
+             
+                <i class="fa-fw fas fa-hashtag"></i>
+              
+            分类
+          </a>
+        </li>
+       
+        <li>
+          <a href="/music/">
+             
+                <i class="fa-fw fa fa-music fa-music"></i>
+              
+            音乐
+          </a>
+        </li>
+       
+        <li>
+          <a href="/photos/">
+             
+                <i class="fa-fw fa fa-video fa-photo"></i>
+              
+            相册
+          </a>
+        </li>
+       
+        <li>
+          <a href="/search/">
+             
+                <i class="fa-fw fa fa-search fa-search"></i>
+              
+            搜索
+          </a>
+        </li>
+       
+        <li>
+          <a href="/atom.xml">
+             
+                <i class="fa-fw fas fa-rss"></i>
+              
+            订阅
+          </a>
+        </li>
+       
+        <li>
+          <a href="/about/">
+             
+                <i class="fa-fw fas fa-star"></i>
+              
+            关于
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+
+  <div class="content" itemprop="articleBody">
+    
+      <h1>快速排序</h1>
+<p>快速排序是由东尼·霍尔所发展的一种排序算法。在平均状况下，排序 n 个项目要 Ο(nlogn) 次比较。在最坏状况下则需要 Ο(n2) 次比较，但这种状况并不常见。事实上，快速排序通常明显比其他 Ο(nlogn) 算法更快，因为它的内部循环（inner loop）可以在大部分的架构上很有效率地被实现出来。</p>
+<p>快速排序使用分治法（Divide and conquer）策略来把一个串行（list）分为两个子串行（sub-lists）。</p>
+<p>快速排序又是一种分而治之思想在排序算法上的典型应用。本质上来看，快速排序应该算是在冒泡排序基础上的递归分治法。</p>
+<p>快速排序的名字起的是简单粗暴，因为一听到这个名字你就知道它存在的意义，就是快，而且效率高！它是处理大数据最快的排序算法之一了。虽然 Worst Case 的时间复杂度达到了 O(n²)，但是人家就是优秀，在大多数情况下都比平均时间复杂度为 O(n logn) 的排序算法表现要更好，可是这是为什么呢，我也不知道。好在我的强迫症又犯了，查了 N 多资料终于在《算法艺术与信息学竞赛》上找到了满意的答案：</p>
+<blockquote>
+<p>快速排序的最坏运行情况是 O(n²)，比如说顺序数列的快排。但它的平摊期望时间是 O(nlogn)，且 O(nlogn) 记号中隐含的常数因子很小，比复杂度稳定等于 O(nlogn) 的归并排序要小很多。所以，对绝大多数顺序性较弱的随机数列而言，快速排序总是优于归并排序。</p>
+</blockquote>
+<h2 id="1-算法步骤">1. 算法步骤</h2>
+<ol>
+<li>
+<p>从数列中挑出一个元素，称为 “基准”（pivot）;</p>
+</li>
+<li>
+<p>重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面（相同的数可以到任一边）。在这个分区退出之后，该基准就处于数列的中间位置。这个称为分区（partition）操作；</p>
+</li>
+<li>
+<p>递归地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序；</p>
+</li>
+</ol>
+<p>递归的最底部情形，是数列的大小是零或一，也就是永远都已经被排序好了。虽然一直递归下去，但是这个算法总会退出，因为在每次的迭代（iteration）中，它至少会把一个元素摆到它最后的位置去。</p>
+<h2 id="2-动图演示">2. 动图演示</h2>
+<p><img src="res/quickSort.gif" alt="动图演示"></p>
+<h2 id="3-JavaScript-代码实现">3. JavaScript 代码实现</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort</span>(<span class="params">arr, left, right</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> len = arr.length,</span><br><span class="line">        partitionIndex,</span><br><span class="line">        left = <span class="keyword">typeof</span> left != <span class="string">'number'</span> ? <span class="number">0</span> : left,</span><br><span class="line">        right = <span class="keyword">typeof</span> right != <span class="string">'number'</span> ? len - <span class="number">1</span> : right;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (left &lt; right) &#123;</span><br><span class="line">        partitionIndex = partition(arr, left, right);</span><br><span class="line">        quickSort(arr, left, partitionIndex<span class="number">-1</span>);</span><br><span class="line">        quickSort(arr, partitionIndex+<span class="number">1</span>, right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">partition</span>(<span class="params">arr, left ,right</span>) </span>&#123;     <span class="comment">// 分区操作</span></span><br><span class="line">    <span class="keyword">var</span> pivot = left,                      <span class="comment">// 设定基准值（pivot）</span></span><br><span class="line">        index = pivot + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = index; i &lt;= right; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (arr[i] &lt; arr[pivot]) &#123;</span><br><span class="line">            swap(arr, i, index);</span><br><span class="line">            index++;</span><br><span class="line">        &#125;        </span><br><span class="line">    &#125;</span><br><span class="line">    swap(arr, pivot, index - <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> index<span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">swap</span>(<span class="params">arr, i, j</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> temp = arr[i];</span><br><span class="line">    arr[i] = arr[j];</span><br><span class="line">    arr[j] = temp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">partition2</span>(<span class="params">arr, low, high</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> pivot = arr[low];</span><br><span class="line">  <span class="keyword">while</span> (low &lt; high) &#123;</span><br><span class="line">    <span class="keyword">while</span> (low &lt; high &amp;&amp; arr[high] &gt; pivot) &#123;</span><br><span class="line">      --high;</span><br><span class="line">    &#125;</span><br><span class="line">    arr[low] = arr[high];</span><br><span class="line">    <span class="keyword">while</span> (low &lt; high &amp;&amp; arr[low] &lt;= pivot) &#123;</span><br><span class="line">      ++low;</span><br><span class="line">    &#125;</span><br><span class="line">    arr[high] = arr[low];</span><br><span class="line">  &#125;</span><br><span class="line">  arr[low] = pivot;</span><br><span class="line">  <span class="keyword">return</span> low;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort2</span>(<span class="params">arr, low, high</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (low &lt; high) &#123;</span><br><span class="line">    <span class="keyword">let</span> pivot = partition2(arr, low, high);</span><br><span class="line">    quickSort2(arr, low, pivot - <span class="number">1</span>);</span><br><span class="line">    quickSort2(arr, pivot + <span class="number">1</span>, high);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-Python-代码实现">4. Python 代码实现</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quickSort</span><span class="params">(arr, left=None, right=None)</span>:</span></span><br><span class="line">    left = <span class="number">0</span> <span class="keyword">if</span> <span class="keyword">not</span> isinstance(left,(int, float)) <span class="keyword">else</span> left</span><br><span class="line">    right = len(arr)<span class="number">-1</span> <span class="keyword">if</span> <span class="keyword">not</span> isinstance(right,(int, float)) <span class="keyword">else</span> right</span><br><span class="line">    <span class="keyword">if</span> left &lt; right:</span><br><span class="line">        partitionIndex = partition(arr, left, right)</span><br><span class="line">        quickSort(arr, left, partitionIndex<span class="number">-1</span>)</span><br><span class="line">        quickSort(arr, partitionIndex+<span class="number">1</span>, right)</span><br><span class="line">    <span class="keyword">return</span> arr</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">partition</span><span class="params">(arr, left, right)</span>:</span></span><br><span class="line">    pivot = left</span><br><span class="line">    index = pivot+<span class="number">1</span></span><br><span class="line">    i = index</span><br><span class="line">    <span class="keyword">while</span>  i &lt;= right:</span><br><span class="line">        <span class="keyword">if</span> arr[i] &lt; arr[pivot]:</span><br><span class="line">            swap(arr, i, index)</span><br><span class="line">            index+=<span class="number">1</span></span><br><span class="line">        i+=<span class="number">1</span></span><br><span class="line">    swap(arr,pivot,index<span class="number">-1</span>)</span><br><span class="line">    <span class="keyword">return</span> index<span class="number">-1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">swap</span><span class="params">(arr, i, j)</span>:</span></span><br><span class="line">    arr[i], arr[j] = arr[j], arr[i]</span><br></pre></td></tr></table></figure>
+<h2 id="5-Go-代码实现">5. Go 代码实现</h2>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">quickSort</span><span class="params">(arr []<span class="keyword">int</span>)</span> []<span class="title">int</span></span> &#123;</span><br><span class="line">4<span class="keyword">return</span> _quickSort(arr, <span class="number">0</span>, <span class="built_in">len</span>(arr)<span class="number">-1</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> _<span class="title">quickSort</span><span class="params">(arr []<span class="keyword">int</span>, left, right <span class="keyword">int</span>)</span> []<span class="title">int</span></span> &#123;</span><br><span class="line">4<span class="keyword">if</span> left &lt; right &#123;</span><br><span class="line">44partitionIndex := partition(arr, left, right)</span><br><span class="line">44_quickSort(arr, left, partitionIndex<span class="number">-1</span>)</span><br><span class="line">44_quickSort(arr, partitionIndex+<span class="number">1</span>, right)</span><br><span class="line">4&#125;</span><br><span class="line">4<span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">partition</span><span class="params">(arr []<span class="keyword">int</span>, left, right <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">4pivot := left</span><br><span class="line">4index := pivot + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">4<span class="keyword">for</span> i := index; i &lt;= right; i++ &#123;</span><br><span class="line">44<span class="keyword">if</span> arr[i] &lt; arr[pivot] &#123;</span><br><span class="line">444swap(arr, i, index)</span><br><span class="line">444index += <span class="number">1</span></span><br><span class="line">44&#125;</span><br><span class="line">4&#125;</span><br><span class="line">4swap(arr, pivot, index<span class="number">-1</span>)</span><br><span class="line">4<span class="keyword">return</span> index - <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">swap</span><span class="params">(arr []<span class="keyword">int</span>, i, j <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">4arr[i], arr[j] = arr[j], arr[i]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="6-C-版">6. C++版</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//严蔚敏《数据结构》标准分割函数</span></span><br><span class="line">Paritition1(<span class="keyword">int</span> A[], <span class="keyword">int</span> low, <span class="keyword">int</span> high) &#123;</span><br><span class="line">  <span class="keyword">int</span> pivot = A[low];</span><br><span class="line">  <span class="keyword">while</span> (low &lt; high) &#123;</span><br><span class="line">    <span class="keyword">while</span> (low &lt; high &amp;&amp; A[high] &gt;= pivot) &#123;</span><br><span class="line">      --high;</span><br><span class="line">    &#125;</span><br><span class="line">    A[low] = A[high];</span><br><span class="line">    <span class="keyword">while</span> (low &lt; high &amp;&amp; A[low] &lt;= pivot) &#123;</span><br><span class="line">      ++low;</span><br><span class="line">    &#125;</span><br><span class="line">    A[high] = A[low];</span><br><span class="line">  &#125;</span><br><span class="line">  A[low] = pivot;</span><br><span class="line">  <span class="keyword">return</span> low;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span> <span class="comment">//快排母函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (low &lt; high) &#123;</span><br><span class="line">    <span class="keyword">int</span> pivot = Paritition1(A, low, high);</span><br><span class="line">    QuickSort(A, low, pivot - <span class="number">1</span>);</span><br><span class="line">    QuickSort(A, pivot + <span class="number">1</span>, high);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="7-Java-代码实现">7. Java 代码实现</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuickSort</span> <span class="keyword">implements</span> <span class="title">IArraySort</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] sort(<span class="keyword">int</span>[] sourceArray) <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">// 对 arr 进行拷贝，不改变参数内容</span></span><br><span class="line">        <span class="keyword">int</span>[] arr = Arrays.copyOf(sourceArray, sourceArray.length);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> quickSort(arr, <span class="number">0</span>, arr.length - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] quickSort(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> left, <span class="keyword">int</span> right) &#123;</span><br><span class="line">        <span class="keyword">if</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="keyword">int</span> partitionIndex = partition(arr, left, right);</span><br><span class="line">            quickSort(arr, left, partitionIndex - <span class="number">1</span>);</span><br><span class="line">            quickSort(arr, partitionIndex + <span class="number">1</span>, right);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> arr;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 设定基准值（pivot）</span></span><br><span class="line">        <span class="keyword">int</span> pivot = left;</span><br><span class="line">        <span class="keyword">int</span> index = pivot + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = index; i &lt;= right; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[i] &lt; arr[pivot]) &#123;</span><br><span class="line">                swap(arr, i, index);</span><br><span class="line">                index++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(arr, pivot, index - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> index - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp = arr[i];</span><br><span class="line">        arr[i] = arr[j];</span><br><span class="line">        arr[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="8-PHP-代码实现">8. PHP 代码实现</h2>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort</span><span class="params">($arr)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (count($arr) &lt;= <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> $arr;</span><br><span class="line">    $middle = $arr[<span class="number">0</span>];</span><br><span class="line">    $leftArray = <span class="keyword">array</span>();</span><br><span class="line">    $rightArray = <span class="keyword">array</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> ($i = <span class="number">1</span>; $i &lt; count($arr); $i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> ($arr[$i] &gt; $middle)</span><br><span class="line">            $rightArray[] = $arr[$i];</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            $leftArray[] = $arr[$i];</span><br><span class="line">    &#125;</span><br><span class="line">    $leftArray = quickSort($leftArray);</span><br><span class="line">    $leftArray[] = $middle;</span><br><span class="line"></span><br><span class="line">    $rightArray = quickSort($rightArray);</span><br><span class="line">    <span class="keyword">return</span> array_merge($leftArray, $rightArray);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    
+  </div>
+</article>
+
+        
+        <br><br>
+<footer id="footer" class="content">
+  
+  
+    <div  class="container " >
+      <!--相关登录 start-->
+        <!--弹出微信二维码 start-->
+        <!--
+        <div id="WechatImg" style="cursor:pointer;">
+          <img src="http://images.xiaowiba.com/2018/12/904156446.png" alt="contact" style="width:300px;height:150px;"></img>
+      </div>
+      <script>
+      function showWechat(){
+          document.getElementById("WechatImg").style.display = 'block';
+      }
+      function hideWechat(){
+          document.getElementById("WechatImg").style.display = 'none';
+      }
+      </script>-->
+    <!--弹出微信二维码 end-->
+    <!--onMouseOut="hideWechat()" onmouseover="showWechat()"-->
+    <!--这段借鉴(抄袭)小尾巴http://xiaowiba.com/的-->
+    
+    <span class="shaky copyrightnota"  style="font-family:'Comic Sans MS';">
+      <p id="shakywechat">(●'◡'●)ﾉ♥</p>
+      
+    </span>
+    &nbsp;&nbsp;
+    <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+        <script>
+            var now = new Date(); 
+            function createtime() { 
+                var grt= new Date("12/30/2018 12:49:00");//此处修改你的建站时间或者网站上线时间 
+                now.setTime(now.getTime()+250); 
+                days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+                hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+                if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+                mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+                seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+                snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+                document.getElementById("timeDate").innerHTML = "已存活 "+dnum+" 天 "; 
+                document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+            } 
+        setInterval("createtime()",250);
+        </script>
+        
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <span class="site-uv">
+          <i class="fa fa-user"></i> 访问人数
+          <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+        </span>
+        <span class="site-pv">
+          <i class="fa fa-eye"></i> 访问总量
+          <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+        </span>
+  </div>
+
+
+
+  
+
+  <!--暂时废弃因为不美观懒得改css了-->
+  <!--
+  <br>
+    &nbsp;&nbsp;&nbsp;
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 访问总量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+    
+  <br>
+      &nbsp;&nbsp;&nbsp;-->
+      <!--建站时间-->
+    <!--  <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+        <script>
+            var now = new Date(); 
+            function createtime() { 
+                var grt= new Date("12/30/2018 12:49:00");//此处修改你的建站时间或者网站上线时间 
+                now.setTime(now.getTime()+250); 
+                days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+                hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+                if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+                mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+                seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+                snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+                document.getElementById("timeDate").innerHTML = "博客已运行 "+dnum+" 天 "; 
+                document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+            } 
+        setInterval("createtime()",250);
+        </script>
+  
+  </div>
+-->
+
+
+</footer>
+
+    
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/first-party/blog-branding/style.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+<link rel="stylesheet" href="/lib/video.js/video-js.min.css"> 
+
+    <!-- jQuery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+
+
+<script src="/js/main.js"></script>
+
+<!-- Search -->
+
+
+
+<!-- Google Analytics -->
+
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-153778851-3', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+
+<!-- Baidu Analytics -->
+
+
+<!-- Share.js -->
+
+
+<!-- lightbox -->
+
+
+<!-- video.js -->
+
+
+<script src="/js/heart.js"></script>
+<script src="/js/crash_cheat.js"></script>
+<script src="/js/write.js"></script>
+
+
+
+
+   
+<div class="weixin-box" >
+    <div class="weixin-menu">
+      <div class="weixin-hover">
+        <div class="weixin-description">扫码加我微信</div>
+      </div>
+    </div>
+  </div>
+
+    
+    
+  <script>
+  POWERMODE.colorful = true;
+  POWERMODE.shake = false; 
+  document.body.addEventListener('input', POWERMODE);
+  </script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7},"log":false});</script></body>
+</html>

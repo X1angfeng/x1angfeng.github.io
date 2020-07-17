@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="基数排序 基数排序是一种非比较型整数排序算法，其原理是将整数按位数切割成不同的数字，然后按每个位数分别比较。由于整数也可以表达字符串（比如名字或日期）和特定格式的浮点数，所以基数排序也不是只能使用于整数。 1. 基数排序 vs 计数排序 vs 桶排序 基数排序有两种方法： 这三种排序算法都利用了桶的概念，但对桶的使用方法上有明显差异案例看大家发的：  基数排序：根据键值的每位数字来分配桶； 计数排">
+<meta name="keywords" content="永远相信美好的事情即将发生！">
+<meta property="og:type" content="website">
+<meta property="og:title" content="嘲弄i">
+<meta property="og:url" content="https:&#x2F;&#x2F;521.ooo&#x2F;sort&#x2F;radixSort.html">
+<meta property="og:site_name" content="嘲弄i">
+<meta property="og:description" content="基数排序 基数排序是一种非比较型整数排序算法，其原理是将整数按位数切割成不同的数字，然后按每个位数分别比较。由于整数也可以表达字符串（比如名字或日期）和特定格式的浮点数，所以基数排序也不是只能使用于整数。 1. 基数排序 vs 计数排序 vs 桶排序 基数排序有两种方法： 这三种排序算法都利用了桶的概念，但对桶的使用方法上有明显差异案例看大家发的：  基数排序：根据键值的每位数字来分配桶； 计数排">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;sort&#x2F;res&#x2F;radixSort.gif">
+<meta property="og:updated_time" content="2020-07-17T07:52:35.089Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;sort&#x2F;res&#x2F;radixSort.gif">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/McRae.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/McRae.ico" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/McRae.ico">
+          
+        
+    
+    <!-- title -->
+    <title>嘲弄i</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- third-party styles -->
+    <!-- share-js -->
+
+  <link rel="stylesheet" href="/lib/share-js/css/share.min.css">
+
+
+<link rel="stylesheet" href="/lib/lightbox2/css/lightbox.min.css">
+
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ">
+    
+    <div class="wrapper index py4">
+        
+          <header id="header">
+  <a href="/">
+  
+    
+      <div id="logo" style="background-image: url(/images/avatar.png);"></div>
+    
+  
+    <div id="title">
+      <h1>嘲弄i</h1>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+       
+        <li>
+          <a href="/">
+             
+                <i class="fa-fw fa fa-home"></i>
+              
+            首页
+          </a>
+        </li>
+       
+        <li>
+          <a href="/archives/">
+             
+                <i class="fa-fw fa fa-align-left"></i>
+              
+            文章
+          </a>
+        </li>
+       
+        <li>
+          <a href="/categories/">
+             
+                <i class="fa-fw fas fa-hashtag"></i>
+              
+            分类
+          </a>
+        </li>
+       
+        <li>
+          <a href="/music/">
+             
+                <i class="fa-fw fa fa-music fa-music"></i>
+              
+            音乐
+          </a>
+        </li>
+       
+        <li>
+          <a href="/photos/">
+             
+                <i class="fa-fw fa fa-video fa-photo"></i>
+              
+            相册
+          </a>
+        </li>
+       
+        <li>
+          <a href="/search/">
+             
+                <i class="fa-fw fa fa-search fa-search"></i>
+              
+            搜索
+          </a>
+        </li>
+       
+        <li>
+          <a href="/atom.xml">
+             
+                <i class="fa-fw fas fa-rss"></i>
+              
+            订阅
+          </a>
+        </li>
+       
+        <li>
+          <a href="/about/">
+             
+                <i class="fa-fw fas fa-star"></i>
+              
+            关于
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+
+  <div class="content" itemprop="articleBody">
+    
+      <h1>基数排序</h1>
+<p>基数排序是一种非比较型整数排序算法，其原理是将整数按位数切割成不同的数字，然后按每个位数分别比较。由于整数也可以表达字符串（比如名字或日期）和特定格式的浮点数，所以基数排序也不是只能使用于整数。</p>
+<h2 id="1-基数排序-vs-计数排序-vs-桶排序">1. 基数排序 vs 计数排序 vs 桶排序</h2>
+<p>基数排序有两种方法：</p>
+<p>这三种排序算法都利用了桶的概念，但对桶的使用方法上有明显差异案例看大家发的：</p>
+<ul>
+<li>基数排序：根据键值的每位数字来分配桶；</li>
+<li>计数排序：每个桶只存储单一键值；</li>
+<li>桶排序：每个桶存储一定范围的数值；</li>
+</ul>
+<h2 id="2-LSD-基数排序动图演示">2. LSD 基数排序动图演示</h2>
+<p><img src="res/radixSort.gif" alt="动图演示"></p>
+<h2 id="3-JavaScript-代码实现">3. JavaScript 代码实现</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//LSD Radix Sort</span></span><br><span class="line"><span class="keyword">var</span> counter = [];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">radixSort</span>(<span class="params">arr, maxDigit</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> mod = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">var</span> dev = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; maxDigit; i++, dev *= <span class="number">10</span>, mod *= <span class="number">10</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length; j++) &#123;</span><br><span class="line">            <span class="keyword">var</span> bucket = <span class="built_in">parseInt</span>((arr[j] % mod) / dev);</span><br><span class="line">            <span class="keyword">if</span>(counter[bucket]==<span class="literal">null</span>) &#123;</span><br><span class="line">                counter[bucket] = [];</span><br><span class="line">            &#125;</span><br><span class="line">            counter[bucket].push(arr[j]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> pos = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; counter.length; j++) &#123;</span><br><span class="line">            <span class="keyword">var</span> value = <span class="literal">null</span>;</span><br><span class="line">            <span class="keyword">if</span>(counter[j]!=<span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="keyword">while</span> ((value = counter[j].shift()) != <span class="literal">null</span>) &#123;</span><br><span class="line">                      arr[pos++] = value;</span><br><span class="line">                &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-python-代码实现">4. python 代码实现</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">radix</span><span class="params">(arr)</span>:</span></span><br><span class="line">    </span><br><span class="line">    digit = <span class="number">0</span></span><br><span class="line">    max_digit = <span class="number">1</span></span><br><span class="line">    max_value = max(arr)</span><br><span class="line">    <span class="comment">#找出列表中最大的位数</span></span><br><span class="line">    <span class="keyword">while</span> <span class="number">10</span>**max_digit &lt; max_value:</span><br><span class="line">        max_digit = max_digit + <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> digit &lt; max_digit:</span><br><span class="line">        temp = [[] <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>)]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> arr:</span><br><span class="line">            <span class="comment">#求出每一个元素的个、十、百位的值</span></span><br><span class="line">            t = int((i/<span class="number">10</span>**digit)%<span class="number">10</span>)</span><br><span class="line">            temp[t].append(i)</span><br><span class="line">        </span><br><span class="line">        coll = []</span><br><span class="line">        <span class="keyword">for</span> bucket <span class="keyword">in</span> temp:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> bucket:</span><br><span class="line">                coll.append(i)</span><br><span class="line">                </span><br><span class="line">        arr = coll</span><br><span class="line">        digit = digit + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> arr</span><br></pre></td></tr></table></figure>
+<h2 id="5-Java-代码实现">5. Java 代码实现</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 基数排序</span></span><br><span class="line"><span class="comment"> * 考虑负数的情况还可以参考： https://code.i-harness.com/zh-CN/q/e98fa9</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RadixSort</span> <span class="keyword">implements</span> <span class="title">IArraySort</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] sort(<span class="keyword">int</span>[] sourceArray) <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">// 对 arr 进行拷贝，不改变参数内容</span></span><br><span class="line">        <span class="keyword">int</span>[] arr = Arrays.copyOf(sourceArray, sourceArray.length);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> maxDigit = getMaxDigit(arr);</span><br><span class="line">        <span class="keyword">return</span> radixSort(arr, maxDigit);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取最高位数</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getMaxDigit</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> maxValue = getMaxValue(arr);</span><br><span class="line">        <span class="keyword">return</span> getNumLenght(maxValue);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getMaxValue</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> maxValue = arr[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> value : arr) &#123;</span><br><span class="line">            <span class="keyword">if</span> (maxValue &lt; value) &#123;</span><br><span class="line">                maxValue = value;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxValue;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">int</span> <span class="title">getNumLenght</span><span class="params">(<span class="keyword">long</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (num == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> lenght = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">long</span> temp = num; temp != <span class="number">0</span>; temp /= <span class="number">10</span>) &#123;</span><br><span class="line">            lenght++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> lenght;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] radixSort(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> maxDigit) &#123;</span><br><span class="line">        <span class="keyword">int</span> mod = <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">int</span> dev = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; maxDigit; i++, dev *= <span class="number">10</span>, mod *= <span class="number">10</span>) &#123;</span><br><span class="line">            <span class="comment">// 考虑负数的情况，这里扩展一倍队列数，其中 [0-9]对应负数，[10-19]对应正数 (bucket + 10)</span></span><br><span class="line">            <span class="keyword">int</span>[][] counter = <span class="keyword">new</span> <span class="keyword">int</span>[mod * <span class="number">2</span>][<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; arr.length; j++) &#123;</span><br><span class="line">                <span class="keyword">int</span> bucket = ((arr[j] % mod) / dev) + mod;</span><br><span class="line">                counter[bucket] = arrayAppend(counter[bucket], arr[j]);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span> pos = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span>[] bucket : counter) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> value : bucket) &#123;</span><br><span class="line">                    arr[pos++] = value;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> arr;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 自动扩容，并保存数据</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> arr</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> value</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] arrayAppend(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> value) &#123;</span><br><span class="line">        arr = Arrays.copyOf(arr, arr.length + <span class="number">1</span>);</span><br><span class="line">        arr[arr.length - <span class="number">1</span>] = value;</span><br><span class="line">        <span class="keyword">return</span> arr;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="6-PHP-代码实现">6. PHP 代码实现</h2>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">radixSort</span><span class="params">($arr, $maxDigit = null)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> ($maxDigit === <span class="keyword">null</span>) &#123;</span><br><span class="line">        $maxDigit = max($arr);</span><br><span class="line">    &#125;</span><br><span class="line">    $counter = [];</span><br><span class="line">    <span class="keyword">for</span> ($i = <span class="number">0</span>; $i &lt; $maxDigit; $i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> ($j = <span class="number">0</span>; $j &lt; count($arr); $j++) &#123;</span><br><span class="line">            preg_match_all(<span class="string">'/\d/'</span>, (string) $arr[$j], $matches);</span><br><span class="line">            $numArr = $matches[<span class="number">0</span>];</span><br><span class="line">            $lenTmp = count($numArr);</span><br><span class="line">            $bucket = array_key_exists($lenTmp - $i - <span class="number">1</span>, $numArr)</span><br><span class="line">                ? intval($numArr[$lenTmp - $i - <span class="number">1</span>])</span><br><span class="line">                : <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span> (!array_key_exists($bucket, $counter)) &#123;</span><br><span class="line">                $counter[$bucket] = [];</span><br><span class="line">            &#125;</span><br><span class="line">            $counter[$bucket][] = $arr[$j];</span><br><span class="line">        &#125;</span><br><span class="line">        $pos = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> ($j = <span class="number">0</span>; $j &lt; count($counter); $j++) &#123;</span><br><span class="line">            $value = <span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">if</span> ($counter[$j] !== <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">while</span> (($value = array_shift($counter[$j])) !== <span class="keyword">null</span>) &#123;</span><br><span class="line">                    $arr[$pos++] = $value;</span><br><span class="line">                &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> $arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    
+  </div>
+</article>
+
+        
+        <br><br>
+<footer id="footer" class="content">
+  
+  
+    <div  class="container " >
+      <!--相关登录 start-->
+        <!--弹出微信二维码 start-->
+        <!--
+        <div id="WechatImg" style="cursor:pointer;">
+          <img src="http://images.xiaowiba.com/2018/12/904156446.png" alt="contact" style="width:300px;height:150px;"></img>
+      </div>
+      <script>
+      function showWechat(){
+          document.getElementById("WechatImg").style.display = 'block';
+      }
+      function hideWechat(){
+          document.getElementById("WechatImg").style.display = 'none';
+      }
+      </script>-->
+    <!--弹出微信二维码 end-->
+    <!--onMouseOut="hideWechat()" onmouseover="showWechat()"-->
+    <!--这段借鉴(抄袭)小尾巴http://xiaowiba.com/的-->
+    
+    <span class="shaky copyrightnota"  style="font-family:'Comic Sans MS';">
+      <p id="shakywechat">(●'◡'●)ﾉ♥</p>
+      
+    </span>
+    &nbsp;&nbsp;
+    <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+        <script>
+            var now = new Date(); 
+            function createtime() { 
+                var grt= new Date("12/30/2018 12:49:00");//此处修改你的建站时间或者网站上线时间 
+                now.setTime(now.getTime()+250); 
+                days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+                hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+                if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+                mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+                seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+                snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+                document.getElementById("timeDate").innerHTML = "已存活 "+dnum+" 天 "; 
+                document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+            } 
+        setInterval("createtime()",250);
+        </script>
+        
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <span class="site-uv">
+          <i class="fa fa-user"></i> 访问人数
+          <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+        </span>
+        <span class="site-pv">
+          <i class="fa fa-eye"></i> 访问总量
+          <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+        </span>
+  </div>
+
+
+
+  
+
+  <!--暂时废弃因为不美观懒得改css了-->
+  <!--
+  <br>
+    &nbsp;&nbsp;&nbsp;
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 访问总量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+    
+  <br>
+      &nbsp;&nbsp;&nbsp;-->
+      <!--建站时间-->
+    <!--  <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+        <script>
+            var now = new Date(); 
+            function createtime() { 
+                var grt= new Date("12/30/2018 12:49:00");//此处修改你的建站时间或者网站上线时间 
+                now.setTime(now.getTime()+250); 
+                days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+                hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+                if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+                mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+                seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+                snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+                document.getElementById("timeDate").innerHTML = "博客已运行 "+dnum+" 天 "; 
+                document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+            } 
+        setInterval("createtime()",250);
+        </script>
+  
+  </div>
+-->
+
+
+</footer>
+
+    
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/first-party/blog-branding/style.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+<link rel="stylesheet" href="/lib/video.js/video-js.min.css"> 
+
+    <!-- jQuery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+
+
+<script src="/js/main.js"></script>
+
+<!-- Search -->
+
+
+
+<!-- Google Analytics -->
+
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-153778851-3', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+
+<!-- Baidu Analytics -->
+
+
+<!-- Share.js -->
+
+
+<!-- lightbox -->
+
+
+<!-- video.js -->
+
+
+<script src="/js/heart.js"></script>
+<script src="/js/crash_cheat.js"></script>
+<script src="/js/write.js"></script>
+
+
+
+
+   
+<div class="weixin-box" >
+    <div class="weixin-menu">
+      <div class="weixin-hover">
+        <div class="weixin-description">扫码加我微信</div>
+      </div>
+    </div>
+  </div>
+
+    
+    
+  <script>
+  POWERMODE.colorful = true;
+  POWERMODE.shake = false; 
+  document.body.addEventListener('input', POWERMODE);
+  </script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7},"log":false});</script></body>
+</html>

@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://521.ooo/about/index.html</loc>
+    
+    <lastmod>2020-07-17T11:46:49.238Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://521.ooo/sort/shellSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.903Z</lastmod>
@@ -453,13 +460,6 @@
     <loc>https://521.ooo/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91.html</loc>
     
     <lastmod>2019-01-22T09:41:33.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://521.ooo/about/index.html</loc>
-    
-    <lastmod>2019-01-19T07:03:25.000Z</lastmod>
     
   </url>
   

@@ -48,11 +48,7 @@
     
     
 
-<!-- require APlayer -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-<!-- require MetingJS -->
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
 <!--跳动-->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css">
 
@@ -198,7 +194,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [1,0,0,1,6,0,2,0,0,1,3,0,0],
+                data: [0,0,0,0,2,0,0,0,0,0,0,0,0],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -237,7 +233,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["Linux","虚拟化","vlan","matlab","路由","VMware","Windows","nginx","mysql","Android"]
+                data: ["虚拟化"]
             }
         ],
         yAxis: [
@@ -250,7 +246,7 @@
                 type: 'bar',
                 color: ['#82d3f4'],
                 barWidth : 18,
-                data: [11,4,3,3,3,2,2,1,1,1],
+                data: [2],
                 markPoint: {
                     symbolSize: 45,
                     data: [{
@@ -293,7 +289,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"数据通信","value":7},{"name":"Linux","value":9},{"name":"Code","value":1},{"name":"matlab","value":3},{"name":"hexo","value":1},{"name":"Windows软件","value":1},{"name":"虚拟化","value":1},{"name":"科学上网","value":1},{"name":"Docker","value":1},{"name":"visual studio","value":1}],
+                data: [],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,

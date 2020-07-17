@@ -6,16 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="keywords" content="永远相信美好的事情即将发生！">
+    <meta name="description" content="fetch(&amp;apos;https:&#x2F;&#x2F;v1.hitokoto.cn&amp;apos;)     .then(function (res){       return res.json();     })     .then(function (data) {       var hitokoto = document.getElementById(&amp;apos;hitokoto&amp;apos;);       hitokoto.in">
+<meta name="keywords" content="永远相信美好的事情即将发生！">
 <meta property="og:type" content="website">
 <meta property="og:title" content=":-)">
 <meta property="og:url" content="https:&#x2F;&#x2F;521.ooo&#x2F;about&#x2F;index.html">
 <meta property="og:site_name" content="嘲弄i">
+<meta property="og:description" content="fetch(&amp;apos;https:&#x2F;&#x2F;v1.hitokoto.cn&amp;apos;)     .then(function (res){       return res.json();     })     .then(function (data) {       var hitokoto = document.getElementById(&amp;apos;hitokoto&amp;apos;);       hitokoto.in">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;twemoji.maxcdn.com&#x2F;v&#x2F;13.0.0&#x2F;72x72&#x2F;1f603.png">
 <meta property="og:updated_time" content="2019-01-19T07:03:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;twemoji.maxcdn.com&#x2F;v&#x2F;13.0.0&#x2F;72x72&#x2F;1f603.png">
     
     
         
@@ -49,6 +49,12 @@
     <!-- rss -->
     
     
+
+<!-- require APlayer -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
 </head>
 
 <body class="max-width mx-auto px3 ">
@@ -151,7 +157,27 @@
 
   <div class="content" itemprop="articleBody">
     
-      <p><img class="emoji" draggable="false" alt="😃" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/1f603.png"/></p>
+      <!-- 一言API -->
+<!-- 现代写法，推荐 -->
+<!-- 兼容低版本浏览器 (包括 IE)，可移除 -->
+<!--End-->
+<script>
+  fetch('https://v1.hitokoto.cn')
+    .then(function (res){
+      return res.json();
+    })
+    .then(function (data) {
+      var hitokoto = document.getElementById('hitokoto');
+      hitokoto.innerText = data.hitokoto + '——【' + data.from + '】';
+    })
+    .catch(function (err) {
+      console.error(err);
+    })
+</script>
+<center>
+<p id="hitokoto" >正在加载一言...</p></center>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5f1180e6482f393e"></script>
 
     
   </div>
@@ -321,7 +347,11 @@
     </div>
   </div>
 
-    
+    <!-- weather -->
+<script type="text/javascript">
+  WIDGET = {FID: 'g8PQ2D8Fng'}
+  </script>
+  <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>
     
   <script>
   POWERMODE.colorful = true;

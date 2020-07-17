@@ -176,7 +176,7 @@
   
 <div class="article-gallery">
     
-    <a class="gallery-item" href="/img/1.jpg" rel="gallery_ckcp0ctcv003zz8355gaz9okb">
+    <a class="gallery-item" href="/img/1.jpg" rel="gallery_ckcpie9xo004018357uwqa42t">
         <img src="/img/1.jpg" itemprop="image" />
     </a>
     
@@ -311,6 +311,29 @@ SSR（ShadowsocksR）是 SS 的修改版，也算是增强版，是在SS 的基�
 
 
     
+
+
+  // 下面添加 Gitalk 部分
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script type="text/javascript">
+        var gitalk = new Gitalk({
+            clientID: 'c6ff414a0786b6146c9c',
+            clientSecret: 'e4dfd551c2bc5e18904a280404512789a855dce4',
+            id: md5(window.location.pathname),
+            repo: 'comments',
+            owner: 'X1angfeng',
+            admin: 'X1angfeng',
+            distractionFreeMode: ''
+        })
+        gitalk.render('gitalk-container')
+    </script>
+
+
+
   </div>
 </div>
 
@@ -354,73 +377,109 @@ SSR（ShadowsocksR）是 SS 的修改版，也算是增强版，是在SS 的基�
 </div>
 
         
+        <br><br>
+<footer id="footer" class="content">
+  
+  
+    <div  class="container " >
+      <!--相关登录 start-->
+        <!--弹出微信二维码 start-->
+        <!--
+        <div id="WechatImg" style="cursor:pointer;">
+          <img src="http://images.xiaowiba.com/2018/12/904156446.png" alt="contact" style="width:300px;height:150px;"></img>
+      </div>
+      <script>
+      function showWechat(){
+          document.getElementById("WechatImg").style.display = 'block';
+      }
+      function hideWechat(){
+          document.getElementById("WechatImg").style.display = 'none';
+      }
+      </script>-->
+    <!--弹出微信二维码 end-->
+    <!--onMouseOut="hideWechat()" onmouseover="showWechat()"-->
+    <!--这段借鉴(抄袭)小尾巴http://xiaowiba.com/的-->
+    
+    <span class="shaky copyrightnota"  style="font-family:'Comic Sans MS';">
+      <p id="shakywechat">(●'◡'●)ﾉ♥</p>
+      
+    </span>
+    &nbsp;&nbsp;
+    <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+        <script>
+            var now = new Date(); 
+            function createtime() { 
+                var grt= new Date("12/30/2018 12:49:00");//此处修改你的建站时间或者网站上线时间 
+                now.setTime(now.getTime()+250); 
+                days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+                hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+                if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+                mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+                seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+                snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+                document.getElementById("timeDate").innerHTML = "已存活 "+dnum+" 天 "; 
+                document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+            } 
+        setInterval("createtime()",250);
+        </script>
         
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <span class="site-uv">
+          <i class="fa fa-user"></i> 访问人数
+          <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+        </span>
+        <span class="site-pv">
+          <i class="fa fa-eye"></i> 访问总量
+          <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+        </span>
+  </div>
+
+
+
+  
+
+  <!--暂时废弃因为不美观懒得改css了-->
+  <!--
+  <br>
+    &nbsp;&nbsp;&nbsp;
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 访问总量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+    
+  <br>
+      &nbsp;&nbsp;&nbsp;-->
+      <!--建站时间-->
+    <!--  <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+        <script>
+            var now = new Date(); 
+            function createtime() { 
+                var grt= new Date("12/30/2018 12:49:00");//此处修改你的建站时间或者网站上线时间 
+                now.setTime(now.getTime()+250); 
+                days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+                hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+                if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+                mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+                seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+                snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+                document.getElementById("timeDate").innerHTML = "博客已运行 "+dnum+" 天 "; 
+                document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+            } 
+        setInterval("createtime()",250);
+        </script>
+  
+  </div>
+-->
+
+
+</footer>
 
     
-<div  class="container" >
-  <!--相关登录 start-->
-    <!--弹出微信二维码 start-->
-    <!--
-    <div id="WechatImg" style="cursor:pointer;">
-      <img src="http://images.xiaowiba.com/2018/12/904156446.png" alt="contact" style="width:300px;height:150px;"></img>
-  </div>
-  <script>
-  function showWechat(){
-      document.getElementById("WechatImg").style.display = 'block';
-  }
-  function hideWechat(){
-      document.getElementById("WechatImg").style.display = 'none';
-  }
-  </script>-->
-<!--弹出微信二维码 end-->
-<!--onMouseOut="hideWechat()" onmouseover="showWechat()"-->
-<!--这段借鉴(抄袭)小尾巴http://xiaowiba.com/的-->
-
-<span class="shaky copyrightnota"  style="font-family:'Comic Sans MS';">
-  <p id="shakywechat">(●'◡'●)ﾉ♥</p>
-</span>
-
-
-<div class="footer-left">
-  Copyright &copy; 2020 嘲弄i
-  <br>
-</div>
-  &nbsp;&nbsp;&nbsp;
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-  <span class="site-uv">
-    <i class="fa fa-user"></i> 访问人数
-    <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-  </span>
-  <span class="site-pv">
-    <i class="fa fa-eye"></i> 访问总量
-    <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-  </span>
-    <br>
-    &nbsp;&nbsp;&nbsp;
-    <!--建站时间-->
-    <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
-      <script>
-          var now = new Date(); 
-          function createtime() { 
-              var grt= new Date("12/30/2018 12:49:00");//此处修改你的建站时间或者网站上线时间 
-              now.setTime(now.getTime()+250); 
-              days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
-              hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
-              if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
-              mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
-              seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
-              snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
-              document.getElementById("timeDate").innerHTML = "博客已运行 "+dnum+" 天 "; 
-              document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
-          } 
-      setInterval("createtime()",250);
-      </script>
-
-</div>
-
-
-
-
 
     </div>
     <!-- styles -->

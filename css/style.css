@@ -2539,11 +2539,14 @@ code {
   height: 22px;
 }
 .container {
-  position: relative;
-  bottom: 10px;
+  position: absolute;
+  bottom: 0;
   font-size: 13px;
   text-align: center;
 }
 .container p:hover {
+  color: #e60000;
+}
+.container span:hover {
   color: #e60000;
 }

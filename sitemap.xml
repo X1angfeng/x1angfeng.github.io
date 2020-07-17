@@ -9,14 +9,14 @@
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/shellSort.html</loc>
+    <loc>https://521.ooo/sort/selectionSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.903Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/selectionSort.html</loc>
+    <loc>https://521.ooo/sort/shellSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.903Z</lastmod>
     
@@ -37,13 +37,6 @@
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/mergeSort.html</loc>
-    
-    <lastmod>2020-07-17T08:47:00.876Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://521.ooo/sort/insertionSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.876Z</lastmod>
@@ -51,14 +44,21 @@
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/heapSort.html</loc>
+    <loc>https://521.ooo/sort/mergeSort.html</loc>
+    
+    <lastmod>2020-07-17T08:47:00.876Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://521.ooo/sort/countingSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.875Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/countingSort.html</loc>
+    <loc>https://521.ooo/sort/heapSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.875Z</lastmod>
     
@@ -306,13 +306,6 @@
     <loc>https://521.ooo/%F0%9F%98%98.html</loc>
     
     <lastmod>2019-05-04T11:38:15.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://521.ooo/music/index.html</loc>
-    
-    <lastmod>2019-05-02T04:15:53.000Z</lastmod>
     
   </url>
   

@@ -1,4 +1,4 @@
-console.log(`%c
+<link rel="stylesheet" class="aplayer-secondary-style-marker" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting/dist/Meting.min.js"></script>console.log(`%c
               ii.                                         ;9ABH,          
              SA391,                                    .r9GG35&G          
              &#ii13Gh;                               i3X31i;:,rB1         

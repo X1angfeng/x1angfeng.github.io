@@ -1,0 +1,14 @@
+<!-- lightbox -->
+<% if (is_post()) { %>
+  <%- js('lib/lightbox2/js/lightbox.min.js') %> 
+  <script>
+    $(function() {
+      lightbox.option({
+        albumLabel: '<%= __('post.lightbox.pagination') %>',	
+      })
+      $('article img').each(function() {
+        $(this).wrap(`<a href="${this.src}" data-lightbox="lightbox-blogpost" data-title="${this.title}" data-alt="${this.alt}"></a>`);
+      })
+    })
+  </script>
+<% } %>

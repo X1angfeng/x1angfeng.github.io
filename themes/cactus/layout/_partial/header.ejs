@@ -1,0 +1,28 @@
+<header id="header">
+  <a href="<%- url_for("/") %>">
+  <% if (theme.logo && theme.logo.enabled) { %>
+    <% if (theme.gravatar && theme.gravatar.email && theme.logo.gravatar) { %>
+      <div id="logo" style="background-image: url(<%- gravatar(theme.gravatar.email) %>);"></div>
+    <% } else { %>
+      <div id="logo" style="background-image: url(<%- url_for(theme.logo.url) %>);"></div>
+    <% } %>
+  <% } %>
+    <div id="title">
+      <h1><%= config.title %></h1>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+      <% for (var i in theme.nav) { %> 
+        <li>
+          <a href="<%- url_for(theme.nav[i].url) %>">
+            <% if (theme.nav_icons && theme.nav[i].icon && theme.nav[i].icon.fa_class && theme.nav[i].icon.name) { %> 
+                <i class="fa-fw <%= theme.nav[i].icon.fa_class%> fa-<%= theme.nav[i].icon.name%>"></i>
+              <% } %>
+            <%= __('nav.'+i).replace("nav.", "") %>
+          </a>
+        </li>
+      <% } %>
+    </ul>
+  </div>
+</header>

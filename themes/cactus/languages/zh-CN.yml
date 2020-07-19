@@ -1,0 +1,52 @@
+nav:
+  Home: 首页
+  Writings: 文章
+  Categories: 分类
+  Tags: 标签
+  Music: 音乐
+  Photo: 相册
+
+  Rss: 订阅
+  Search: 搜索
+  About: 关于
+
+footer:
+  copyright: Copyright
+
+index:
+  find_me_on: 在这里找到我：
+  articles: 文章
+  projects: 项目
+  tags: 标签
+  most_recent: 最近文章
+
+post:
+  title:
+    posted: 发表于
+    updated: 更新于
+  desktop:
+    previous: 上一篇
+    next: 下一篇
+    back_to_top: 返回顶部
+    share: 分享文章
+  mobile:
+    menu: 菜单
+    toc: 目录
+    back_to_top: 返回顶部
+    share: 分享
+  lightbox:
+    pagination: 第 %%1 / %%2 张
+
+search:
+  search: 搜索...
+  no_results: 抱歉，没有符合您搜索条件的结果。请换其它关键词再试。
+
+pagination:
+  page: 第 %d 页，共 %d 页
+
+comments:
+  no_js: 加载评论需要在浏览器启用 JavaScript 脚本支持。
+
+tooltip:
+  copy_tip: 复制到粘贴板!
+  copied: 复制成功!

@@ -1,0 +1,55 @@
+{
+  "name": "hexo-theme-cactus",
+  "version": "3.0.0",
+  "description": "A responsive, clean and simple theme for Hexo.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "gulp lint --silent",
+    "test": "gulp validate --silent",
+    "clean": "stylus-supremacy format source/css/**/*.styl --options .stylintrc -r"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/probberechts/cactus-dark.git"
+  },
+  "keywords": [
+    "Hexo",
+    "Theme",
+    "Cactus"
+  ],
+  "author": "Pieter Robberechts",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/probberechts/cactus-dark/issues"
+  },
+  "homepage": "https://github.com/probberechts/cactus-dark#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run test && npm run lint",
+      "pre-push": "npm run test && npm run lint"
+    }
+  },
+  "devDependencies": {
+    "del": "^5.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "gulp": "^4.0.0",
+    "gulp-stylint": "^4.0.2",
+    "husky": "^4.2.3",
+    "js-yaml": "^3.13.1",
+    "prettier": "^1.19.1",
+    "stylint": "^2.0.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.1",
+    "clipboard": "^2.0.6",
+    "gulp-eslint": "^6.0.0",
+    "jquery": "^3.4.1",
+    "justifiedGallery": "^3.7.0",
+    "lightbox2": "^2.11.1",
+    "share-js": "GetToSet/share.js",
+    "valine": "GetToSet/Valine",
+    "video.js": "^7.7.5"
+  }
+}

@@ -1,0 +1,29 @@
+<% if (is_post()){ %>
+  <%- js('lib/clipboard/clipboard.min') %>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy btn-copy-code tooltipped tooltipped-sw\" aria-label=\"<%= __('tooltip.copy_tip') %>\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clipboardCode = new ClipboardJS('btn-copy-code', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    var clipboardPermalink = new ClipboardJS('.btn-copy-permalink', {
+      text: function(trigger) {
+        return "<%= page.permalink %>"
+      }
+    });
+    var successCallback = function(e) {
+      e.trigger.setAttribute('aria-label', "<%= __('tooltip.copied') %>");
+      e.clearSelection();
+    }
+    clipboardCode.on('success', successCallback);
+    clipboardPermalink.on('success', successCallback);
+  })
+  </script>
+<% } %>

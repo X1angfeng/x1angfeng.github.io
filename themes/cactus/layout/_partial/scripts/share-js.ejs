@@ -1,0 +1,12 @@
+<!-- Share.js -->
+<% if (is_post() && theme.share.provider === 'share-js') { %>
+  <%- js('lib/share-js/js/jquery.qrcode.min.js') %> 
+  <%- js('lib/share-js/js/jquery.share.min.js') %> 
+  <script>
+    $(function() {
+      $('.share-js-component').share({
+        sites: <%- JSON.stringify(theme.share.share_js.sites) %> 
+      });
+    });
+  </script>
+<% } %>

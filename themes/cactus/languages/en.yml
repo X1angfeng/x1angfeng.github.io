@@ -1,0 +1,70 @@
+nav:
+  Home: Home
+  Writings: Writings
+  Categories: Categories
+  Tags: Tags
+  Labs: Labs
+  LeetCode: LeetCode
+  Rss: Subscribe
+  Search: Search
+  About: About
+
+footer:
+  copyright: Copyright
+
+index:
+  find_me_on: Find me on
+  articles: Writing
+  projects: Projects
+  tags: Tags
+  most_recent: Most recent
+
+post:
+  title:
+    posted: ''
+    updated: 'Updated:'
+  desktop:
+    previous: Previous post
+    next: Next post
+    back_to_top: Back to top
+    share: Share post
+  mobile:
+    menu: Menu
+    toc: TOC
+    back_to_top: Top
+    share: Share
+  lightbox:
+    pagination: Image %1 of %2
+
+search:
+  search: Search...
+  no_results: No results found.
+
+tag_cloud:
+  zero: No tags
+
+pagination:
+  page: Page %d of %d
+
+counter:
+  tag_cloud:
+    zero: No tags
+    one: ""
+    other: ""
+
+  categories:
+    zero: No categories
+    one: ""
+    other: ""
+
+  archive_posts:
+    zero: No posts.
+    one: ""
+    other: ""
+
+comments:
+  no_js: Please enable JavaScript to view the comments.
+
+tooltip:
+  copy_tip: Copy to clipboard!
+  copied: Copied!

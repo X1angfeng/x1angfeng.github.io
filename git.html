@@ -6,18 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="​	近日使用Hexo和GithubPages搭建了属于自己的博客，从博客搭建开始到最后搭建成功一直都小心翼翼。生怕自己一不小心就会踩到莫名奇妙的坑🕳，搭建的过程比较的顺利没有出什么错误。直到昨天！！！">
-<meta name="keywords" content="hexo博客踩坑">
+    <meta name="description" content="主要是是一些常用的Git命令">
+<meta name="keywords" content="Git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo博客踩坑">
-<meta property="og:url" content="https:&#x2F;&#x2F;521.ooo&#x2F;hexo.html">
+<meta property="og:title" content="git常用命令">
+<meta property="og:url" content="https:&#x2F;&#x2F;521.ooo&#x2F;git.html">
 <meta property="og:site_name" content="嘲弄i">
-<meta property="og:description" content="​	近日使用Hexo和GithubPages搭建了属于自己的博客，从博客搭建开始到最后搭建成功一直都小心翼翼。生怕自己一不小心就会踩到莫名奇妙的坑🕳，搭建的过程比较的顺利没有出什么错误。直到昨天！！！">
+<meta property="og:description" content="主要是是一些常用的Git命令">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;code.jpg">
-<meta property="og:updated_time" content="2019-01-26T15:11:57.000Z">
+<meta property="og:updated_time" content="2020-07-19T13:59:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;code.jpg">
     
     
         
@@ -37,7 +35,7 @@
         
     
     <!-- title -->
-    <title>Hexo博客踩坑</title>
+    <title>git常用命令</title>
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- third-party styles -->
@@ -95,10 +93,8 @@
     <div id="actions">
       <ul>
         
-        <li><a class="icon" href="/mood.html"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
-        
-        <li><a class="icon" href="/office%E6%BF%80%E6%B4%BB.html"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" href="/20-5-4.html"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
       </ul>
@@ -107,7 +103,7 @@
       <span id="i-top" class="info" style="display:none;">返回顶部</span>
     </div>
     <div id="toc">
-      
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">Git Commands</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#开始使用git"><span class="toc-text">开始使用git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#版本控制"><span class="toc-text">版本控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#远程仓库"><span class="toc-text">远程仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分支管理"><span class="toc-text">分支管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标签管理"><span class="toc-text">标签管理</span></a></li></ol></li></ol></li></ol>
     </div>
   </div>
 </div>
@@ -119,7 +115,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        Hexo博客踩坑
+        git常用命令
     </h1>
 
 
@@ -132,15 +128,15 @@
   
     <div class="postdate">
       <i class="fas fa-calendar"></i>
-      发表于 <time datetime="2019-01-26T15:11:57.000Z" itemprop="datePublished">2019年01月26日</time>
+      发表于 <time datetime="2020-07-19T13:59:16.000Z" itemprop="datePublished">2020年07月19日</time>
     </div>
     
    |
     <i class="far fa-file-word fa-fw"></i>
-    文章字数:<span class="post-count">757</span>
+    文章字数:<span class="post-count">1.4k</span>
     |
     <i class="far fa-clock fa-fw"></i>
-    阅读时长:<span class="post-count">2</span>min
+    阅读时长:<span class="post-count">5</span>min
 | <!--
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <i class="far fa-eye fa-fw"></i>
@@ -152,14 +148,14 @@
       
     <div class="article-category">
         <i class="fas fa-archive"></i>
-        <a class="category-link" href="/categories/hexo/">hexo</a>
+        <a class="category-link" href="/categories/Git/">Git</a>
     </div>
 
 
       
     <div class="article-tag">
         <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/hexo%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91/" rel="tag">hexo博客踩坑</a>
+        <a class="tag-link" href="/tags/Git/" rel="tag">Git</a>
     </div>
 
 
@@ -167,40 +163,123 @@
     
   
     
-    
-      <div class="outdated-warn">
-        <i class="fas fa-exclamation-circle"></i>
-        这是一篇更新于 539 天前的文章，其中的信息可能已经有所发展或是发生改变。
-      </div>
     
   
 
   
   </header>
   
-<div class="article-gallery">
-    
-    <a class="gallery-item" href="/img/code.jpg" rel="gallery_ckct5ezur002rbc352a7l7x7z">
-        <img src="/img/code.jpg" itemprop="image" />
-    </a>
-    
-</div>
-
 
   <div class="content" itemprop="articleBody">
-    <p>​	近日使用Hexo和GithubPages搭建了属于自己的博客，从博客搭建开始到最后搭建成功一直都小心翼翼。生怕自己一不小心就会踩到莫名奇妙的坑🕳，搭建的过程比较的顺利没有出什么错误。直到昨天！！！<a id="more"></a></p>
-<p>​	GithubPages 呢在国内较慢，百度不收录，而CodingPages 在国内较快。因为还有几个腾讯云活动几块钱购买的域名还在闲置着，所以呢我就寻思着新建一个博客托管到CodingPages上面。在之前曾使用国外虚假身份证撸过国外学校的教育邮箱，当时是想申请AWS学生包来着，没想到最后翻车了申请了多次都没有申请成功。既然是教育邮箱那么肯定有很多优惠啊什么的，当时就申请了GitHub学生包等一些其他的东西。当时就突发奇想我可以把博客同时托管到两个平台上😂，于是最终就把博客托管到了用当时的GitHub账号的存储库下面。在此过程中需要创建SSH key所以就把之前的(C:\Users\Administrator\.ssh)文件夹下内容给删掉了。使用ssh-keygen -t rsa -C &quot;邮箱地址&quot;生成了新的密钥文件。新的博客最后也搭建成功了也可以正常访问<a href="https://www.6bl.xyz" target="_blank" rel="noopener">另外一个博客地址</a> 。好了废话讲了这么多肯定都听腻了，下面讲重点好了。</p>
-<p>​	之前博客科学上网的那篇文章一直没有写完(不是我不想写，因为实在太多了写不动了)，就想去再写一点内容。写了一部分内容后当我把博客推送到GitHub时出现了问题，没有推送成功。报错是下面所示的样子<img src="/img/error.png" alt="">大致看了一下报错的内容它这里说&quot;Please make sure you have the correct access rights and the repository exists.&quot;谷歌了一下原来是SSH key有问题。<img src="/img/chidai1.jpg" alt="">之前曾生成过一次SSH key但是两个网站是用的不同的GitHub账号，他们各自绑定的邮箱也是不同的所以才会报如此错误。所以就又删掉了(C:\Users\Administrator\.ssh)文件夹下内容，需要重新生成一下密钥文件。</p>
-<p>1.首先我得重新在git设置一下身份的名字和邮箱，Git Bash进入到需要提交的文件夹底下输入</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">"yourname"</span></span><br><span class="line"></span><br><span class="line">git<span class="built_in"> config </span>--global user.email“your@email.com<span class="string">"</span></span><br></pre></td></tr></table></figure>
-<p>2.ssh-keygen -t rsa -C “<a href="mailto:your@email.com" target="_blank" rel="noopener">your@email.com</a>”（请填你设置的邮箱地址）一直回车即可。</p>
-<p><img src="/img/01.png" alt=""></p>
-<p>3.复制密钥文件内容（路径形如<code>C:\Users\Administrator\.ssh\id_rsa.pub</code>），粘贴到<a href="https://github.com/settings/keys" target="_blank" rel="noopener">New SSH Key</a>即可。<img src="/img/02.png" alt=""></p>
-<p>4.在命令行中(Git Bash)中输入</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ssh</span> <span class="selector-tag">-T</span> <span class="selector-tag">git</span>@<span class="keyword">github</span>.<span class="keyword">com</span></span><br></pre></td></tr></table></figure>
-<center>再输入yes当返回返回“You’ve successfully authenticated”即成功</center>
-<p>5.推送到GithubPages。在命令行（即Git Bash）依次输入以下命令， 返回<code>INFO Deploy done: git</code>即成功推送：</p>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">hexo</span> <span class="string">g</span></span><br><span class="line"><span class="attr">hexo</span> <span class="string">d</span></span><br></pre></td></tr></table></figure>
+    <blockquote>
+<p>主要是是一些常用的Git命令<a id="more"></a></p>
+</blockquote>
+<h1>Git Commands</h1>
+<blockquote>
+<h3 id="开始使用git">开始使用git</h3>
+</blockquote>
+<ul>
+<li>设置用户名<br>
+<code>git config --global user.name &quot;Your Name&quot;</code></li>
+<li>设置邮箱<br>
+<code>git config --global user.email &quot;email@example.com&quot;</code></li>
+<li>创建仓库（当前目录）<br>
+<code>git init</code></li>
+<li>添加文件<br>
+<code>git add &lt;file&gt;</code> <em>添加指定文件</em><br>
+<code>git add .</code> <em>添加所有改变的文件</em><br>
+<em>注：如果add后又修改了文件，还要再add一次之后再commit</em></li>
+<li>提交<br>
+<code>git commit -m &quot;提交说明&quot;</code></li>
+<li>查看状态<br>
+<code>git status</code></li>
+<li>查看修改<br>
+<code>git diff &lt;file&gt;</code> <em>查看单个文件的更改</em><br>
+<code>git diff</code> <em>查看所有文件的更改</em></li>
+<li>查看历史提交<br>
+<code>git log</code><br>
+<code>git log --pretty=oneline</code> <em>一次提交显示为一行</em><br>
+<code>git blame &lt;file&gt;</code> <em>查看一个文件的修改记录(谁在什么事件修改了什么)</em></li>
+<li>查看历史命令<br>
+<code>git reflog</code></li>
+</ul>
+<blockquote>
+<h3 id="版本控制">版本控制</h3>
+</blockquote>
+<ul>
+<li>版本回退<br>
+<code>git reset --hard HEAD</code> <em>撤销所有未提交的操作，包括add</em><br>
+<code>git reset --hard HEAD^</code> <em>回退到上一个版本</em><br>
+<code>git reset --hard HEAD^^</code> <em>回退到上两个版本</em><br>
+<code>git reset --hard HEAD~100</code> <em>回退到上100个版本</em><br>
+<code>git reset --hard &lt;commit&gt;</code> <em>回退到指定版本</em><br>
+<code>git checkout -- &lt;file&gt;</code> <em>丢弃工作区的修改，如果文件add到了暂存区又做了修改，则恢复到暂存区，否则恢复到版本库的状态，如果文件删除了，则回复到版本库的文件</em><br>
+<code>git reset HEAD &lt;file&gt;</code> <em>把暂存区的修改撤销掉，重新放回工作区</em><br>
+<em>注：</em><br>
+<em>场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令 <code>git checkout -- &lt;file&gt;</code></em><br>
+<em>场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令 <code>git reset HEAD &lt;file&gt;</code>，就回到了场景1，第二步按场景1操作</em><br>
+<em>场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退，不过前提是没有推送到远程库</em></li>
+<li>删除/重命名<br>
+<code>git rm &lt;file&gt;</code> <em>删除文件，尽管文件已经添加到暂存区(add)</em><br>
+<code>git rm --cached &lt;file&gt;</code> <em>把文件从版本库、暂存区删掉，但是保留硬盘文件</em><br>
+<code>git mv &lt;file&gt; &lt;other file&gt;</code> <em>重命名文件</em></li>
+</ul>
+<blockquote>
+<h3 id="远程仓库">远程仓库</h3>
+</blockquote>
+<ul>
+<li>创建ssh密钥<br>
+<code>ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</code><br>
+<em>注：一路回车，在用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件，这两个就是SSH Key的秘钥对，id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告诉任何人，复制内容，在github上添加</em></li>
+<li>远程仓库<br>
+<code>git remote add origin git@github.com:michaelliao/learngit.git</code> <em>关联远程仓库,远程库的名字就是origin，这是Git默认的叫法，也可以改成别的，但是origin这个名字一看就知道是远程库</em><br>
+<code>git push -u origin master</code> <em>我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令</em><br>
+<code>git push origin master</code> <em>把本地master分支的最新修改推送至GitHub</em><br>
+<code>git clone git@github.com:michaelliao/gitskills.git</code> <em>从远程仓库克隆，Git自动把本地的master分支和远程的master分支对应起来了，并且，远程仓库的默认名称是origin</em><br>
+<code>git remote</code> <em>查看远程库的信息</em><br>
+<code>git remote -v</code> <em>查看远程库的详细信息</em><br>
+<code>git push origin master</code> <em>推送远程分支，就是把该分支上的所有本地提交推送到远程库</em><br>
+<code>git pull</code> <em>从远程库拉取</em><br>
+<code>git checkout -b &lt;branch&gt; origin/&lt;branch&gt;</code> <em>创建远程origin的branch分支到本地</em><br>
+<code>git branch --set-upstream &lt;branch&gt; origin/&lt;branch&gt;</code> <em>指定本地dev分支与远程origin/dev分支的链接</em><br>
+<code>git push origin --delete &lt;branch&gt;</code> <em>删除远程分支</em></li>
+</ul>
+<blockquote>
+<h3 id="分支管理">分支管理</h3>
+</blockquote>
+<ul>
+<li>创建分支<br>
+<code>git checkout -b &lt;branch&gt;</code> <em>创建分支并切换过去，相当于执行了 <code>git branch &lt;branch&gt;</code> 和 <code>git checkout &lt;branch&gt;</code></em><br>
+<code>git branch</code> <em>查看当前分支</em><br>
+<code>git checkout &lt;branch&gt;</code> <em>切换分支</em><br>
+<code>git merge &lt;branch&gt;</code> <em>合并分支到当前分支，有冲突修改后再add、commit</em><br>
+<code>git merge --no-ff -m &quot;合并信息&quot; &lt;branch&gt;</code> <em>禁止快速合并</em><br>
+<code>git branch -d &lt;branch&gt;</code> <em>删除分支</em><br>
+<code>git branch -D &lt;branch&gt;</code> <em>强行删除分支(未合并的分支)</em></li>
+<li>BUG分支<br>
+<code>git stash</code> <em>把当前工作现场“储藏”起来，等以后恢复现场后继续工作</em><br>
+<code>git stash list</code> <em>查看stash</em><br>
+<code>git stash apply</code> <em>恢复现场</em><br>
+<code>git stash drop</code> <em>删除保存的stash</em><br>
+<code>git stash pop</code> <em>恢复并删除stash</em><br>
+<code>git stash apply stash@{0}</code> <em>多次stash，恢复指定的stash</em></li>
+</ul>
+<blockquote>
+<h3 id="标签管理">标签管理</h3>
+</blockquote>
+<ul>
+<li>创建标签<br>
+<code>git tag &lt;name&gt;</code> <em>创建标签</em><br>
+<code>git tag</code> <em>查看所有标签</em><br>
+<code>git tag &lt;name&gt; &lt;commit&gt;</code> <em>在指定的版本版本id打标签</em><br>
+<code>git show &lt;name&gt;</code> <em>查看标签信息</em><br>
+<code>git tag -a &lt;name&gt; -m &quot;说明&quot; &lt;commit&gt;</code> <em>创建带有说明的标签</em></li>
+<li>操作标签<br>
+<code>git tag -d &lt;name&gt;</code> <em>删除标签</em><br>
+<code>git push origin &lt;name&gt;</code> <em>推送某个标签到远程仓库</em><br>
+<code>git push origin --tags</code> <em>一次性推送全部尚未推送到远程的本地标签</em><br>
+<code>git push origin :refs/tags/&lt;name&gt;</code> <em>删除远程标签(删除远程标签之前要先删除本地标签)</em></li>
+</ul>
 
   </div>
 </article>
@@ -209,16 +288,16 @@
     <div class="copyright">
   <dl>
     <dt class="copyright-title">本文标题：</dt>
-    <dd class="copyright-descriptioin">Hexo博客踩坑</dd>
+    <dd class="copyright-descriptioin">git常用命令</dd>
     <dt class="copyright-title">文章作者：</dt>
     <dd class="copyright-item">嘲弄i</dd>
     <dt class="copyright-title">原始链接：</dt>
     <dd class="copyright-item">
       <a 
-        href="/hexo.html"
-        title="Hexo博客踩坑"
+        href="/git.html"
+        title="git常用命令"
         id="permalink"
-        >https://521.ooo/hexo.html</a
+        >https://521.ooo/git.html</a
       ><a 
          class="btn-copy btn-copy-permalink tooltipped tooltipped-sw"
          aria-label="复制到粘贴板!">
@@ -492,7 +571,7 @@ div.vcontent p  img.vemoji {
     </div>
 
     <div id="toc-footer" style="display: none">
-      
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">Git Commands</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#开始使用git"><span class="toc-text">开始使用git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#版本控制"><span class="toc-text">版本控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#远程仓库"><span class="toc-text">远程仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分支管理"><span class="toc-text">分支管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标签管理"><span class="toc-text">标签管理</span></a></li></ol></li></ol></li></ol>
     </div>
 
     <div id="actions-footer">
@@ -635,7 +714,7 @@ div.vcontent p  img.vemoji {
     });
     var clipboardPermalink = new ClipboardJS('.btn-copy-permalink', {
       text: function(trigger) {
-        return "https://521.ooo/hexo.html"
+        return "https://521.ooo/git.html"
       }
     });
     var successCallback = function(e) {
@@ -724,7 +803,7 @@ div.vcontent p  img.vemoji {
       });
       var clipboardPermalink = new ClipboardJS('.btn-copy-permalink', {
         text: function(trigger) {
-          return "https://521.ooo/hexo.html"
+          return "https://521.ooo/git.html"
         }
       });
       var successCallback = function(e) {

@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://521.ooo/404/index.html</loc>
+    <loc>https://521.ooo/git.html</loc>
     
-    <lastmod>2020-07-18T05:57:00.792Z</lastmod>
+    <lastmod>2020-07-19T13:59:16.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://521.ooo/about/index.html</loc>
     
-    <lastmod>2020-07-17T13:11:41.650Z</lastmod>
+    <lastmod>2020-07-19T12:30:22.984Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://521.ooo/404/index.html</loc>
+    
+    <lastmod>2020-07-18T05:57:00.792Z</lastmod>
     
   </url>
   
@@ -30,14 +37,14 @@
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/radixSort.html</loc>
+    <loc>https://521.ooo/sort/quickSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.877Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/quickSort.html</loc>
+    <loc>https://521.ooo/sort/radixSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.877Z</lastmod>
     
@@ -72,14 +79,14 @@
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/bucketSort.html</loc>
+    <loc>https://521.ooo/sort/bubbleSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.874Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/bubbleSort.html</loc>
+    <loc>https://521.ooo/sort/bucketSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.874Z</lastmod>
     

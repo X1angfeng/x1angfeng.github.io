@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="&#x5632;&#x5F04;i">
 <meta property="og:description" content="fetch(&amp;apos;https://v1.hitokoto.cn&amp;apos;)     .then(function (res){       return res.json();     })     .then(function (data) {       var hitokoto = document.getElementById(&amp;apos;hitokoto&amp;apos;);       hitokoto.innerT">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-07-19T12:30:22.984Z">
+<meta property="og:updated_time" content="2020-07-20T01:45:36.590Z">
 <meta name="twitter:card" content="summary">
     
     
@@ -48,14 +48,8 @@
     
     
 
-<!-- require APlayer -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-<!-- require MetingJS -->
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-<!--跳动-->
+    <!--跳动-->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css">
-
 </head><style type="text/css">#posts-chart,#categories-chart,#tags-chart{width: 100%;height: 300px;margin: 0.5rem auto;padding: 0.5rem;}</style><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4.7.0/dist/echarts.min.js"></script>
 
 <body class="max-width mx-auto px3 ">
@@ -108,7 +102,7 @@
              
                 <i class="fa-fw fa fa-music fa-music"></i>
               
-            &#x97F3;&#x4E50;
+            Music
           </a>
         </li>
        
@@ -117,7 +111,7 @@
              
                 <i class="fa-fw fa fa-video fa-photo"></i>
               
-            &#x76F8;&#x518C;
+            Photo
           </a>
         </li>
        
@@ -174,6 +168,7 @@
 <style type="text/css">#posts-chart,#categories-chart,#tags-chart{width: 100%;height: 300px;margin: 0.5rem auto;padding: 0.5rem;}</style><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4.7.0/dist/echarts.min.js"></script><center>
 <p id="hitokoto">&#x6B63;&#x5728;&#x52A0;&#x8F7D;&#x4E00;&#x8A00;...</p></center>
 <p><i id="heartbeat" class="fa ">&#xE05;&#x295;&#x2022;&#x361;&#x32B;&#x2022;&#x294;&#xE05;</i></p>
+<!--有BUG-->
 <div id="posts-chart"></div>
   <script id="postsChart">
     let postsChart = echarts.init(document.getElementById('posts-chart'));
@@ -306,7 +301,6 @@
     };
     categoriesChart.setOption(categoriesOption);
     </script>
-<p>&#x6709;BUG</p>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7},"log":false});</script>
     
   </div>
@@ -372,43 +366,7 @@
 
   
 
-  <!--暂时废弃因为不美观懒得改css了-->
-  <!--
-  <br>
-    &nbsp;&nbsp;&nbsp;
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="site-uv">
-      <i class="fa fa-user"></i> 访问人数
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-    </span>
-    <span class="site-pv">
-      <i class="fa fa-eye"></i> 访问总量
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-    </span>
-    
-  <br>
-      &nbsp;&nbsp;&nbsp;-->
-      <!--建站时间-->
-    <!--  <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
-        <script>
-            var now = new Date(); 
-            function createtime() { 
-                var grt= new Date("12/30/2018 12:49:00");//此处修改你的建站时间或者网站上线时间 
-                now.setTime(now.getTime()+250); 
-                days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
-                hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
-                if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
-                mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
-                seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
-                snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
-                document.getElementById("timeDate").innerHTML = "博客已运行 "+dnum+" 天 "; 
-                document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
-            } 
-        setInterval("createtime()",250);
-        </script>
   
-  </div>
--->
 
 
 </footer>

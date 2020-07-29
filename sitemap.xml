@@ -2,13 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://521.ooo/python/index.html</loc>
-    
-    <lastmod>2020-07-21T06:29:49.381Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://521.ooo/404/index.html</loc>
     
     <lastmod>2020-07-21T00:56:13.230Z</lastmod>
@@ -51,14 +44,14 @@
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/quickSort.html</loc>
+    <loc>https://521.ooo/sort/radixSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.877Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/radixSort.html</loc>
+    <loc>https://521.ooo/sort/quickSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.877Z</lastmod>
     

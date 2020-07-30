@@ -44,13 +44,6 @@
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/radixSort.html</loc>
-    
-    <lastmod>2020-07-17T08:47:00.877Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://521.ooo/sort/quickSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.877Z</lastmod>
@@ -58,14 +51,21 @@
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/insertionSort.html</loc>
+    <loc>https://521.ooo/sort/radixSort.html</loc>
+    
+    <lastmod>2020-07-17T08:47:00.877Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://521.ooo/sort/mergeSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.876Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/mergeSort.html</loc>
+    <loc>https://521.ooo/sort/insertionSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.876Z</lastmod>
     

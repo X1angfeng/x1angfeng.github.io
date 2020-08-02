@@ -58,13 +58,6 @@
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/mergeSort.html</loc>
-    
-    <lastmod>2020-07-17T08:47:00.876Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://521.ooo/sort/insertionSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.876Z</lastmod>
@@ -72,9 +65,9 @@
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/countingSort.html</loc>
+    <loc>https://521.ooo/sort/mergeSort.html</loc>
     
-    <lastmod>2020-07-17T08:47:00.875Z</lastmod>
+    <lastmod>2020-07-17T08:47:00.876Z</lastmod>
     
   </url>
   
@@ -86,14 +79,21 @@
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/bubbleSort.html</loc>
+    <loc>https://521.ooo/sort/countingSort.html</loc>
+    
+    <lastmod>2020-07-17T08:47:00.875Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://521.ooo/sort/bucketSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.874Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/bucketSort.html</loc>
+    <loc>https://521.ooo/sort/bubbleSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.874Z</lastmod>
     
@@ -138,6 +138,13 @@
     <loc>https://521.ooo/bangumis/index.html</loc>
     
     <lastmod>2020-07-16T05:52:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://521.ooo/20-5-5.html</loc>
+    
+    <lastmod>2020-05-18T08:37:57.000Z</lastmod>
     
   </url>
   

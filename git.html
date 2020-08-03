@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang=zh>
 <head>
-    <!-- so meta -->
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
@@ -51,12 +51,12 @@
     
 
     <!--跳动-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body class="max-width mx-auto px3 ">
     
-      <div id="header-post">
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
   <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
   <div id="nav">
     <div id="nav-items">
@@ -125,7 +125,7 @@
     
    |
     <i class="far fa-file-word fa-fw"></i>
-    文章字数:<span class="post-count">1.4k</span>
+    文章字数:<span class="post-count">1.3k</span>
     |
     <i class="far fa-clock fa-fw"></i>
     阅读时长:<span class="post-count">5</span>min
@@ -166,101 +166,32 @@
     <blockquote>
 <p>主要是是一些常用的Git命令<a id="more"></a></p>
 </blockquote>
-<h2 id="Git-Commands">Git Commands</h2>
-<h3 id="开始使用git">开始使用git</h3>
-<ul>
-<li>设置用户名<br>
-<code>git config --global user.name &quot;Your Name&quot;</code></li>
-<li>设置邮箱<br>
-<code>git config --global user.email &quot;email@example.com&quot;</code></li>
-<li>创建仓库（当前目录）<br>
-<code>git init</code></li>
-<li>添加文件<br>
-<code>git add &lt;file&gt;</code> <em>添加指定文件</em><br>
-<code>git add .</code> <em>添加所有改变的文件</em><br>
-<em>注：如果add后又修改了文件，还要再add一次之后再commit</em></li>
-<li>提交<br>
-<code>git commit -m &quot;提交说明&quot;</code></li>
-<li>查看状态<br>
-<code>git status</code></li>
-<li>查看修改<br>
-<code>git diff &lt;file&gt;</code> <em>查看单个文件的更改</em><br>
-<code>git diff</code> <em>查看所有文件的更改</em></li>
-<li>查看历史提交<br>
-<code>git log</code><br>
-<code>git log --pretty=oneline</code> <em>一次提交显示为一行</em><br>
-<code>git blame &lt;file&gt;</code> <em>查看一个文件的修改记录(谁在什么事件修改了什么)</em></li>
-<li>查看历史命令<br>
-<code>git reflog</code></li>
+<h2 id="Git-Commands"><a href="#Git-Commands" class="headerlink" title="Git Commands"></a>Git Commands</h2><h3 id="开始使用git"><a href="#开始使用git" class="headerlink" title="开始使用git"></a>开始使用git</h3><ul>
+<li>设置用户名<br><code>git config --global user.name &quot;Your Name&quot;</code>  </li>
+<li>设置邮箱<br><code>git config --global user.email &quot;email@example.com&quot;</code>  </li>
+<li>创建仓库（当前目录）<br><code>git init</code>  </li>
+<li>添加文件<br><code>git add &lt;file&gt;</code> <em>添加指定文件</em><br><code>git add .</code> <em>添加所有改变的文件</em><br><em>注：如果add后又修改了文件，还要再add一次之后再commit</em>  </li>
+<li>提交<br><code>git commit -m &quot;提交说明&quot;</code>  </li>
+<li>查看状态<br><code>git status</code>  </li>
+<li>查看修改<br><code>git diff &lt;file&gt;</code> <em>查看单个文件的更改</em><br><code>git diff</code> <em>查看所有文件的更改</em>  </li>
+<li>查看历史提交<br><code>git log</code><br><code>git log --pretty=oneline</code> <em>一次提交显示为一行</em><br><code>git blame &lt;file&gt;</code> <em>查看一个文件的修改记录(谁在什么事件修改了什么)</em>  </li>
+<li>查看历史命令<br><code>git reflog</code></li>
 </ul>
-<h3 id="版本控制">版本控制</h3>
-<ul>
-<li>版本回退<br>
-<code>git reset --hard HEAD</code> <em>撤销所有未提交的操作，包括add</em><br>
-<code>git reset --hard HEAD^</code> <em>回退到上一个版本</em><br>
-<code>git reset --hard HEAD^^</code> <em>回退到上两个版本</em><br>
-<code>git reset --hard HEAD~100</code> <em>回退到上100个版本</em><br>
-<code>git reset --hard &lt;commit&gt;</code> <em>回退到指定版本</em><br>
-<code>git checkout -- &lt;file&gt;</code> <em>丢弃工作区的修改，如果文件add到了暂存区又做了修改，则恢复到暂存区，否则恢复到版本库的状态，如果文件删除了，则回复到版本库的文件</em><br>
-<code>git reset HEAD &lt;file&gt;</code> <em>把暂存区的修改撤销掉，重新放回工作区</em><br>
-<em>注：</em><br>
-<em>场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令 <code>git checkout -- &lt;file&gt;</code></em><br>
-<em>场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令 <code>git reset HEAD &lt;file&gt;</code>，就回到了场景1，第二步按场景1操作</em><br>
-<em>场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退，不过前提是没有推送到远程库</em></li>
-<li>删除/重命名<br>
-<code>git rm &lt;file&gt;</code> <em>删除文件，尽管文件已经添加到暂存区(add)</em><br>
-<code>git rm --cached &lt;file&gt;</code> <em>把文件从版本库、暂存区删掉，但是保留硬盘文件</em><br>
-<code>git mv &lt;file&gt; &lt;other file&gt;</code> <em>重命名文件</em></li>
+<h3 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h3><ul>
+<li>版本回退<br><code>git reset --hard HEAD</code> <em>撤销所有未提交的操作，包括add</em><br><code>git reset --hard HEAD^</code> <em>回退到上一个版本</em><br><code>git reset --hard HEAD^^</code> <em>回退到上两个版本</em><br><code>git reset --hard HEAD~100</code> <em>回退到上100个版本</em><br><code>git reset --hard &lt;commit&gt;</code> <em>回退到指定版本</em><br><code>git checkout -- &lt;file&gt;</code> <em>丢弃工作区的修改，如果文件add到了暂存区又做了修改，则恢复到暂存区，否则恢复到版本库的状态，如果文件删除了，则回复到版本库的文件</em><br><code>git reset HEAD &lt;file&gt;</code> <em>把暂存区的修改撤销掉，重新放回工作区</em><br><em>注：</em><br><em>场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令 <code>git checkout -- &lt;file&gt;</code></em><br><em>场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令 <code>git reset HEAD &lt;file&gt;</code>，就回到了场景1，第二步按场景1操作</em><br><em>场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退，不过前提是没有推送到远程库</em>  </li>
+<li>删除/重命名<br><code>git rm &lt;file&gt;</code> <em>删除文件，尽管文件已经添加到暂存区(add)</em><br><code>git rm --cached &lt;file&gt;</code> <em>把文件从版本库、暂存区删掉，但是保留硬盘文件</em><br><code>git mv &lt;file&gt; &lt;other file&gt;</code> <em>重命名文件</em>  </li>
 </ul>
-<h3 id="远程仓库">远程仓库</h3>
-<ul>
-<li>创建ssh密钥<br>
-<code>ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</code><br>
-<em>注：一路回车，在用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件，这两个就是SSH Key的秘钥对，id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告诉任何人，复制内容，在github上添加</em></li>
-<li>远程仓库<br>
-<code>git remote add origin git@github.com:michaelliao/learngit.git</code> <em>关联远程仓库,远程库的名字就是origin，这是Git默认的叫法，也可以改成别的，但是origin这个名字一看就知道是远程库</em><br>
-<code>git push -u origin master</code> <em>我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令</em><br>
-<code>git push origin master</code> <em>把本地master分支的最新修改推送至GitHub</em><br>
-<code>git clone git@github.com:michaelliao/gitskills.git</code> <em>从远程仓库克隆，Git自动把本地的master分支和远程的master分支对应起来了，并且，远程仓库的默认名称是origin</em><br>
-<code>git remote</code> <em>查看远程库的信息</em><br>
-<code>git remote -v</code> <em>查看远程库的详细信息</em><br>
-<code>git push origin master</code> <em>推送远程分支，就是把该分支上的所有本地提交推送到远程库</em><br>
-<code>git pull</code> <em>从远程库拉取</em><br>
-<code>git checkout -b &lt;branch&gt; origin/&lt;branch&gt;</code> <em>创建远程origin的branch分支到本地</em><br>
-<code>git branch --set-upstream &lt;branch&gt; origin/&lt;branch&gt;</code> <em>指定本地dev分支与远程origin/dev分支的链接</em><br>
-<code>git push origin --delete &lt;branch&gt;</code> <em>删除远程分支</em></li>
+<h3 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h3><ul>
+<li>创建ssh密钥<br><code>ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</code><br><em>注：一路回车，在用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件，这两个就是SSH Key的秘钥对，id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告诉任何人，复制内容，在github上添加</em>  </li>
+<li>远程仓库<br><code>git remote add origin git@github.com:michaelliao/learngit.git</code> <em>关联远程仓库,远程库的名字就是origin，这是Git默认的叫法，也可以改成别的，但是origin这个名字一看就知道是远程库</em><br><code>git push -u origin master</code> <em>我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令</em><br><code>git push origin master</code> <em>把本地master分支的最新修改推送至GitHub</em><br><code>git clone git@github.com:michaelliao/gitskills.git</code> <em>从远程仓库克隆，Git自动把本地的master分支和远程的master分支对应起来了，并且，远程仓库的默认名称是origin</em><br><code>git remote</code> <em>查看远程库的信息</em><br><code>git remote -v</code> <em>查看远程库的详细信息</em><br><code>git push origin master</code> <em>推送远程分支，就是把该分支上的所有本地提交推送到远程库</em><br><code>git pull</code> <em>从远程库拉取</em><br><code>git checkout -b &lt;branch&gt; origin/&lt;branch&gt;</code> <em>创建远程origin的branch分支到本地</em><br><code>git branch --set-upstream &lt;branch&gt; origin/&lt;branch&gt;</code> <em>指定本地dev分支与远程origin/dev分支的链接</em><br><code>git push origin --delete &lt;branch&gt;</code> <em>删除远程分支</em>  </li>
 </ul>
-<h3 id="分支管理">分支管理</h3>
-<ul>
-<li>创建分支<br>
-<code>git checkout -b &lt;branch&gt;</code> <em>创建分支并切换过去，相当于执行了 <code>git branch &lt;branch&gt;</code> 和 <code>git checkout &lt;branch&gt;</code></em><br>
-<code>git branch</code> <em>查看当前分支</em><br>
-<code>git checkout &lt;branch&gt;</code> <em>切换分支</em><br>
-<code>git merge &lt;branch&gt;</code> <em>合并分支到当前分支，有冲突修改后再add、commit</em><br>
-<code>git merge --no-ff -m &quot;合并信息&quot; &lt;branch&gt;</code> <em>禁止快速合并</em><br>
-<code>git branch -d &lt;branch&gt;</code> <em>删除分支</em><br>
-<code>git branch -D &lt;branch&gt;</code> <em>强行删除分支(未合并的分支)</em></li>
-<li>BUG分支<br>
-<code>git stash</code> <em>把当前工作现场“储藏”起来，等以后恢复现场后继续工作</em><br>
-<code>git stash list</code> <em>查看stash</em><br>
-<code>git stash apply</code> <em>恢复现场</em><br>
-<code>git stash drop</code> <em>删除保存的stash</em><br>
-<code>git stash pop</code> <em>恢复并删除stash</em><br>
-<code>git stash apply stash@{0}</code> <em>多次stash，恢复指定的stash</em></li>
+<h3 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h3><ul>
+<li>创建分支<br><code>git checkout -b &lt;branch&gt;</code> <em>创建分支并切换过去，相当于执行了 <code>git branch &lt;branch&gt;</code> 和 <code>git checkout &lt;branch&gt;</code></em><br><code>git branch</code> <em>查看当前分支</em><br><code>git checkout &lt;branch&gt;</code> <em>切换分支</em><br><code>git merge &lt;branch&gt;</code> <em>合并分支到当前分支，有冲突修改后再add、commit</em><br><code>git merge --no-ff -m &quot;合并信息&quot; &lt;branch&gt;</code> <em>禁止快速合并</em><br><code>git branch -d &lt;branch&gt;</code> <em>删除分支</em><br><code>git branch -D &lt;branch&gt;</code> <em>强行删除分支(未合并的分支)</em>  </li>
+<li>BUG分支<br><code>git stash</code> <em>把当前工作现场“储藏”起来，等以后恢复现场后继续工作</em><br><code>git stash list</code> <em>查看stash</em><br><code>git stash apply</code> <em>恢复现场</em><br><code>git stash drop</code> <em>删除保存的stash</em><br><code>git stash pop</code> <em>恢复并删除stash</em><br><code>git stash apply stash@{0}</code> <em>多次stash，恢复指定的stash</em>  </li>
 </ul>
-<h3 id="标签管理">标签管理</h3>
-<ul>
-<li>创建标签<br>
-<code>git tag &lt;name&gt;</code> <em>创建标签</em><br>
-<code>git tag</code> <em>查看所有标签</em><br>
-<code>git tag &lt;name&gt; &lt;commit&gt;</code> <em>在指定的版本版本id打标签</em><br>
-<code>git show &lt;name&gt;</code> <em>查看标签信息</em><br>
-<code>git tag -a &lt;name&gt; -m &quot;说明&quot; &lt;commit&gt;</code> <em>创建带有说明的标签</em></li>
-<li>操作标签<br>
-<code>git tag -d &lt;name&gt;</code> <em>删除标签</em><br>
-<code>git push origin &lt;name&gt;</code> <em>推送某个标签到远程仓库</em><br>
-<code>git push origin --tags</code> <em>一次性推送全部尚未推送到远程的本地标签</em><br>
-<code>git push origin :refs/tags/&lt;name&gt;</code> <em>删除远程标签(删除远程标签之前要先删除本地标签)</em></li>
+<h3 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h3><ul>
+<li>创建标签<br><code>git tag &lt;name&gt;</code> <em>创建标签</em><br><code>git tag</code> <em>查看所有标签</em><br><code>git tag &lt;name&gt; &lt;commit&gt;</code> <em>在指定的版本版本id打标签</em><br><code>git show &lt;name&gt;</code> <em>查看标签信息</em><br><code>git tag -a &lt;name&gt; -m &quot;说明&quot; &lt;commit&gt;</code> <em>创建带有说明的标签</em>  </li>
+<li>操作标签<br><code>git tag -d &lt;name&gt;</code> <em>删除标签</em><br><code>git push origin &lt;name&gt;</code> <em>推送某个标签到远程仓库</em><br><code>git push origin --tags</code> <em>一次性推送全部尚未推送到远程的本地标签</em><br><code>git push origin :refs/tags/&lt;name&gt;</code> <em>删除远程标签(删除远程标签之前要先删除本地标签)</em>  </li>
 </ul>
 
   </div>
@@ -747,6 +678,10 @@ div.vcontent p  img.vemoji {
   document.body.addEventListener('input', POWERMODE);
   </script>
 
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
   <!--qsmg酱-->
   <!--
   <script>
@@ -832,5 +767,5 @@ ValineButton.onclick=send_valine_Server;
       }
   }
   </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7},"log":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

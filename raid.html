@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang=zh>
 <head>
-    <!-- so meta -->
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
@@ -80,12 +80,12 @@
     
 
     <!--跳动-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body class="max-width mx-auto px3 ">
     
-      <div id="header-post">
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
   <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
   <div id="nav">
     <div id="nav-items">
@@ -126,7 +126,7 @@
       <span id="i-top" class="info" style="display:none;">返回顶部</span>
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">任务一</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#确认quota软件包的安装情况"><span class="toc-text">确认quota软件包的安装情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建用户"><span class="toc-text">创建用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建文件夹，并设置权限"><span class="toc-text">创建文件夹，并设置权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#磁盘分区，格式化"><span class="toc-text">磁盘分区，格式化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#挂载"><span class="toc-text">挂载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#检测配额并生成配额文件"><span class="toc-text">检测配额并生成配额文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编辑用户yhy的配额"><span class="toc-text">编辑用户yhy的配额</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#激活配额"><span class="toc-text">激活配额</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#验证配额"><span class="toc-text">验证配额</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关闭磁盘配额"><span class="toc-text">关闭磁盘配额</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">任务二</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#重新设置挂载"><span class="toc-text">重新设置挂载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对用户和用户组建立配额文件"><span class="toc-text">对用户和用户组建立配额文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#给用户配额"><span class="toc-text">给用户配额</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动配额项"><span class="toc-text">启动配额项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改配额"><span class="toc-text">修改配额</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配额测试"><span class="toc-text">配额测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置Samba文件"><span class="toc-text">配置Samba文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建-disk目录，并设置相关权限"><span class="toc-text">创建/disk目录，并设置相关权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置企业quota的组限定"><span class="toc-text">配置企业quota的组限定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试-v2"><span class="toc-text">测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#测试一"><span class="toc-text">测试一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试二"><span class="toc-text">测试二</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">任务三</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#文件与权限"><span class="toc-text">文件与权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改-etc-fstab"><span class="toc-text">修改/etc/fstab</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重启电脑"><span class="toc-text">重启电脑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成配额文件"><span class="toc-text">生成配额文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其余用户配置"><span class="toc-text">其余用户配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">任务四</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#磁盘分区"><span class="toc-text">磁盘分区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建RAID卷"><span class="toc-text">创建RAID卷</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看RAID卷"><span class="toc-text">查看RAID卷</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#格式化并且挂载和使用创建的RAID"><span class="toc-text">格式化并且挂载和使用创建的RAID</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开机启动RAID"><span class="toc-text">开机启动RAID</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置开机自动挂载"><span class="toc-text">设置开机自动挂载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#验证sapre磁盘的功能"><span class="toc-text">验证sapre磁盘的功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关闭RAID"><span class="toc-text">关闭RAID</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#任务一"><span class="toc-text">任务一</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#确认quota软件包的安装情况"><span class="toc-text">确认quota软件包的安装情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建用户"><span class="toc-text">创建用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建文件夹，并设置权限"><span class="toc-text">创建文件夹，并设置权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#磁盘分区，格式化"><span class="toc-text">磁盘分区，格式化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#挂载"><span class="toc-text">挂载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#检测配额并生成配额文件"><span class="toc-text">检测配额并生成配额文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编辑用户yhy的配额"><span class="toc-text">编辑用户yhy的配额</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#激活配额"><span class="toc-text">激活配额</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#验证配额"><span class="toc-text">验证配额</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关闭磁盘配额"><span class="toc-text">关闭磁盘配额</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#任务二"><span class="toc-text">任务二</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#重新设置挂载"><span class="toc-text">重新设置挂载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对用户和用户组建立配额文件"><span class="toc-text">对用户和用户组建立配额文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#给用户配额"><span class="toc-text">给用户配额</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动配额项"><span class="toc-text">启动配额项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改配额"><span class="toc-text">修改配额</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配额测试"><span class="toc-text">配额测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置Samba文件"><span class="toc-text">配置Samba文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建-disk目录，并设置相关权限"><span class="toc-text">创建/disk目录，并设置相关权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置企业quota的组限定"><span class="toc-text">配置企业quota的组限定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试-1"><span class="toc-text">测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#测试一"><span class="toc-text">测试一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试二"><span class="toc-text">测试二</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#任务三"><span class="toc-text">任务三</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#文件与权限"><span class="toc-text">文件与权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改-etc-fstab"><span class="toc-text">修改/etc/fstab</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重启电脑"><span class="toc-text">重启电脑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成配额文件"><span class="toc-text">生成配额文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其余用户配置"><span class="toc-text">其余用户配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#任务四"><span class="toc-text">任务四</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#磁盘分区"><span class="toc-text">磁盘分区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建RAID卷"><span class="toc-text">创建RAID卷</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看RAID卷"><span class="toc-text">查看RAID卷</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#格式化并且挂载和使用创建的RAID"><span class="toc-text">格式化并且挂载和使用创建的RAID</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开机启动RAID"><span class="toc-text">开机启动RAID</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置开机自动挂载"><span class="toc-text">设置开机自动挂载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#验证sapre磁盘的功能"><span class="toc-text">验证sapre磁盘的功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关闭RAID"><span class="toc-text">关闭RAID</span></a></li></ol></li></ol>
     </div>
   </div>
 </div>
@@ -203,34 +203,36 @@
 <p>当Linux根分区的磁盘空间耗尽时，系统将无法在建立新的文件，从而出现服务程序崩溃，系统无法启动等故障现象，为了避免在服务器中出现类似磁盘空间不足的问题，可以设置启用磁盘的配额的功能。对用户在指定文件系统中使用的磁盘空间、文件数量进行限制，以防止个别用户恶意或者无意间占用大量磁盘空间，保持系统存储空间的稳定性和持续可用性。</p>
 </blockquote>
 <a id="more"></a>
-<h1>任务一</h1>
-<p><code>配置用户基本磁盘配额限制</code></p>
+
+<h1 id="任务一"><a href="#任务一" class="headerlink" title="任务一"></a>任务一</h1><p><code>配置用户基本磁盘配额限制</code></p>
 <p><span id="inline-blue">背景</span>一公司现有用户名为yhy的邮件用户，经常上传大量的邮件附件，占用服务器的硬盘资源，他的邮件存放路径为/mail目录，挂载分区为/dev/sdb1,现在需要限制yhy用户磁盘的最大使用量为10MB，超过7MB发出警告，超过10MB就不能再在/mail中存储数据。</p>
-<h2 id="确认quota软件包的安装情况">确认quota软件包的安装情况</h2>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rpm -<span class="keyword">qa</span> |<span class="keyword">grep</span> quota</span><br><span class="line">rpm -ql quota | <span class="keyword">grep</span> sbin</span><br></pre></td></tr></table></figure>
+<h2 id="确认quota软件包的安装情况"><a href="#确认quota软件包的安装情况" class="headerlink" title="确认quota软件包的安装情况"></a>确认quota软件包的安装情况</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rpm -<span class="keyword">qa</span> |<span class="keyword">grep</span> quota</span><br><span class="line">rpm -ql quota | <span class="keyword">grep</span> sbin</span><br></pre></td></tr></table></figure>
+
 <p>(づ￣3￣)づ╭❤～有信息返回则说明已安装，centos系统一般安装系统时已经默认安装。</p>
-<h2 id="创建用户">创建用户</h2>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">useradd</span> <span class="string">yhy</span></span><br><span class="line"><span class="attr">passwd</span> <span class="string">yhy</span></span><br></pre></td></tr></table></figure>
-<h2 id="创建文件夹，并设置权限">创建文件夹，并设置权限</h2>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir <span class="string">/mail</span></span><br><span class="line">chmod 777 <span class="string">/mail</span></span><br></pre></td></tr></table></figure>
-<h2 id="磁盘分区，格式化">磁盘分区，格式化</h2>
-<p>添加一块磁盘进行测试</p>
+<h2 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h2><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">useradd</span> <span class="string">yhy</span></span><br><span class="line"><span class="attr">passwd</span> <span class="string">yhy</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="创建文件夹，并设置权限"><a href="#创建文件夹，并设置权限" class="headerlink" title="创建文件夹，并设置权限"></a>创建文件夹，并设置权限</h2><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir <span class="string">/mail</span></span><br><span class="line">chmod 777 <span class="string">/mail</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="磁盘分区，格式化"><a href="#磁盘分区，格式化" class="headerlink" title="磁盘分区，格式化"></a>磁盘分区，格式化</h2><p>添加一块磁盘进行测试</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fdisk  -l <span class="regexp">/dev/</span>sdb    <span class="regexp">//</span>查看磁盘使用情况</span><br><span class="line">fdisk <span class="regexp">/dev/</span>sdb			<span class="regexp">//</span>磁盘分区</span><br><span class="line">mkfs.ext4 <span class="regexp">/dev/</span>sdb1 	<span class="regexp">//</span>创建文件系统并格式化</span><br></pre></td></tr></table></figure>
+
 <p><code>磁盘分区具体步骤，由于十分简单在这里省略</code></p>
-<h2 id="挂载">挂载</h2>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mount -o usrquota <span class="string">/dev/sdb1</span> <span class="string">/mail</span> 	<span class="string">//</span>挂载</span><br><span class="line">tail <span class="string">/etc/mtab</span>		<span class="string">//</span>查看系统挂载的分区</span><br></pre></td></tr></table></figure>
+<h2 id="挂载"><a href="#挂载" class="headerlink" title="挂载"></a>挂载</h2><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mount -o usrquota <span class="string">/dev/sdb1</span> <span class="string">/mail</span> 	<span class="string">//</span>挂载</span><br><span class="line">tail <span class="string">/etc/mtab</span>		<span class="string">//</span>查看系统挂载的分区</span><br></pre></td></tr></table></figure>
+
 <p><code>- o usrquota</code>为用户的配额属性</p>
 <p><span id="inline-yellow">开机自动挂载</span></p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim <span class="regexp">/etc/</span>fstab</span><br></pre></td></tr></table></figure>
+
 <p>在文件最后一行添加如下图所示内容</p>
-<p><img src="/img/raid/1.png" alt=""></p>
+<p><img src="/img/raid/1.png"></p>
 <p>参数<code>grpquota</code>表示增加组的配额属性。</p>
 <p>重新挂载/dev/sdb1到/mail目录ლ(′◉❥◉｀ლ)</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mount -o remount <span class="regexp">/dev/</span>sdb1</span><br><span class="line">mount  <span class="regexp">//</span>查看挂载分区情况</span><br></pre></td></tr></table></figure>
-<h2 id="检测配额并生成配额文件">检测配额并生成配额文件</h2>
-<p>此处要关闭selinux，关闭selinux的命令是<code>setenforce 0</code>,不然可能无法创建aquota.user和aquota.group文件。</p>
+
+<h2 id="检测配额并生成配额文件"><a href="#检测配额并生成配额文件" class="headerlink" title="检测配额并生成配额文件"></a>检测配额并生成配额文件</h2><p>此处要关闭selinux，关闭selinux的命令是<code>setenforce 0</code>,不然可能无法创建aquota.user和aquota.group文件。</p>
 <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">quotacheck -ugcv <span class="string">/dev/sdb1</span>   <span class="string">//</span>检测配额文件并生成配额文件</span><br><span class="line"><span class="keyword">ls</span> -l <span class="string">/mail/</span></span><br></pre></td></tr></table></figure>
-<p><img src="/img/raid/2.png" alt=""></p>
+
+<p><img src="/img/raid/2.png"></p>
 <p>可以看到在/mail目录下自动生成aquota.group和aquota.user两个配置文件。</p>
 <p><code>备注</code>:上面参数具体含义如下</p>
 <blockquote>
@@ -239,225 +241,219 @@
 <p>-c，创建新的配额文件；</p>
 <p>-v，显示命令执行过程中的细节信息</p>
 </blockquote>
-<h2 id="编辑用户yhy的配额">编辑用户yhy的配额</h2>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setquota -u yhy <span class="number">7000</span> <span class="number">10000</span> <span class="number">0</span> <span class="number">0</span> /dev/sdb1 <span class="comment">//配置yhy用户的磁盘配额</span></span><br><span class="line">edquota -u yhy</span><br></pre></td></tr></table></figure>
-<p><img src="/img/raid/3.png" alt=""></p>
-<h2 id="激活配额">激活配额</h2>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">quotaon <span class="regexp">/dev/</span>sdb1</span><br></pre></td></tr></table></figure>
-<h2 id="验证配额">验证配额</h2>
-<p>(1)创建文件，把文件所有权给用户</p>
+<h2 id="编辑用户yhy的配额"><a href="#编辑用户yhy的配额" class="headerlink" title="编辑用户yhy的配额"></a>编辑用户yhy的配额</h2><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setquota -u yhy <span class="number">7000</span> <span class="number">10000</span> <span class="number">0</span> <span class="number">0</span> /dev/sdb1 <span class="comment">//配置yhy用户的磁盘配额</span></span><br><span class="line">edquota -u yhy</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/raid/3.png"></p>
+<h2 id="激活配额"><a href="#激活配额" class="headerlink" title="激活配额"></a>激活配额</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">quotaon <span class="regexp">/dev/</span>sdb1</span><br></pre></td></tr></table></figure>
+
+<h2 id="验证配额"><a href="#验证配额" class="headerlink" title="验证配额"></a>验证配额</h2><p>(1)创建文件，把文件所有权给用户</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir <span class="regexp">/mail/</span>quotayhy</span><br><span class="line">chown yhy <span class="regexp">/mail/</span>quotayhy</span><br></pre></td></tr></table></figure>
+
 <p><code>使用vim创建一个文件，写入任意内容</code>。(只是后面测试用的)</p>
 <p>(2)切换用户，查看结果</p>
 <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">su - yhy</span><br><span class="line"><span class="keyword">cd</span> <span class="string">/mail/quotayhy</span></span><br><span class="line">quota</span><br></pre></td></tr></table></figure>
-<p><img src="/img/raid/4.png" alt=""></p>
+
+<p><img src="/img/raid/4.png"></p>
 <p>(3)新建文件，查看具体情况</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="attribute">if</span>=/dev/zero <span class="attribute">of</span>=fileyhy <span class="attribute">bs</span>=100K <span class="attribute">count</span>=200</span><br></pre></td></tr></table></figure>
+
 <p>建立一个文件名为fileyhy、每块大小为100K、块数为200的20MB的文件</p>
-<p><img src="/img/raid/5.png" alt=""></p>
+<p><img src="/img/raid/5.png"></p>
 <p>由上图可知，提示超出磁盘配额限制，只能建立10MB大小的文件，并且已经满了。</p>
-<p><img src="/img/raid/6.png" alt=""></p>
+<p><img src="/img/raid/6.png"></p>
 <p>(4)再建立一个1K*200的文件</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="attribute">if</span>=/dev/zero <span class="attribute">of</span>=fileyhy1 <span class="attribute">bs</span>=1K <span class="attribute">count</span>=200</span><br></pre></td></tr></table></figure>
-<p><img src="/img/raid/7.png" alt=""></p>
+
+<p><img src="/img/raid/7.png"></p>
 <p>使用<code>ll</code>命令查看文件大小</p>
-<p><img src="/img/raid/8.png" alt=""></p>
-<h2 id="关闭磁盘配额">关闭磁盘配额</h2>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">quotaoff <span class="regexp">/dev/</span>sdb1	<span class="regexp">//</span>关闭磁盘配额</span><br><span class="line">rm <span class="regexp">/etc/m</span>tab		<span class="regexp">//</span>删除配置文件</span><br></pre></td></tr></table></figure>
+<p><img src="/img/raid/8.png"></p>
+<h2 id="关闭磁盘配额"><a href="#关闭磁盘配额" class="headerlink" title="关闭磁盘配额"></a>关闭磁盘配额</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">quotaoff <span class="regexp">/dev/</span>sdb1	<span class="regexp">//</span>关闭磁盘配额</span><br><span class="line">rm <span class="regexp">/etc/m</span>tab		<span class="regexp">//</span>删除配置文件</span><br></pre></td></tr></table></figure>
+
 <p><span id="inline-blue">删除<code>/ect/fstab</code>里面最后一行</span></p>
-<h1>任务二</h1>
-<p><code>配置配额Samba服务器</code></p>
+<h1 id="任务二"><a href="#任务二" class="headerlink" title="任务二"></a>任务二</h1><p><code>配置配额Samba服务器</code></p>
 <p><span id="inline-yellow">背景</span>公司有多个部门，有时候同一个部门要占用同一个共享硬盘空间，而文件服务器的空间是有限的，为了限制一个部门过多地占用共享空间而让其他部门的文件无法存放，就要给共享硬盘做一个配额，规定某一个部门最多占用一定的空间。现企业需要限制市场部的用户使用服务器的磁盘空间大小，设置用户yhy的最大使用量为100MB，超过70MB时警告。</p>
-<h2 id="重新设置挂载">重新设置挂载</h2>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim <span class="regexp">/etc/</span>fstab</span><br></pre></td></tr></table></figure>
+<h2 id="重新设置挂载"><a href="#重新设置挂载" class="headerlink" title="重新设置挂载"></a>重新设置挂载</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim <span class="regexp">/etc/</span>fstab</span><br></pre></td></tr></table></figure>
+
 <p>修改开机自动挂载文件，并设置配额<code>usrquota</code>,<code>groupquota</code></p>
-<p><img src="/img/raid/9.png" alt=""></p>
+<p><img src="/img/raid/9.png"></p>
 <p>然后重启系统来完成上述设置的开机自动挂载，开机后使用<code>mount</code>命令来查看磁盘的挂载情况。</p>
-<p><img src="/img/raid/10.png" alt=""></p>
-<h2 id="对用户和用户组建立配额文件">对用户和用户组建立配额文件</h2>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">quotacheck</span> -cumg /</span><br></pre></td></tr></table></figure>
+<p><img src="/img/raid/10.png"></p>
+<h2 id="对用户和用户组建立配额文件"><a href="#对用户和用户组建立配额文件" class="headerlink" title="对用户和用户组建立配额文件"></a>对用户和用户组建立配额文件</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">quotacheck</span> -cumg /</span><br></pre></td></tr></table></figure>
+
 <p>系统会在根目录下自动生成两个文件’aquota.group’和’aquota.user’.</p>
-<h2 id="给用户配额">给用户配额</h2>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">edquota -u yhy</span></span><br></pre></td></tr></table></figure>
+<h2 id="给用户配额"><a href="#给用户配额" class="headerlink" title="给用户配额"></a>给用户配额</h2><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">edquota -u yhy</span></span><br></pre></td></tr></table></figure>
+
 <p>参数<code>-u</code>表示为用户配置，若为用户组配置的话则加参数<code>-g</code>即可。具体配置内容如下</p>
-<p><img src="/img/raid/11.png" alt=""></p>
+<p><img src="/img/raid/11.png"></p>
 <p>软限制为70MB，硬限制为100MB</p>
-<h2 id="启动配额项">启动配额项</h2>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">quotaon -avug</span></span><br></pre></td></tr></table></figure>
-<h2 id="修改配额">修改配额</h2>
-<p>若想要修改磁盘的配额项必须先使用<code>quotaoff -a</code>命令来停止配额功能，然后才可以修改配置文件，配置完成后再使用<code>quotaon -avug</code>启动配额功能，使修改生效。</p>
-<h2 id="配额测试">配额测试</h2>
-<p>首先使用<code>su - yhy</code>切换到yhy用户</p>
+<h2 id="启动配额项"><a href="#启动配额项" class="headerlink" title="启动配额项"></a>启动配额项</h2><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">quotaon -avug</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="修改配额"><a href="#修改配额" class="headerlink" title="修改配额"></a>修改配额</h2><p>若想要修改磁盘的配额项必须先使用<code>quotaoff -a</code>命令来停止配额功能，然后才可以修改配置文件，配置完成后再使用<code>quotaon -avug</code>启动配额功能，使修改生效。</p>
+<h2 id="配额测试"><a href="#配额测试" class="headerlink" title="配额测试"></a>配额测试</h2><p>首先使用<code>su - yhy</code>切换到yhy用户</p>
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="keyword">if</span>=/dev/zero of=yhy1 bs=<span class="number">1</span>M count=<span class="number">20</span> <span class="comment">//建立大小为20MB的yhy1文件</span></span><br><span class="line">dd <span class="keyword">if</span>=/dev/zero of=yhy2 bs=<span class="number">1</span>M count=<span class="number">20</span> <span class="comment">//建立大小为20MB的yhy1文件</span></span><br><span class="line">dd <span class="keyword">if</span>=/dev/zero of=yhy3 bs=<span class="number">1</span>M count=<span class="number">20</span> <span class="comment">//建立大小为20MB的yhy1文件</span></span><br><span class="line">dd <span class="keyword">if</span>=/dev/zero of=yhy4 bs=<span class="number">1</span>M count=<span class="number">20</span> <span class="comment">//建立大小为20MB的yhy1文件</span></span><br></pre></td></tr></table></figure>
+
 <p>当创建第四个文件时候，文件达到80MB，超过了所要求的70MB。系统给出提示警告<code>dm-0: warning, user block quota exceeded.</code></p>
 <p>继续使用命令创建文件，创建一个大小为66MB的文件yhy5,系统会提示超过磁盘配额限制。</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="attribute">if</span>=/dev/zero <span class="attribute">of</span>=yhy5 <span class="attribute">bs</span>=1M <span class="attribute">count</span>=66</span><br></pre></td></tr></table></figure>
-<p><img src="/img/raid/12.png" alt=""></p>
+
+<p><img src="/img/raid/12.png"></p>
 <p>使用<code>du -sh</code>可以查看到用户使用的磁盘空间为98M.</p>
-<h2 id="配置Samba文件">配置Samba文件</h2>
-<p>使用<code>vim /etc/samba/smb.conf</code>命令编辑配置文件，内容如下</p>
+<h2 id="配置Samba文件"><a href="#配置Samba文件" class="headerlink" title="配置Samba文件"></a>配置Samba文件</h2><p>使用<code>vim /etc/samba/smb.conf</code>命令编辑配置文件，内容如下</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">44<span class="attribute">workgroup</span>=MYGROUP</span><br><span class="line">44<span class="attribute">security</span>=user</span><br><span class="line">44passdb <span class="attribute">backend</span>=tdbsam</span><br><span class="line">44load <span class="attribute">printers</span>=<span class="literal">yes</span></span><br><span class="line">44cups options= raw</span><br><span class="line">[disk]</span><br><span class="line">44path= /disk</span><br><span class="line">44<span class="attribute">browseable</span>=<span class="literal">yes</span></span><br><span class="line">44<span class="attribute">writable</span>=<span class="literal">yes</span></span><br><span class="line">44guest <span class="attribute">ok</span>=<span class="literal">no</span></span><br><span class="line">44valid users= yhy</span><br></pre></td></tr></table></figure>
-<h2 id="创建-disk目录，并设置相关权限">创建/disk目录，并设置相关权限</h2>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir <span class="string">/disk</span></span><br><span class="line">chown yhy.yhy <span class="string">/disk</span></span><br><span class="line">chmod 700 <span class="string">/disk</span></span><br></pre></td></tr></table></figure>
-<h2 id="测试">测试</h2>
-<p>在windows上使用<code>\\serverIP\disk</code></p>
-<p><img src="/img/raid/13.png" alt=""></p>
+
+<h2 id="创建-disk目录，并设置相关权限"><a href="#创建-disk目录，并设置相关权限" class="headerlink" title="创建/disk目录，并设置相关权限"></a>创建/disk目录，并设置相关权限</h2><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir <span class="string">/disk</span></span><br><span class="line">chown yhy.yhy <span class="string">/disk</span></span><br><span class="line">chmod 700 <span class="string">/disk</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>在windows上使用<code>\\serverIP\disk</code></p>
+<p><img src="/img/raid/13.png"></p>
 <p>找个大于100MB的文件来测试下，就拿b站后端源码好了，由于超过100MB所以文件并不能全部复制进去。</p>
-<p><img src="/img/raid/14.png" alt=""></p>
-<h2 id="配置企业quota的组限定">配置企业quota的组限定</h2>
-<p>因为在日常的实际工作之中并不会对于单独的某一个用户进行限定，而是给一个组。例如一个部门，每人都有自己的用户名，同时能访问到属于这个部门的共享空间。只要把这些用户名同属于一个组，然后对于组进行限定即可。</p>
+<p><img src="/img/raid/14.png"></p>
+<h2 id="配置企业quota的组限定"><a href="#配置企业quota的组限定" class="headerlink" title="配置企业quota的组限定"></a>配置企业quota的组限定</h2><p>因为在日常的实际工作之中并不会对于单独的某一个用户进行限定，而是给一个组。例如一个部门，每人都有自己的用户名，同时能访问到属于这个部门的共享空间。只要把这些用户名同属于一个组，然后对于组进行限定即可。</p>
 <p>(1)建立用户组以及用户</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">groupadd</span> <span class="string">markets		//建立市场部所在组</span></span><br><span class="line"><span class="attr">useradd</span> <span class="string">-g markets mk1</span></span><br><span class="line"><span class="attr">useradd</span> <span class="string">-g markets mk2</span></span><br><span class="line"><span class="attr">useradd</span> <span class="string">-g markets mk3  //建立所属markets组下的用户mk3</span></span><br><span class="line"><span class="attr">useradd</span> <span class="string">Tom</span></span><br><span class="line"><span class="attr">useradd</span> <span class="string">Jane</span></span><br><span class="line"><span class="attr">useradd</span> <span class="string">John</span></span><br></pre></td></tr></table></figure>
+
 <p>(2)设定配额</p>
 <p>使用<code>edquota -g markets</code>命令来编辑用户组markets以及用户Tom、Jane、John的配额文件，设置为跟上面的一样。均为超过70MB警告，最大使用量为100MB。配置好后<code>quotaoff -a</code>关闭磁盘配额功能，再使用<code>quotaon -avug</code>命令开启磁盘的配额功能。</p>
 <p>(3)设定Samba用户</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">smbpasswd -<span class="selector-tag">a</span> mk1</span><br><span class="line">smbpasswd -<span class="selector-tag">a</span> mk2</span><br><span class="line">smbpasswd -<span class="selector-tag">a</span> mk3</span><br><span class="line">smbpasswd -<span class="selector-tag">a</span> Tom</span><br><span class="line">smbpasswd -<span class="selector-tag">a</span> Jane</span><br><span class="line">smbpasswd -<span class="selector-tag">a</span> John</span><br></pre></td></tr></table></figure>
+
 <p>(4)配置smb.conf文件</p>
 <p>使用<code>vim /etc/samba/smb.conf</code>命令编辑配置文件，内容如下</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">44workgroup= MYGROUP</span><br><span class="line">44security= user</span><br><span class="line">44passdb backend= tdbsam</span><br><span class="line">44load printers= <span class="literal">yes</span></span><br><span class="line">44cups options= raw</span><br><span class="line"></span><br><span class="line">[disk]</span><br><span class="line">44path= /disk</span><br><span class="line">44<span class="attribute">browseable</span>=<span class="literal">yes</span></span><br><span class="line">44<span class="attribute">writable</span>=<span class="literal">yes</span></span><br><span class="line">44guest <span class="attribute">ok</span>=<span class="literal">no</span></span><br><span class="line">44valid users= Tom,Jane,John，mk1，mk2，mk3</span><br></pre></td></tr></table></figure>
+
 <p>(5)改变共享目录所属组与权限</p>
 <p>使用<code>chown .markets /disk</code>把共享目录的属组设置为markets,然后使用<code>chmod 770 /disk</code>命令给目录的属组加上完全控制的权限。</p>
 <p>(6)重启服务<code>service smb restart</code></p>
-<h2 id="测试-v2">测试</h2>
-<p>经过测试发现mk1,mk2,mk3三个用户共享的相同的空间，大小为100MB。Tom,Jane,John三个用户的空间为100MB。</p>
-<p><img src="/img/raid/15.png" alt="">在这里只是为了说明三个用户的空间为100MB，当然你也可以让1个用户使用100MB的空间，只不过其余两个用户无法再往里面写入数据。</p>
-<p><img src="/img/raid/16.png" alt=""></p>
+<h2 id="测试-1"><a href="#测试-1" class="headerlink" title="测试"></a>测试</h2><p>经过测试发现mk1,mk2,mk3三个用户共享的相同的空间，大小为100MB。Tom,Jane,John三个用户的空间为100MB。</p>
+<p><img src="/img/raid/15.png">在这里只是为了说明三个用户的空间为100MB，当然你也可以让1个用户使用100MB的空间，只不过其余两个用户无法再往里面写入数据。</p>
+<p><img src="/img/raid/16.png"></p>
 <p><code>思考</code>在上面我们对markets组进行了配额，那么如果我们同时对属于markets组的用户mk1也进行配额那么会怎么样？</p>
-<h3 id="测试一">测试一</h3>
-<p><code>设定quota</code></p>
+<h3 id="测试一"><a href="#测试一" class="headerlink" title="测试一"></a>测试一</h3><p><code>设定quota</code></p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">edquota</span> <span class="string">-u mk1</span></span><br><span class="line"><span class="attr">quotaoff</span> <span class="string">-a </span></span><br><span class="line"><span class="attr">quotaon</span> <span class="string">-avug</span></span><br></pre></td></tr></table></figure>
-<p><img src="/img/raid/17.png" alt="">在这设为30MB警告，最大可用空间为60MB。</p>
-<p><img src="/img/raid/18.png" alt=""><img src="/img/raid/19.png" alt=""></p>
+
+<p><img src="/img/raid/17.png">在这设为30MB警告，最大可用空间为60MB。</p>
+<p><img src="/img/raid/18.png"><img src="/img/raid/19.png"></p>
 <p>在mk1用户使用60M以后mk2只能使用40MB。</p>
-<p><img src="/img/raid/20.png" alt=""></p>
-<h3 id="测试二">测试二</h3>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">edquota</span> <span class="string">-u mk1</span></span><br><span class="line"><span class="attr">quotaoff</span> <span class="string">-a </span></span><br><span class="line"><span class="attr">quotaon</span> <span class="string">-avug</span></span><br></pre></td></tr></table></figure>
-<p><img src="/img/raid/21.png" alt="">在这设为80MB警告，最大可用空间为110MB。</p>
-<p><img src="/img/raid/22.png" alt=""><img src="/img/raid/23.png" alt=""></p>
+<p><img src="/img/raid/20.png"></p>
+<h3 id="测试二"><a href="#测试二" class="headerlink" title="测试二"></a>测试二</h3><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">edquota</span> <span class="string">-u mk1</span></span><br><span class="line"><span class="attr">quotaoff</span> <span class="string">-a </span></span><br><span class="line"><span class="attr">quotaon</span> <span class="string">-avug</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/raid/21.png">在这设为80MB警告，最大可用空间为110MB。</p>
+<p><img src="/img/raid/22.png"><img src="/img/raid/23.png"></p>
 <p>mk1用户存储文件达到70MB时，系统警告。mk1用户最大的使用空间为100MB。</p>
 <p>可见在对于组以及属于这个组的某个用户做了不同限定以后，系统采用最小化原则，让最小的生效。</p>
-<h1>任务三</h1>
-<p><code>配置系统用户的磁盘空间限制</code></p>
+<h1 id="任务三"><a href="#任务三" class="headerlink" title="任务三"></a>任务三</h1><p><code>配置系统用户的磁盘空间限制</code></p>
 <blockquote>
 <p>Linux是一个多任务、多用户的操作系统，一般情况下每个用户都有一个自己的家目录，每个用户对自己的家目录都具有读写的权限，如果管理员不对用户的家目录进行磁盘限制，用户就可能会把磁盘塞满，这是任何一个管理员都不希望看到的，下面我们将采用quota来实现对系统用户使用磁盘空间的限制。</p>
 </blockquote>
 <p>在一台Linux服务器上主要有以下几个用户，分别为wang、user1、user2、user3、user4五个用户。下面对其进行配置修改。</p>
-<h2 id="文件与权限">文件与权限</h2>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /home</span><br><span class="line">touch quota.user</span><br><span class="line">touch quota.group</span><br><span class="line">chmod <span class="number">600</span> quota.<span class="keyword">user</span> <span class="title">quota</span>.group</span><br></pre></td></tr></table></figure>
-<h2 id="修改-etc-fstab">修改/etc/fstab</h2>
-<p>把文件内容中的<code>/dev/sdb1</code>修改为挂载到<code>/home</code>下并且在后面加上quota.user,quota.group.具体内容如下</p>
+<h2 id="文件与权限"><a href="#文件与权限" class="headerlink" title="文件与权限"></a>文件与权限</h2><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /home</span><br><span class="line">touch quota.user</span><br><span class="line">touch quota.group</span><br><span class="line">chmod <span class="number">600</span> quota.<span class="keyword">user</span> <span class="title">quota</span>.group</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改-etc-fstab"><a href="#修改-etc-fstab" class="headerlink" title="修改/etc/fstab"></a>修改/etc/fstab</h2><p>把文件内容中的<code>/dev/sdb1</code>修改为挂载到<code>/home</code>下并且在后面加上quota.user,quota.group.具体内容如下</p>
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/dev/sdb /home ext3 defaults,usrquota,grpquota <span class="number">1</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
-<h2 id="重启电脑">重启电脑</h2>
-<p>使用`inin 6’和’reboot‘均可以重启电脑。然后以root身份登录系统</p>
-<h2 id="生成配额文件">生成配额文件</h2>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setenforce <span class="number">0</span></span><br><span class="line">quotacheck  -ugcv /dev/sdb1  <span class="comment">//生成配额文件</span></span><br><span class="line">edquota -u wang   <span class="comment">//为用户配置</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="重启电脑"><a href="#重启电脑" class="headerlink" title="重启电脑"></a>重启电脑</h2><p>使用`inin 6’和’reboot‘均可以重启电脑。然后以root身份登录系统</p>
+<h2 id="生成配额文件"><a href="#生成配额文件" class="headerlink" title="生成配额文件"></a>生成配额文件</h2><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setenforce <span class="number">0</span></span><br><span class="line">quotacheck  -ugcv /dev/sdb1  <span class="comment">//生成配额文件</span></span><br><span class="line">edquota -u wang   <span class="comment">//为用户配置</span></span><br></pre></td></tr></table></figure>
+
 <p>在这里-u表示为用户配置，若想为组配置的话参数改为-g即可。</p>
-<p><img src="/img/raid/24.png" alt=""></p>
+<p><img src="/img/raid/24.png"></p>
 <p>在这里限制用户的使用空间为5MB，最大不可超过10MB，文件总数为2000个，最多不能超过2500个。切换到wang用户，经过测试发现配额成功。</p>
-<h2 id="其余用户配置">其余用户配置</h2>
-<p>可以使用<code>edquota -p wang -u user1 user2 user3 user4</code>复制wang用户的配置至user1 user2 user3 user4用户。经过测试同样可以发现空间限制是和wang用户一样的。</p>
+<h2 id="其余用户配置"><a href="#其余用户配置" class="headerlink" title="其余用户配置"></a>其余用户配置</h2><p>可以使用<code>edquota -p wang -u user1 user2 user3 user4</code>复制wang用户的配置至user1 user2 user3 user4用户。经过测试同样可以发现空间限制是和wang用户一样的。</p>
 <p><span id="inline-blue">quota -u usrname</span>可以用来查看某个用户当前的磁盘使用情况</p>
 <p><span id="inline-yellow">repquota -a</span>显示所有用户当前磁盘使用情况。</p>
-<h1>任务四</h1>
-<p><code>RAID 5卷的配置与应用</code></p>
+<h1 id="任务四"><a href="#任务四" class="headerlink" title="任务四"></a>任务四</h1><p><code>RAID 5卷的配置与应用</code></p>
 <p>RAID全称Redundant Arrays of Independent Drives,即磁盘冗余阵列。RAID可分为RAID和硬RAID，软RAID是通过软件实现多块硬盘冗余，而硬RAID一般是通过RAID卡来实现RAID。软RAID配置简单，管理也比较灵活，对于中小企业来说是最佳选择。硬RAID往往比较贵，但是性能上有十分大的优势。</p>
 <center>RAID种类与释义对照表</center>
+
 <table>
 <thead>
 <tr>
-<th style="text-align:center">种类</th>
-<th style="text-align:center">释义</th>
+<th align="center">种类</th>
+<th align="center">释义</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">RAID 0</td>
-<td style="text-align:center">存取速度最快，没有容错功能（带区卷）</td>
+<tbody><tr>
+<td align="center">RAID 0</td>
+<td align="center">存取速度最快，没有容错功能（带区卷）</td>
 </tr>
 <tr>
-<td style="text-align:center">RAID 1</td>
-<td style="text-align:center">完全容错，成本高，硬盘使用率低（镜像卷）</td>
+<td align="center">RAID 1</td>
+<td align="center">完全容错，成本高，硬盘使用率低（镜像卷）</td>
 </tr>
 <tr>
-<td style="text-align:center">RAID 3</td>
-<td style="text-align:center">写入性能好，没有多任务功能</td>
+<td align="center">RAID 3</td>
+<td align="center">写入性能好，没有多任务功能</td>
 </tr>
 <tr>
-<td style="text-align:center">RAID 4</td>
-<td style="text-align:center">具备多任务及容错功能，但是奇偶校验磁盘驱动器会造成性能瓶颈</td>
+<td align="center">RAID 4</td>
+<td align="center">具备多任务及容错功能，但是奇偶校验磁盘驱动器会造成性能瓶颈</td>
 </tr>
 <tr>
-<td style="text-align:center">RAID5</td>
-<td style="text-align:center">具备多任务及容错功能，写入时有额外开销</td>
+<td align="center">RAID5</td>
+<td align="center">具备多任务及容错功能，写入时有额外开销</td>
 </tr>
 <tr>
-<td style="text-align:center">RAID 0+1</td>
-<td style="text-align:center">速度快，完全容错，成本高</td>
+<td align="center">RAID 0+1</td>
+<td align="center">速度快，完全容错，成本高</td>
 </tr>
-</tbody>
-</table>
-<h2 id="磁盘分区">磁盘分区</h2>
-<p>使用fdisk /dev/sdc命令给磁盘分区，<code>n</code>代表新建分区,<code>p</code>代表主分区,<code>t</code>表示转换磁盘分区格式,<code>fd</code>表示转换为RAID卷格式。</p>
-<h2 id="创建RAID卷">创建RAID卷</h2>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mdadm --create <span class="attribute">--auto</span>=<span class="literal">yes</span> /dev/md0 <span class="attribute">--level</span>=5 <span class="attribute">--raid-devices</span>=4 <span class="attribute">--spare-devices</span>=1 /dev/sd[b-f]</span><br></pre></td></tr></table></figure>
+</tbody></table>
+<h2 id="磁盘分区"><a href="#磁盘分区" class="headerlink" title="磁盘分区"></a>磁盘分区</h2><p>使用fdisk /dev/sdc命令给磁盘分区，<code>n</code>代表新建分区,<code>p</code>代表主分区,<code>t</code>表示转换磁盘分区格式,<code>fd</code>表示转换为RAID卷格式。</p>
+<h2 id="创建RAID卷"><a href="#创建RAID卷" class="headerlink" title="创建RAID卷"></a>创建RAID卷</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mdadm --create <span class="attribute">--auto</span>=<span class="literal">yes</span> /dev/md0 <span class="attribute">--level</span>=5 <span class="attribute">--raid-devices</span>=4 <span class="attribute">--spare-devices</span>=1 /dev/sd[b-f]</span><br></pre></td></tr></table></figure>
+
 <center>mdadm命令参数对照表</center>
+
 <table>
 <thead>
 <tr>
-<th style="text-align:center">参数</th>
-<th style="text-align:center">释义</th>
+<th align="center">参数</th>
+<th align="center">释义</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">–create</td>
-<td style="text-align:center">创建RAID</td>
+<tbody><tr>
+<td align="center">–create</td>
+<td align="center">创建RAID</td>
 </tr>
 <tr>
-<td style="text-align:center">–auto=/yes /dev/md0</td>
-<td style="text-align:center">新建立的软件磁盘陈列设备为md0，md序列号可以为0~9</td>
+<td align="center">–auto=/yes /dev/md0</td>
+<td align="center">新建立的软件磁盘陈列设备为md0，md序列号可以为0~9</td>
 </tr>
 <tr>
-<td style="text-align:center">–level=5</td>
-<td style="text-align:center">磁盘阵列的等级，这里是RAID5</td>
+<td align="center">–level=5</td>
+<td align="center">磁盘阵列的等级，这里是RAID5</td>
 </tr>
 <tr>
-<td style="text-align:center">–raid-devices</td>
-<td style="text-align:center">添加作为预备磁盘的块数</td>
+<td align="center">–raid-devices</td>
+<td align="center">添加作为预备磁盘的块数</td>
 </tr>
 <tr>
-<td style="text-align:center">/dev/sd[b-f]</td>
-<td style="text-align:center">磁盘阵列所用的设备，还可以写成“/dev/sdb /dev/sdd /dev/sde /dev/sdf&quot;</td>
+<td align="center">/dev/sd[b-f]</td>
+<td align="center">磁盘阵列所用的设备，还可以写成“/dev/sdb /dev/sdd /dev/sde /dev/sdf”</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>上述命令还可缩写为<code>mdadm -C /dev/md0 -l5 -n4 -x1 /dev/sd[b-f]</code></p>
-<h2 id="查看RAID卷">查看RAID卷</h2>
-<p>查看RAID是否创建成功，是否运行正常，有两种方法。</p>
+<h2 id="查看RAID卷"><a href="#查看RAID卷" class="headerlink" title="查看RAID卷"></a>查看RAID卷</h2><p>查看RAID是否创建成功，是否运行正常，有两种方法。</p>
 <p>(1)查看详细信息，使用<code>mdadm --detial /dev/md0</code>来查看raid的详细信息</p>
-<p><img src="/img/raid/25.png" alt=""></p>
+<p><img src="/img/raid/25.png"></p>
 <p>(2)查看简单信息，使用<code>cat /proc/mdstat</code>命令可以较为简单的查看到RAID运行的情况</p>
-<p><img src="/img/raid/26.png" alt=""></p>
-<h2 id="格式化并且挂载和使用创建的RAID">格式化并且挂载和使用创建的RAID</h2>
-<p>使用如下命令格式化并且挂载和使用创建的RAID</p>
+<p><img src="/img/raid/26.png"></p>
+<h2 id="格式化并且挂载和使用创建的RAID"><a href="#格式化并且挂载和使用创建的RAID" class="headerlink" title="格式化并且挂载和使用创建的RAID"></a>格式化并且挂载和使用创建的RAID</h2><p>使用如下命令格式化并且挂载和使用创建的RAID</p>
 <figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext3 <span class="meta-keyword">/dev/</span>md0 <span class="comment">//格式化为ext3</span></span><br><span class="line">mkdir <span class="meta-keyword">/mnt/</span>raid5	<span class="comment">//创建挂载文件夹</span></span><br><span class="line">mount <span class="meta-keyword">/dev/</span>md0/ <span class="meta-keyword">/mnt/</span>raid5	<span class="comment">//挂载</span></span><br><span class="line">df -Th</span><br></pre></td></tr></table></figure>
-<p><img src="/img/raid/27.png" alt=""></p>
-<h2 id="开机启动RAID">开机启动RAID</h2>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mdadm <span class="params">--detail</span> <span class="params">--scan</span>&gt; <span class="string">/etc/mdadm.conf</span> </span><br><span class="line">vim <span class="string">/etc/mdadm.conf</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/raid/27.png"></p>
+<h2 id="开机启动RAID"><a href="#开机启动RAID" class="headerlink" title="开机启动RAID"></a>开机启动RAID</h2><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mdadm <span class="params">--detail</span> <span class="params">--scan</span>&gt; <span class="string">/etc/mdadm.conf</span> </span><br><span class="line">vim <span class="string">/etc/mdadm.conf</span></span><br></pre></td></tr></table></figure>
+
 <p>mdadm.conf文件默认是不存在的,需要自己手动创建，其主要作用是系统启动时能够自动加载软RAID，同时方便自己日后管理。创建完成后删除文件中<code>spares=1</code></p>
 <p><span id="inlie-purple">备注</span>:mdadm.conf文件主要由devices和array组成。devices选项指定组成raid的所有设备，array选项指定阵列的设备名、raid级别、阵列中活动设备的数目以及设备的UUID号。</p>
-<h2 id="设置开机自动挂载">设置开机自动挂载</h2>
-<p>修改/etc下的fstab文件在最后加上如下内容</p>
+<h2 id="设置开机自动挂载"><a href="#设置开机自动挂载" class="headerlink" title="设置开机自动挂载"></a>设置开机自动挂载</h2><p>修改/etc下的fstab文件在最后加上如下内容</p>
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/dev/md0	/mnt/raid5		ext3   detaults <span class="number">0</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<h2 id="验证sapre磁盘的功能">验证sapre磁盘的功能</h2>
-<p>在raid中一块磁盘损坏后，设置的spare盘会立即替换坏掉的磁盘进行raid的重建，以保障数据的安全性。</p>
+
+<h2 id="验证sapre磁盘的功能"><a href="#验证sapre磁盘的功能" class="headerlink" title="验证sapre磁盘的功能"></a>验证sapre磁盘的功能</h2><p>在raid中一块磁盘损坏后，设置的spare盘会立即替换坏掉的磁盘进行raid的重建，以保障数据的安全性。</p>
 <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mdadm <span class="params">--manage</span> <span class="string">/dev/md0</span> <span class="params">--fail</span> <span class="string">/dev/sdd</span> <span class="string">//</span>设置出错状态</span><br><span class="line">mdadm <span class="params">--detial</span> <span class="string">/dev/md0</span></span><br><span class="line">cat <span class="string">/proc/mdstat</span></span><br></pre></td></tr></table></figure>
+
 <p>最终结果如下图所示</p>
-<p><img src="/img/raid/28.png" alt=""></p>
+<p><img src="/img/raid/28.png"></p>
 <p>现在磁盘sdd显示为损坏的，开始设置的预备盘已经激活对其进行替换。下面查看raid5是否可用，向里面写入数据发现可以正常写入。<code>后续步骤</code>移除出错的磁盘，加入一块新的磁盘做备用的spare磁盘。</p>
 <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mdadm <span class="params">--manage</span> <span class="string">/dev/md0</span> <span class="params">--remove</span> <span class="string">/dev/sdd</span></span><br><span class="line">mdadm -manage <span class="string">/dev/md0</span> <span class="params">--add</span> <span class="string">/dev/sdd</span></span><br><span class="line">mdadm <span class="params">--detail</span> <span class="string">/dev/md0</span></span><br></pre></td></tr></table></figure>
-<h2 id="关闭RAID">关闭RAID</h2>
-<p>注释掉刚刚在/dev/fstab中做的配置，使用<code>umount /dev/md0</code>解除挂载。</p>
+
+<h2 id="关闭RAID"><a href="#关闭RAID" class="headerlink" title="关闭RAID"></a>关闭RAID</h2><p>注释掉刚刚在/dev/fstab中做的配置，使用<code>umount /dev/md0</code>解除挂载。</p>
 
   </div>
 </article>
@@ -747,7 +743,7 @@ div.vcontent p  img.vemoji {
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">任务一</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#确认quota软件包的安装情况"><span class="toc-text">确认quota软件包的安装情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建用户"><span class="toc-text">创建用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建文件夹，并设置权限"><span class="toc-text">创建文件夹，并设置权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#磁盘分区，格式化"><span class="toc-text">磁盘分区，格式化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#挂载"><span class="toc-text">挂载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#检测配额并生成配额文件"><span class="toc-text">检测配额并生成配额文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编辑用户yhy的配额"><span class="toc-text">编辑用户yhy的配额</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#激活配额"><span class="toc-text">激活配额</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#验证配额"><span class="toc-text">验证配额</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关闭磁盘配额"><span class="toc-text">关闭磁盘配额</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">任务二</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#重新设置挂载"><span class="toc-text">重新设置挂载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对用户和用户组建立配额文件"><span class="toc-text">对用户和用户组建立配额文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#给用户配额"><span class="toc-text">给用户配额</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动配额项"><span class="toc-text">启动配额项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改配额"><span class="toc-text">修改配额</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配额测试"><span class="toc-text">配额测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置Samba文件"><span class="toc-text">配置Samba文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建-disk目录，并设置相关权限"><span class="toc-text">创建/disk目录，并设置相关权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置企业quota的组限定"><span class="toc-text">配置企业quota的组限定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试-v2"><span class="toc-text">测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#测试一"><span class="toc-text">测试一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试二"><span class="toc-text">测试二</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">任务三</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#文件与权限"><span class="toc-text">文件与权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改-etc-fstab"><span class="toc-text">修改/etc/fstab</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重启电脑"><span class="toc-text">重启电脑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成配额文件"><span class="toc-text">生成配额文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其余用户配置"><span class="toc-text">其余用户配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">任务四</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#磁盘分区"><span class="toc-text">磁盘分区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建RAID卷"><span class="toc-text">创建RAID卷</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看RAID卷"><span class="toc-text">查看RAID卷</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#格式化并且挂载和使用创建的RAID"><span class="toc-text">格式化并且挂载和使用创建的RAID</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开机启动RAID"><span class="toc-text">开机启动RAID</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置开机自动挂载"><span class="toc-text">设置开机自动挂载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#验证sapre磁盘的功能"><span class="toc-text">验证sapre磁盘的功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关闭RAID"><span class="toc-text">关闭RAID</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#任务一"><span class="toc-text">任务一</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#确认quota软件包的安装情况"><span class="toc-text">确认quota软件包的安装情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建用户"><span class="toc-text">创建用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建文件夹，并设置权限"><span class="toc-text">创建文件夹，并设置权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#磁盘分区，格式化"><span class="toc-text">磁盘分区，格式化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#挂载"><span class="toc-text">挂载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#检测配额并生成配额文件"><span class="toc-text">检测配额并生成配额文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编辑用户yhy的配额"><span class="toc-text">编辑用户yhy的配额</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#激活配额"><span class="toc-text">激活配额</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#验证配额"><span class="toc-text">验证配额</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关闭磁盘配额"><span class="toc-text">关闭磁盘配额</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#任务二"><span class="toc-text">任务二</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#重新设置挂载"><span class="toc-text">重新设置挂载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对用户和用户组建立配额文件"><span class="toc-text">对用户和用户组建立配额文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#给用户配额"><span class="toc-text">给用户配额</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动配额项"><span class="toc-text">启动配额项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改配额"><span class="toc-text">修改配额</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配额测试"><span class="toc-text">配额测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置Samba文件"><span class="toc-text">配置Samba文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建-disk目录，并设置相关权限"><span class="toc-text">创建/disk目录，并设置相关权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置企业quota的组限定"><span class="toc-text">配置企业quota的组限定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试-1"><span class="toc-text">测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#测试一"><span class="toc-text">测试一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试二"><span class="toc-text">测试二</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#任务三"><span class="toc-text">任务三</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#文件与权限"><span class="toc-text">文件与权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改-etc-fstab"><span class="toc-text">修改/etc/fstab</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重启电脑"><span class="toc-text">重启电脑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成配额文件"><span class="toc-text">生成配额文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其余用户配置"><span class="toc-text">其余用户配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#任务四"><span class="toc-text">任务四</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#磁盘分区"><span class="toc-text">磁盘分区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建RAID卷"><span class="toc-text">创建RAID卷</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看RAID卷"><span class="toc-text">查看RAID卷</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#格式化并且挂载和使用创建的RAID"><span class="toc-text">格式化并且挂载和使用创建的RAID</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开机启动RAID"><span class="toc-text">开机启动RAID</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置开机自动挂载"><span class="toc-text">设置开机自动挂载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#验证sapre磁盘的功能"><span class="toc-text">验证sapre磁盘的功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关闭RAID"><span class="toc-text">关闭RAID</span></a></li></ol></li></ol>
     </div>
 
     <div id="actions-footer">
@@ -943,6 +939,10 @@ div.vcontent p  img.vemoji {
   document.body.addEventListener('input', POWERMODE);
   </script>
 
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
   <!--qsmg酱-->
   <!--
   <script>
@@ -1028,5 +1028,5 @@ ValineButton.onclick=send_valine_Server;
       }
   }
   </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7},"log":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

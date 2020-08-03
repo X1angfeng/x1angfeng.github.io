@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang=zh>
 <head>
-    <!-- so meta -->
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
@@ -57,12 +57,12 @@
     
 
     <!--跳动-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body class="max-width mx-auto px3 ">
     
-      <div id="header-post">
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
   <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
   <div id="nav">
     <div id="nav-items">
@@ -133,7 +133,7 @@
     
    |
     <i class="far fa-file-word fa-fw"></i>
-    文章字数:<span class="post-count">350</span>
+    文章字数:<span class="post-count">351</span>
     |
     <i class="far fa-clock fa-fw"></i>
     阅读时长:<span class="post-count">1</span>min
@@ -173,32 +173,26 @@
   <div class="content" itemprop="articleBody">
     <p>在使用VMware虚拟机时，有些情况下我们使用桥接的方式来进行上网。但是大多数情况下选择桥接的方式在虚拟机中是无法正常上网的。自己之前也曾遇到过这样的问题。。。<a id="more"></a></p>
 <ol>
-<li>
-<p><em><strong>查看本地网络是否安装VMware Bridge Protocol</strong></em></p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/wlan.png" alt=""></p>
+<li><p><strong><em>查看本地网络是否安装VMware Bridge Protocol</em></strong></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/wlan.png"></p>
 <p>就像上图所示一样，我这里查看的是WLAN的属性。如果没有安装的话，选择安装即可。</p>
 </li>
-<li>
-<p>查看本地IP地址</p>
+<li><p>查看本地IP地址</p>
 <p><code>win +r</code>输入<code>cmd</code>打开命令行，输入<code>ipconfig /all</code>查看物理机局域网内的信息</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/china.png" alt=""></p>
-<p>可以看到</p>
-<p>​	网卡: Intel® Dual Band Wireless-AC 3165</p>
-<p>​    IPv4 地址 . . . . . . . . . . . . : 10.10.2.39(首选)<br>
-子网掩码  . . . . . . . . . . . . : 255.255.252.0</p>
-<p>​    默认网关. . . . . . . . . . . . . : 10.10.0.1<br>
-DNS 服务器  . . . . . . . . . . . : 202.96.209.5</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/bkl.jpg" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/china.png"></p>
+<p>可以看到 </p>
+<p>​    网卡: Intel(R) Dual Band Wireless-AC 3165</p>
+<p>​    IPv4 地址 . . . . . . . . . . . . : 10.10.2.39(首选)<br>   子网掩码  . . . . . . . . . . . . : 255.255.252.0</p>
+<p>​    默认网关. . . . . . . . . . . . . : 10.10.0.1<br>   DNS 服务器  . . . . . . . . . . . : 202.96.209.5</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/bkl.jpg"></p>
 </li>
-<li>
-<p>使用虚拟机网络编辑器</p>
+<li><p>使用虚拟机网络编辑器</p>
 <p><code>需要使用管理员权限才可以进行操作</code>，还原默认设置然后设置桥接为如下图所示</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/xn.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/xn.png"></p>
 <p>修改为如上图所示桥接到物理机的无线网卡上。然后设置虚拟机的设置修改为如下所示</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/bridge.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/bridge.png"></p>
 </li>
-<li>
-<p>虚拟机开机测试</p>
+<li><p>虚拟机开机测试</p>
 <p>开机后打开命令行查看一下是否成功，查看IP地址发现虚拟机和物理机在同一个网段下。</p>
 <p>虚拟机ping物理机,物理机ping虚拟机发现均可以ping通。同时也可以打开网页正常上网👾</p>
 </li>
@@ -688,6 +682,10 @@ div.vcontent p  img.vemoji {
   document.body.addEventListener('input', POWERMODE);
   </script>
 
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
   <!--qsmg酱-->
   <!--
   <script>
@@ -773,5 +771,5 @@ ValineButton.onclick=send_valine_Server;
       }
   }
   </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7},"log":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

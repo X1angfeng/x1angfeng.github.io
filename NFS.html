@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang=zh>
 <head>
-    <!-- so meta -->
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
@@ -58,12 +58,12 @@
     
 
     <!--跳动-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body class="max-width mx-auto px3 ">
     
-      <div id="header-post">
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
   <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
   <div id="nav">
     <div id="nav-items">
@@ -104,7 +104,7 @@
       <span id="i-top" class="info" style="display:none;">返回顶部</span>
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">项目实施</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#任务一配置简单的NFS服务器"><span class="toc-text"> 任务一配置简单的NFS服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看NFS程序是否安装"><span class="toc-text">查看NFS程序是否安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#备份NFS配置文件"><span class="toc-text">备份NFS配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编辑配置文件"><span class="toc-text">编辑配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重启服务并设置开机自启"><span class="toc-text">重启服务并设置开机自启</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务器端设置-usr-src本地写权限"><span class="toc-text">服务器端设置/usr/src本地写权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在客户机上查看NFS服务器上的共享目录"><span class="toc-text">在客户机上查看NFS服务器上的共享目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#客户机上测试"><span class="toc-text">客户机上测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#把所有用户都映射成nfsnobody"><span class="toc-text">把所有用户都映射成nfsnobody</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#客户机测试"><span class="toc-text">客户机测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#客户写卸载NFS服务器"><span class="toc-text">客户写卸载NFS服务器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#任务二架设企业级NFS服务器"><span class="toc-text">任务二架设企业级NFS服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#备份NFS配置文件-v2"><span class="toc-text">备份NFS配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编辑配置文件-v2"><span class="toc-text">编辑配置文件</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#项目实施"><span class="toc-text">项目实施</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#任务一配置简单的NFS服务器"><span class="toc-text"> 任务一配置简单的NFS服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看NFS程序是否安装"><span class="toc-text">查看NFS程序是否安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#备份NFS配置文件"><span class="toc-text">备份NFS配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编辑配置文件"><span class="toc-text">编辑配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重启服务并设置开机自启"><span class="toc-text">重启服务并设置开机自启</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务器端设置-usr-src本地写权限"><span class="toc-text">服务器端设置/usr/src本地写权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在客户机上查看NFS服务器上的共享目录"><span class="toc-text">在客户机上查看NFS服务器上的共享目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#客户机上测试"><span class="toc-text">客户机上测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#把所有用户都映射成nfsnobody"><span class="toc-text">把所有用户都映射成nfsnobody</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#客户机测试"><span class="toc-text">客户机测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#客户写卸载NFS服务器"><span class="toc-text">客户写卸载NFS服务器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#任务二架设企业级NFS服务器"><span class="toc-text">任务二架设企业级NFS服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#备份NFS配置文件-1"><span class="toc-text">备份NFS配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编辑配置文件-1"><span class="toc-text">编辑配置文件</span></a></li></ol></li></ol></li></ol>
     </div>
   </div>
 </div>
@@ -134,7 +134,7 @@
     
    |
     <i class="far fa-file-word fa-fw"></i>
-    文章字数:<span class="post-count">933</span>
+    文章字数:<span class="post-count">926</span>
     |
     <i class="far fa-clock fa-fw"></i>
     阅读时长:<span class="post-count">3</span>min
@@ -178,56 +178,53 @@
 
   <div class="content" itemprop="articleBody">
     <blockquote>
-<p>NFS是SUN开发的，用于在不同的UNIX/Linux机器间进行资源共享，其设置相当容易，主要是配置<code>/etc/exports</code>文件，然后运行exportfs -a 命令来共享。现在NFS已经成为了UNIX/Linux上的标配。<a id="more"></a><br>
-<code>从实际经验来看，NFS的效率要比samba稍微高一些，只是差别不大。从配置上来看samba比较复杂，NFS较为简单</code></p>
+<p>NFS是SUN开发的，用于在不同的UNIX/Linux机器间进行资源共享，其设置相当容易，主要是配置<code>/etc/exports</code>文件，然后运行exportfs -a 命令来共享。现在NFS已经成为了UNIX/Linux上的标配。<a id="more"></a><br><code>从实际经验来看，NFS的效率要比samba稍微高一些，只是差别不大。从配置上来看samba比较复杂，NFS较为简单</code></p>
 </blockquote>
-<h1>项目实施</h1>
-<h2 id="任务一配置简单的NFS服务器"><code> 任务一</code>配置简单的NFS服务器</h2>
-<p>NFS协议本身并没有提供数据传输的功能。它借助于远程过程调用（RPC)协议来实现数据的传输。可以将NFS服务器看作是一个RPC服务，而将NFS客户端看成是一个RPC客户端，这样NFS服务器和NFS客户端之间就可以通过RPC协议进行数据传输。</p>
+<h1 id="项目实施"><a href="#项目实施" class="headerlink" title="项目实施"></a>项目实施</h1><h2 id="任务一配置简单的NFS服务器"><a href="#任务一配置简单的NFS服务器" class="headerlink" title=" 任务一配置简单的NFS服务器"></a><code> 任务一</code>配置简单的NFS服务器</h2><p>NFS协议本身并没有提供数据传输的功能。它借助于远程过程调用（RPC)协议来实现数据的传输。可以将NFS服务器看作是一个RPC服务，而将NFS客户端看成是一个RPC客户端，这样NFS服务器和NFS客户端之间就可以通过RPC协议进行数据传输。</p>
 <p><span id="inline-green">背景</span>现企业内部有一台Linux服务器（centos)，其IP地址为192.168.136.156，另有一台Linux客户机(ubuntu)其IP地址为192.168.136.152.现根据企业实际生产需要，配置服务器实现如下需求。</p>
 <p>（1）将/root共享给客户机，客户机对共享可写，并采用同步方式传输数据，允许客户机以root权限访问。</p>
 <p>（2）将/usr/src共享给192.168.136.0网段，客户端对共享可写，并采用异步方式传输数据。</p>
 <p>（3）在上一个要求的基础上实施客户端上面所有用户身份都映射成nfsnobody</p>
-<h3 id="查看NFS程序是否安装">查看NFS程序是否安装</h3>
-<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#centos</span></span><br><span class="line">rpm -qa |<span class="keyword">grep</span> nfs			<span class="comment">#查看NFS是否安装</span></span><br><span class="line">rpm -qa |<span class="keyword">grep</span> rpcbind		<span class="comment">#查看RPC是否安装</span></span><br><span class="line"><span class="comment">#Ubuntu</span></span><br><span class="line">dpkg-query -l nfs-common	<span class="comment">#查看NFS是否安装</span></span><br><span class="line">dpkg-query -l rpcbind		<span class="comment">#查看RPC是否安装</span></span><br></pre></td></tr></table></figure>
-<p><img src="/img/nfs/centos.png" alt=""><img src="/img/nfs/ubuntu.png" alt=""></p>
+<h3 id="查看NFS程序是否安装"><a href="#查看NFS程序是否安装" class="headerlink" title="查看NFS程序是否安装"></a>查看NFS程序是否安装</h3><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#centos</span></span><br><span class="line">rpm -qa |<span class="keyword">grep</span> nfs			<span class="comment">#查看NFS是否安装</span></span><br><span class="line">rpm -qa |<span class="keyword">grep</span> rpcbind		<span class="comment">#查看RPC是否安装</span></span><br><span class="line"><span class="comment">#Ubuntu</span></span><br><span class="line">dpkg-query -l nfs-common	<span class="comment">#查看NFS是否安装</span></span><br><span class="line">dpkg-query -l rpcbind		<span class="comment">#查看RPC是否安装</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/nfs/centos.png"><img src="/img/nfs/ubuntu.png"></p>
 <p>目前几乎所有的Linux发行版本都默认安装了NFS服务，如果没有的话输入命令自行安装即可。</p>
-<h3 id="备份NFS配置文件">备份NFS配置文件</h3>
-<p><code>cp /etc/exports /etc/exports.bak</code></p>
-<h3 id="编辑配置文件">编辑配置文件</h3>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim <span class="regexp">/etc/</span>exports</span><br></pre></td></tr></table></figure>
+<h3 id="备份NFS配置文件"><a href="#备份NFS配置文件" class="headerlink" title="备份NFS配置文件"></a>备份NFS配置文件</h3><p><code>cp /etc/exports /etc/exports.bak</code></p>
+<h3 id="编辑配置文件"><a href="#编辑配置文件" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim <span class="regexp">/etc/</span>exports</span><br></pre></td></tr></table></figure>
+
 <img src="/img/nfs/exports.png">
+
 <p><code>备注</code>：上面配置文件括号中的参数详细释义如下：</p>
 <p>rw:读写权限，只读权限的参数为ro</p>
 <p>sync：数据同步写入内存和磁盘</p>
 <p>no_root_squash:共享目录用户的属性，如果用户是root，那么对于这个共享目录来说就具有root权限。</p>
 <p>async：数据会先暂存于内存中，而不立即写入硬盘。</p>
-<h3 id="重启服务并设置开机自启">重启服务并设置开机自启</h3>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">service rpcbind restart</span><br><span class="line">service nfs restart</span><br><span class="line">chkconfig rpcbind on</span><br><span class="line">chkconfig nfs on</span><br></pre></td></tr></table></figure>
+<h3 id="重启服务并设置开机自启"><a href="#重启服务并设置开机自启" class="headerlink" title="重启服务并设置开机自启"></a>重启服务并设置开机自启</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">service rpcbind restart</span><br><span class="line">service nfs restart</span><br><span class="line">chkconfig rpcbind on</span><br><span class="line">chkconfig nfs on</span><br></pre></td></tr></table></figure>
+
 <p><span id="inline-blue">注意要先开启rpcbind服务，然后在开启nfs服务,不然在客户机测试时会出现如下错误。</span></p>
 <img src="/img/nfs/rpc.png">
-<h3 id="服务器端设置-usr-src本地写权限">服务器端设置/usr/src本地写权限</h3>
-<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">chmod</span> o+w /<span class="keyword">use</span>/src		<span class="comment">#为其他用户添加写权限</span></span><br></pre></td></tr></table></figure>
-<h3 id="在客户机上查看NFS服务器上的共享目录">在客户机上查看NFS服务器上的共享目录</h3>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">showmount -e <span class="number">192.168</span><span class="number">.136</span><span class="number">.156</span></span><br></pre></td></tr></table></figure>
-<h3 id="客户机上测试">客户机上测试</h3>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p <span class="string">/data/root</span>		<span class="comment">#建立本地挂载点</span></span><br><span class="line">mount 192.168.136.156:<span class="string">/root</span> <span class="string">/data/root</span>		<span class="comment">#挂载远程资源到本地</span></span><br><span class="line">mkdir -p <span class="string">/tmp/src</span>		<span class="comment">#建立本地挂载点</span></span><br><span class="line">mount 192.168.136.156:<span class="string">/usr/src</span> <span class="string">/tmp/src</span>		<span class="comment">#挂载远程资源到本地</span></span><br><span class="line">mount |tail -2			<span class="comment">#查看挂载点的最后两行</span></span><br><span class="line"><span class="keyword">cd</span> <span class="string">/data/root</span>			<span class="comment">#root用户进入目录测试需求1</span></span><br><span class="line">touch nfs</span><br><span class="line"><span class="keyword">cd</span> <span class="string">/tmp/src</span>				<span class="comment">#普通用户进入目录测试需求2</span></span><br><span class="line">touch yhy</span><br></pre></td></tr></table></figure>
+
+<h3 id="服务器端设置-usr-src本地写权限"><a href="#服务器端设置-usr-src本地写权限" class="headerlink" title="服务器端设置/usr/src本地写权限"></a>服务器端设置/usr/src本地写权限</h3><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">chmod</span> o+w /<span class="keyword">use</span>/src		<span class="comment">#为其他用户添加写权限</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="在客户机上查看NFS服务器上的共享目录"><a href="#在客户机上查看NFS服务器上的共享目录" class="headerlink" title="在客户机上查看NFS服务器上的共享目录"></a>在客户机上查看NFS服务器上的共享目录</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">showmount -e <span class="number">192.168</span><span class="number">.136</span><span class="number">.156</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="客户机上测试"><a href="#客户机上测试" class="headerlink" title="客户机上测试"></a>客户机上测试</h3><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p <span class="string">/data/root</span>		<span class="comment">#建立本地挂载点</span></span><br><span class="line">mount 192.168.136.156:<span class="string">/root</span> <span class="string">/data/root</span>		<span class="comment">#挂载远程资源到本地</span></span><br><span class="line">mkdir -p <span class="string">/tmp/src</span>		<span class="comment">#建立本地挂载点</span></span><br><span class="line">mount 192.168.136.156:<span class="string">/usr/src</span> <span class="string">/tmp/src</span>		<span class="comment">#挂载远程资源到本地</span></span><br><span class="line">mount |tail -2			<span class="comment">#查看挂载点的最后两行</span></span><br><span class="line"><span class="keyword">cd</span> <span class="string">/data/root</span>			<span class="comment">#root用户进入目录测试需求1</span></span><br><span class="line">touch nfs</span><br><span class="line"><span class="keyword">cd</span> <span class="string">/tmp/src</span>				<span class="comment">#普通用户进入目录测试需求2</span></span><br><span class="line">touch yhy</span><br></pre></td></tr></table></figure>
+
 <p><code>我们可以在不同的挂载点下建立文件夹来测试需求</code></p>
-<h3 id="把所有用户都映射成nfsnobody">把所有用户都映射成nfsnobody</h3>
-<img src="/img/nfs/exports.jpg">
+<h3 id="把所有用户都映射成nfsnobody"><a href="#把所有用户都映射成nfsnobody" class="headerlink" title="把所有用户都映射成nfsnobody"></a>把所有用户都映射成nfsnobody</h3><img src="/img/nfs/exports.jpg">
+
 <p>使用<code>chmod o-w /usr/src</code>命令清除之前的权限，使用<code>setfacl -m u:nfsnobody:rwx /usr/src</code>来设置访问控制列表。</p>
-<h3 id="客户机测试">客户机测试</h3>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">touch bestyhy</span></span><br></pre></td></tr></table></figure>
+<h3 id="客户机测试"><a href="#客户机测试" class="headerlink" title="客户机测试"></a>客户机测试</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">touch bestyhy</span></span><br></pre></td></tr></table></figure>
+
 <img src="/img/nfs/no.png">
-<h3 id="客户写卸载NFS服务器">客户写卸载NFS服务器</h3>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">umount <span class="regexp">/data/</span>root</span><br><span class="line">umount <span class="regexp">/tmp/</span>src</span><br></pre></td></tr></table></figure>
+
+<h3 id="客户写卸载NFS服务器"><a href="#客户写卸载NFS服务器" class="headerlink" title="客户写卸载NFS服务器"></a>客户写卸载NFS服务器</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">umount <span class="regexp">/data/</span>root</span><br><span class="line">umount <span class="regexp">/tmp/</span>src</span><br></pre></td></tr></table></figure>
+
 <p><span id="inline-green">若不能卸载则加上 <code>-lf</code>参数强制结束</span></p>
-<h2 id="任务二架设企业级NFS服务器"><code>任务二</code>架设企业级NFS服务器</h2>
-<p><span id="inline-purple">背景</span></p>
-<h3 id="备份NFS配置文件-v2">备份NFS配置文件</h3>
-<p><code>cp /etc/exports /etc/exports.bak</code></p>
-<h3 id="编辑配置文件-v2">编辑配置文件</h3>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim <span class="regexp">/etc/</span>exports</span><br></pre></td></tr></table></figure>
+<h2 id="任务二架设企业级NFS服务器"><a href="#任务二架设企业级NFS服务器" class="headerlink" title="任务二架设企业级NFS服务器"></a><code>任务二</code>架设企业级NFS服务器</h2><p><span id="inline-purple">背景</span></p>
+<h3 id="备份NFS配置文件-1"><a href="#备份NFS配置文件-1" class="headerlink" title="备份NFS配置文件"></a>备份NFS配置文件</h3><p><code>cp /etc/exports /etc/exports.bak</code></p>
+<h3 id="编辑配置文件-1"><a href="#编辑配置文件-1" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim <span class="regexp">/etc/</span>exports</span><br></pre></td></tr></table></figure>
+
 <center>未完待续</center>
   </div>
 </article>
@@ -517,7 +514,7 @@ div.vcontent p  img.vemoji {
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">项目实施</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#任务一配置简单的NFS服务器"><span class="toc-text"> 任务一配置简单的NFS服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看NFS程序是否安装"><span class="toc-text">查看NFS程序是否安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#备份NFS配置文件"><span class="toc-text">备份NFS配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编辑配置文件"><span class="toc-text">编辑配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重启服务并设置开机自启"><span class="toc-text">重启服务并设置开机自启</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务器端设置-usr-src本地写权限"><span class="toc-text">服务器端设置/usr/src本地写权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在客户机上查看NFS服务器上的共享目录"><span class="toc-text">在客户机上查看NFS服务器上的共享目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#客户机上测试"><span class="toc-text">客户机上测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#把所有用户都映射成nfsnobody"><span class="toc-text">把所有用户都映射成nfsnobody</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#客户机测试"><span class="toc-text">客户机测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#客户写卸载NFS服务器"><span class="toc-text">客户写卸载NFS服务器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#任务二架设企业级NFS服务器"><span class="toc-text">任务二架设企业级NFS服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#备份NFS配置文件-v2"><span class="toc-text">备份NFS配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编辑配置文件-v2"><span class="toc-text">编辑配置文件</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#项目实施"><span class="toc-text">项目实施</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#任务一配置简单的NFS服务器"><span class="toc-text"> 任务一配置简单的NFS服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看NFS程序是否安装"><span class="toc-text">查看NFS程序是否安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#备份NFS配置文件"><span class="toc-text">备份NFS配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编辑配置文件"><span class="toc-text">编辑配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重启服务并设置开机自启"><span class="toc-text">重启服务并设置开机自启</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务器端设置-usr-src本地写权限"><span class="toc-text">服务器端设置/usr/src本地写权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在客户机上查看NFS服务器上的共享目录"><span class="toc-text">在客户机上查看NFS服务器上的共享目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#客户机上测试"><span class="toc-text">客户机上测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#把所有用户都映射成nfsnobody"><span class="toc-text">把所有用户都映射成nfsnobody</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#客户机测试"><span class="toc-text">客户机测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#客户写卸载NFS服务器"><span class="toc-text">客户写卸载NFS服务器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#任务二架设企业级NFS服务器"><span class="toc-text">任务二架设企业级NFS服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#备份NFS配置文件-1"><span class="toc-text">备份NFS配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编辑配置文件-1"><span class="toc-text">编辑配置文件</span></a></li></ol></li></ol></li></ol>
     </div>
 
     <div id="actions-footer">
@@ -713,6 +710,10 @@ div.vcontent p  img.vemoji {
   document.body.addEventListener('input', POWERMODE);
   </script>
 
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
   <!--qsmg酱-->
   <!--
   <script>
@@ -798,5 +799,5 @@ ValineButton.onclick=send_valine_Server;
       }
   }
   </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7},"log":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

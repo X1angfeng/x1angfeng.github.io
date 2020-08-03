@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang=zh>
 <head>
-    <!-- so meta -->
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
@@ -51,12 +51,12 @@
     
 
     <!--跳动-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body class="max-width mx-auto px3 ">
     
-      <div id="header-post">
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
   <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
   <div id="nav">
     <div id="nav-items">
@@ -162,10 +162,9 @@
   <div class="content" itemprop="articleBody">
     <p>博客是托管在coding与github上的，分别开启了https。但是Coding Pages提供的SSL/TLS证书，每次申请成功后有效期是三个月，证书到期后可以继续免费申请。但是当我登陆进入Coding Pages服务的后台并点击重新申请证书时，竟然报错了！！报错信息如下</p>
 <blockquote>
-<p>urn:acme:error:unauthorized:Invalid response from <a href="http://exmaple.com/.well-known/acme-challenge/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:" target="_blank" rel="noopener">http://exmaple.com/.well-known/acme-challenge/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:</a> xxxxxxxxx</p>
+<p>urn:acme:error:unauthorized:Invalid response from <a href="http://exmaple.com/.well-known/acme-challenge/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" target="_blank" rel="noopener">http://exmaple.com/.well-known/acme-challenge/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</a>: xxxxxxxxx</p>
 </blockquote>
-<p>一时不知如何解决，无奈😔只能百度。找到了官方的帮助文档<a href="https://dev.tencent.com/help/doc/faq/coding-pages/ssh/tls" target="_blank" rel="noopener">链接🔗</a><br>
-里面有十分详细的说明，按照官方文档最终找到了解决方案</p>
+<p>一时不知如何解决，无奈😔只能百度。找到了官方的帮助文档<a href="https://dev.tencent.com/help/doc/faq/coding-pages/ssh/tls" target="_blank" rel="noopener">链接🔗</a><br>里面有十分详细的说明，按照官方文档最终找到了解决方案</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">错误原因：无法获取正确的域名验证信息</span><br><span class="line">解决方式1：检查<span class="built_in"> DNS </span>的 CNAME 记录是否设置正确，静态 Pages 为 &lt;username&gt;.coding.me，动态 Pages 为 &lt;space_key&gt;.coding.io</span><br><span class="line">解决方式2：检查域名的<span class="built_in"> DNS </span>是否将海外线路解析到 Coding Pages 的服务器</span><br></pre></td></tr></table></figure>
 <p>显然是因为第二种原因才导致的报错，因为自己也把域名解析到了Github Pages。</p>
 <p><strong>解决方法</strong>：先暂停掉对境外线路的解析，再去Coding Pages界面开启https，成功后再开启对境外线路的解析。</p>
@@ -654,6 +653,10 @@ div.vcontent p  img.vemoji {
   document.body.addEventListener('input', POWERMODE);
   </script>
 
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
   <!--qsmg酱-->
   <!--
   <script>
@@ -739,5 +742,5 @@ ValineButton.onclick=send_valine_Server;
       }
   }
   </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7},"log":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

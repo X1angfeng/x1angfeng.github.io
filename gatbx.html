@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang=zh>
 <head>
-    <!-- so meta -->
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
@@ -55,12 +55,12 @@
     
 
     <!--跳动-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body class="max-width mx-auto px3 ">
     
-      <div id="header-post">
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
   <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
   <div id="nav">
     <div id="nav-items">
@@ -175,28 +175,28 @@
 
   <div class="content" itemprop="articleBody">
     <p>近期在学习Matlab遗传算法，就接触到了谢菲尔德大学的Matlab遗传算法工具箱。下面将对其进行简单的介绍以及安装。<a id="more"></a></p>
-<h2 id="工具箱简介">工具箱简介</h2>
-<p>​	谢菲尔德(Sheffield)遗传算法工具箱是由英国谢菲尔德大学开发的遗传算法工具箱。由MATLAB高级语言编写，对问题使用M文件编写，我们可以看见算法的源代码，与此匹配的是MATLAB数据分析、可视化工具、特殊目的的应用领域工具箱和展现给使用者具有研究遗传算法可能性的一致环境。该工具为遗传算法研究者以及想我这样的小白提供了十分广泛的实用函数。</p>
-<h2 id="工具箱下载">工具箱下载</h2>
-<p>​	<a href="http://codem.group.shef.ac.uk/index.php/ga-toolbox%EF%BC%88%E5%85%8D%E8%B4%B9%EF%BC%89" target="_blank" rel="noopener">http://codem.group.shef.ac.uk/index.php/ga-toolbox（免费）</a></p>
+<h2 id="工具箱简介"><a href="#工具箱简介" class="headerlink" title="工具箱简介"></a>工具箱简介</h2><p>​    谢菲尔德(Sheffield)遗传算法工具箱是由英国谢菲尔德大学开发的遗传算法工具箱。由MATLAB高级语言编写，对问题使用M文件编写，我们可以看见算法的源代码，与此匹配的是MATLAB数据分析、可视化工具、特殊目的的应用领域工具箱和展现给使用者具有研究遗传算法可能性的一致环境。该工具为遗传算法研究者以及想我这样的小白提供了十分广泛的实用函数。</p>
+<h2 id="工具箱下载"><a href="#工具箱下载" class="headerlink" title="工具箱下载"></a>工具箱下载</h2><p>​    <a href="http://codem.group.shef.ac.uk/index.php/ga-toolbox%EF%BC%88%E5%85%8D%E8%B4%B9%EF%BC%89" target="_blank" rel="noopener">http://codem.group.shef.ac.uk/index.php/ga-toolbox（免费）</a></p>
 <img src="/img/gatbx.png">
-<h2 id="后续步骤">后续步骤</h2>
-<h3 id="文件格式修改">文件格式修改</h3>
-<p>下载后是一个zip的压缩包，使用解压工具解压即可。But工作还没有结束，解压后里面的文件都是以.M为后缀的</p>
+
+<h2 id="后续步骤"><a href="#后续步骤" class="headerlink" title="后续步骤"></a>后续步骤</h2><h3 id="文件格式修改"><a href="#文件格式修改" class="headerlink" title="文件格式修改"></a>文件格式修改</h3><p>下载后是一个zip的压缩包，使用解压工具解压即可。But工作还没有结束，解压后里面的文件都是以.M为后缀的</p>
 <p>我们需要将其转化为.m后缀的。但是由于文件过多一个一个改实在是浪费时间，所以选择使用windows批处理的方式。首先我们需要新建一个记事本文件在里面输入</p>
 <figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ren</span> *.M *.m</span><br></pre></td></tr></table></figure>
+
 <p>保存关闭，然后将记事本.txt后缀改为.bat后缀。双击运行这个bat文件，或许并不能直接看到文件由.M转化为.m但是刷新一下就🆗咯。</p>
-<h3 id="工具箱添加">工具箱添加</h3>
-<p>做完上面工作后，我们需要将这个<code>gatbx</code>文件夹移动到电脑上MATLAB软件安装目录下的<code>toolbox</code>文件夹下，随后打开MATLAB软件进行添加。主要有两种方式：</p>
+<h3 id="工具箱添加"><a href="#工具箱添加" class="headerlink" title="工具箱添加"></a>工具箱添加</h3><p>做完上面工作后，我们需要将这个<code>gatbx</code>文件夹移动到电脑上MATLAB软件安装目录下的<code>toolbox</code>文件夹下，随后打开MATLAB软件进行添加。主要有两种方式：</p>
 <p>①以命令行的方式：在命令行中输入以下代码</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str=[matlabroot,<span class="string">'\toolbox\gatbx'</span>];<span class="comment">%获得工具箱所在的路径</span></span><br><span class="line">addpath(str)<span class="comment">%将工具箱所在的文件夹添加到matlab的搜索路径中</span></span><br></pre></td></tr></table></figure>
+
 <p>②图形用户界面的方式</p>
-<p><img src="/img/lujing.png" alt=""></p>
+<p><img src="/img/lujing.png"></p>
 <p>或者直接复制你自己电脑上的toolbox文件夹所在的路径，在MATLAB中找到该文件。添加路径即可使用</p>
 <img src="/img/lujing1.png">
-<h3 id="验证">验证</h3>
-<center>终于添加完成了那么到底有没有成功呢让我们来验证一下好了。<center>
+
+<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><center>终于添加完成了那么到底有没有成功呢让我们来验证一下好了。<center>
+
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">v=ver(<span class="string">'gatbx'</span>)</span><br><span class="line"></span><br><span class="line">v = </span><br><span class="line"></span><br><span class="line">  包含以下字段的 struct:</span><br><span class="line"></span><br><span class="line">       Name: <span class="string">'Genetic Algorithm Toolbox'</span></span><br><span class="line">    Version: <span class="string">'1.3'</span></span><br><span class="line">    Release: <span class="string">''</span></span><br><span class="line">       Date: <span class="string">'17-Jan-2003'</span></span><br></pre></td></tr></table></figure>
+
 <p>如果返回如此信息则说明到此我们已经大功告成🆗，如果返回为空则说明未成功❌。</p>
 
   </div>
@@ -683,6 +683,10 @@ div.vcontent p  img.vemoji {
   document.body.addEventListener('input', POWERMODE);
   </script>
 
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
   <!--qsmg酱-->
   <!--
   <script>
@@ -768,5 +772,5 @@ ValineButton.onclick=send_valine_Server;
       }
   }
   </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7},"log":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

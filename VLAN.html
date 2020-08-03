@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang=zh>
 <head>
-    <!-- so meta -->
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
@@ -57,12 +57,12 @@
     
 
     <!--跳动-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body class="max-width mx-auto px3 ">
     
-      <div id="header-post">
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
   <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
   <div id="nav">
     <div id="nav-items">
@@ -103,7 +103,7 @@
       <span id="i-top" class="info" style="display:none;">返回顶部</span>
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">技术原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">实验步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#建拓扑图"><span class="toc-text">建拓扑图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置交换机的IP地址"><span class="toc-text">配置交换机的IP地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#交换机划分VLAN"><span class="toc-text">交换机划分VLAN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将端口划分到相应VLAN中；"><span class="toc-text">将端口划分到相应VLAN中；</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置Tag-VLAN-Trunk属性；"><span class="toc-text">设置Tag VLAN Trunk属性；</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置主机IP地址。"><span class="toc-text">配置主机IP地址。</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">结果验证</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#技术原理"><span class="toc-text">技术原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验步骤"><span class="toc-text">实验步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#建拓扑图"><span class="toc-text">建拓扑图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置交换机的IP地址"><span class="toc-text">配置交换机的IP地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#交换机划分VLAN"><span class="toc-text">交换机划分VLAN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将端口划分到相应VLAN中；"><span class="toc-text">将端口划分到相应VLAN中；</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置Tag-VLAN-Trunk属性；"><span class="toc-text">设置Tag VLAN Trunk属性；</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置主机IP地址。"><span class="toc-text">配置主机IP地址。</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结果验证"><span class="toc-text">结果验证</span></a></li></ol>
     </div>
   </div>
 </div>
@@ -180,19 +180,16 @@
 <p>某一公司内财务部、销售部的PC通过2台交换机实现通信；要求财务部和销售部的PC可以互通，但为了数据安全起见，销售部和财务部需要进行互相隔离，现要在交换机上做适当配置来实现这一目标。</p>
 </blockquote>
 <a id="more"></a>
-<h1>技术原理</h1>
-<ol>
+
+<h1 id="技术原理"><a href="#技术原理" class="headerlink" title="技术原理"></a>技术原理</h1><ol>
 <li>VLAN是指在一个物理网段内。进行逻辑的划分，划分成若干个虚拟局域网，VLAN做大的特性是不受物理位置的限制，可以进行灵活的划分。VLAN具备了一个物理网段所具备的特性。相同VLAN内的主机可以相互直接通信，不同VLAN间的主机之间互相访问必须经路由设备进行转发，广播数据包只可以在本VLAN内进行广播，不能传输到其他VLAN中。</li>
 <li>Port VLAN是实现VLAN的方式之一，它利用交换机的端口进行VALN的划分，一个端口只能属于一个VLAN。</li>
-<li>Tag VLAN是基于交换机端口的另一种类型，主要用于是交换机的相同Vlan内的主机之间可以直接访问，同时对不同Vlan的主机进行隔离。Tag<br>
-VLAN遵循IEEE802.1Q协议的标准，在使用配置了Tag VLAN的端口进行数据传输时，需要在数据帧内添加4个字节的8021.Q标签信息，用于标示该数据帧属于哪个VLAN,便于对端交换机接收到数据帧后进行准确的过滤。</li>
+<li>Tag VLAN是基于交换机端口的另一种类型，主要用于是交换机的相同Vlan内的主机之间可以直接访问，同时对不同Vlan的主机进行隔离。Tag<br>VLAN遵循IEEE802.1Q协议的标准，在使用配置了Tag VLAN的端口进行数据传输时，需要在数据帧内添加4个字节的8021.Q标签信息，用于标示该数据帧属于哪个VLAN,便于对端交换机接收到数据帧后进行准确的过滤。</li>
 </ol>
 <p><code>实验设备</code>Switch_2960 2台；PC 4台；直连线</p>
-<h1>实验步骤</h1>
-<h2 id="建拓扑图">建拓扑图</h2>
-<img src="/img/st/1.png">
-<h2 id="配置交换机的IP地址">配置交换机的IP地址</h2>
-<p>（使用交换机命令行配置或使用PC桌面上的终端配置）</p>
+<h1 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h1><h2 id="建拓扑图"><a href="#建拓扑图" class="headerlink" title="建拓扑图"></a>建拓扑图</h2><img src="/img/st/1.png">
+
+<h2 id="配置交换机的IP地址"><a href="#配置交换机的IP地址" class="headerlink" title="配置交换机的IP地址"></a>配置交换机的IP地址</h2><p>（使用交换机命令行配置或使用PC桌面上的终端配置）</p>
 <p>Switch1&gt;    enable  //进入特权模式</p>
 <p>Switch1#    conf t   //进入全局配置模式</p>
 <p>Switch1(config)#   interfance vlan 1      (默认交换机的所有端口都在VLAN1中)// 进入VLAN 1的接口</p>
@@ -202,31 +199,27 @@ VLAN遵循IEEE802.1Q协议的标准，在使用配置了Tag VLAN的端口进行�
 <p>Switch1# show run           //查看IP地址是否配置成功</p>
 <p>​</p>
 <p><code>同理设置Switch2下的vlan1 1 的IP地址。（注意：两台局域网内部的交换机IP地址不能相同）</code></p>
-<h2 id="交换机划分VLAN">交换机划分VLAN</h2>
-<p>Switch1&gt;en</p>
+<h2 id="交换机划分VLAN"><a href="#交换机划分VLAN" class="headerlink" title="交换机划分VLAN"></a>交换机划分VLAN</h2><p>Switch1&gt;en</p>
 <p>Switch1#conf  t</p>
 <p>Switch1(config)#vlan 2</p>
 <p>Switch1(config-vlan)#exit</p>
 <p>Switch1(config)#vlan 3</p>
 <p>Switch1(config-vlan)#exit</p>
 <p><code>同理对Switch2划分VLAN。</code></p>
-<h2 id="将端口划分到相应VLAN中；">将端口划分到相应VLAN中；</h2>
-<p>Switch1(config)#  interface fa 0/1    //进入交换机的fa0/1端口</p>
+<h2 id="将端口划分到相应VLAN中；"><a href="#将端口划分到相应VLAN中；" class="headerlink" title="将端口划分到相应VLAN中；"></a>将端口划分到相应VLAN中；</h2><p>Switch1(config)#  interface fa 0/1    //进入交换机的fa0/1端口</p>
 <p>Switch1(config-if)#switch access vlan 2 //将该端口配置为access端口,划分到vlan2</p>
 <p>Switch1(config-if)#exit</p>
 <p>Switch1(config)#     interface fa 0/2    //进入交换机的fa0/2端口</p>
-<p>Switch1(config-if)#  switch access vlan 3     //将该端口配置为access端口,划分到vlan3</p>
+<p> Switch1(config-if)#  switch access vlan 3     //将该端口配置为access端口,划分到vlan3</p>
 <p>Switch1(config-if)#end</p>
 <p>Switch1# show vlan //查看VLAN配置（找到所划分的vlan是否存在 并检查vlan所对应的交换机端口状态是否为active）</p>
 <p><code>同理将Switch2端口划分到相应VLAN中。</code></p>
-<h2 id="设置Tag-VLAN-Trunk属性；">设置Tag VLAN Trunk属性；</h2>
-<p>Switch(config)# int fa0/24 //进入交换机的fa0/24端口</p>
+<h2 id="设置Tag-VLAN-Trunk属性；"><a href="#设置Tag-VLAN-Trunk属性；" class="headerlink" title="设置Tag VLAN Trunk属性；"></a>设置Tag VLAN Trunk属性；</h2><p>Switch(config)# int fa0/24 //进入交换机的fa0/24端口  </p>
 <p>Switch(config-if)#switch mode trunk</p>
 <p>Switch(config-if)#end</p>
 <p>Switch#show vlan</p>
 <p><code>同理设置Switch2的Tag VLAN Trunk属性</code></p>
-<h2 id="配置主机IP地址。">配置主机IP地址。</h2>
-<p>PC1</p>
+<h2 id="配置主机IP地址。"><a href="#配置主机IP地址。" class="headerlink" title="配置主机IP地址。"></a>配置主机IP地址。</h2><p>PC1</p>
 <p>​              IP: 192.168.1.2</p>
 <p>​              Submark: 255.255.255.0</p>
 <p>​              Gateway: 192.168.1.1</p>
@@ -242,27 +235,24 @@ VLAN遵循IEEE802.1Q协议的标准，在使用配置了Tag VLAN的端口进行�
 <p>​              IP: 192.168.1.5</p>
 <p>​              Submark: 255.255.255.0</p>
 <p>​              Gateway: 192.168.1.1</p>
-<h1>结果验证</h1>
-<p>①PC1 ping PC2 timeout</p>
+<h1 id="结果验证"><a href="#结果验证" class="headerlink" title="结果验证"></a>结果验证</h1><p>①PC1 ping PC2 timeout</p>
 <img src="/img/st/2.png">
+
 <p>②PC1 ping PC3 Reply</p>
-<p><img src="/img/st/3.png" alt=""></p>
+<p><img src="/img/st/3.png"></p>
 <p>③PC2 ping PC3 timeout</p>
-<p><img src="/img/st/4.png" alt=""></p>
+<p><img src="/img/st/4.png"></p>
 <p>④PC2 ping PC4 Reply</p>
-<p><img src="/img/st/5.png" alt=""></p>
+<p><img src="/img/st/5.png"></p>
 <p><strong>思考题</strong></p>
-<p>1.怎么取消一个vlan和vlan中的某些端口？如何同时配置多个端口到同一个vlan下？</p>
+<p> 1.怎么取消一个vlan和vlan中的某些端口？如何同时配置多个端口到同一个vlan下？</p>
 <p><span id="inline-blue">1) 删除vlan 10：</span></p>
-<p>int vlan 10</p>
+<p>int vlan 10    </p>
 <p>no vlan 10</p>
 <p><span id="inline-yellow">2)  删除vlan中的某些端口</span></p>
-<p>int f0/19<br>
-no sw acc vlan 10</p>
+<p>int f0/19<br> no sw acc vlan 10</p>
 <p><span id="inline-purple">3) 同时配置多个端口到同一个vlan</span></p>
-<p>int ran f0/1 - 5 , f0/19 - 24<br>
-sw <a href="">mo</a> acc<br>
-sw acc vlan 10</p>
+<p>int ran f0/1 - 5 , f0/19 - 24<br> sw <a href="">mo</a> acc<br> sw acc vlan 10 </p>
 <p>2.vlan-id的范围是多少？</p>
 <p>0-4094</p>
 
@@ -554,7 +544,7 @@ div.vcontent p  img.vemoji {
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">技术原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">实验步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#建拓扑图"><span class="toc-text">建拓扑图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置交换机的IP地址"><span class="toc-text">配置交换机的IP地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#交换机划分VLAN"><span class="toc-text">交换机划分VLAN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将端口划分到相应VLAN中；"><span class="toc-text">将端口划分到相应VLAN中；</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置Tag-VLAN-Trunk属性；"><span class="toc-text">设置Tag VLAN Trunk属性；</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置主机IP地址。"><span class="toc-text">配置主机IP地址。</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">结果验证</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#技术原理"><span class="toc-text">技术原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验步骤"><span class="toc-text">实验步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#建拓扑图"><span class="toc-text">建拓扑图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置交换机的IP地址"><span class="toc-text">配置交换机的IP地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#交换机划分VLAN"><span class="toc-text">交换机划分VLAN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将端口划分到相应VLAN中；"><span class="toc-text">将端口划分到相应VLAN中；</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置Tag-VLAN-Trunk属性；"><span class="toc-text">设置Tag VLAN Trunk属性；</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置主机IP地址。"><span class="toc-text">配置主机IP地址。</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结果验证"><span class="toc-text">结果验证</span></a></li></ol>
     </div>
 
     <div id="actions-footer">
@@ -750,6 +740,10 @@ div.vcontent p  img.vemoji {
   document.body.addEventListener('input', POWERMODE);
   </script>
 
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
   <!--qsmg酱-->
   <!--
   <script>
@@ -835,5 +829,5 @@ ValineButton.onclick=send_valine_Server;
       }
   }
   </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7},"log":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

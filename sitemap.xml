@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://521.ooo/ow/index.html</loc>
+    
+    <lastmod>2020-08-03T11:09:49.743Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://521.ooo/404/index.html</loc>
     
     <lastmod>2020-07-21T00:56:13.230Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://521.ooo/404/index.html</loc>
     
     <lastmod>2020-07-21T00:33:06.124Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://521.ooo/about/index.html</loc>
-    
-    <lastmod>2020-07-20T01:58:38.754Z</lastmod>
     
   </url>
   
@@ -44,14 +44,14 @@
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/radixSort.html</loc>
+    <loc>https://521.ooo/sort/quickSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.877Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/quickSort.html</loc>
+    <loc>https://521.ooo/sort/radixSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.877Z</lastmod>
     

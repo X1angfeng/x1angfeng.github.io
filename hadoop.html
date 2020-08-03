@@ -6,14 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="keywords" content="永远相信美好的事情即将发生！">
+    <meta name="description" content="本文为Hadoop搭建部署的学习笔记  Hadoop的三种模式 Hadoop运行模式包括：单机模式、伪分布式模式以及完全分布式模式。 Hadoop官方网站：hadoop.apache.org&#x2F; 单机模式  默认模式。 不对配置文件进行修改。 使用本地文件系统，而不是分布式文件系统。 Hadoop不会启动NameNode、DataNode、JobTracker、TaskTracker等守护进程，">
+<meta name="keywords" content="Hadoop,大数据">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20-5-5">
-<meta property="og:url" content="https:&#x2F;&#x2F;521.ooo&#x2F;20-5-5.html">
+<meta property="og:title" content="Hadoop搭建部署">
+<meta property="og:url" content="https:&#x2F;&#x2F;521.ooo&#x2F;hadoop.html">
 <meta property="og:site_name" content="嘲弄i">
+<meta property="og:description" content="本文为Hadoop搭建部署的学习笔记  Hadoop的三种模式 Hadoop运行模式包括：单机模式、伪分布式模式以及完全分布式模式。 Hadoop官方网站：hadoop.apache.org&#x2F; 单机模式  默认模式。 不对配置文件进行修改。 使用本地文件系统，而不是分布式文件系统。 Hadoop不会启动NameNode、DataNode、JobTracker、TaskTracker等守护进程，">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;Hadoop&#x2F;hadoop.png">
 <meta property="og:updated_time" content="2020-05-18T08:37:57.000Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;Hadoop&#x2F;hadoop.png">
     
     
         
@@ -33,7 +37,7 @@
         
     
     <!-- title -->
-    <title>20-5-5</title>
+    <title>Hadoop搭建部署</title>
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- third-party styles -->
@@ -64,7 +68,7 @@
          
           <li><a href="/archives/">文章</a></li>
          
-          <li><a href="/categories/">分类</a></li>
+          <li><a href="/tags/">标签</a></li>
          
           <li><a href="/music/">音乐</a></li>
          
@@ -97,7 +101,7 @@
       <span id="i-top" class="info" style="display:none;">返回顶部</span>
     </div>
     <div id="toc">
-      
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hadoop的三种模式"><span class="toc-text">Hadoop的三种模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#单机模式"><span class="toc-text">单机模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#伪分布式模式"><span class="toc-text">伪分布式模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#完全分布式模式"><span class="toc-text">完全分布式模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基础环境"><span class="toc-text">基础环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-环境准备"><span class="toc-text">1.环境准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、host配置和主机名（四台）"><span class="toc-text">2、host配置和主机名（四台）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-防火墙配置"><span class="toc-text">3.防火墙配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-配置免密登录"><span class="toc-text">4.配置免密登录</span></a></li></ol></li></ol>
     </div>
   </div>
 </div>
@@ -109,7 +113,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        20-5-5
+        Hadoop搭建部署
     </h1>
 
 
@@ -127,10 +131,10 @@
     
    |
     <i class="far fa-file-word fa-fw"></i>
-    文章字数:<span class="post-count">0</span>
+    文章字数:<span class="post-count">1.1k</span>
     |
     <i class="far fa-clock fa-fw"></i>
-    阅读时长:<span class="post-count">1</span>min
+    阅读时长:<span class="post-count">4</span>min
  <!--|
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <i class="far fa-eye fa-fw"></i>
@@ -142,6 +146,11 @@
       
 
       
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/Hadoop/" rel="tag">Hadoop</a>, <a class="tag-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a>
+    </div>
+
 
     </div>
     
@@ -155,7 +164,112 @@
   
 
   <div class="content" itemprop="articleBody">
-    
+    <img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Hadoop/hadoop.png"  />
+<blockquote>
+<p>本文为Hadoop搭建部署的学习笔记</p>
+</blockquote>
+<h2 id="Hadoop的三种模式">Hadoop的三种模式</h2>
+<p><strong>Hadoop运行模式包括：单机模式、伪分布式模式以及完全分布式模式。</strong></p>
+<p><strong>Hadoop官方网站：<a href="http://hadoop.apache.org/" target="_blank" rel="noopener">hadoop.apache.org/</a></strong></p>
+<h3 id="单机模式">单机模式</h3>
+<ul>
+<li>默认模式。</li>
+<li>不对配置文件进行修改。</li>
+<li>使用本地文件系统，而不是分布式文件系统。</li>
+<li>Hadoop不会启动NameNode、DataNode、JobTracker、TaskTracker等守护进程，Map()和Reduce()任务作为同一个进程的不同部分来执行的。</li>
+<li>用于对MapReduce程序的逻辑进行调试，确保程序的正确。</li>
+</ul>
+<hr>
+<h3 id="伪分布式模式"><strong>伪分布式模式</strong></h3>
+<ul>
+<li>在一台物理主机上模拟多台主机。</li>
+<li>Hadoop启动NameNode、DataNode、JobTracker、TaskTracker这些守护进程都在同一台机器上运行，是相互独立的Java进程。</li>
+<li>在这种模式下，Hadoop使用的是分布式文件系统，各个作业也是由JobTraker服务，来管理的独立进程。在单机模式之上增加了代码调试功能，允许检查内存使用情况，HDFS输入输出，以及其他的守护进程交互。类似于完全分布式模式，因此，这种模式常用来开发测试Hadoop程序的执行是否正确。</li>
+<li>修改3个配置文件：core-site.xml（Hadoop集群的特性，作用于全部进程及客户端）、hdfs-site.xml（配置HDFS集群的工作属性）、mapred-site.xml（配置MapReduce集群的属性）</li>
+<li>格式化文件系统</li>
+</ul>
+<hr>
+<h3 id="完全分布式模式"><strong>完全分布式模式</strong></h3>
+<ul>
+<li>Hadoop的守护进程运行在由多台主机搭建的集群上，是真正的生产环境。</li>
+<li>在所有的主机上安装JDK和Hadoop，组成相互连通的网络。</li>
+<li>在主机间设置SSH免密码登录，把各从节点生成的公钥添加到主节点的信任列表。</li>
+<li>修改3个配置文件：core-site.xml、hdfs-site.xml、mapred-site.xml，指定NameNode和JobTraker的位置和端口，设置文件的副本等参数</li>
+<li>格式化文件系统</li>
+</ul>
+<hr>
+<p><a href="https://blog.csdn.net/u013063153/article/details/53115216" target="_blank" rel="noopener">参考CSDN文章链接📁</a></p>
+<p>综上所述单机版适合开发调试；伪分布式版，适合模拟集群学习；完全分布式，生产使用的模式。</p>
+<hr>
+<h2 id="基础环境">基础环境</h2>
+<h3 id="1-环境准备">1.环境准备</h3>
+<table>
+<thead>
+<tr>
+<th>系统版本</th>
+<th>jdk版本</th>
+<th>Hadoop版本</th>
+<th>服务器IP</th>
+<th>服务器台数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>centos 6.5</td>
+<td>jdk 1.8</td>
+<td>hadoop-2.10.0</td>
+<td>192.168.1.0</td>
+<td>4台</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2、host配置和主机名（四台）">2、host配置和主机名（四台）</h3>
+<p>🖥查看默认主机名：使用<code>hostname</code>命令来查看</p>
+<p>🖥查看和修改主机名：使用<code>hostname + *</code>命令来修改主机名，*代表主机名</p>
+<p>不过上述修改主机名只是暂时的，重启后会失效。如果永久修改主机名，要修改配置文件执行命令：<code> vim /etc/sysconfig/network</code></p>
+<p>编辑文件中的HOSTNAME例如</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HOSTNAME=master</span><br></pre></td></tr></table></figure>
+<p>绑定hostname与IP,修改四台服务器的hosts文件</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/hosts</span><br><span class="line"><span class="number">192.168</span><span class="number">.1</span><span class="number">.2</span> master</span><br><span class="line"><span class="number">192.168</span><span class="number">.1</span><span class="number">.3</span> slave1 </span><br><span class="line"><span class="number">192.168</span><span class="number">.1</span><span class="number">.4</span> slave2</span><br><span class="line"><span class="number">192.168</span><span class="number">.1</span><span class="number">.5</span> slave3</span><br></pre></td></tr></table></figure>
+<p>分别修改服务器的主机名:HOSTNAME，master为例说明</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/network</span><br><span class="line"><span class="attribute">HOSTNAME</span>=master</span><br></pre></td></tr></table></figure>
+<p>执行<code>reboot</code>重启后生效，完成之后依次修改其它salve服务器为： slave1~3。</p>
+<h3 id="3-防火墙配置">3.防火墙配置</h3>
+<p>查看防火墙状态</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">service iptables status</span></span><br></pre></td></tr></table></figure>
+<p>关闭防火墙</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">service</span> iptables stop </span><br><span class="line">chkconfig iptables <span class="literal">off</span></span><br></pre></td></tr></table></figure>
+<p>关闭SELINUX</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setenforce <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-配置免密登录">4.配置免密登录</h3>
+<p>一、配置免密访问本机</p>
+<p>1.生成密钥</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
+<p>2.将公钥追加到”authorized_keys”文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+<p>3.赋予权限</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 600  ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+<p>4.验证本机能无密码访问</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh master</span><br></pre></td></tr></table></figure>
+<p>通过测试发现是可以不用输入密码就能访问的，然后下面依次配置salve1~3无密访问。</p>
+<p>二、配置master本机无密码登录slave1、slave2、slave3，以master无密码登录slave1为例进行讲解：</p>
+<p>1.登录slave1,复制master服务器的公钥”id_rsa.pub”到slave1服务器的”root”目录下。</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp root<span class="variable">@master</span><span class="symbol">:/root/</span>.ssh/id_rsa.pub /root/</span><br></pre></td></tr></table></figure>
+<p>2.将master的公钥（id_rsa.pub）追加到slave1的authorized_keys中</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat id_rsa.pub <span class="meta">&gt;&gt; </span>.ssh/authorized_keys</span><br><span class="line">rm -rf  id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>3.master上面测试</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ssh</span>  slave1</span><br></pre></td></tr></table></figure>
+<p>三、配置slave1~slave3本机无密码登录master</p>
+<p>下面以slave1无密码登录master为例进行讲解，需参照下面步骤完成slave2~slave3无密码登录master。</p>
+<p>1.登录master，复制slave1服务器的公钥”id_rsa.pub”到hadoop-master服务器的”/root/”目录下。</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp root<span class="variable">@slave1</span><span class="symbol">:/root/</span>.ssh/id_rsa.pub /root/</span><br></pre></td></tr></table></figure>
+<p>2.将hadoop-slave1的公钥（id_rsa.pub）追加到hadoop-master的authorized_keys中。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat id_rsa<span class="selector-class">.pub</span> &gt;&gt; .ssh/authorized_keys</span><br><span class="line">rm -rf  id_rsa<span class="selector-class">.pub</span> <span class="comment">//删除id_rsa.pub</span></span><br></pre></td></tr></table></figure>
+<p>3.在 hadoop-slave1上面测试</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh  <span class="literal">master</span></span><br></pre></td></tr></table></figure>
+<p><em>并且依次配置 hadoop-slave2、hadoop-slave3</em></p>
+<p>到此主从的无密登录已经完成了。</p>
+
   </div>
 </article>
 <div class="post-footer">
@@ -163,16 +277,16 @@
     <div class="copyright">
   <dl>
     <dt class="copyright-title">本文标题：</dt>
-    <dd class="copyright-descriptioin">20-5-5</dd>
+    <dd class="copyright-descriptioin">Hadoop搭建部署</dd>
     <dt class="copyright-title">文章作者：</dt>
     <dd class="copyright-item">嘲弄i</dd>
     <dt class="copyright-title">原始链接：</dt>
     <dd class="copyright-item">
       <a 
-        href="/20-5-5.html"
-        title="20-5-5"
+        href="/hadoop.html"
+        title="Hadoop搭建部署"
         id="permalink"
-        >https://521.ooo/20-5-5.html</a
+        >https://521.ooo/hadoop.html</a
       ><a 
          class="btn-copy btn-copy-permalink tooltipped tooltipped-sw"
          aria-label="复制到粘贴板!">
@@ -215,7 +329,7 @@
 <style>
  .v #veditor{
      min-height: 10rem;
-     background-image: url(https://cdn.jsdelivr.net/gh/cungudafa/img/images/girls2.png);
+     /*background-image: url(https://cdn.jsdelivr.net/gh/cungudafa/img/images/girls2.png);*/
      background-size: contain;
      background-repeat: no-repeat;
      background-position: right;
@@ -402,14 +516,14 @@ div.vcontent p  img.vemoji {
    
       
       <!-- 今日诗词：随机返回一句古诗词名句的接口，宅到用来做 Valine 的 placeholder 显示内容 -->
-      <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+      <!--<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
       <script type="text/javascript">
        jinrishici.load(function(result) {
            var jrsc_plac =  result.data.content + "\n「" + result.data.origin.title + "」" + result.data.origin.dynasty + " · " + result.data.origin.author;
            document.getElementById("veditor").setAttribute("placeholder",jrsc_plac);
        })
       </script>
-    </div>
+    </div>-->
     
 <!--
 
@@ -430,7 +544,7 @@ div.vcontent p  img.vemoji {
          
           <li><a href="/archives/">文章</a></li>
          
-          <li><a href="/categories/">分类</a></li>
+          <li><a href="/tags/">标签</a></li>
          
           <li><a href="/music/">音乐</a></li>
          
@@ -446,7 +560,7 @@ div.vcontent p  img.vemoji {
     </div>
 
     <div id="toc-footer" style="display: none">
-      
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hadoop的三种模式"><span class="toc-text">Hadoop的三种模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#单机模式"><span class="toc-text">单机模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#伪分布式模式"><span class="toc-text">伪分布式模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#完全分布式模式"><span class="toc-text">完全分布式模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基础环境"><span class="toc-text">基础环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-环境准备"><span class="toc-text">1.环境准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、host配置和主机名（四台）"><span class="toc-text">2、host配置和主机名（四台）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-防火墙配置"><span class="toc-text">3.防火墙配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-配置免密登录"><span class="toc-text">4.配置免密登录</span></a></li></ol></li></ol>
     </div>
 
     <div id="actions-footer">
@@ -553,7 +667,7 @@ div.vcontent p  img.vemoji {
     });
     var clipboardPermalink = new ClipboardJS('.btn-copy-permalink', {
       text: function(trigger) {
-        return "https://521.ooo/20-5-5.html"
+        return "https://521.ooo/hadoop.html"
       }
     });
     var successCallback = function(e) {
@@ -642,7 +756,7 @@ div.vcontent p  img.vemoji {
       });
       var clipboardPermalink = new ClipboardJS('.btn-copy-permalink', {
         text: function(trigger) {
-          return "https://521.ooo/20-5-5.html"
+          return "https://521.ooo/hadoop.html"
         }
       });
       var successCallback = function(e) {

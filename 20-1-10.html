@@ -6,16 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="解决方法有如下几种:  更换gcc版本，具体是升级还是降级还需测试。 在报错的switch-case块中加上break。此时要对代码逻辑理解清楚，否则加上break有可能会破坏原来的逻辑。 编译时忽略Implicit fallthrough error这个错误。  在这里采用的是第三种方法，编译时忽略Implicit fallthrough error这个错误。 进入到相关目录下，使用vim命令编">
+    <meta name="description" content="报错如下图所示👇  解决方法有如下几种:  更换gcc版本，具体是升级还是降级还需测试。 在报错的switch-case块中加上break。此时要对代码逻辑理解清楚，否则加上break有可能会破坏原来的逻辑。 编译时忽略Implicit fallthrough error这个错误。  在这里采用的是第三种方法，编译时忽略Implicit fallthrough error这个错误。 进入到相关目">
 <meta name="keywords" content="nginx,Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux下编译nginx报错Wno-implicit-fallthrough">
 <meta property="og:url" content="https:&#x2F;&#x2F;521.ooo&#x2F;20-1-10.html">
 <meta property="og:site_name" content="嘲弄i">
-<meta property="og:description" content="解决方法有如下几种:  更换gcc版本，具体是升级还是降级还需测试。 在报错的switch-case块中加上break。此时要对代码逻辑理解清楚，否则加上break有可能会破坏原来的逻辑。 编译时忽略Implicit fallthrough error这个错误。  在这里采用的是第三种方法，编译时忽略Implicit fallthrough error这个错误。 进入到相关目录下，使用vim命令编">
+<meta property="og:description" content="报错如下图所示👇  解决方法有如下几种:  更换gcc版本，具体是升级还是降级还需测试。 在报错的switch-case块中加上break。此时要对代码逻辑理解清楚，否则加上break有可能会破坏原来的逻辑。 编译时忽略Implicit fallthrough error这个错误。  在这里采用的是第三种方法，编译时忽略Implicit fallthrough error这个错误。 进入到相关目">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;nginx_error.jpg">
 <meta property="og:updated_time" content="2020-01-10T15:52:26.000Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;nginx_error.jpg">
     
     
         
@@ -66,7 +68,7 @@
          
           <li><a href="/archives/">文章</a></li>
          
-          <li><a href="/categories/">分类</a></li>
+          <li><a href="/tags/">标签</a></li>
          
           <li><a href="/music/">音乐</a></li>
          
@@ -129,7 +131,7 @@
     
    |
     <i class="far fa-file-word fa-fw"></i>
-    文章字数:<span class="post-count">142</span>
+    文章字数:<span class="post-count">149</span>
     |
     <i class="far fa-clock fa-fw"></i>
     阅读时长:<span class="post-count">1</span>min
@@ -157,7 +159,7 @@
     
       <div class="outdated-warn">
         <i class="fas fa-exclamation-circle"></i>
-        这是一篇更新于 204 天前的文章，其中的信息可能已经有所发展或是发生改变。
+        这是一篇更新于 205 天前的文章，其中的信息可能已经有所发展或是发生改变。
       </div>
     
   
@@ -167,7 +169,9 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>解决方法有如下几种:</p>
+    <p>报错如下图所示👇</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/nginx_error.jpg" alt="nginx_error"></p>
+<p>解决方法有如下几种:</p>
 <ol>
 <li>更换gcc版本，具体是升级还是降级还需测试。</li>
 <li>在报错的switch-case块中加上break。此时要对代码逻辑理解清楚，否则加上break有可能会破坏原来的逻辑。</li>
@@ -235,7 +239,7 @@
 <style>
  .v #veditor{
      min-height: 10rem;
-     background-image: url(https://cdn.jsdelivr.net/gh/cungudafa/img/images/girls2.png);
+     /*background-image: url(https://cdn.jsdelivr.net/gh/cungudafa/img/images/girls2.png);*/
      background-size: contain;
      background-repeat: no-repeat;
      background-position: right;
@@ -422,14 +426,14 @@ div.vcontent p  img.vemoji {
    
       
       <!-- 今日诗词：随机返回一句古诗词名句的接口，宅到用来做 Valine 的 placeholder 显示内容 -->
-      <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+      <!--<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
       <script type="text/javascript">
        jinrishici.load(function(result) {
            var jrsc_plac =  result.data.content + "\n「" + result.data.origin.title + "」" + result.data.origin.dynasty + " · " + result.data.origin.author;
            document.getElementById("veditor").setAttribute("placeholder",jrsc_plac);
        })
       </script>
-    </div>
+    </div>-->
     
 <!--
 
@@ -450,7 +454,7 @@ div.vcontent p  img.vemoji {
          
           <li><a href="/archives/">文章</a></li>
          
-          <li><a href="/categories/">分类</a></li>
+          <li><a href="/tags/">标签</a></li>
          
           <li><a href="/music/">音乐</a></li>
          

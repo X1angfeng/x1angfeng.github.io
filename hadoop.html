@@ -130,10 +130,10 @@
     
    |
     <i class="far fa-file-word fa-fw"></i>
-    文章字数:<span class="post-count">3.1k</span>
+    文章字数:<span class="post-count">3.2k</span>
     |
     <i class="far fa-clock fa-fw"></i>
-    阅读时长:<span class="post-count">13</span>min
+    阅读时长:<span class="post-count">14</span>min
  <!--|
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <i class="far fa-eye fa-fw"></i>
@@ -404,7 +404,12 @@
 
 <p><strong>命令查看Hadoop集群的状态</strong></p>
 <p>通过简单的jps命令虽然可以查看HDFS文件管理系统、MapReduce服务是否启动成功，但是无法查看到Hadoop整个集群的运行状态。我们可以通过<code>hadoop dfsadmin -report</code>进行查看。用该命令可以快速定位出哪些节点挂掉了，HDFS的容量以及使用了多少，以及每个节点的硬盘使用情况。</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hadoop dfsadmin -report</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop dfsadmin -report</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>参考文章:</strong><a href="http://www.ityouknow.com/hadoop/2017/07/24/hadoop-cluster-setup.html" target="_blank" rel="noopener">纯洁的微笑hadoop分布式集群搭建</a></p>
+<p>​        &nbsp;    &nbsp;    &nbsp;    &nbsp;        &nbsp;&nbsp;    &nbsp;&nbsp;<a href="https://juejin.im/post/6844903941856034830#heading-13" target="_blank" rel="noopener">mm1小辣椒零基础搭建Hadoop集群</a></p>
+
   </div>
 </article>
 <div class="post-footer">

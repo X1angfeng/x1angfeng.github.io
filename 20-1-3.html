@@ -84,7 +84,7 @@
         <li><a class="icon" href="/20-1-10.html"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" href="/19-11-28.html"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" href="/Docker/index.html"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
       </ul>
@@ -146,7 +146,7 @@
     
       <div class="outdated-warn">
         <i class="fas fa-exclamation-circle"></i>
-        这是一篇更新于 280 天前的文章，其中的信息可能已经有所发展或是发生改变。
+        这是一篇更新于 281 天前的文章，其中的信息可能已经有所发展或是发生改变。
       </div>
     
   
@@ -161,12 +161,10 @@
 <p>Windows Server 2016： </p>
 <p>在管理员模式的CMD或Powershell窗口命令行执行如下命令：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dism /online /add-package /packagepath:<span class="string">"C:\Windows\servicing\Packages\Adobe-Flash-For-Windows-Package~31bf3856ad364e35~amd64~~10.0.14393.0.mum"</span></span><br></pre></td></tr></table></figure>
-
 <p>如上命令执行成功后，检查WinSer 2016补丁更新会发现针对Adobe Flash Player安全更新，当前的补丁信息为”2018-适用于 Adobe Flash Player for Windows Server 2016 的 08 安全更新，适用于基于 x64 的系统 (KB4343902)”。</p>
 <p>Windows Server 2019：</p>
 <p>Windows Server 2019中启用flash的方法与2016相似，只不过要把上面命令行中的14393.0改为17763.1，就是在管理员模式的CMD或Powershell窗口命令行执行如下命令：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dism /online /add-package /packagepath:<span class="string">"C:\Windows\servicing\Packages\Adobe-Flash-For-Windows-Package~31bf3856ad364e35~amd64~~10.0.17763.1.mum"</span></span><br></pre></td></tr></table></figure>
-
 
   </div>
 </article>

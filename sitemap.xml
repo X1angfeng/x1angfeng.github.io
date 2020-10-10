@@ -58,13 +58,6 @@
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/mergeSort.html</loc>
-    
-    <lastmod>2020-07-17T08:47:00.876Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://521.ooo/sort/insertionSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.876Z</lastmod>
@@ -72,14 +65,21 @@
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/heapSort.html</loc>
+    <loc>https://521.ooo/sort/mergeSort.html</loc>
+    
+    <lastmod>2020-07-17T08:47:00.876Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://521.ooo/sort/countingSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.875Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/countingSort.html</loc>
+    <loc>https://521.ooo/sort/heapSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.875Z</lastmod>
     
@@ -194,6 +194,13 @@
     <loc>https://521.ooo/links/index.html</loc>
     
     <lastmod>2020-01-03T13:03:29.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://521.ooo/Docker/index.html</loc>
+    
+    <lastmod>2019-12-30T08:17:27.000Z</lastmod>
     
   </url>
   

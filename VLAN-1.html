@@ -176,7 +176,6 @@
 <p>某企业有两个主要部门，技术部和销售部，分处于不同的办公室，为了安全和便于管理对两个部门的主机进行了VLAN的划分，技术部和销售部分处于不同的VLAN，先由于业务的需求需要销售部和技术部的主机能够相互访问，获得相应的资源，两个部门的交换机通过一台三层交换机进行了连接。</p>
 </blockquote>
 <a id="more"></a>
-
 <h1 id="技术原理"><a href="#技术原理" class="headerlink" title="技术原理"></a>技术原理</h1><p>三层交换机具备网络层的功能，实现VLAN相互访问的原理是：利用三层交换机的路由功能，通过识别数据包的IP地址，查找路由表进行选路转发，三层交换机利用直连路由可以实现不同VLAN之间的相互访问。三层交换机给接口配置IP地址。采用SVI（交换虚拟接口）的方式实现VLAN间互连。SVI是指为交换机中的VLAN创建虚拟接口，并且配置IP地址。</p>
 <h1 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h1><p>（1）在二层交换机上配置VLAN2、VLAN3，分别将端口2、端口3划分给VLAN2、VLAN3。</p>
 <p>（2）将二层交换机与三层交换机相连的端口fa 0/1都定义为tag Vlan模式。</p>
@@ -188,7 +187,7 @@
 <blockquote>
 <p>首先在三层交换机上分别设置各VLAN的接口IP地址。三层交换机将vlan做为一种接口对待，就像路由器上的一样，再在各接入VLAN的计算机上设置与所属VLAN的网络地址一致的IP地址，并且把默认网关设置为该VLAN的接口地址。这样，所有的VLAN也可以互访了。</p>
 </blockquote>
-<h2 id="建立拓扑图"><a href="#建立拓扑图" class="headerlink" title="建立拓扑图"></a>建立拓扑图</h2><p><img src="/img/st/6.png"></p>
+<h2 id="建立拓扑图"><a href="#建立拓扑图" class="headerlink" title="建立拓扑图"></a>建立拓扑图</h2><p><img src="/img/st/6.png" alt=""></p>
 <h2 id="设置IP地址"><a href="#设置IP地址" class="headerlink" title="设置IP地址"></a>设置IP地址</h2><p>PC1 </p>
 <p>​       IP:                 192.168.1.2</p>
 <p>​       Submark:        255.255.255.0</p>
@@ -233,11 +232,11 @@
 <p>​       Switch(config-if)#   sw acc vlan 2   进入vlan 2</p>
 <p>​       Switch(config-if)#exit   </p>
 <p><code>此时验证二层交换机下的不同vlan间主机不能通信</code></p>
-<p><code>PC1 Ping PC2 </code></p>
-<p><img src="/img/st/7.png"></p>
+<p><code>PC1 Ping PC2</code></p>
+<p><img src="/img/st/7.png" alt=""></p>
 <p><code>验证同一vlan下可以通信</code></p>
 <p><code>PC1 Ping PC3</code></p>
-<p><img src="/img/st/8.png"></p>
+<p><img src="/img/st/8.png" alt=""></p>
 <p>Switch(config )#  int vlan 2   //进入vlan2 </p>
 <p>​       Switch(config-if)#  ip add 192.168.1.1 255.255.255.0       //配置IP地址</p>
 <p>​       Switch(config-if)#   no shutdown   //开启该端口</p>
@@ -251,9 +250,9 @@
 <p>​      Switch#conf t   //进入配置模式</p>
 <p>​      Switch(config)# ip  routing //开启路由功能</p>
 <h1 id="验证结果"><a href="#验证结果" class="headerlink" title="验证结果"></a>验证结果</h1><p><code>PC1 Ping PC3</code></p>
-<p><img src="/img/st/9.png"></p>
+<p><img src="/img/st/9.png" alt=""></p>
 <p><code>PC1 Ping PC2</code></p>
-<p><img src="/img/st/10.png"></p>
+<p><img src="/img/st/10.png" alt=""></p>
 <p>到此已经配置并验证完毕！！！</p>
 
   </div>

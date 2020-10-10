@@ -207,7 +207,7 @@
     
       <div class="outdated-warn">
         <i class="fas fa-exclamation-circle"></i>
-        这是一篇更新于 318 天前的文章，其中的信息可能已经有所发展或是发生改变。
+        这是一篇更新于 319 天前的文章，其中的信息可能已经有所发展或是发生改变。
       </div>
     
   
@@ -234,10 +234,11 @@
 <blockquote>
 <p>拓扑图</p>
 </blockquote>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/1.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/1.png" alt=""></p>
 <blockquote>
 <p>地址分配</p>
 </blockquote>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -246,7 +247,8 @@
 <th>DNS</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>域控服务器</td>
 <td>172.16.22.101</td>
 <td></td>
@@ -269,117 +271,116 @@
 <tr>
 <td>ESXI</td>
 <td>172.16.22.175</td>
-<td></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h2 id="搭建域控服务器"><a href="#搭建域控服务器" class="headerlink" title="搭建域控服务器"></a>搭建域控服务器</h2><p>依次点击服务器管理-&gt;角色-&gt;新建角色。选择新建域控服务器。</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/2.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/2.png" alt=""></p>
 <p>然后点击服务器管理器-&gt;角色-&gt;AD域服务对域进行配置。选择新建一个林并建域。</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/3.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/3.png" alt=""></p>
 <p>选择其他服务器。因为我们要在agent和connectionSever里面设置DNS用的</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/4.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/4.png" alt=""></p>
 <p>创建一个域名，域名为<code>six.com</code></p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/5.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/5.png" alt=""></p>
 <p>选择林功能级别</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/6.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/6.png" alt=""></p>
 <p>设置域控服务器密码</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/7.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/7.png" alt=""></p>
 <p>确认一下摘要</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/8.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/8.png" alt=""></p>
 <p>创建域控完成</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/9.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/9.png" alt=""></p>
 <p>然后在域控里面创建用户和用户组</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/10.png"></p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/11.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/10.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/11.png" alt=""></p>
 <h2 id="创建vCenter"><a href="#创建vCenter" class="headerlink" title="创建vCenter"></a>创建vCenter</h2><p>挂载Vcenter的镜像并选择安装vCenter</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/12.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/12.png" alt=""></p>
 <p>选择嵌入式架构</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/13.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/13.png" alt=""></p>
 <p>配置系统的网络名称</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/14.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/14.png" alt=""></p>
 <p>选择新建vCenter域</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/15.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/15.png" alt=""></p>
 <p>指定本地账号登陆</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/16.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/16.png" alt=""></p>
 <p>使用嵌入式数据库</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/17.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/17.png" alt=""></p>
 <p>选择配置端口</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/18.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/18.png" alt=""></p>
 <p>确认一下摘要</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/19.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/19.png" alt=""></p>
 <p>开始安装</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/20.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/20.png" alt=""></p>
 <p>安装vCenter成功</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/21.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/21.png" alt=""></p>
 <h2 id="安装并配置模板机"><a href="#安装并配置模板机" class="headerlink" title="安装并配置模板机"></a>安装并配置模板机</h2><p>配置模板机的IP和DNS，并给模板机加入域控</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/22.png" alt="配置IP地址"></p>
 <center>配置IP地址</center>
 
 
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/23.png" alt="加入域控"></p>
-<center>加入域控</center>
-开始安装AgentView
-
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/24.jpg"></p>
+<p><center>加入域控</center><br>开始安装AgentView</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/24.jpg" alt=""></p>
 <p>同意许可证书</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/25.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/25.png" alt=""></p>
 <p>选择安装的位置</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/26.jpg"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/26.jpg" alt=""></p>
 <p>开始安装AgentView</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/27.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/27.png" alt=""></p>
 <p>等待片刻模板机安装AgentView成功</p>
 <h2 id="安装connection-server"><a href="#安装connection-server" class="headerlink" title="安装connection server"></a>安装connection server</h2><p>配置ConnectionSever的IP地址以及DNS地址</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/28.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/28.png" alt=""></p>
 <p>并将Connection Sever加入域控</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/29.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/29.png" alt=""></p>
 <p>开始安装Connection Sever</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/30.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/30.png" alt=""></p>
 <p>选择同意协议</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/31.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/31.png" alt=""></p>
 <p>选择安装路径</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/32.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/32.png" alt=""></p>
 <p>选择安装Connection Sever的版本</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/33.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/33.png" alt=""></p>
 <p>选择默认自动配置防火墙</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/34.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/34.png" alt=""></p>
 <p>安装成功</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/35.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/35.png" alt=""></p>
 <h2 id="配置vCenter"><a href="#配置vCenter" class="headerlink" title="配置vCenter"></a>配置vCenter</h2><p>在vCenter里面新建数据中心再在数据中心里面新建集群</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/36.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/36.png" alt=""></p>
 <p>在集群里面添加主机</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/37.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/37.png" alt=""></p>
 <p>然后根据指示下一步就行，最终添加成功😜</p>
 <h2 id="配置ConnectionSever"><a href="#配置ConnectionSever" class="headerlink" title="配置ConnectionSever"></a>配置ConnectionSever</h2><p>登陆ConnectionSever</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/38.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/38.png" alt=""></p>
 <p>依次点击ViewConfiguration-&gt;Sever-Addvcenter把Vcenter加进去</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/39.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/39.png" alt=""></p>
 <p>现在就把vCenter加进去了</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/40.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/40.png" alt=""></p>
 <p>新建桌面池。依次点击Inventory-&gt;pools用来添加桌面池。选择手动池</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/41.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/41.png" alt=""></p>
 <p>选择Floating</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/42.png"><br>选择在分配在Vcenter上的资源</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/43.png"><br>设定池ID</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/44.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/42.png" alt=""><br>选择在分配在Vcenter上的资源</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/43.png" alt=""><br>设定池ID</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/44.png" alt=""></p>
 <p>选择桌面池的设定</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/45.png"></p>
-<p>选择模板机加入桌面池<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/46.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/45.png" alt=""></p>
+<p>选择模板机加入桌面池<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/46.png" alt=""></p>
 <p>确认摘要，创建池成功</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/47.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/47.png" alt=""></p>
 <p>选择桌面池添加用户或者组</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/48.png"><br>将Administrator组加入桌面池</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/49.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/48.png" alt=""><br>将Administrator组加入桌面池</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/49.png" alt=""></p>
 <p>选择一个用户分配虚拟桌面</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/50.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/50.png" alt=""></p>
 <h2 id="测试连接"><a href="#测试连接" class="headerlink" title="测试连接"></a>测试连接</h2><p>使用VMware View Client客户端登陆Connection Sever的服务器</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/51.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/51.png" alt=""></p>
 <p>选择服务器可信连接</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/52.jpg"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/52.jpg" alt=""></p>
 <p>选择用户名登陆</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/53.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/53.png" alt=""></p>
 <p>选择桌面登陆</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/54.png"><br>登陆win7桌面成功</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/55.jpg"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/54.png" alt=""><br>登陆win7桌面成功</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/Virture_Desktop/55.jpg" alt=""></p>
 <p>最终可见已经成功搭建并连接成功大功告成！！！👾👾👾</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>​        <strong>这只是使用VMware View的基本组件搭建了一个简单的虚拟桌面的环境，并通过客户机连接上了它。因为是初学者文章或许有些地方不太严谨不太正确，望大佬能够指正。</strong></p>
 <p>​        <strong>在我看来桌面虚拟化在银行领域，以及在其他各行各业的领域桌面虚拟化肯定会大有作为。因为随着几年来移动办公人员数量的增加，产生了对桌面虚拟化大量的需求。使用桌面虚拟化就能有效满足企业的需求。桌面虚拟化对各行各业产生了巨大影响，特别是像金融，医疗，教育领域。安全性，移动性，扩展性这些需求都是必须的。所以未来桌面虚拟化的前景是十分看好的。</strong></p>

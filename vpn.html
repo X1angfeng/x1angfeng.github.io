@@ -189,92 +189,96 @@
 
   <div class="content" itemprop="articleBody">
     <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>虚拟专用网络 VPN（Virtual Private Network）综合利用了密码、数字签名和 PKI 等技术，利用隧道协议，在不安全的公共网络上构建虚拟的专用数据通道，以保证其中数据的机密性和完整性。VPN 是企业网在公共网络上的扩展，可以开辟一条安全的隧道，保证两个端点或者两个局域网之间的安全通信。VPN 通过将因特网虚拟成一台路由器，将物理位置分散的局域网和主机虚拟成一个统一的虚拟企业网，从而保证数据通信的安全性。VPN 综合利用了隧道技术、加密技术、鉴别技术和密钥管理等技术，在公共网络上建立了一个虚拟的安全通道，以实现两个网络或者两台主机之间的安全连接，目前 VPN 主要有两类应用场景，其一是远程访问 VPN 模式，即企业员工从外地访问企业内部网络中的主机，当员工在外出差，需要访问企业内部网络中的机密信息时，为了避免信息传输过程中发生泄密，主机首先以 VPN 客户端的方式连接到企业的远程访问 VPN 服务器，这样远程主机访问内网数据时就会被加密传输，从而保证数据的安全性，如图 2-31 所示，</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/1.jpg"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/1.jpg" alt=""></p>
 <center><strong>图2-31 远程主机访问企业内网</strong></center>
 
 <p>其二当一个公司在多个城市设置有分公司时，为了保证企业分公司之间的数据传输安全，在每个局域网的出口处设置VPN 服务器，当局域网之间需要交换信息时，两个 VPN 服务器之间建立一条安全的隧道，保证数据在隧道中安全的传输，这种方式也被称为是网络到网络 VPN，适用于企业各个分支机构，商业合作伙伴之间的网络互连要求，如图 2-32 所示。</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/2.jpg"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/2.jpg" alt=""></p>
 <center><b>图2-32 企业分支机构之间的局域网连通</b></center>
 
 <p>本例中应用的场景是远程访问 VPN 模式，通过远程计算机访问企业内网的资源，具体实验拓扑图如图 2-33 所示，详细配置信息如表 1-1 所示，具体配置步骤如下：</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/3.jpg"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/3.jpg" alt=""></p>
 <center><b>图2-33 实验拓扑图</b></center>
 
 <center><b>表 1-1 网络设备主要功能介绍</b></center>
 
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="left"><strong>网络配置情况</strong></th>
-<th align="left"><strong>电脑设置内容</strong></th>
+<th style="text-align:left"><strong>网络配置情况</strong></th>
+<th style="text-align:left"><strong>电脑设置内容</strong></th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left"><strong>路由器（windows server 2008 模拟仿真）<br/>VMnet1：<br/>IP 地址：192.168.149.3<br/>子网掩码：255.255.255.0<br/>VMnet2:<br/>IP 地址：192.168.87.3<br/>子网掩码：255.255.255.0</strong></td>
-<td align="left"><strong>1、 完成网络 IP 地址配置；<br/>2、 完成 LAN 路由的设置；</strong></td>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>路由器（windows server 2008 模拟仿真）<br/>VMnet1：<br/>IP 地址：192.168.149.3<br/>子网掩码：255.255.255.0<br/>VMnet2:<br/>IP 地址：192.168.87.3<br/>子网掩码：255.255.255.0</strong></td>
+<td style="text-align:left"><strong>1、 完成网络 IP 地址配置；<br/>2、 完成 LAN 路由的设置；</strong></td>
 </tr>
 <tr>
-<td align="left"><strong>VPN 服务器（windows server 2008）<br/>VMnet2:<br/>IP 地址：192.168.87.5<br/>子网掩码：255.255.255.0<br/>默认网关：192.168.87.3<br/>VMnet3：<br/>IP 地址：192.168.171.3<br/>子网掩码：255.255.255.0</strong></td>
-<td align="left"><strong>1、 完成网络 IP 地址配置；<br/>2、完成 VPN 服务器搭建；</strong></td>
+<td style="text-align:left"><strong>VPN 服务器（windows server 2008）<br/>VMnet2:<br/>IP 地址：192.168.87.5<br/>子网掩码：255.255.255.0<br/>默认网关：192.168.87.3<br/>VMnet3：<br/>IP 地址：192.168.171.3<br/>子网掩码：255.255.255.0</strong></td>
+<td style="text-align:left"><strong>1、 完成网络 IP 地址配置；<br/>2、完成 VPN 服务器搭建；</strong></td>
 </tr>
 <tr>
-<td align="left"><strong>远程计算机的基本配置情况（XP 操作<br/>系统）<br/>VMnet1:<br/>IP 地址：192.168.149.6<br/>子网掩码：255.255.255.0<br/>默认网关：192.168.149.3</strong></td>
-<td align="left"><strong>1、 完成网络 IP 地址配置；<br/>2、 完成 VPN 客户端安装；<br/>3、 使用客户端拨号连接 VPN 服务器；<br/>4、 使用 PING 命令测试连通性；</strong></td>
+<td style="text-align:left"><strong>远程计算机的基本配置情况（XP 操作<br/>系统）<br/>VMnet1:<br/>IP 地址：192.168.149.6<br/>子网掩码：255.255.255.0<br/>默认网关：192.168.149.3</strong></td>
+<td style="text-align:left"><strong>1、 完成网络 IP 地址配置；<br/>2、 完成 VPN 客户端安装；<br/>3、 使用客户端拨号连接 VPN 服务器；<br/>4、 使用 PING 命令测试连通性；</strong></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h1 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h1><h2 id="步骤-1："><a href="#步骤-1：" class="headerlink" title="步骤 1："></a>步骤 1：</h2><p>首先进行的是模拟路由器的配置，使用的是 windows 2008 操作系统来进行模拟设置，首先选择 VMware 菜单栏中的虚拟机选项，选择其中的设置选项，并选择添加，根据要求添加对应的网络适配器，并进行网络 IP 地址的设置，如图 2-34和图2-35 所示(这里不再详细讲如何在虚拟机中安装Windows server 2008)</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/4.jpg"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/4.jpg" alt=""></p>
 <center><b>图2-34 添加多块网卡</b></center>
 
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/5.jpg"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/5.jpg" alt=""></p>
 <center><b>图2-35 配置IP地址<b></center>
 
 <p>windows server 2008默认是没有路由和远程访问这个服务的需要自行添加，具体步骤如下</p>
 <p>点击桌面左下角的服务器管理器，然后点击添加角色</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/6.jpg"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/6.jpg" alt=""></p>
 <p>选择网络策略和访问服务</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/7.jpg"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/7.jpg" alt=""></p>
 <p>点击下一步</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/8.jpg"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/8.jpg" alt=""></p>
 <p>选择为网络策略和访问服务安装的角色服务，即:路由和远程访问服务</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/9.jpg"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/9.jpg" alt=""></p>
 <p>点击安装</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/10.jpg"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/10.jpg" alt=""></p>
 <p>安装完成</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/11.jpg"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/11.jpg" alt=""></p>
 <p>下面选择开始菜单，管理工具，打开路由和远程访问，在其中右键选择配置并启用，进入向导开始进行配置。</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/12.jpg"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/12.jpg" alt=""></p>
 <p>选择自定义配置，单击下一步继续，并按照服务器的功能，选择 LAN 路由器，这样就可以使该服务器实现路由器的功能，完成后系统会要求进行服务配置，同意配置.并且启动服务</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/13.jpg"></p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/14.jpg"></p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/15.jpg"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/13.jpg" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/14.jpg" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/15.jpg" alt=""></p>
 <p>配置完成后，将会看到在路由和远程访问中包含 IP 路由选择，其中包括常规和静态路由两个选项，这样模拟的路由器就已经配置完成了</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/16.jpg"></p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/17.jpg"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/16.jpg" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/17.jpg" alt=""></p>
 <h2 id="步骤2："><a href="#步骤2：" class="headerlink" title="步骤2："></a>步骤2：</h2><p>配置 VPN 服务器，首先根据实验要求完成网络适配器的添加，并进行 IP 地址的配置，</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/18.jpg"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/18.jpg" alt=""></p>
 <p>完成 IP 地址配置后，同样选择管理工具，路由和远程访问，右键选择配置并启用路由和远程访问，并在其中选择远程访问（拨号或 VPN）选项，单击下一步继续</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/19.jpg"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/19.jpg" alt=""></p>
 <p>分别选择 VPN 和拨号两个选项，单击下一步继续，进行网络接口的选择，在此必须选择的接口是连接外网的接口，在此选择的是本地连接 2，IP 地址是192.168.87.5，单击下一步继续</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/20.jpg"></p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/21.jpg"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/20.jpg" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/21.jpg" alt=""></p>
 <p>分别对 IP 地址指定和多个远程访问服务器设置，完成 VPN 服务器的配置，完成后会自动开启服务</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/22.jpg"></p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/23.jpg"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/22.jpg" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/23.jpg" alt=""></p>
 <p>完成配置后可以在路由和远程访问中了解具体的配置情况</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/24.jpg"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/24.jpg" alt=""></p>
 <p>为了能让远程计算机能够通过拨号接入到 VPN 服务器，需要首先为远程用户创建一个登录账号，右键我的电脑选择管理，在其中选择本地用户和组，在用户中创建用户 vpn，设置密码，并选择密码永不过期。右键该用户选择属性，在其中选择拨入选项卡，勾选允许访问，单击确定后，完成配置</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/25.jpg"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/25.jpg" alt=""></p>
 <h2 id="步骤-3："><a href="#步骤-3：" class="headerlink" title="步骤 3："></a>步骤 3：</h2><p>最后需要在远程计算机中新建 VPN 客户端，首先按照要求配置 IP 地址，并右键网上邻居选择属性，在其中选择创建一个新的连接，选择连接到我的工作场所的网络，单击下一步继续</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/26.jpg"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/26.jpg" alt=""></p>
 <p>在网络连接选项页面，选择虚拟专用网络连接，单击下一步继续，输入公司名称，并输入 VPN 服务器的 IP 地址192.168.87.5，选择在我的桌面上添加一个到此连接的快捷方式</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/27.jpg"></p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/28.jpg"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/27.jpg" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/28.jpg" alt=""></p>
 <p>打开拨号连接，输入用户名和密码，在此输入的是用户名是 vpn，密码是 123456，必须跟 VPN 服务器中设置的一致，单击连接后就可以 VPN 拨号连接，连接成功后可以通过 ipconfig /all 命令，查看到本机网络连接情况，可以清晰的看到在原有的网络连接基础上多了一个 PPP 网络连接适配器，获得的地址就是公司内网的 IP 地址</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/29.jpg"></p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/30.jpg"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/29.jpg" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/30.jpg" alt=""></p>
 <p>VPN 拨号使内部 IP 地址获得成功后，可以通过 ping 命令来进行测试，使用 ping 命令测试公司内部的连通性</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/31.jpg"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/VPN/31.jpg" alt=""></p>
 
   </div>
 </article>

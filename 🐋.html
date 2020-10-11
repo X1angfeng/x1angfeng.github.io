@@ -168,8 +168,10 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/docker/mountain.jpg" height="300px"></p>
+    <img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/docker/mountain.jpg" height="300px">
+
 <a id="more"></a>
+
 <p>近期在云服务器上体验了一把Docker容器，但是在测试时出现了如下所示的问题。<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/docker/1.png"><br>刚开始以为⚠警告并没有什么大的问题，但是在通过IP地址访问tomcat那个页面的时候怎么也看不到应有的页面。然后通过仔细看了一警告后发现<br>IPv4转发被禁用，网络无法正常工作。所以必须编辑一下<code>/usr/lib/sysctl.d/00-system.conf</code>这个文件往里面加入<code>net.ipv4.ip_forward=1</code>才行。然后需要<code>systemctl restart network &amp;&amp; systemctl restart docker</code>重启网络和Docker.最终测试结果如下所示<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/docker/2.png"></p>
 
   </div>

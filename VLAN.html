@@ -176,13 +176,15 @@
 <p>某一公司内财务部、销售部的PC通过2台交换机实现通信；要求财务部和销售部的PC可以互通，但为了数据安全起见，销售部和财务部需要进行互相隔离，现要在交换机上做适当配置来实现这一目标。</p>
 </blockquote>
 <a id="more"></a>
+
 <h1 id="技术原理"><a href="#技术原理" class="headerlink" title="技术原理"></a>技术原理</h1><ol>
 <li>VLAN是指在一个物理网段内。进行逻辑的划分，划分成若干个虚拟局域网，VLAN做大的特性是不受物理位置的限制，可以进行灵活的划分。VLAN具备了一个物理网段所具备的特性。相同VLAN内的主机可以相互直接通信，不同VLAN间的主机之间互相访问必须经路由设备进行转发，广播数据包只可以在本VLAN内进行广播，不能传输到其他VLAN中。</li>
 <li>Port VLAN是实现VLAN的方式之一，它利用交换机的端口进行VALN的划分，一个端口只能属于一个VLAN。</li>
 <li>Tag VLAN是基于交换机端口的另一种类型，主要用于是交换机的相同Vlan内的主机之间可以直接访问，同时对不同Vlan的主机进行隔离。Tag<br>VLAN遵循IEEE802.1Q协议的标准，在使用配置了Tag VLAN的端口进行数据传输时，需要在数据帧内添加4个字节的8021.Q标签信息，用于标示该数据帧属于哪个VLAN,便于对端交换机接收到数据帧后进行准确的过滤。</li>
 </ol>
 <p><code>实验设备</code>Switch_2960 2台；PC 4台；直连线</p>
-<h1 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h1><h2 id="建拓扑图"><a href="#建拓扑图" class="headerlink" title="建拓扑图"></a>建拓扑图</h2><p><img src="/img/st/1.png"></p>
+<h1 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h1><h2 id="建拓扑图"><a href="#建拓扑图" class="headerlink" title="建拓扑图"></a>建拓扑图</h2><img src="/img/st/1.png">
+
 <h2 id="配置交换机的IP地址"><a href="#配置交换机的IP地址" class="headerlink" title="配置交换机的IP地址"></a>配置交换机的IP地址</h2><p>（使用交换机命令行配置或使用PC桌面上的终端配置）</p>
 <p>Switch1&gt;    enable  //进入特权模式</p>
 <p>Switch1#    conf t   //进入全局配置模式</p>
@@ -230,13 +232,14 @@
 <p>​              Submark: 255.255.255.0</p>
 <p>​              Gateway: 192.168.1.1</p>
 <h1 id="结果验证"><a href="#结果验证" class="headerlink" title="结果验证"></a>结果验证</h1><p>①PC1 ping PC2 timeout</p>
-<p><img src="/img/st/2.png"></p>
+<img src="/img/st/2.png">
+
 <p>②PC1 ping PC3 Reply</p>
-<p><img src="/img/st/3.png" alt=""></p>
+<p><img src="/img/st/3.png"></p>
 <p>③PC2 ping PC3 timeout</p>
-<p><img src="/img/st/4.png" alt=""></p>
+<p><img src="/img/st/4.png"></p>
 <p>④PC2 ping PC4 Reply</p>
-<p><img src="/img/st/5.png" alt=""></p>
+<p><img src="/img/st/5.png"></p>
 <p><strong>思考题</strong></p>
 <p> 1.怎么取消一个vlan和vlan中的某些端口？如何同时配置多个端口到同一个vlan下？</p>
 <p><span id="inline-blue">1) 删除vlan 10：</span></p>

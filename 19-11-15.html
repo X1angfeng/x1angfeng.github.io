@@ -176,29 +176,29 @@
   <div class="content" itemprop="articleBody">
     <p>在之前安装ESXI是选择采用桥接的方式，选择的是桥接到无线网卡。十分顺利的安装成功了，但是由于桥接这种方法在后来的使用之中发现有点不太方便。主要有以下弊端：</p>
 <p><strong>我们必须连接固定的WiFi网络;虚拟机中或者物理机的IP修改会带来很多麻烦。</strong></p>
-<p>​    当切换所连接的网络之后，自己电脑的IP地址(内网)会发生相应的变化比如我在宿舍中连接的WiFi是在192.168.1.0这个网段下面的；连接自己手机的热点是172.20.10.0网段下面的；连接同学的手机热点是192.168.43.0这个网段下面的。那么在不同的网段下面就需要修改自己物理机win10的IP地址或者虚拟机中ESXI的IP地址。比如上课当所连的WiFi分配的IP地址为192.168.43.0网段下，ESXI还为上次在宿舍设置的桥接IP地址时192.168.1.0网段下面。这时win10是无法ESXI的IP地址用vsphere client或者使用使用浏览器在web端对ESXI进行操作的。可以通过如下两种方法进行访问，但是这两种方法都不是一个很好的方法。如果修改ESXI的IP地址是可以访问ESXI的同时win10也是可以上网。但是这种方法有个弊端，vCenter可以安装在ESXI中也可以安装在Windows server中。问题就出在当它安装在ESXI中时，当我们要想访问它时。我们会通过IP地址账户密码进行访问。但是IP地址遭到了变化不在同一个网段之下的时候是ping不通的，我们也是访问不了的。可是vCenter要想修改IP地址必须访问<a href="http://ip:5480" target="_blank" rel="noopener">http://ip:5480</a> 来进行修改或者使用SSH远程连接vCenter使用相关命令来进行修改。根本无法访问肯定也是没办法修改的。</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vCenter/1.png" alt=""></p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vCenter/2.png" alt=""></p>
+<p>​    当切换所连接的网络之后，自己电脑的IP地址(内网)会发生相应的变化比如我在宿舍中连接的WiFi是在192.168.1.0这个网段下面的；连接自己手机的热点是172.20.10.0网段下面的；连接同学的手机热点是192.168.43.0这个网段下面的。那么在不同的网段下面就需要修改自己物理机win10的IP地址或者虚拟机中ESXI的IP地址。比如上课当所连的WiFi分配的IP地址为192.168.43.0网段下，ESXI还为上次在宿舍设置的桥接IP地址时192.168.1.0网段下面。这时win10是无法ESXI的IP地址用vsphere client或者使用使用浏览器在web端对ESXI进行操作的。可以通过如下两种方法进行访问，但是这两种方法都不是一个很好的方法。如果修改ESXI的IP地址是可以访问ESXI的同时win10也是可以上网。但是这种方法有个弊端，vCenter可以安装在ESXI中也可以安装在Windows server中。问题就出在当它安装在ESXI中时，当我们要想访问它时。我们会通过IP地址账户密码进行访问。但是IP地址遭到了变化不在同一个网段之下的时候是ping不通的，我们也是访问不了的。可是vCenter要想修改IP地址必须访问<a href="http://ip:5480/" target="_blank" rel="noopener">http://ip:5480</a> 来进行修改或者使用SSH远程连接vCenter使用相关命令来进行修改。根本无法访问肯定也是没办法修改的。</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vCenter/1.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vCenter/2.png"></p>
 <p>所以修改ESXI地址在某种情况下是不可取的，通过修改Windows 10IP地址呢是不会出现这么多问题的。But你修改了静态IP地址之后你Windows就没法上网了呀。如果需要查资料什么的用手机查起来并不是很方便，所以说体验起来也不是很友好。😂😂😂</p>
 <p>那么难到就没有一个完美的解决方案嘛</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vCenter/11.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vCenter/11.png"></p>
 <p>答案是当然是有的，我们可以采用VMware workstation的虚拟网络编辑器添加一个新的网络，并且设置成仅主机模式</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vCenter/3.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vCenter/3.png"></p>
 <p>虚拟机的网络适配器选项选择使用Vmnet4(仅主机模式)这个网络</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vCenter/4.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vCenter/4.png"></p>
 <p>然后重启ESXI并且重新安装一个新的vCenter，可是在安装vCenter的过程之中这次并没有那么的顺利了。安装多次出现了奇奇怪怪的错误这里由于当时没截图所以就先不放图了，反正就是无论如何都安装不上要么安装卡死，要么提示安装错误真的狗血。</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vCenter/8.png" alt=""></p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vCenter/9.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vCenter/8.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vCenter/9.png"></p>
 <p>后面突发奇想既然前面选择桥接安装成功了，那么就先继续使用桥接安装呗。把自己Windows无线网卡的地址设置成在Vmnet4网段下的，这里设置的如下当然可以任意设置</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vCenter/10.jpg" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vCenter/10.jpg"></p>
 <p>并且把ESXI的IP地址也设置成此网段下的地址</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vCenter/6.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vCenter/6.png"></p>
 <p>然后进行安装就完事了最终安装成功后截图如下</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vCenter/7.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vCenter/7.png"></p>
 <p>到此安装完成之后可以把WiFi的IP地址改成自动获取，或者使用拨号上网来对ESXI以及vCenter进行访问了。</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vCenter/12.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vCenter/12.png"></p>
 <p>这样就再也不用担心上面的问题出现了，可以一边愉快的学习虚拟化，一边愉快的做其他的事情。</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vCenter/13.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vCenter/13.png"></p>
 <p>目前使用中没发现问题，这样稳的一比！！！😉😉</p>
 
   </div>

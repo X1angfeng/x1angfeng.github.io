@@ -18,7 +18,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;route&#x2F;s3560.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;route&#x2F;R0.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;route&#x2F;R1.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;route&#x2F;😂.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;route&#x2F;%F0%9F%98%82.png">
 <meta property="og:updated_time" content="2019-05-08T08:17:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;route&#x2F;tuopu.png">
@@ -176,10 +176,11 @@
 <p>假设校园网通过一台三层交换机连到校园网出口路由器上，路由器再和校园外的另一台路由器连接。现要做适当配置，实现校园网内部主机与校园网外部主机之间的相互通信。为了简化网管的管理维护工作，学校决定采用RIPV2协议实现互通。</p>
 </blockquote>
 <a id="more"></a>
+
 <h1 id="技术原理"><a href="#技术原理" class="headerlink" title="技术原理"></a><strong>技术原理</strong></h1><ol>
 <li><strong>RIP(Routing Information Protocols,**</strong>路由信息协议)<strong>是应用较早、使用较普遍的IGP内部网管协议，使用于小型同类网络，是距离矢量协议；</strong></li>
 <li>RIP<strong>协议跳数作为衡量路径开销的，</strong>RIP<strong>协议里规定最大跳数为15；</strong></li>
-<li><strong>*RIP</strong>协议有两个版本：<strong>RIPv1</strong>和<strong>RIPv2</strong>，<strong>RIPv1</strong>属于有类路由协议，不支持<strong>VLSM</strong>，以广播形式进行路由信息的更新，更新周期为30秒；<strong>RIPv2</strong>属于无类路由协议，支持<strong>VLSM</strong>，以组播形式进行路由更细。</li>
+<li>*<strong>RIP</strong>协议有两个版本：<strong>RIPv1</strong>和<strong>RIPv2</strong>，<strong>RIPv1</strong>属于有类路由协议，不支持<strong>VLSM</strong>，以广播形式进行路由信息的更新，更新周期为30秒；<strong>RIPv2</strong>属于无类路由协议，支持<strong>VLSM</strong>，以组播形式进行路由更细。</li>
 </ol>
 <h1 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a><strong>实验步骤</strong></h1><p> 建立建立packet tracer拓扑图</p>
 <p>（1）在本实验中的三层交换机上划分VLAN10和VLAN20，其中VLAN10用于连接校园网主机，VLAN20用于连接R1。</p>
@@ -190,7 +191,7 @@
 <p>（6）将PC1、PC2主机默认网关设置为与直连网路设备接口IP地址。</p>
 <p>（7）验证PC1、PC2主机之间可以互相同信；</p>
 <h1 id="实验设备"><a href="#实验设备" class="headerlink" title="实验设备"></a><strong>实验设备</strong></h1><p>PC 2台；Switch_3560 1台；Router-PT 2台；直连线；交叉线；DCE 串口线</p>
-<p><img src="/img/route/tuopu.png" alt=""></p>
+<p><img src="/img/route/tuopu.png"></p>
 <p><code>PC1</code></p>
 <p>​    IP:                192.168.1.2    </p>
 <p>​    Submask:    255.255.255.0</p>
@@ -217,11 +218,11 @@
 <p>Router(config-if)#exit<br>Router(config)#router rip<br>Router(config-router)#network 192.168.2.0<br>Router(config-router)#network 192.168.4.0<br>Router(config-router)#version 2</p>
 </blockquote>
 <h1 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h1><p>验证之前先查看路由表是否正确,正确的如下所示。</p>
-<p><img src="/img/route/s3560.png" alt=""></p>
-<p><img src="/img/route/R0.png" alt=""></p>
-<p><img src="/img/route/R1.png" alt=""></p>
+<p><img src="/img/route/s3560.png"></p>
+<p><img src="/img/route/R0.png"></p>
+<p><img src="/img/route/R1.png"></p>
 <p><code>PC1</code>  ping  <code>PC2</code></p>
-<p><img src="/img/route/😂.png" alt=""></p>
+<p><img src="/img/route/%F0%9F%98%82.png"></p>
 <p><strong><code>注意</code></strong>:开启动态路由应选择version2版本！</p>
 
   </div>

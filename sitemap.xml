@@ -30,13 +30,6 @@
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/selectionSort.html</loc>
-    
-    <lastmod>2020-07-17T08:47:00.903Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://521.ooo/sort/shellSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.903Z</lastmod>
@@ -44,14 +37,21 @@
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/quickSort.html</loc>
+    <loc>https://521.ooo/sort/selectionSort.html</loc>
+    
+    <lastmod>2020-07-17T08:47:00.903Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://521.ooo/sort/radixSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.877Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/radixSort.html</loc>
+    <loc>https://521.ooo/sort/quickSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.877Z</lastmod>
     
@@ -72,13 +72,6 @@
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/countingSort.html</loc>
-    
-    <lastmod>2020-07-17T08:47:00.875Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://521.ooo/sort/heapSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.875Z</lastmod>
@@ -86,14 +79,21 @@
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/bucketSort.html</loc>
+    <loc>https://521.ooo/sort/countingSort.html</loc>
+    
+    <lastmod>2020-07-17T08:47:00.875Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://521.ooo/sort/bubbleSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.874Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/bubbleSort.html</loc>
+    <loc>https://521.ooo/sort/bucketSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.874Z</lastmod>
     

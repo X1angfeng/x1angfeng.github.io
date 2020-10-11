@@ -169,20 +169,20 @@
 
   <div class="content" itemprop="articleBody">
     <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>在使用是AMD处理器的电脑，安装Android studio时遇到了如下问题</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/20-5-2/1.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/20-5-2/1.png"></p>
 <p>在网上看了很多解决方法，但是都不是十分的完整，在看了Android官方说明文档解决了问题。</p>
 <p><a href="https://androidstudio.googleblog.com/2019/10/android-emulator-hypervisor-driver-for.html" target="_blank" rel="noopener">官方文档链接🔗</a></p>
 <h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>主要解决方法如下:</p>
 <p>1.首先开启电脑虚拟化，是否开启可以通过任务管理器查看，虚拟化显示已启用表示已经开启了。如果虚拟化没有开启，重启按进入BIOS，设置CPU开启虚拟化。</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/20-5-2/2.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/20-5-2/2.png"></p>
 <p>由于不同牌子的电脑进入BIOS和开启虚拟化不太一样，这里就不再详细阐述可以自行百度解决。</p>
 <p>2.关闭Hyper-V和Windows虚拟机监控程序平台等。在控制面版中打开Windows功能，把那些选项给关闭掉</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/20-5-2/3.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/20-5-2/3.png"></p>
 <p>3.安装Android Emulator Hypervisor Driver for AMD Processors”</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/20-5-2/4.PNG" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/20-5-2/4.PNG"></p>
 <p>然后使用管理员权限打开Windows命令控制台转到自己的SDK目录下的\extras\ google\ Android_Emulator_Hypervisor_Driver文件夹下运行silent_install.bat。如果执行结果返回是：STATE: 4 RUNNING，说明安装成功就可以正常使用了。</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/20-5-2/5.PNG" alt=""></p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/20-5-2/6.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/20-5-2/5.PNG"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/20-5-2/6.png"></p>
 
   </div>
 </article>

@@ -176,8 +176,9 @@
 <p><code>在主函数任意一行加上如下代码：#pragma warning(disable:4996)</code></p>
 <p>如图所示<img src="/img/vs.png"></p>
 <p><span id="inline-purple">方法三:</span></p>
-<p><code>**更改预处理定义：  项目-&gt;属性-&gt;配置属性-&gt;C/C++ -&gt; 预处理器 -&gt; 预处理器定义，增加_CRT_SECURE_NO_DEPRECATE**</code></p>
-<p><img src="/img/vs1.png"></p>
+<p><code>**更改预处理定义：  项目-&gt;属性-&gt;配置属性-&gt;C/C++ -&gt; 预处理器 -&gt; 预处理器定义，增加_CRT_SECURE_NO_DEPRECATE** </code></p>
+<img src="/img/vs1.png">
+
 <p><span id="yellow">方法四：</span></p>
 <p><code>最为简单的方法就是直接使用安全函数来替换老的函数.如scanf改为scanf_s即可。</code></p>
 

@@ -176,7 +176,7 @@
     
       <div class="outdated-warn">
         <i class="fas fa-exclamation-circle"></i>
-        这是一篇更新于 536 天前的文章，其中的信息可能已经有所发展或是发生改变。
+        这是一篇更新于 537 天前的文章，其中的信息可能已经有所发展或是发生改变。
       </div>
     
   
@@ -205,65 +205,57 @@
 <p>3.RT采用单臂路由方式，实现不同网段互通</p>
 <p>4.实验验证：</p>
 <p>实现PC1和PC2互相PING</p>
-<p><img src="/img/route/danbi.png" alt=""></p>
+<p><img src="/img/route/danbi.png"></p>
 <center>由图我们可知
     PC1</center>
 
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center">IP</th>
-<th style="text-align:center">192.168.0.1/28</th>
+<th align="center">IP</th>
+<th align="center">192.168.0.1/28</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">NETWORK</td>
-<td style="text-align:center">192.168.0.0/28</td>
+<tbody><tr>
+<td align="center">NETWORK</td>
+<td align="center">192.168.0.0/28</td>
 </tr>
 <tr>
-<td style="text-align:center">Broadcast</td>
-<td style="text-align:center">192.168.0.15/28</td>
+<td align="center">Broadcast</td>
+<td align="center">192.168.0.15/28</td>
 </tr>
 <tr>
-<td style="text-align:center">Gateway</td>
-<td style="text-align:center">192.168.0.2/28~192.168.0.14/28</td>
+<td align="center">Gateway</td>
+<td align="center">192.168.0.2/28~192.168.0.14/28</td>
 </tr>
-</tbody>
-</table>
-</div>
-<p>PC1的IP地址为<code>pc1:192.168.0.1/28</code>则其<code>network:192.168.0.0/28</code>我们可以通过IP地址✖子网掩码而得出。</p>
+</tbody></table>
+<p>PC1的IP地址为<code>pc1:192.168.0.1/28</code>则其<code>network:192.168.0.0/28     </code>我们可以通过IP地址✖子网掩码而得出。</p>
 <p>32-28=4,那么2<sup>4</sup>=16,所以共有16个IP地址<code>br:192.168.0.15/28</code>,网关地址可用范围为<code>gw:192.168.0.2/28~192.168.0.14/28</code></p>
 <center>PC2</center>
 
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center">IP</th>
-<th style="text-align:center">192.168.0.20/28</th>
+<th align="center">IP</th>
+<th align="center">192.168.0.20/28</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">NETWORK</td>
-<td style="text-align:center">192.168.0.16/28</td>
+<tbody><tr>
+<td align="center">NETWORK</td>
+<td align="center">192.168.0.16/28</td>
 </tr>
 <tr>
-<td style="text-align:center">Broadcast</td>
-<td style="text-align:center">192.168.0.31/28</td>
+<td align="center">Broadcast</td>
+<td align="center">192.168.0.31/28</td>
 </tr>
 <tr>
-<td style="text-align:center">Gateway</td>
-<td style="text-align:center">192.168.0.17/28~192.168.0.30/28</td>
+<td align="center">Gateway</td>
+<td align="center">192.168.0.17/28~192.168.0.30/28</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p><code>pc2:192.168.0.20/28</code>则其<code>network:192.168.0.16/28</code> 我们可以通过IP地址✖子网掩码而得出。    </p>
 <p>32-28=4,那么2<sup>4</sup>=16 ,所以共有16个IP地址<code>br:192.168.0.31/28</code>网关地址可用范围<code>gw:192.168.0.17/28~192.168.0.30/28</code></p>
-<h2 id="配置相关机器"><a href="#配置相关机器" class="headerlink" title="配置相关机器"></a>配置相关机器</h2><h3 id="配置PC"><a href="#配置PC" class="headerlink" title="配置PC"></a>配置PC</h3><p><img src="/img/route/pc1.png" alt=""><img src="/img/route/pc2.png" alt=""></p>
+<h2 id="配置相关机器"><a href="#配置相关机器" class="headerlink" title="配置相关机器"></a>配置相关机器</h2><h3 id="配置PC"><a href="#配置PC" class="headerlink" title="配置PC"></a>配置PC</h3><p><img src="/img/route/pc1.png"><img src="/img/route/pc2.png"></p>
 <h3 id="配置交换机"><a href="#配置交换机" class="headerlink" title="配置交换机"></a>配置交换机</h3><blockquote>
 <p>Switch&gt;en</p>
 <p>Switch#conf t</p>
@@ -299,103 +291,91 @@
 </blockquote>
 <p><code>show run</code>命令可查看接口是否启用</p>
 <h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p><code>PC1 ping PC2</code></p>
-<p><img src="/img/route/1.png" alt=""></p>
+<p><img src="/img/route/1.png"></p>
 <p><code>PC2 ping PC1</code></p>
-<p><img src="/img/route/2.png" alt=""></p>
+<p><img src="/img/route/2.png"></p>
 <h1 id="VLAN间路由、静态路由"><a href="#VLAN间路由、静态路由" class="headerlink" title="VLAN间路由、静态路由"></a>VLAN间路由、静态路由</h1><p>单臂路由实验要求：(RS为三层交换机、R为路由器)</p>
 <p>1.按照拓扑图所示，搭建网络环境，进行设备重命名</p>
 <p>2.根据PC机给定的IP地址信息，计算各自的网关地址，完成IP地址配置</p>
 <p>3.RS1、R2采用静态路由配置实现网络互通</p>
 <p>4.实验验证</p>
 <p>实现PC1与PC2、PC3互PING</p>
-<p><img src="/img/route/tu2.png" alt=""></p>
+<p><img src="/img/route/tu2.png"></p>
 <center>由图我们可知
     PC1</center>
 
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center">IP</th>
-<th style="text-align:center">192.168.0.1/28</th>
+<th align="center">IP</th>
+<th align="center">192.168.0.1/28</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">NETWORK</td>
-<td style="text-align:center">192.168.0.0/28</td>
+<tbody><tr>
+<td align="center">NETWORK</td>
+<td align="center">192.168.0.0/28</td>
 </tr>
 <tr>
-<td style="text-align:center">Broadcast</td>
-<td style="text-align:center">192.168.0.15/28</td>
+<td align="center">Broadcast</td>
+<td align="center">192.168.0.15/28</td>
 </tr>
 <tr>
-<td style="text-align:center">Gateway</td>
-<td style="text-align:center">192.168.0.2/28~192.168.0.14/28</td>
+<td align="center">Gateway</td>
+<td align="center">192.168.0.2/28~192.168.0.14/28</td>
 </tr>
-</tbody>
-</table>
-</div>
-<p>PC1的IP地址为<code>pc1:192.168.0.1/28</code>则其<code>network:192.168.0.0/28</code>我们可以通过IP地址✖子网掩码而得出。</p>
+</tbody></table>
+<p>PC1的IP地址为<code>pc1:192.168.0.1/28</code>则其<code>network:192.168.0.0/28     </code>我们可以通过IP地址✖子网掩码而得出。</p>
 <p>32-28=4,那么2<sup>4</sup>=16,所以共有16个IP地址<code>br:192.168.0.15/28</code>,网关地址可用范围为<code>gw:192.168.0.2/28~192.168.0.14/28</code></p>
 <center>PC2</center>
 
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center">IP</th>
-<th style="text-align:center">192.168.0.20/28</th>
+<th align="center">IP</th>
+<th align="center">192.168.0.20/28</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">NETWORK</td>
-<td style="text-align:center">192.168.0.16/28</td>
+<tbody><tr>
+<td align="center">NETWORK</td>
+<td align="center">192.168.0.16/28</td>
 </tr>
 <tr>
-<td style="text-align:center">Broadcast</td>
-<td style="text-align:center">192.168.0.31/28</td>
+<td align="center">Broadcast</td>
+<td align="center">192.168.0.31/28</td>
 </tr>
 <tr>
-<td style="text-align:center">Gateway</td>
-<td style="text-align:center">192.168.0.17/28~192.168.0.30/28</td>
+<td align="center">Gateway</td>
+<td align="center">192.168.0.17/28~192.168.0.30/28</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p><code>pc2:192.168.0.20/28</code>则其<code>network:192.168.0.16/28</code> 我们可以通过IP地址✖子网掩码而得出。    </p>
 <p>32-28=4，那么2<sup>4</sup>=16,所以共有16个IP地址<code>br:192.168.0.31/28</code>网关地址可用范围<code>gw:192.168.0.17/28~192.168.0.30/28</code></p>
 <p>`</p>
 <center>PC3</center>
 
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center">IP</th>
-<th style="text-align:center">192.168.0.33/28</th>
+<th align="center">IP</th>
+<th align="center">192.168.0.33/28</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">NETWORK</td>
-<td style="text-align:center">192.168.0.32/28</td>
+<tbody><tr>
+<td align="center">NETWORK</td>
+<td align="center">192.168.0.32/28</td>
 </tr>
 <tr>
-<td style="text-align:center">Broadcast</td>
-<td style="text-align:center">192.168.0.47/28</td>
+<td align="center">Broadcast</td>
+<td align="center">192.168.0.47/28</td>
 </tr>
 <tr>
-<td style="text-align:center">Gateway</td>
-<td style="text-align:center">192.168.0.34/28~192.168.0.46/28</td>
+<td align="center">Gateway</td>
+<td align="center">192.168.0.34/28~192.168.0.46/28</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p><code>pc2:192.168.0.33/28</code>则其<code>network:192.168.0.32/28</code> 我们可以通过IP地址✖子网掩码而得出。    </p>
 <p>32-28=4，那么2<sup>4</sup>=16,所以共有16个IP地址,<code>br:192.168.0.47/28</code>那么网关地址可用范围<code>gw:192.168.0.34/28~192.168.0.46/28</code></p>
-<h2 id="配置相关机器-1"><a href="#配置相关机器-1" class="headerlink" title="配置相关机器"></a>配置相关机器</h2><h3 id="配置PC-1"><a href="#配置PC-1" class="headerlink" title="配置PC"></a>配置PC</h3><p><img src="/img/route/pc1-1.png" alt=""><img src="/img/route/pc1-2.png" alt=""><img src="/img/route/pc1-3.png" alt=""></p>
+<h2 id="配置相关机器-1"><a href="#配置相关机器-1" class="headerlink" title="配置相关机器"></a>配置相关机器</h2><h3 id="配置PC-1"><a href="#配置PC-1" class="headerlink" title="配置PC"></a>配置PC</h3><p><img src="/img/route/pc1-1.png"><img src="/img/route/pc1-2.png"><img src="/img/route/pc1-3.png"></p>
 <h3 id="配置三层交换机RS2"><a href="#配置三层交换机RS2" class="headerlink" title="配置三层交换机RS2"></a>配置三层交换机<code>RS2</code></h3><blockquote>
 <p>Switch&gt;en<br>Switch#conf t</p>
 <p>Switch(config)#vlan 10<br>Switch(config-vlan)#exit<br>Switch(config)#vlan 20<br>Switch(config-vlan)#exit</p>
@@ -414,98 +394,86 @@
 <p>Router(config)#int fa 0/1<br>Router(config-if)#ip add 192.168.0.34 255.255.255.240<br>Router(config-if)#no shutdown<br>Router(config-if)#exit</p>
 <p>Router(config)#ip route 192.168.0.0 255.255.255.240 172.16.1.1<br>Router(config)#ip route 192.168.0.16 255.255.255.240 172.16.1.1</p>
 </blockquote>
-<h2 id="验证-1"><a href="#验证-1" class="headerlink" title="验证"></a>验证</h2><p><code>PC1 ping PC2与PC3</code><img src="/img/route/ping23.png" alt=""><code>PC2 ping PC1与PC3</code><img src="/img/route/ping13.png" alt=""><code>PC3 ping PC1与PC2</code><img src="/img/route/ping12.png" alt=""></p>
+<h2 id="验证-1"><a href="#验证-1" class="headerlink" title="验证"></a>验证</h2><p><code>PC1 ping PC2与PC3</code><img src="/img/route/ping23.png"><code>PC2 ping PC1与PC3</code><img src="/img/route/ping13.png"><code>PC3 ping PC1与PC2</code><img src="/img/route/ping12.png"></p>
 <h1 id="单臂路由、静态路由"><a href="#单臂路由、静态路由" class="headerlink" title="单臂路由、静态路由"></a>单臂路由、静态路由</h1><p>路由实验要求：(SW为交换机，R为路由器)</p>
 <p>1.按照拓扑所示，搭建网络环境，进行设备的重命名</p>
 <p>2.根据PC机给定的网关地址信息，完成各自主机IP地址计算及配置</p>
 <p>3.实现PC1与PC2、PC3互通，PC2与PC3不通</p>
-<p><img src="/img/route/tu3.png" alt=""></p>
+<p><img src="/img/route/tu3.png"></p>
 <center>由图我们可知
     PC1</center>
 
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center">IP</th>
-<th style="text-align:center">192.168.0.1/27~192.168.0.29/27</th>
+<th align="center">IP</th>
+<th align="center">192.168.0.1/27~192.168.0.29/27</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">NETWORK</td>
-<td style="text-align:center">192.168.0.0/27</td>
+<tbody><tr>
+<td align="center">NETWORK</td>
+<td align="center">192.168.0.0/27</td>
 </tr>
 <tr>
-<td style="text-align:center">Broadcast</td>
-<td style="text-align:center">192.168.0.31/27</td>
+<td align="center">Broadcast</td>
+<td align="center">192.168.0.31/27</td>
 </tr>
 <tr>
-<td style="text-align:center">Gateway</td>
-<td style="text-align:center">192.168.0.30/27</td>
+<td align="center">Gateway</td>
+<td align="center">192.168.0.30/27</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>PC1的网关地址为<code>GW:192.168.0.30/27</code>则其<code>network:192.168.0.0/27</code>我们可以通过网关地址✖子网掩码而得出。</p>
 <p>32-27=5,那么2<sup>5</sup>=32，则有32个IP，广播地址<code>br:192.168.0.31/27</code>,IP地址可用范围为<code>IP:192.168.0.1/27~192.168.0.29/27</code>。<span id="inline-blue">注意</span>IP地址不能和网关地址一样</p>
 <center>PC2</center>
 
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center">IP</th>
-<th style="text-align:center">192.168.0.33/27~192.168.0.62/27</th>
+<th align="center">IP</th>
+<th align="center">192.168.0.33/27~192.168.0.62/27</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">NETWORK</td>
-<td style="text-align:center">192.168.0.32/27</td>
+<tbody><tr>
+<td align="center">NETWORK</td>
+<td align="center">192.168.0.32/27</td>
 </tr>
 <tr>
-<td style="text-align:center">Broadcast</td>
-<td style="text-align:center">192.168.0.63/27</td>
+<td align="center">Broadcast</td>
+<td align="center">192.168.0.63/27</td>
 </tr>
 <tr>
-<td style="text-align:center">Gateway</td>
-<td style="text-align:center">192.168.0.40/27</td>
+<td align="center">Gateway</td>
+<td align="center">192.168.0.40/27</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>PC2的网关地址为<code>GW:192.168.0.40/27</code>则其<code>network:192.168.0.32/27</code> 我们可以通过网关地址✖子网掩码而得出。</p>
 <p>32-27=5    ,2<sup>5</sup>=32 ,所以有32个IP地址，广播地址<code>br:192.168.0.63/27</code>，IP地址可用范围为<code>IP:192.168.0.33/27~192.168.0.62/27</code>。<span id="inline-yellow">注意</span>IP地址不能和网关地址一样</p>
 <center>PC3</center>
 
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center">IP</th>
-<th style="text-align:center">10.10.10.1/29~10.10.10.30/29</th>
+<th align="center">IP</th>
+<th align="center">10.10.10.1/29~10.10.10.30/29</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">NETWORK</td>
-<td style="text-align:center">10.10.10.0/29</td>
+<tbody><tr>
+<td align="center">NETWORK</td>
+<td align="center">10.10.10.0/29</td>
 </tr>
 <tr>
-<td style="text-align:center">Broadcast</td>
-<td style="text-align:center">10.10.10.7/29</td>
+<td align="center">Broadcast</td>
+<td align="center">10.10.10.7/29</td>
 </tr>
 <tr>
-<td style="text-align:center">Gateway</td>
-<td style="text-align:center">10.10.10.6/29</td>
+<td align="center">Gateway</td>
+<td align="center">10.10.10.6/29</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>PC3的网关地址为<code>GW:10.10.10.6/29</code>则其网络地址为<code>network:10.10.10.0/29</code> 我们可以通过网关地址✖子网掩码而得出。</p>
 <p>32-29=3    ,2<sup>3</sup>=8 ,所以有8个IP地址，广播地址<code>br:10.10.10.7/29</code>，IP地址可用范围为<code>IP:10.10.10.1/29~10.10.10.5/29</code>。</p>
-<h2 id="配置相关机器-2"><a href="#配置相关机器-2" class="headerlink" title="配置相关机器"></a>配置相关机器</h2><h3 id="配置PC-2"><a href="#配置PC-2" class="headerlink" title="配置PC"></a>配置PC</h3><p><img src="/img/route/pc11.png" alt=""><img src="/img/route/pc22.png" alt=""><img src="/img/route/pc33.png" alt=""></p>
+<h2 id="配置相关机器-2"><a href="#配置相关机器-2" class="headerlink" title="配置相关机器"></a>配置相关机器</h2><h3 id="配置PC-2"><a href="#配置PC-2" class="headerlink" title="配置PC"></a>配置PC</h3><p><img src="/img/route/pc11.png"><img src="/img/route/pc22.png"><img src="/img/route/pc33.png"></p>
 <h3 id="配置交换机SW"><a href="#配置交换机SW" class="headerlink" title="配置交换机SW"></a>配置交换机SW</h3><blockquote>
 <p>Switch&gt;en<br>Switch#conf t</p>
 <p>Switch(config)#vlan 10<br>Switch(config-vlan)#exit<br>Switch(config)#vlan 20<br>Switch(config-vlan)#exit<br>Switch(config)#int fa 0/1<br>Switch(config-if)#sw acc vlan 10<br>Switch(config-if)#no shutdown<br>Switch(config-if)#exit</p>
@@ -531,11 +499,11 @@
 <p>Router(config)#ip route 192.168.0.0 255.255.255.224 172.0.0.1    //配置静态路由</p>
 </blockquote>
 <h2 id="验证-2"><a href="#验证-2" class="headerlink" title="验证"></a>验证</h2><p><code>PC1 ping PC2与PC3</code></p>
-<p><img src="/img/route/ping2-3.png" alt=""></p>
+<p><img src="/img/route/ping2-3.png"></p>
 <p><code>PC2 ping PC1与PC3</code></p>
-<p><img src="/img/route/ping1-3.png" alt=""></p>
+<p><img src="/img/route/ping1-3.png"></p>
 <p><code>PC3 ping PC1与PC2</code></p>
-<p><img src="/img/route/ping1-2.png" alt=""></p>
+<p><img src="/img/route/ping1-2.png"></p>
 
   </div>
 </article>

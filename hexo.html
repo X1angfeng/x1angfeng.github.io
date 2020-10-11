@@ -125,7 +125,7 @@
     
    |
     <i class="far fa-file-word fa-fw"></i>
-    文章字数:<span class="post-count">753</span>
+    文章字数:<span class="post-count">764</span>
     |
     <i class="far fa-clock fa-fw"></i>
     阅读时长:<span class="post-count">2</span>min
@@ -168,7 +168,7 @@
   
 <div class="article-gallery">
     
-    <a class="gallery-item" href="/img/code.jpg" rel="gallery_ckg3v6mjr002csg359x4b1x71">
+    <a class="gallery-item" href="/img/code.jpg" rel="gallery_ckg4hmp1a002vzc3560jvbt3o">
         <img src="/img/code.jpg" itemprop="image" />
     </a>
     
@@ -177,19 +177,22 @@
 
   <div class="content" itemprop="articleBody">
     <p>​    近日使用Hexo和GithubPages搭建了属于自己的博客，从博客搭建开始到最后搭建成功一直都小心翼翼。生怕自己一不小心就会踩到莫名奇妙的坑🕳，搭建的过程比较的顺利没有出什么错误。直到昨天！！！<a id="more"></a></p>
-<p>​    GithubPages 呢在国内较慢，百度不收录，而CodingPages 在国内较快。因为还有几个腾讯云活动几块钱购买的域名还在闲置着，所以呢我就寻思着新建一个博客托管到CodingPages上面。在之前曾使用国外虚假身份证撸过国外学校的教育邮箱，当时是想申请AWS学生包来着，没想到最后翻车了申请了多次都没有申请成功。既然是教育邮箱那么肯定有很多优惠啊什么的，当时就申请了GitHub学生包等一些其他的东西。当时就突发奇想我可以把博客同时托管到两个平台上😂，于是最终就把博客托管到了用当时的GitHub账号的存储库下面。在此过程中需要创建SSH key所以就把之前的(C:\Users\Administrator\.ssh)文件夹下内容给删掉了。使用ssh-keygen -t rsa -C “邮箱地址”生成了新的密钥文件。新的博客最后也搭建成功了也可以正常访问<a href="https://www.6bl.xyz" target="_blank" rel="noopener">另外一个博客地址</a> 。好了废话讲了这么多肯定都听腻了，下面讲重点好了。</p>
-<p>​    之前博客科学上网的那篇文章一直没有写完(不是我不想写，因为实在太多了写不动了)，就想去再写一点内容。写了一部分内容后当我把博客推送到GitHub时出现了问题，没有推送成功。报错是下面所示的样子<img src="/img/error.png" alt="">大致看了一下报错的内容它这里说”Please make sure you have the correct access rights and the repository exists.”谷歌了一下原来是SSH key有问题。<img src="/img/chidai1.jpg" alt="">之前曾生成过一次SSH key但是两个网站是用的不同的GitHub账号，他们各自绑定的邮箱也是不同的所以才会报如此错误。所以就又删掉了(C:\Users\Administrator\.ssh)文件夹下内容，需要重新生成一下密钥文件。</p>
+<p>​    GithubPages 呢在国内较慢，百度不收录，而CodingPages 在国内较快。因为还有几个腾讯云活动几块钱购买的域名还在闲置着，所以呢我就寻思着新建一个博客托管到CodingPages上面。在之前曾使用国外虚假身份证撸过国外学校的教育邮箱，当时是想申请AWS学生包来着，没想到最后翻车了申请了多次都没有申请成功。既然是教育邮箱那么肯定有很多优惠啊什么的，当时就申请了GitHub学生包等一些其他的东西。当时就突发奇想我可以把博客同时托管到两个平台上😂，于是最终就把博客托管到了用当时的GitHub账号的存储库下面。在此过程中需要创建SSH key所以就把之前的(C:\Users\Administrator\.ssh)文件夹下内容给删掉了。使用ssh-keygen -t rsa -C “邮箱地址”生成了新的密钥文件。新的博客最后也搭建成功了也可以正常访问<a href="https://www.6bl.xyz/" target="_blank" rel="noopener">另外一个博客地址</a> 。好了废话讲了这么多肯定都听腻了，下面讲重点好了。</p>
+<p>​    之前博客科学上网的那篇文章一直没有写完(不是我不想写，因为实在太多了写不动了)，就想去再写一点内容。写了一部分内容后当我把博客推送到GitHub时出现了问题，没有推送成功。报错是下面所示的样子<img src="/img/error.png">大致看了一下报错的内容它这里说”Please make sure you have the correct access rights and the repository exists.”谷歌了一下原来是SSH key有问题。<img src="/img/chidai1.jpg">之前曾生成过一次SSH key但是两个网站是用的不同的GitHub账号，他们各自绑定的邮箱也是不同的所以才会报如此错误。所以就又删掉了(C:\Users\Administrator\.ssh)文件夹下内容，需要重新生成一下密钥文件。</p>
 <p>1.首先我得重新在git设置一下身份的名字和邮箱，Git Bash进入到需要提交的文件夹底下输入</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">"yourname"</span></span><br><span class="line"></span><br><span class="line">git<span class="built_in"> config </span>--global user.email“your@email.com<span class="string">"</span></span><br></pre></td></tr></table></figure>
-<p>2.ssh-keygen -t rsa -C “your@email.com”（请填你设置的邮箱地址）一直回车即可。</p>
-<p><img src="/img/01.png" alt=""></p>
-<p>3.复制密钥文件内容（路径形如<code>C:\Users\Administrator\.ssh\id_rsa.pub</code>），粘贴到<a href="https://github.com/settings/keys" target="_blank" rel="noopener">New SSH Key</a>即可。<img src="/img/02.png" alt=""></p>
+
+<p>2.ssh-keygen -t rsa -C “<a href="mailto:&#x79;&#111;&#117;&#114;&#64;&#101;&#x6d;&#x61;&#x69;&#x6c;&#46;&#x63;&#x6f;&#109;">&#x79;&#111;&#117;&#114;&#64;&#101;&#x6d;&#x61;&#x69;&#x6c;&#46;&#x63;&#x6f;&#109;</a>“（请填你设置的邮箱地址）一直回车即可。</p>
+<p><img src="/img/01.png"></p>
+<p>3.复制密钥文件内容（路径形如<code>C:\Users\Administrator\.ssh\id_rsa.pub</code>），粘贴到<a href="https://github.com/settings/keys" target="_blank" rel="noopener">New SSH Key</a>即可。<img src="/img/02.png"></p>
 <p>4.在命令行中(Git Bash)中输入</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ssh</span> <span class="selector-tag">-T</span> <span class="selector-tag">git</span>@<span class="keyword">github</span>.<span class="keyword">com</span></span><br></pre></td></tr></table></figure>
+
 <center>再输入yes当返回返回“You’ve successfully authenticated”即成功</center>
 
 <p>5.推送到GithubPages。在命令行（即Git Bash）依次输入以下命令， 返回<code>INFO Deploy done: git</code>即成功推送：</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">hexo</span> <span class="string">g</span></span><br><span class="line"><span class="attr">hexo</span> <span class="string">d</span></span><br></pre></td></tr></table></figure>
+
 
   </div>
 </article>

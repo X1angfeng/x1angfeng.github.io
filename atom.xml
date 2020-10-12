@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://521.ooo/"/>
-  <updated>2020-07-19T13:59:16.000Z</updated>
+  <updated>2020-10-12T15:41:12.000Z</updated>
   <id>https://521.ooo/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>KVM创建虚拟机，文件无法访问错误permission denied</title>
+    <link href="https://521.ooo/kvm-error.html"/>
+    <id>https://521.ooo/kvm-error.html</id>
+    <published>2020-10-12T15:41:12.000Z</published>
+    <updated>2020-10-12T15:41:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting/dist/Meting.min.js"></script><p>在使用kvm创建虚拟机时候，出现如下错误：<br><code>KVM cannot access storage file (as uid:107, gid:107)permission denied</code></p><p>解决方法<br>修改文件 <code>/etc/libvirt/qemu.conf</code>做如下修改</p><p><img src="/img/kvm/1.png" alt="">然后重启服务：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart libvirtd.service</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css&quot;&gt;&lt;script src=&quot;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="KVM" scheme="https://521.ooo/tags/KVM/"/>
+    
+  </entry>
   
   <entry>
     <title>git常用命令</title>
@@ -280,9 +304,9 @@
     
     
     
-      <category term="虚拟化" scheme="https://521.ooo/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/"/>
-    
       <category term="VMware" scheme="https://521.ooo/tags/VMware/"/>
+    
+      <category term="虚拟化" scheme="https://521.ooo/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/"/>
     
   </entry>
   
@@ -425,9 +449,9 @@
       <category term="虚拟化" scheme="https://521.ooo/categories/%E8%99%9A%E6%8B%9F%E5%8C%96/"/>
     
     
-      <category term="虚拟化" scheme="https://521.ooo/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/"/>
-    
       <category term="VMware" scheme="https://521.ooo/tags/VMware/"/>
+    
+      <category term="虚拟化" scheme="https://521.ooo/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/"/>
     
   </entry>
   
@@ -473,31 +497,6 @@
     
     
       <category term="Docker" scheme="https://521.ooo/tags/Docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>zsh卸载后无法root问题解决</title>
-    <link href="https://521.ooo/su.html"/>
-    <id>https://521.ooo/su.html</id>
-    <published>2019-06-05T06:15:18.000Z</published>
-    <updated>2019-06-05T06:15:18.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting/dist/Meting.min.js"></script><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/su/1.png" alagin="center"><p>最近给自己的Linux终端做了一个美化，使用的是<code>oh-my-zsh</code>，并且用<code>chsh -s /bin/zsh</code>命令把zsh改成了登录root时使用的shell。但是自己手贱不小心直接把安装的zsh给卸载了🤣。然后就遇到了无法登录root用户的这个问题……<a id="more"></a></p><p>这个提示的是找不到<code>/bin/zsh</code>这个文件或者目录。🦑由于是卸载了的所以肯定找不到的。对于这个问题想的是直接用<code>chsh /bin/zsh</code>把他改回来。但是呢这个修改的也仅仅只是限定于修改当前登录的用户，现在也就是只能修改普通用户的shell，root用户没有登录是无法所以是不行的。使用<code>cat /etc/passwd</code>查看了一下相关文件。</p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/su/2.png"><p>必须把root用户登录的shell改成其他的才行。这里我竟然会想到使用<code>vim /etc/passwd</code>命令来修改，但是对于普通用户来说那个文件只是可读的无法做修改。</p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/su/3.png"><p>那加个sudo呢？使用<code> sudo vim /etc/passwd</code>还是不行的。</p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/su/4.png"><p>这个必须做对<code>/etc/sudoers</code>做相关修改才行，而且这个要修改也就有涉及到登录root用户的问题这个更不用想了。</p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/su/cat.jpg"><p>对于这个问题最后是这么处理的，重启服务器来到启动菜单，出现以下字样立刻按ESC键来到启动菜单。</p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/su/6.png"><p>然后按esc键来到下面这个界面</p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/su/5.png"><p>输入a然后会进入这个界面<img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/su/7.png"></p><p>输入<code>init=/bin/sh</code>后按回车进入另外一个界面<img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/su/8.png"></p><p>然后输入<code>mount –orw,remount /</code>,以读写的方式重新挂载分区，然后在使用<code>vim /etc/passwd</code>命令来修改配置文件</p><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/su/9.png">，修改成<code>/bin/bash</code>然后保存退出。重启系统然后就可以登录root用户了😂</p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/su/ku.png">]]></content>
-    
-    <summary type="html">
-    
-      &lt;img src=&quot;https://b-l.oss-cn-hongkong.aliyuncs.com/photos/su/1.png&quot; alagin=&quot;center&quot;&gt;
-
-&lt;p&gt;最近给自己的Linux终端做了一个美化，使用的是&lt;code&gt;oh-my-zsh&lt;/code&gt;，并且用&lt;code&gt;chsh -s /bin/zsh&lt;/code&gt;命令把zsh改成了登录root时使用的shell。但是自己手贱不小心直接把安装的zsh给卸载了🤣。然后就遇到了无法登录root用户的这个问题……
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="https://521.ooo/categories/Linux/"/>
-    
-    
-      <category term="Linux" scheme="https://521.ooo/tags/Linux/"/>
     
   </entry>
   

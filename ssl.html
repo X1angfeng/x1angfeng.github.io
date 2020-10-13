@@ -158,9 +158,10 @@
   <div class="content" itemprop="articleBody">
     <p>博客是托管在coding与github上的，分别开启了https。但是Coding Pages提供的SSL/TLS证书，每次申请成功后有效期是三个月，证书到期后可以继续免费申请。但是当我登陆进入Coding Pages服务的后台并点击重新申请证书时，竟然报错了！！报错信息如下</p>
 <blockquote>
-<p>urn:acme:error:unauthorized:Invalid response from <a href="http://exmaple.com/.well-known/acme-challenge/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" target="_blank" rel="noopener">http://exmaple.com/.well-known/acme-challenge/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</a>: xxxxxxxxx</p>
+<p>urn:acme:error:unauthorized:Invalid response from <a href="http://exmaple.com/.well-known/acme-challenge/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:" target="_blank" rel="noopener">http://exmaple.com/.well-known/acme-challenge/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:</a> xxxxxxxxx</p>
 </blockquote>
-<p>一时不知如何解决，无奈😔只能百度。找到了官方的帮助文档<a href="https://dev.tencent.com/help/doc/faq/coding-pages/ssh/tls" target="_blank" rel="noopener">链接🔗</a><br>里面有十分详细的说明，按照官方文档最终找到了解决方案</p>
+<p>一时不知如何解决，无奈😔只能百度。找到了官方的帮助文档<a href="https://dev.tencent.com/help/doc/faq/coding-pages/ssh/tls" target="_blank" rel="noopener">链接🔗</a><br>
+里面有十分详细的说明，按照官方文档最终找到了解决方案</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">错误原因：无法获取正确的域名验证信息</span><br><span class="line">解决方式1：检查<span class="built_in"> DNS </span>的 CNAME 记录是否设置正确，静态 Pages 为 &lt;username&gt;.coding.me，动态 Pages 为 &lt;space_key&gt;.coding.io</span><br><span class="line">解决方式2：检查域名的<span class="built_in"> DNS </span>是否将海外线路解析到 Coding Pages 的服务器</span><br></pre></td></tr></table></figure>
 <p>显然是因为第二种原因才导致的报错，因为自己也把域名解析到了Github Pages。</p>
 <p><strong>解决方法</strong>：先暂停掉对境外线路的解析，再去Coding Pages界面开启https，成功后再开启对境外线路的解析。</p>

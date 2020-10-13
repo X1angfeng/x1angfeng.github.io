@@ -169,7 +169,7 @@
       <span id="i-top" class="info" style="display:none;">返回顶部</span>
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vSphere虚拟化架构"><span class="toc-text">vSphere虚拟化架构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#虚拟机的好处"><span class="toc-text">虚拟机的好处</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要使用虚拟机："><span class="toc-text">为什么要使用虚拟机：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vSphere基础物理架构"><span class="toc-text">vSphere基础物理架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vSphere基本架构"><span class="toc-text">vSphere基本架构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Esxi"><span class="toc-text">Esxi</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Esxi服务器"><span class="toc-text">安装Esxi服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装步骤"><span class="toc-text">安装步骤</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vCenter"><span class="toc-text">vCenter</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装vCenter"><span class="toc-text">安装vCenter</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装vCenter-server-appliance"><span class="toc-text">安装vCenter server appliance</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装vCenter-server"><span class="toc-text">安装vCenter server</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">vSphere虚拟化架构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#虚拟机的好处"><span class="toc-text">虚拟机的好处</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要使用虚拟机："><span class="toc-text">为什么要使用虚拟机：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vSphere基础物理架构"><span class="toc-text">vSphere基础物理架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vSphere基本架构"><span class="toc-text">vSphere基本架构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">Esxi</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Esxi服务器"><span class="toc-text">安装Esxi服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装步骤"><span class="toc-text">安装步骤</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">vCenter</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装vCenter"><span class="toc-text">安装vCenter</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装vCenter-server-appliance"><span class="toc-text">安装vCenter server appliance</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装vCenter-server"><span class="toc-text">安装vCenter server</span></a></li></ol></li></ol></li></ol>
     </div>
   </div>
 </div>
@@ -244,41 +244,103 @@
   <div class="content" itemprop="articleBody">
     <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/desktop.jpg" alt="首页"></p>
 <a id="more"></a>
-
-<h1 id="vSphere虚拟化架构"><a href="#vSphere虚拟化架构" class="headerlink" title="vSphere虚拟化架构"></a>vSphere虚拟化架构</h1><p>vSphere是VNware公司在2001年基于云计算推出的一套企业级虚拟化解决方案、核心组件为ESXi。如今，经历了5个版本的改进，已经实现了虚拟化基础架构、高可用性、集中管理、性能监控等一体化解决方案。</p>
+<h1>vSphere虚拟化架构</h1>
+<p>vSphere是VNware公司在2001年基于云计算推出的一套企业级虚拟化解决方案、核心组件为ESXi。如今，经历了5个版本的改进，已经实现了虚拟化基础架构、高可用性、集中管理、性能监控等一体化解决方案。</p>
 <p><a href="https://baike.baidu.com/item/vSphere" target="_blank" rel="noopener">🔗详情点击</a></p>
-<h2 id="虚拟机的好处"><a href="#虚拟机的好处" class="headerlink" title="虚拟机的好处"></a>虚拟机的好处</h2><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/1.png" alt="img"></p>
-<h2 id="为什么要使用虚拟机："><a href="#为什么要使用虚拟机：" class="headerlink" title="为什么要使用虚拟机："></a>为什么要使用虚拟机：</h2><p>　　<strong>物理架构存在的问题：</strong></p>
+<h2 id="虚拟机的好处">虚拟机的好处</h2>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/1.png" alt="img"></p>
+<h2 id="为什么要使用虚拟机：">为什么要使用虚拟机：</h2>
+<p><strong>物理架构存在的问题：</strong></p>
 <ul>
-<li>　　难以复制和移动</li>
-<li>　　受制于一定的硬件组件</li>
-<li>　　生命周期短</li>
-<li>　　物理服务器的资源利用率低</li>
+<li>难以复制和移动</li>
+<li>受制于一定的硬件组件</li>
+<li>生命周期短</li>
+<li>物理服务器的资源利用率低</li>
 </ul>
-<p>　　<strong>服务器虚拟化</strong><br>　　<strong>虚拟机与物理机相比</strong></p>
+<p><strong>服务器虚拟化</strong><br>
+　　<strong>虚拟机与物理机相比</strong></p>
 <ul>
-<li>　　最大化利用物理机的资源，节省能耗</li>
-<li>　　更方便地获取计算资源</li>
-<li>　　硬件无关。虚机都是文件，方便迁移、保护</li>
-<li>　　生命周期更长，不会随着硬件变化而变化</li>
-<li>　　根据需求的变化，非常容易更改资源的分配</li>
-<li>　　更多高级功能</li>
+<li>最大化利用物理机的资源，节省能耗</li>
+<li>更方便地获取计算资源</li>
+<li>硬件无关。虚机都是文件，方便迁移、保护</li>
+<li>生命周期更长，不会随着硬件变化而变化</li>
+<li>根据需求的变化，非常容易更改资源的分配</li>
+<li>更多高级功能</li>
 </ul>
-<p>　　在线的数据、虚拟机迁移<br>　　高可用<br>　　自动资源调配<br>　　云计算</p>
-<h2 id="vSphere基础物理架构"><a href="#vSphere基础物理架构" class="headerlink" title="vSphere基础物理架构"></a>vSphere基础物理架构</h2><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/2.png" alt="img"></p>
-<p>　　虚拟化服务器：又称x86服务器，可以由多个ESXi组成，通过网络服务提供CPU和内存资源，所有的虚拟机运行在该服务器中。<br>存储网络：用于存储所有的虚拟化数据，虚拟机的性能也与之息息相关。存储网络可以使用SAN、NAS等存储技术。</p>
-<h2 id="vSphere基本架构"><a href="#vSphere基本架构" class="headerlink" title="vSphere基本架构"></a>vSphere基本架构</h2><p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/3.png" alt="vmware"></p>
-<p>1.架构服务<br>Infrastructure Service(架构服务)定义了 Computer、 Storage、 Network等三大部分<br>(1)计算机<br>计算机主要包括ESX和ESXi( vSphere5.0中仅有ESXI)、DRS(分布式资源调配)以及<br>Memory(内存)。<br>①ESX/ESXi<br>ESXI是在物理服务器上安装虚拟化管理服务用于管理底层硬件资源。安装ESXi的物理服务<br>器称为ESXi主机。是 Sphere虚拟化架构的基础。<br>②DRS<br>DRS(分布式资源调配)是 Sphere高级特性之一,动态调配虚拟机运行的ESXI主机,充分<br>利用物理服务器硬件资源。<br>③内存<br>Memory(内存)就是物理服务器以及虚拟机内存的管理。<br>(2)存储<br>Storage (存储)主要包括了VMFS、 Thin Provisioning、 Storage I/O Control。<br>VMFS (虚拟机文件系统)是跨越多个物理服务器实现虚拟化的基础。<br>Thin Provisioning (精简盘)是对虚拟机硬盘文件VMDK动态调配的技术。<br>Storage I/O Control(存储读写控制)是 vSphere高级特性之一,利用对存储读写的控制是存储达到更好的性能。<br>(3)网络<br>Network包括了 Distributed Switch、 Network I/O Control<br>Distributed Switch (分布式交换机)是Sphere虚拟化架构网络核心之一,是跨越多台ESXI主机的虚拟交换机。</p>
-<p>Network I/O Control(网络读写控制)是 vSphere高级特性之一,通过对网络读写的控制使网络达到更好的性能。<br>2应用服务<br>Application Service(应用服务)定义了 Availability、Security、Scalability等三大部分。<br>(1)可用性<br>Availability (可 用 性)包括了 vMation、Storage vMotion、High Availability、 Fault Tolerance、 Data Recovery。<br>①实时迁移<br>vMotion(实时迁移)是让运行在ESXi主机上的虚拟机可以在开机或关机状态下迁移到另外的ESXI主机上。<br>②存储实时迁移<br>Sterage vMotion(存储实时迁移)是让虚拟机所使用的存储文件在开机或关机状态下迁移到另的存储设备上。<br>③高可用性<br>High Availability(高可用性)是在ESXi主机出现故障的情况下,将虚拟机迁移到正常的ESXi主机运行,尽量避免由于ESXi主机故障而导致服务中断。<br>④容错<br>Fault Tolerance(容错)是让虚拟机同时在两台ESX主机上以主/从方式并发地运行,也就是所谓的虚拟机双机热备。当任意一台虚拟机出现故障,另外一台立即接替工作,对于用户而言感觉不到后台已经发生了故障切换。<br>⑤数据恢复<br>Data Recovery(数据恢复)是通过合理的备份机制对虚拟机进行备份,以便故障发生时能够快速恢复。<br>(2)安全性<br>Security包括 vShield Zones、 VMsafe。<br>vShield Zones是一种安全性虚拟工具,可用于显示和实施网络活动。<br>VMsafe安全API使第三方安全厂商可以在管理程序内部保护虚拟机。<br>(3)扩展性<br>Scalability括DRS、Hot Add。<br>①DRS<br>DRS(分布式资源调配)是 vSphere高级特性之一,动态调配虚拟机运行的ESXi主机,充分利用物理服务器硬件资源。<br>②热插拔<br>Hot Add(热拔插)使虚拟机能够在不关机的情况下增加CPU、内存、硬盘等</p>
-<p>3.vCenter Server<br>vSphere虚拟化架构的核心管理工具也是日常管理操作平台。vSphere虎拟化<br>性都必须依靠 vCenter Server实现,利用 vCenter Server可以集中管理多个ESXI主机及其虚拟机<br>4.虚拟机<br>Virtual Machine(虚拟机)对于用户来说,实际就是一台物理机,和物理机一样拥有CPU、内存、硬盘等硬件资源,安装操作系统以及应用程序后与物理服务器提供的服务完全一样。<br>5.私有云资源池/公有云<br>Private Cloud Resource Pool  (私有云资源池)由硬件资源组成，通过vSphere管理私有云所有资源。</p>
+<p>在线的数据、虚拟机迁移<br>
+　　高可用<br>
+　　自动资源调配<br>
+　　云计算</p>
+<h2 id="vSphere基础物理架构">vSphere基础物理架构</h2>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/2.png" alt="img"></p>
+<p>虚拟化服务器：又称x86服务器，可以由多个ESXi组成，通过网络服务提供CPU和内存资源，所有的虚拟机运行在该服务器中。<br>
+存储网络：用于存储所有的虚拟化数据，虚拟机的性能也与之息息相关。存储网络可以使用SAN、NAS等存储技术。</p>
+<h2 id="vSphere基本架构">vSphere基本架构</h2>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/3.png" alt="vmware"></p>
+<p>1.架构服务<br>
+Infrastructure Service(架构服务)定义了 Computer、 Storage、 Network等三大部分<br>
+(1)计算机<br>
+计算机主要包括ESX和ESXi( vSphere5.0中仅有ESXI)、DRS(分布式资源调配)以及<br>
+Memory(内存)。<br>
+①ESX/ESXi<br>
+ESXI是在物理服务器上安装虚拟化管理服务用于管理底层硬件资源。安装ESXi的物理服务<br>
+器称为ESXi主机。是 Sphere虚拟化架构的基础。<br>
+②DRS<br>
+DRS(分布式资源调配)是 Sphere高级特性之一,动态调配虚拟机运行的ESXI主机,充分<br>
+利用物理服务器硬件资源。<br>
+③内存<br>
+Memory(内存)就是物理服务器以及虚拟机内存的管理。<br>
+(2)存储<br>
+Storage (存储)主要包括了VMFS、 Thin Provisioning、 Storage I/O Control。<br>
+VMFS (虚拟机文件系统)是跨越多个物理服务器实现虚拟化的基础。<br>
+Thin Provisioning (精简盘)是对虚拟机硬盘文件VMDK动态调配的技术。<br>
+Storage I/O Control(存储读写控制)是 vSphere高级特性之一,利用对存储读写的控制是存储达到更好的性能。<br>
+(3)网络<br>
+Network包括了 Distributed Switch、 Network I/O Control<br>
+Distributed Switch (分布式交换机)是Sphere虚拟化架构网络核心之一,是跨越多台ESXI主机的虚拟交换机。</p>
+<p>Network I/O Control(网络读写控制)是 vSphere高级特性之一,通过对网络读写的控制使网络达到更好的性能。<br>
+2应用服务<br>
+Application Service(应用服务)定义了 Availability、Security、Scalability等三大部分。<br>
+(1)可用性<br>
+Availability (可 用 性)包括了 vMation、Storage vMotion、High Availability、 Fault Tolerance、 Data Recovery。<br>
+①实时迁移<br>
+vMotion(实时迁移)是让运行在ESXi主机上的虚拟机可以在开机或关机状态下迁移到另外的ESXI主机上。<br>
+②存储实时迁移<br>
+Sterage vMotion(存储实时迁移)是让虚拟机所使用的存储文件在开机或关机状态下迁移到另的存储设备上。<br>
+③高可用性<br>
+High Availability(高可用性)是在ESXi主机出现故障的情况下,将虚拟机迁移到正常的ESXi主机运行,尽量避免由于ESXi主机故障而导致服务中断。<br>
+④容错<br>
+Fault Tolerance(容错)是让虚拟机同时在两台ESX主机上以主/从方式并发地运行,也就是所谓的虚拟机双机热备。当任意一台虚拟机出现故障,另外一台立即接替工作,对于用户而言感觉不到后台已经发生了故障切换。<br>
+⑤数据恢复<br>
+Data Recovery(数据恢复)是通过合理的备份机制对虚拟机进行备份,以便故障发生时能够快速恢复。<br>
+(2)安全性<br>
+Security包括 vShield Zones、 VMsafe。<br>
+vShield Zones是一种安全性虚拟工具,可用于显示和实施网络活动。<br>
+VMsafe安全API使第三方安全厂商可以在管理程序内部保护虚拟机。<br>
+(3)扩展性<br>
+Scalability括DRS、Hot Add。<br>
+①DRS<br>
+DRS(分布式资源调配)是 vSphere高级特性之一,动态调配虚拟机运行的ESXi主机,充分利用物理服务器硬件资源。<br>
+②热插拔<br>
+Hot Add(热拔插)使虚拟机能够在不关机的情况下增加CPU、内存、硬盘等</p>
+<p>3.vCenter Server<br>
+vSphere虚拟化架构的核心管理工具也是日常管理操作平台。vSphere虎拟化<br>
+性都必须依靠 vCenter Server实现,利用 vCenter Server可以集中管理多个ESXI主机及其虚拟机<br>
+4.虚拟机<br>
+Virtual Machine(虚拟机)对于用户来说,实际就是一台物理机,和物理机一样拥有CPU、内存、硬盘等硬件资源,安装操作系统以及应用程序后与物理服务器提供的服务完全一样。<br>
+5.私有云资源池/公有云<br>
+Private Cloud Resource Pool  (私有云资源池)由硬件资源组成，通过vSphere管理私有云所有资源。</p>
 <p>Public Cloud(公有云)私有云的延伸，可向外部提供云计算服务。</p>
-<h1 id="Esxi"><a href="#Esxi" class="headerlink" title="Esxi"></a>Esxi</h1><p>ESXi专为运行虚拟机、最大限度降低配置要求和简化部署而设计。只需几分钟时间，客户便可完成从安装到运行虚拟机的全过程，特别是在下载并安装预配置虚拟设备的时候。</p>
+<h1>Esxi</h1>
+<p>ESXi专为运行虚拟机、最大限度降低配置要求和简化部署而设计。只需几分钟时间，客户便可完成从安装到运行虚拟机的全过程，特别是在下载并安装预配置虚拟设备的时候。</p>
 <p>在VMware Virtual Appliance Marketplace 上有800多款为VMware hypervisor 创建的虚拟设备，如今，ESXi已经实现了与Virtual Appliance Marketplace的直接整合，使用户能够即刻下载并运行虚拟设备。这为即插即用型软件的交付与安装提供了一种全新和极其简化的方式。</p>
 <p><a href="https://baike.baidu.com/item/ESXi" target="_blank" rel="noopener">🔗详情点击</a></p>
-<h2 id="安装Esxi服务器"><a href="#安装Esxi服务器" class="headerlink" title="安装Esxi服务器"></a>安装Esxi服务器</h2><p>由于种种原因无法在物理机完成操作，只好使用VMware workstation来安装Esxi。</p>
-<p>使用的虚拟机是<a href="https://pan.baidu.com/s/1lbPFwUlxvoNkzyl2jQjPPQ" target="_blank" rel="noopener">VMware 15</a> </p>
+<h2 id="安装Esxi服务器">安装Esxi服务器</h2>
+<p>由于种种原因无法在物理机完成操作，只好使用VMware workstation来安装Esxi。</p>
+<p>使用的虚拟机是<a href="https://pan.baidu.com/s/1lbPFwUlxvoNkzyl2jQjPPQ" target="_blank" rel="noopener">VMware 15</a></p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/1.jpg" alt="百度云链接"></p>
-<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><p>首先打开VMware workstation软件创建新的虚拟机并且采用自定义安装</p>
+<h2 id="安装步骤">安装步骤</h2>
+<p>首先打开VMware workstation软件创建新的虚拟机并且采用自定义安装</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/xj.png" alt="新建虚拟机"></p>
 <p>选择稍后安装一个操作系统</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/xj2.png" alt="新建虚拟机"></p>
@@ -334,11 +396,16 @@
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/jm5.png" alt="新建虚拟机"></p>
 <p>到此为止配置上基本完成了，下面在浏览器地址栏中输入刚才配置的IP地址<code>192.168.1.103</code>使用web界面对ESXI进行控制。使用root用户登录</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/jm6.png" alt="新建虚拟机"></p>
-<h1 id="vCenter"><a href="#vCenter" class="headerlink" title="vCenter"></a>vCenter</h1><p>Vcenter一般指 VMware vCenter™ Server<br>VMware vCenterServer 提供了一个可伸缩、可扩展的平台，为 虚拟化管理奠定了基础。 VMware vCenter Server（以前称为 VMware VirtualCenter），可集中管理 VMware vSphere 环境，与其他管理平台相比，极大地提高了 IT 管理员对虚拟环境的控制。<br>VMware vCenter Server：提高在虚拟基础架构每个级别上的集中控制和可见性，通过主动管理发挥 vSphere 潜能，是一个具有广泛合作伙伴体系支持的可伸缩、可扩展平台。</p>
+<h1>vCenter</h1>
+<p>Vcenter一般指 VMware vCenter™ Server<br>
+VMware vCenterServer 提供了一个可伸缩、可扩展的平台，为 虚拟化管理奠定了基础。 VMware vCenter Server（以前称为 VMware VirtualCenter），可集中管理 VMware vSphere 环境，与其他管理平台相比，极大地提高了 IT 管理员对虚拟环境的控制。<br>
+VMware vCenter Server：提高在虚拟基础架构每个级别上的集中控制和可见性，通过主动管理发挥 vSphere 潜能，是一个具有广泛合作伙伴体系支持的可伸缩、可扩展平台。</p>
 <p><a href="https://baike.baidu.com/item/vCenter" target="_blank" rel="noopener">🔗详情点击</a></p>
-<h2 id="安装vCenter"><a href="#安装vCenter" class="headerlink" title="安装vCenter"></a>安装vCenter</h2><p>vCenter主要有两种:一种是基于Windows的vCenter server它的功能和性能更强大！还有一种就是基于嵌入式linux的vCenter server appliance，使用小的虚拟化环境（主机小于50台，虚拟机少于1000个），使用这个部署起来更简单快捷。当然如果更大的虚拟化环境，就一定需要基于Windows的vCenter server了。随着版本的更迭，vmware去windows化越来越明显了，很多高级功能（跨集群迁移，vcsa ha等等）只有以vcsa方式部署才可能实现了，vcsa部署维护都要比传统windows+vCenterServer+MySQL方便，就是web管理界面还是不如原来的vsphere client好用。</p>
+<h2 id="安装vCenter">安装vCenter</h2>
+<p>vCenter主要有两种:一种是基于Windows的vCenter server它的功能和性能更强大！还有一种就是基于嵌入式linux的vCenter server appliance，使用小的虚拟化环境（主机小于50台，虚拟机少于1000个），使用这个部署起来更简单快捷。当然如果更大的虚拟化环境，就一定需要基于Windows的vCenter server了。随着版本的更迭，vmware去windows化越来越明显了，很多高级功能（跨集群迁移，vcsa ha等等）只有以vcsa方式部署才可能实现了，vcsa部署维护都要比传统windows+vCenterServer+MySQL方便，就是web管理界面还是不如原来的vsphere client好用。</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter.png" alt="vcenter"></p>
-<h3 id="安装vCenter-server-appliance"><a href="#安装vCenter-server-appliance" class="headerlink" title="安装vCenter server appliance"></a>安装vCenter server appliance</h3><p>在Windows上装载镜像</p>
+<h3 id="安装vCenter-server-appliance">安装vCenter server appliance</h3>
+<p>在Windows上装载镜像</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter1.png" alt="vcenter"></p>
 <p>然后打开vcsa-ui-installer那个文件夹，在打开下面的那个win32目录，双击installer.exe即可开始安装。</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter2.png" alt="vcenter"></p>
@@ -392,7 +459,8 @@
 <p>访问VMware vCenter Server Appliance Web</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter26.png" alt="vcenter"></p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vcenter27.png" alt="vcenter"></p>
-<h3 id="安装vCenter-server"><a href="#安装vCenter-server" class="headerlink" title="安装vCenter server"></a>安装vCenter server</h3><p>当镜像挂载之后打开安装程序</p>
+<h3 id="安装vCenter-server">安装vCenter server</h3>
+<p>当镜像挂载之后打开安装程序</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vc1.png" alt="vcenter"></p>
 <p>点击下一步继续安装</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/vsphere/vc2.png" alt="vcenter"></p>
@@ -709,7 +777,7 @@ div.vcontent p  img.vemoji {
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vSphere虚拟化架构"><span class="toc-text">vSphere虚拟化架构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#虚拟机的好处"><span class="toc-text">虚拟机的好处</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要使用虚拟机："><span class="toc-text">为什么要使用虚拟机：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vSphere基础物理架构"><span class="toc-text">vSphere基础物理架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vSphere基本架构"><span class="toc-text">vSphere基本架构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Esxi"><span class="toc-text">Esxi</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Esxi服务器"><span class="toc-text">安装Esxi服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装步骤"><span class="toc-text">安装步骤</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vCenter"><span class="toc-text">vCenter</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装vCenter"><span class="toc-text">安装vCenter</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装vCenter-server-appliance"><span class="toc-text">安装vCenter server appliance</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装vCenter-server"><span class="toc-text">安装vCenter server</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">vSphere虚拟化架构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#虚拟机的好处"><span class="toc-text">虚拟机的好处</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要使用虚拟机："><span class="toc-text">为什么要使用虚拟机：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vSphere基础物理架构"><span class="toc-text">vSphere基础物理架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vSphere基本架构"><span class="toc-text">vSphere基本架构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">Esxi</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Esxi服务器"><span class="toc-text">安装Esxi服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装步骤"><span class="toc-text">安装步骤</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">vCenter</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装vCenter"><span class="toc-text">安装vCenter</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装vCenter-server-appliance"><span class="toc-text">安装vCenter server appliance</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装vCenter-server"><span class="toc-text">安装vCenter server</span></a></li></ol></li></ol></li></ol>
     </div>
 
     <div id="actions-footer">

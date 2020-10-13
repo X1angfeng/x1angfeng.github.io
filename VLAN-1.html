@@ -99,7 +99,7 @@
       <span id="i-top" class="info" style="display:none;">返回顶部</span>
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#技术原理"><span class="toc-text">技术原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验步骤"><span class="toc-text">实验步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#建立拓扑图"><span class="toc-text">建立拓扑图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置IP地址"><span class="toc-text">设置IP地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置两层交换机"><span class="toc-text">配置两层交换机</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#验证结果"><span class="toc-text">验证结果</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">技术原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">实验步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#建立拓扑图"><span class="toc-text">建立拓扑图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置IP地址"><span class="toc-text">设置IP地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置两层交换机"><span class="toc-text">配置两层交换机</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">验证结果</span></a></li></ol>
     </div>
   </div>
 </div>
@@ -176,9 +176,10 @@
 <p>某企业有两个主要部门，技术部和销售部，分处于不同的办公室，为了安全和便于管理对两个部门的主机进行了VLAN的划分，技术部和销售部分处于不同的VLAN，先由于业务的需求需要销售部和技术部的主机能够相互访问，获得相应的资源，两个部门的交换机通过一台三层交换机进行了连接。</p>
 </blockquote>
 <a id="more"></a>
-
-<h1 id="技术原理"><a href="#技术原理" class="headerlink" title="技术原理"></a>技术原理</h1><p>三层交换机具备网络层的功能，实现VLAN相互访问的原理是：利用三层交换机的路由功能，通过识别数据包的IP地址，查找路由表进行选路转发，三层交换机利用直连路由可以实现不同VLAN之间的相互访问。三层交换机给接口配置IP地址。采用SVI（交换虚拟接口）的方式实现VLAN间互连。SVI是指为交换机中的VLAN创建虚拟接口，并且配置IP地址。</p>
-<h1 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h1><p>（1）在二层交换机上配置VLAN2、VLAN3，分别将端口2、端口3划分给VLAN2、VLAN3。</p>
+<h1>技术原理</h1>
+<p>三层交换机具备网络层的功能，实现VLAN相互访问的原理是：利用三层交换机的路由功能，通过识别数据包的IP地址，查找路由表进行选路转发，三层交换机利用直连路由可以实现不同VLAN之间的相互访问。三层交换机给接口配置IP地址。采用SVI（交换虚拟接口）的方式实现VLAN间互连。SVI是指为交换机中的VLAN创建虚拟接口，并且配置IP地址。</p>
+<h1>实验步骤</h1>
+<p>（1）在二层交换机上配置VLAN2、VLAN3，分别将端口2、端口3划分给VLAN2、VLAN3。</p>
 <p>（2）将二层交换机与三层交换机相连的端口fa 0/1都定义为tag Vlan模式。</p>
 <p>（3）在三层交换机上配置VLAN2、VLAN3，此时验证二层交换机VLAN2、VLAN3下的主机之间不能相互通信。</p>
 <p>（4）设置三层交换机VLAN间的通信，创建VLAN2,VLAN3的虚接口，并配置虚接口VLAN2、VLAN3的IP地址。</p>
@@ -188,26 +189,29 @@
 <blockquote>
 <p>首先在三层交换机上分别设置各VLAN的接口IP地址。三层交换机将vlan做为一种接口对待，就像路由器上的一样，再在各接入VLAN的计算机上设置与所属VLAN的网络地址一致的IP地址，并且把默认网关设置为该VLAN的接口地址。这样，所有的VLAN也可以互访了。</p>
 </blockquote>
-<h2 id="建立拓扑图"><a href="#建立拓扑图" class="headerlink" title="建立拓扑图"></a>建立拓扑图</h2><p><img src="/img/st/6.png"></p>
-<h2 id="设置IP地址"><a href="#设置IP地址" class="headerlink" title="设置IP地址"></a>设置IP地址</h2><p>PC1 </p>
+<h2 id="建立拓扑图">建立拓扑图</h2>
+<p><img src="/img/st/6.png" alt=""></p>
+<h2 id="设置IP地址">设置IP地址</h2>
+<p>PC1</p>
 <p>​       IP:                 192.168.1.2</p>
 <p>​       Submark:        255.255.255.0</p>
 <p>​       Gateway:        192.168.1.1</p>
 <p>PC2</p>
 <p>​       IP:                 192.168.2.2</p>
 <p>​       Submark:        255.255.255.0</p>
-<p>​       Gateway:        192.168.2.1    </p>
+<p>​       Gateway:        192.168.2.1</p>
 <p>PC3</p>
 <p>​       IP:                 192.168.1.3</p>
 <p>​       Submark:        255.255.255.0</p>
 <p>​       Gateway:        192.168.1.1</p>
-<h2 id="配置两层交换机"><a href="#配置两层交换机" class="headerlink" title="配置两层交换机"></a>配置两层交换机</h2><p><span id="inline-blue">s2960</span></p>
+<h2 id="配置两层交换机">配置两层交换机</h2>
+<p><span id="inline-blue">s2960</span></p>
 <p>Switch&gt;en</p>
 <p>​       Switch#conf t</p>
 <p>​       Switch(config )#  vlan2        //新建vlan2</p>
 <p>​       Switch(config-vlan)#exit</p>
 <p>​       Switch(config )#   vlan3       //新建vlan3</p>
-<p>​       Switch(config-vlan)#exit      </p>
+<p>​       Switch(config-vlan)#exit</p>
 <p>​       Switch(config )#    interf fa 0/2        //进入端口 fa 0/2</p>
 <p>​       Switch(config-if)#   switch access vlan 2       //将端口设置为access端口，并划分到vlan 2下</p>
 <p>​       Switch(config-if)#exit</p>
@@ -226,19 +230,19 @@
 <p>​       Switch(config )#    vlan 3  //新建vlan 3</p>
 <p>​       Switch(config-vlan)#exit</p>
 <p>​       Switch(config )#  int fa 0/1入0模块第1端口</p>
-<p>​       Switch(config-if)#switchport trunk encapsulation dot1q //给这个接口的trunk封装为802.1Q的帧格式</p>
+<p>​       Switch(config-if)#switchport trunk encapsulation dot1q <a href="//xn--trunk802-sc0mkf705dv4wlwwpm4dbe0apg7a2eza.xn--1Q-cz2d66at94ay0u">//给这个接口的trunk封装为802.1Q的帧格式</a></p>
 <p>​       Switch(config-if)#  switch mode trunk作模式为trunk</p>
 <p>​       Switch(config-if)#exit</p>
 <p>​       Switch(config )#   int fa 0/2入0模块第2端口</p>
 <p>​       Switch(config-if)#   sw acc vlan 2   进入vlan 2</p>
-<p>​       Switch(config-if)#exit   </p>
+<p>​       Switch(config-if)#exit</p>
 <p><code>此时验证二层交换机下的不同vlan间主机不能通信</code></p>
 <p><code>PC1 Ping PC2 </code></p>
-<p><img src="/img/st/7.png"></p>
+<p><img src="/img/st/7.png" alt=""></p>
 <p><code>验证同一vlan下可以通信</code></p>
 <p><code>PC1 Ping PC3</code></p>
-<p><img src="/img/st/8.png"></p>
-<p>Switch(config )#  int vlan 2   //进入vlan2 </p>
+<p><img src="/img/st/8.png" alt=""></p>
+<p>Switch(config )#  int vlan 2   //进入vlan2</p>
 <p>​       Switch(config-if)#  ip add 192.168.1.1 255.255.255.0       //配置IP地址</p>
 <p>​       Switch(config-if)#   no shutdown   //开启该端口</p>
 <p>​       Switch(config-if)#exit</p>
@@ -250,10 +254,11 @@
 <p>​       Switch#show vlan   //显示vlan信息</p>
 <p>​      Switch#conf t   //进入配置模式</p>
 <p>​      Switch(config)# ip  routing //开启路由功能</p>
-<h1 id="验证结果"><a href="#验证结果" class="headerlink" title="验证结果"></a>验证结果</h1><p><code>PC1 Ping PC3</code></p>
-<p><img src="/img/st/9.png"></p>
+<h1>验证结果</h1>
+<p><code>PC1 Ping PC3</code></p>
+<p><img src="/img/st/9.png" alt=""></p>
 <p><code>PC1 Ping PC2</code></p>
-<p><img src="/img/st/10.png"></p>
+<p><img src="/img/st/10.png" alt=""></p>
 <p>到此已经配置并验证完毕！！！</p>
 
   </div>
@@ -540,7 +545,7 @@ div.vcontent p  img.vemoji {
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#技术原理"><span class="toc-text">技术原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验步骤"><span class="toc-text">实验步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#建立拓扑图"><span class="toc-text">建立拓扑图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置IP地址"><span class="toc-text">设置IP地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置两层交换机"><span class="toc-text">配置两层交换机</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#验证结果"><span class="toc-text">验证结果</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">技术原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">实验步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#建立拓扑图"><span class="toc-text">建立拓扑图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置IP地址"><span class="toc-text">设置IP地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置两层交换机"><span class="toc-text">配置两层交换机</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">验证结果</span></a></li></ol>
     </div>
 
     <div id="actions-footer">

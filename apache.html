@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Apache httpd以root身份运行  错误方法本以为修改配置文件中的User和group就行了，但是呢重启服务的时候报错了 1Error:\tApache has not been designed to serve pageswhile\n\trunning as root.  There areknown race conditions that\n\twill allow any">
+    <meta name="description" content="Apache httpd以root身份运行  错误方法 本以为修改配置文件中的User和group就行了，但是呢重启服务的时候报错了 1Error:\tApache has not been designed to serve pageswhile\n\trunning as root.  There areknown race conditions that\n\twill allow any">
 <meta name="keywords" content="Linux,apache">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Apache httpd以root身份运行">
 <meta property="og:url" content="https:&#x2F;&#x2F;521.ooo&#x2F;apache.html">
 <meta property="og:site_name" content="嘲弄i">
-<meta property="og:description" content="Apache httpd以root身份运行  错误方法本以为修改配置文件中的User和group就行了，但是呢重启服务的时候报错了 1Error:\tApache has not been designed to serve pageswhile\n\trunning as root.  There areknown race conditions that\n\twill allow any">
+<meta property="og:description" content="Apache httpd以root身份运行  错误方法 本以为修改配置文件中的User和group就行了，但是呢重启服务的时候报错了 1Error:\tApache has not been designed to serve pageswhile\n\trunning as root.  There areknown race conditions that\n\twill allow any">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-10-10T07:49:14.000Z">
 <meta name="twitter:card" content="summary">
@@ -123,7 +123,7 @@
     
    |
     <i class="far fa-file-word fa-fw"></i>
-    文章字数:<span class="post-count">539</span>
+    文章字数:<span class="post-count">543</span>
     |
     <i class="far fa-clock fa-fw"></i>
     阅读时长:<span class="post-count">2</span>min
@@ -164,36 +164,35 @@
     <blockquote>
 <p>Apache httpd以root身份运行</p>
 </blockquote>
-<h2 id="错误方法"><a href="#错误方法" class="headerlink" title="错误方法"></a>错误方法</h2><p>本以为修改配置文件中的<code>User</code>和<code>group</code>就行了，但是呢重启服务的时候报错了</p>
+<h2 id="错误方法">错误方法</h2>
+<p>本以为修改配置文件中的<code>User</code>和<code>group</code>就行了，但是呢重启服务的时候报错了</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error:\tApache has not been designed to serve pageswhile\n\trunning as root.  There areknown race conditions that\n\twill allow any <span class="built_in">local</span> user to <span class="built_in">read</span> any file on thesystem.\n\tIf you still desire to serve pages as root <span class="keyword">then</span>\n\tadd -DBIG_SECURITY_HOLEto the CFLAGS env variable\n\tand <span class="keyword">then</span> rebuild the server.\n\tIt is stronglysuggested that you instead modify the User\n\tdirective <span class="keyword">in</span> your httpd.conf fileto list a non-root\n\tuser.\n</span><br></pre></td></tr></table></figure>
-
 <p>从报错信息来看意思就是：如果要用root用户来跑apache服务，需要添加“-DBIG_SECURITY_HOLE”到CFLAGS环境变量中，然后在重新编译源代码</p>
-<h2 id="正确方法"><a href="#正确方法" class="headerlink" title="正确方法"></a>正确方法</h2><h3 id="卸载httpd"><a href="#卸载httpd" class="headerlink" title="卸载httpd"></a>卸载httpd</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa|grep httpd</span><br></pre></td></tr></table></figure>
-
+<h2 id="正确方法">正确方法</h2>
+<h3 id="卸载httpd">卸载httpd</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa|grep httpd</span><br></pre></td></tr></table></figure>
 <p>然后使用<code>rpm -e</code>命令来卸载掉相关的包就行。</p>
-<h3 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/apache/httpd/httpd-2.4.46.tar.gz</span><br><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/apache/apr/apr-1.7.0.tar.gz</span><br><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/apache/apr/apr-util-1.6.1.tar.gz</span><br></pre></td></tr></table></figure>
-
-<h3 id="解压软件包"><a href="#解压软件包" class="headerlink" title="解压软件包"></a>解压软件包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf apr-1.7.0.tar.gz</span><br><span class="line">tar -zxvf apr-util-1.6.1.tar.gz</span><br><span class="line">tar -zxvf httpd-2.4.46.tar.gz</span><br></pre></td></tr></table></figure>
-
-<h3 id="编译安装apr"><a href="#编译安装apr" class="headerlink" title="编译安装apr"></a>编译安装apr</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##编译安装apr</span></span><br><span class="line"><span class="built_in">cd</span> apr-1.7.0</span><br><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/apr <span class="comment">#配置安装目录</span></span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> apr-util-1.6.1</span><br><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/apr-util/ --with-apr=/usr/<span class="built_in">local</span>/apr/bin/apr-1-config</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
-
-<h3 id="编译安装httpd"><a href="#编译安装httpd" class="headerlink" title="编译安装httpd"></a>编译安装httpd</h3><p>需要下载并编译安装pcre环境，不然会报错</p>
+<h3 id="下载源码">下载源码</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/apache/httpd/httpd-2.4.46.tar.gz</span><br><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/apache/apr/apr-1.7.0.tar.gz</span><br><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/apache/apr/apr-util-1.6.1.tar.gz</span><br></pre></td></tr></table></figure>
+<h3 id="解压软件包">解压软件包</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf apr-1.7.0.tar.gz</span><br><span class="line">tar -zxvf apr-util-1.6.1.tar.gz</span><br><span class="line">tar -zxvf httpd-2.4.46.tar.gz</span><br></pre></td></tr></table></figure>
+<h3 id="编译安装apr">编译安装apr</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##编译安装apr</span></span><br><span class="line"><span class="built_in">cd</span> apr-1.7.0</span><br><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/apr <span class="comment">#配置安装目录</span></span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> apr-util-1.6.1</span><br><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/apr-util/ --with-apr=/usr/<span class="built_in">local</span>/apr/bin/apr-1-config</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<h3 id="编译安装httpd">编译安装httpd</h3>
+<p>需要下载并编译安装pcre环境，不然会报错</p>
 <blockquote>
-<p>checking for pcre-config… false<br>configure: error: pcre-config for libpcre not found. PCRE is required and available from <a href="http://pcre.org/" target="_blank" rel="noopener">http://pcre.org/</a></p>
+<p>checking for pcre-config… false<br>
+configure: error: pcre-config for libpcre not found. PCRE is required and available from <a href="http://pcre.org/" target="_blank" rel="noopener">http://pcre.org/</a></p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget ftp://ftp.pcre.org/pub/pcre/pcre-8.44.tar.gz</span><br><span class="line">tar -zxvf pcre-8.44.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> pcre-8.44</span><br><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/pcre/</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
-
 <p>编译安装httpd之前，需要修改<code>/httpd-2.4.46/include/http_config.h</code>,在在文件头添加上</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#ifndef BIG_SECURITY_HOLE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BIG_SECURITY_HOLE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> httpd-2.4.46 </span><br><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/httpd --<span class="built_in">enable</span>-ssl --<span class="built_in">enable</span>-cgi --<span class="built_in">enable</span>-mods-shared=allable-ssl --<span class="built_in">enable</span>-cgi --<span class="built_in">enable</span>-mods-shared=all  --<span class="built_in">enable</span>-track-vars --<span class="built_in">enable</span>-rewrite --with-apr-util=/usr/<span class="built_in">local</span>/apr-util/ --with-apr=/usr/<span class="built_in">local</span>/apr --with-pcre=/usr/<span class="built_in">local</span>/pcre/</span><br><span class="line"></span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
-
-<h3 id="修改配置文件重启服务"><a href="#修改配置文件重启服务" class="headerlink" title="修改配置文件重启服务"></a>修改配置文件重启服务</h3><p>修改User跟Group和ServerName</p>
+<h3 id="修改配置文件重启服务">修改配置文件重启服务</h3>
+<p>修改User跟Group和ServerName</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/<span class="built_in">local</span>/httpd/conf/httpd.conf</span><br><span class="line"></span><br><span class="line">User root</span><br><span class="line">Group root</span><br><span class="line"></span><br><span class="line">ServerName 127.0.0.1:80</span><br></pre></td></tr></table></figure>
-
 <p>重启服务</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/httpd/bin/apachectl start</span><br></pre></td></tr></table></figure>
-
 <p>然后浏览器输入<code>127.0.0.1</code>访问看到 It Works则说明成功。</p>
 
   </div>

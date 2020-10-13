@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="在使用kvm创建虚拟机时候，出现如下错误：KVM cannot access storage file (as uid:107, gid:107)permission denied 解决方法修改文件 &#x2F;etc&#x2F;libvirt&#x2F;qemu.conf 做如下修改 然后重启服务： 1systemctl restart libvirtd.service">
+    <meta name="description" content="在使用kvm创建虚拟机时候，出现如下错误： KVM cannot access storage file (as uid:107, gid:107)permission denied 解决方法 修改文件 &#x2F;etc&#x2F;libvirt&#x2F;qemu.conf 做如下修改 然后重启服务： 1systemctl restart libvirtd.service">
 <meta name="keywords" content="KVM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="KVM创建虚拟机，文件无法访问错误permission denied">
 <meta property="og:url" content="https:&#x2F;&#x2F;521.ooo&#x2F;kvm-error.html">
 <meta property="og:site_name" content="嘲弄i">
-<meta property="og:description" content="在使用kvm创建虚拟机时候，出现如下错误：KVM cannot access storage file (as uid:107, gid:107)permission denied 解决方法修改文件 &#x2F;etc&#x2F;libvirt&#x2F;qemu.conf 做如下修改 然后重启服务： 1systemctl restart libvirtd.service">
+<meta property="og:description" content="在使用kvm创建虚拟机时候，出现如下错误： KVM cannot access storage file (as uid:107, gid:107)permission denied 解决方法 修改文件 &#x2F;etc&#x2F;libvirt&#x2F;qemu.conf 做如下修改 然后重启服务： 1systemctl restart libvirtd.service">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;kvm&#x2F;1.png">
 <meta property="og:updated_time" content="2020-10-12T15:41:12.000Z">
@@ -158,11 +158,12 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>在使用kvm创建虚拟机时候，出现如下错误：<br><code>KVM cannot access storage file (as uid:107, gid:107)permission denied</code></p>
-<p>解决方法<br>修改文件 <code>/etc/libvirt/qemu.conf </code>做如下修改</p>
-<p><img src="/img/kvm/1.png">然后重启服务：</p>
+    <p>在使用kvm创建虚拟机时候，出现如下错误：<br>
+<code>KVM cannot access storage file (as uid:107, gid:107)permission denied</code></p>
+<p>解决方法<br>
+修改文件 <code>/etc/libvirt/qemu.conf </code>做如下修改</p>
+<p><img src="/img/kvm/1.png" alt="">然后重启服务：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart libvirtd.service</span><br></pre></td></tr></table></figure>
-
 
   </div>
 </article>

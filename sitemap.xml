@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://521.ooo/MapReduce.html</loc>
+    
+    <lastmod>2020-10-13T12:29:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://521.ooo/WeiboSpider.html</loc>
+    
+    <lastmod>2020-10-13T05:11:15.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://521.ooo/kvm-error.html</loc>
     
     <lastmod>2020-10-12T15:41:12.000Z</lastmod>
@@ -37,13 +51,6 @@
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/shellSort.html</loc>
-    
-    <lastmod>2020-07-17T08:47:00.903Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://521.ooo/sort/selectionSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.903Z</lastmod>
@@ -51,14 +58,21 @@
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/quickSort.html</loc>
+    <loc>https://521.ooo/sort/shellSort.html</loc>
+    
+    <lastmod>2020-07-17T08:47:00.903Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://521.ooo/sort/radixSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.877Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/radixSort.html</loc>
+    <loc>https://521.ooo/sort/quickSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.877Z</lastmod>
     
@@ -79,13 +93,6 @@
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/heapSort.html</loc>
-    
-    <lastmod>2020-07-17T08:47:00.875Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://521.ooo/sort/countingSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.875Z</lastmod>
@@ -93,14 +100,21 @@
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/bucketSort.html</loc>
+    <loc>https://521.ooo/sort/heapSort.html</loc>
+    
+    <lastmod>2020-07-17T08:47:00.875Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://521.ooo/sort/bubbleSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.874Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://521.ooo/sort/bubbleSort.html</loc>
+    <loc>https://521.ooo/sort/bucketSort.html</loc>
     
     <lastmod>2020-07-17T08:47:00.874Z</lastmod>
     

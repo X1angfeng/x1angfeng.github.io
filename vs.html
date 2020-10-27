@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Visual Studio 被称为&amp;quot;宇宙第一IDE&amp;quot;其功能齐全且强大。但是在使用VS写C语言程序的时候使用c的传统库函数scanf，strcpy，sprintf等会提示C4996错误。这是由于微软在VS2013以后不建议再使用这些函数，因此使用时会报如此错误。">
+    <meta name="description" content="Visual Studio 被称为”宇宙第一IDE”其功能齐全且强大。但是在使用VS写C语言程序的时候使用c的传统库函数scanf，strcpy，sprintf等会提示C4996错误。这是由于微软在VS2013以后不建议再使用这些函数，因此使用时会报如此错误。">
 <meta name="keywords" content="visual studio">
 <meta property="og:type" content="article">
 <meta property="og:title" content="visual studioC4996错误解决方法">
 <meta property="og:url" content="https:&#x2F;&#x2F;521.ooo&#x2F;vs.html">
 <meta property="og:site_name" content="嘲弄i">
-<meta property="og:description" content="Visual Studio 被称为&amp;quot;宇宙第一IDE&amp;quot;其功能齐全且强大。但是在使用VS写C语言程序的时候使用c的传统库函数scanf，strcpy，sprintf等会提示C4996错误。这是由于微软在VS2013以后不建议再使用这些函数，因此使用时会报如此错误。">
+<meta property="og:description" content="Visual Studio 被称为”宇宙第一IDE”其功能齐全且强大。但是在使用VS写C语言程序的时候使用c的传统库函数scanf，strcpy，sprintf等会提示C4996错误。这是由于微软在VS2013以后不建议再使用这些函数，因此使用时会报如此错误。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;vs.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;vs1.png">
@@ -126,7 +126,7 @@
     
    |
     <i class="far fa-file-word fa-fw"></i>
-    文章字数:<span class="post-count">200</span>
+    文章字数:<span class="post-count">198</span>
     |
     <i class="far fa-clock fa-fw"></i>
     阅读时长:<span class="post-count">1</span>min
@@ -159,7 +159,7 @@
     
       <div class="outdated-warn">
         <i class="fas fa-exclamation-circle"></i>
-        这是一篇更新于 583 天前的文章，其中的信息可能已经有所发展或是发生改变。
+        这是一篇更新于 584 天前的文章，其中的信息可能已经有所发展或是发生改变。
       </div>
     
   
@@ -169,7 +169,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>Visual Studio 被称为&quot;宇宙第一IDE&quot;其功能齐全且强大。但是在使用VS写C语言程序的时候使用c的传统库函数scanf，strcpy，sprintf等会提示C4996错误。这是由于微软在VS2013以后不建议再使用这些函数，因此使用时会报如此错误。<a id="more"></a></p>
+    <p>Visual Studio 被称为”宇宙第一IDE”其功能齐全且强大。但是在使用VS写C语言程序的时候使用c的传统库函数scanf，strcpy，sprintf等会提示C4996错误。这是由于微软在VS2013以后不建议再使用这些函数，因此使用时会报如此错误。<a id="more"></a></p>
 <p><span id="inline-blue">方法一：</span></p>
 <p><code>#define _CRT_SECURE_NO_WARNINGS把这个宏定义一定要放到.c文件的第一行。</code></p>
 <p><span id="inline-yellow">方法二：</span></p>
@@ -178,6 +178,7 @@
 <p><span id="inline-purple">方法三:</span></p>
 <p><code>**更改预处理定义：  项目-&gt;属性-&gt;配置属性-&gt;C/C++ -&gt; 预处理器 -&gt; 预处理器定义，增加_CRT_SECURE_NO_DEPRECATE** </code></p>
 <img src="/img/vs1.png">
+
 <p><span id="yellow">方法四：</span></p>
 <p><code>最为简单的方法就是直接使用安全函数来替换老的函数.如scanf改为scanf_s即可。</code></p>
 

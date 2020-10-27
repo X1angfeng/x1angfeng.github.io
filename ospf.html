@@ -97,7 +97,7 @@
       <span id="i-top" class="info" style="display:none;">返回顶部</span>
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">技术原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">实验步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">实验设备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">验证</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#技术原理"><span class="toc-text">技术原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验步骤"><span class="toc-text">实验步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验设备"><span class="toc-text">实验设备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#验证"><span class="toc-text">验证</span></a></li></ol>
     </div>
   </div>
 </div>
@@ -160,7 +160,7 @@
     
       <div class="outdated-warn">
         <i class="fas fa-exclamation-circle"></i>
-        这是一篇更新于 529 天前的文章，其中的信息可能已经有所发展或是发生改变。
+        这是一篇更新于 530 天前的文章，其中的信息可能已经有所发展或是发生改变。
       </div>
     
   
@@ -174,10 +174,9 @@
 <p>假设校园网通过一台三层交换机连到校园网出口路由器上，路由器再和校园外的另一台路由器连接。现要做适当配置，实现校园网内部主机与校园网外部主机之间的相互通信。为了简化网管的管理维护工作，学校决定采用OSPF协议实现互通。</p>
 </blockquote>
 <a id="more"></a>
-<h1><strong>技术原理</strong></h1>
-<p>🎈OSPF开放式最短路径优先协议，是目前网路中应用最广泛的路由协议之一。属于内部网管路由协议，能够适应各种规模的网络环境，是典型的链路状态协议。OSPF路由协议通过向全网扩散本设备的链路状态信息，使网络中每台设备最终同步一个具有全网链路状态的数据库，然后路由器采用SPF算法，以自己为根，计算到达其他网络的最短路径，最终形成全网路由信息。</p>
-<h1><strong>实验步骤</strong></h1>
-<p>🎈新建packet tracer拓扑图</p>
+
+<h1 id="技术原理"><a href="#技术原理" class="headerlink" title="技术原理"></a><strong>技术原理</strong></h1><p>🎈OSPF开放式最短路径优先协议，是目前网路中应用最广泛的路由协议之一。属于内部网管路由协议，能够适应各种规模的网络环境，是典型的链路状态协议。OSPF路由协议通过向全网扩散本设备的链路状态信息，使网络中每台设备最终同步一个具有全网链路状态的数据库，然后路由器采用SPF算法，以自己为根，计算到达其他网络的最短路径，最终形成全网路由信息。</p>
+<h1 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a><strong>实验步骤</strong></h1><p>🎈新建packet tracer拓扑图</p>
 <p>（1）在本实验中的三层交换机上划分VLAN10和VLAN20，其中VLAN10用于连接校园网主机，VLAN20用于连接R1。</p>
 <p>（2）路由器之间通过V35电缆通过串口连接，DCE端连接在R1上，配置其时钟频率64000。</p>
 <p>（3）主机和交换机通过直连线，主机与路由器通过交叉线连接。</p>
@@ -185,17 +184,16 @@
 <p>（5）在路由器R1、R2上配置OSPF路由协议。</p>
 <p>（6）将PC1、PC2主机默认网关设置为与直连网路设备接口IP地址。</p>
 <p>（7）验证PC1、PC2主机之间可以互相通信；</p>
-<h1>实验设备</h1>
-<p>PC 2台；Switch_3560 1台；Router-PT 2台；直连线；交叉线；DCE串口线</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ospf.png" alt=""></p>
-<p><code>PC1</code></p>
+<h1 id="实验设备"><a href="#实验设备" class="headerlink" title="实验设备"></a>实验设备</h1><p>PC 2台；Switch_3560 1台；Router-PT 2台；直连线；交叉线；DCE串口线</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ospf.png"></p>
+<p><code>PC1</code> </p>
 <p>​       IP:                 192.168.1.2</p>
 <p>​       Submask:        255.255.255.0</p>
 <p>​       Gateway:        192.168.1.1</p>
 <p><code>PC2</code></p>
 <p>​       IP:                 192.168.2.2</p>
 <p>​       Submask:        255.255.255.0</p>
-<p>​       Gateway:        192.168.2.1</p>
+<p>​       Gateway:        192.168.2.1 </p>
 <p>🌈配置<code>S3560</code></p>
 <p>Switch&gt;en</p>
 <p>Switch#conf t</p>
@@ -215,11 +213,11 @@
 <p>Switch(config-if)#exit</p>
 <p>Switch(config)#int fa 0/2</p>
 <p>Switch(config-if)#ip add 192.168.3.1 255.255.255.0</p>
-<p>Switch(config-if)#no shutdown</p>
+<p>Switch(config-if)#no shutdown </p>
 <p>Switch(config-if)#exit</p>
 <p>Switch(config)#router ospf 1</p>
 <p>Switch(config-router)#network 192.168.1.0 0.0.0.255 area 0</p>
-<p>Switch(config-router)#network 192.168.3.0 0.0.0.255 area 0</p>
+<p>Switch(config-router)#network 192.168.3.0 0.0.0.255 area 0 </p>
 <p>Switch(config-router)#end</p>
 <p>🌈<code>R1</code>的配置</p>
 <p>Router&gt;en</p>
@@ -252,12 +250,11 @@
 <p>Router(config-router)#network 192.168.4.0 0.0.0.255 area 0</p>
 <p>Router(config-router)#network 192.168.2.0 0.0.0.255 area 0</p>
 <p>Router(config-router)#end</p>
-<h1>验证</h1>
-<p>PC1、PC2主机之间可以互相通信</p>
+<h1 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h1><p>PC1、PC2主机之间可以互相通信</p>
 <p><code>PC1</code> ping <code>PC2</code></p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/1.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/1.png"></p>
 <p><code>PC2</code> ping <code>PC1</code></p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/2.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/2.png"></p>
 
   </div>
 </article>
@@ -543,7 +540,7 @@ div.vcontent p  img.vemoji {
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">技术原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">实验步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">实验设备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">验证</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#技术原理"><span class="toc-text">技术原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验步骤"><span class="toc-text">实验步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验设备"><span class="toc-text">实验设备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#验证"><span class="toc-text">验证</span></a></li></ol>
     </div>
 
     <div id="actions-footer">

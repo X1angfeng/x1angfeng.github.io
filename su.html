@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="最近给自己的Linux终端做了一个美化，使用的是oh-my-zsh，并且用chsh -s &#x2F;bin&#x2F;zsh命令把zsh改成了登录root时使用的shell。但是自己手贱不小心直接把安装的zsh给卸载了🤣。然后就遇到了无法登录root用户的这个问题…">
+    <meta name="description" content="最近给自己的Linux终端做了一个美化，使用的是oh-my-zsh，并且用chsh -s &#x2F;bin&#x2F;zsh命令把zsh改成了登录root时使用的shell。但是自己手贱不小心直接把安装的zsh给卸载了🤣。然后就遇到了无法登录root用户的这个问题……">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="zsh卸载后无法root问题解决">
 <meta property="og:url" content="https:&#x2F;&#x2F;521.ooo&#x2F;su.html">
 <meta property="og:site_name" content="嘲弄i">
-<meta property="og:description" content="最近给自己的Linux终端做了一个美化，使用的是oh-my-zsh，并且用chsh -s &#x2F;bin&#x2F;zsh命令把zsh改成了登录root时使用的shell。但是自己手贱不小心直接把安装的zsh给卸载了🤣。然后就遇到了无法登录root用户的这个问题…">
+<meta property="og:description" content="最近给自己的Linux终端做了一个美化，使用的是oh-my-zsh，并且用chsh -s &#x2F;bin&#x2F;zsh命令把zsh改成了登录root时使用的shell。但是自己手贱不小心直接把安装的zsh给卸载了🤣。然后就遇到了无法登录root用户的这个问题……">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;su&#x2F;1.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;su&#x2F;2.png">
@@ -168,7 +168,7 @@
     
       <div class="outdated-warn">
         <i class="fas fa-exclamation-circle"></i>
-        这是一篇更新于 509 天前的文章，其中的信息可能已经有所发展或是发生改变。
+        这是一篇更新于 510 天前的文章，其中的信息可能已经有所发展或是发生改变。
       </div>
     
   
@@ -179,24 +179,32 @@
 
   <div class="content" itemprop="articleBody">
     <img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/su/1.png" alagin="center">
-<p>最近给自己的Linux终端做了一个美化，使用的是<code>oh-my-zsh</code>，并且用<code>chsh -s /bin/zsh</code>命令把zsh改成了登录root时使用的shell。但是自己手贱不小心直接把安装的zsh给卸载了🤣。然后就遇到了无法登录root用户的这个问题…<a id="more"></a></p>
+
+<p>最近给自己的Linux终端做了一个美化，使用的是<code>oh-my-zsh</code>，并且用<code>chsh -s /bin/zsh</code>命令把zsh改成了登录root时使用的shell。但是自己手贱不小心直接把安装的zsh给卸载了🤣。然后就遇到了无法登录root用户的这个问题……<a id="more"></a></p>
 <p>这个提示的是找不到<code>/bin/zsh</code>这个文件或者目录。🦑由于是卸载了的所以肯定找不到的。对于这个问题想的是直接用<code>chsh /bin/zsh</code>把他改回来。但是呢这个修改的也仅仅只是限定于修改当前登录的用户，现在也就是只能修改普通用户的shell，root用户没有登录是无法所以是不行的。使用<code>cat /etc/passwd</code>查看了一下相关文件。</p>
 <img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/su/2.png">
+
 <p>必须把root用户登录的shell改成其他的才行。这里我竟然会想到使用<code>vim /etc/passwd</code>命令来修改，但是对于普通用户来说那个文件只是可读的无法做修改。</p>
 <img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/su/3.png">
+
 <p>那加个sudo呢？使用<code> sudo vim /etc/passwd</code>还是不行的。</p>
 <img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/su/4.png">
+
 <p>这个必须做对<code>/etc/sudoers</code>做相关修改才行，而且这个要修改也就有涉及到登录root用户的问题这个更不用想了。</p>
 <img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/su/cat.jpg">
+
 <p>对于这个问题最后是这么处理的，重启服务器来到启动菜单，出现以下字样立刻按ESC键来到启动菜单。</p>
 <img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/su/6.png">
+
 <p>然后按esc键来到下面这个界面</p>
 <img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/su/5.png">
+
 <p>输入a然后会进入这个界面<img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/su/7.png"></p>
 <p>输入<code>init=/bin/sh</code>后按回车进入另外一个界面<img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/su/8.png"></p>
 <p>然后输入<code>mount –orw,remount /</code>,以读写的方式重新挂载分区，然后在使用<code>vim /etc/passwd</code>命令来修改配置文件</p>
 <p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/su/9.png">，修改成<code>/bin/bash</code>然后保存退出。重启系统然后就可以登录root用户了😂</p>
 <img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/su/ku.png">
+
 
   </div>
 </article>

@@ -110,7 +110,7 @@
       <span id="i-top" class="info" style="display:none;">返回顶部</span>
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">ACL基础知识</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">ACL综合实验</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">ospf及ACL综合实验</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ACL基础知识"><span class="toc-text">ACL基础知识</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ACL综合实验"><span class="toc-text">ACL综合实验</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ospf及ACL综合实验"><span class="toc-text">ospf及ACL综合实验</span></a></li></ol>
     </div>
   </div>
 </div>
@@ -140,10 +140,10 @@
     
    |
     <i class="far fa-file-word fa-fw"></i>
-    文章字数:<span class="post-count">2.1k</span>
+    文章字数:<span class="post-count">1.9k</span>
     |
     <i class="far fa-clock fa-fw"></i>
-    阅读时长:<span class="post-count">10</span>min
+    阅读时长:<span class="post-count">9</span>min
  <!--|
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <i class="far fa-eye fa-fw"></i>
@@ -173,7 +173,7 @@
     
       <div class="outdated-warn">
         <i class="fas fa-exclamation-circle"></i>
-        这是一篇更新于 516 天前的文章，其中的信息可能已经有所发展或是发生改变。
+        这是一篇更新于 517 天前的文章，其中的信息可能已经有所发展或是发生改变。
       </div>
     
   
@@ -186,126 +186,31 @@
     <img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/banner.png" width="80%">
 访问控制列表（Access Control List，ACL） 是路由器和交换机接口的指令列表，用来控制端口进出的数据包。ACL适用于所有的被路由协议，如IP、IPX、AppleTalk等。ACL可以过滤网络中的流量，是控制访问的一种网络技术手段。ACL是物联网中保障系统安全性的重要技术，在设备硬件层安全基础上，通过对在软件层面对设备间通信进行访问控制，使用可编程方法指定访问规则，防止非法设备破坏系统安全，非法获取系统数据。
 <a id="more"></a>
+
 <p>此篇博客主要讲ACL的一些基础配置，以及两个有关于自己平时学习上有关于ACL的综合实验。</p>
-<h1>ACL基础知识</h1>
-<h1>ACL综合实验</h1>
-<img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/Topology1.jpg">
+<h1 id="ACL基础知识"><a href="#ACL基础知识" class="headerlink" title="ACL基础知识"></a>ACL基础知识</h1><h1 id="ACL综合实验"><a href="#ACL综合实验" class="headerlink" title="ACL综合实验"></a>ACL综合实验</h1><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/Topology1.jpg">
+
 <p><strong>实验要求</strong>：某公司有一台三层交换机，公司的服务器、部门A、部门B的用户都连接到这台交换机上，并有以下规定：</p>
 <ol>
 <li>完成PC、服务器、交换机、路由器的基础配置（包括接口地址、vlan划分、静态或者动态路由等）</li>
 <li>部门A和部门B的用户不允许访问FTP服务器和VOD服务器，但可以随时访问Mail服务器。</li>
 <li>内部用户可以通过代理192.168.3.100（提示：路由器R0的下接口地址）访问Internet，但不允许部门A的用户访问Internet。（路由器router0上方的网络模拟为外网Internet）</li>
-<li>部门A和部门B的总经理（IP地址分别为192.168.1.100和192.168.2.100）可以访问Internet和所有服务器。</li>
-</ol>
-<blockquote>
-<p>提示：cisco 访问控制列表建立与规则书写的格式如下：<br>
-access-list 表号 permit（deny） 协议 源地址 目的地址 运算符 端口号<br>
-在接口下应用ACL的指令如下：<br>
-Ip access-group 表号 out (in)</p>
+<li>部门A和部门B的总经理（IP地址分别为192.168.1.100和192.168.2.100）可以访问Internet和所有服务器。<blockquote>
+<p>提示：cisco 访问控制列表建立与规则书写的格式如下：<br>access-list 表号 permit（deny） 协议 源地址 目的地址 运算符 端口号<br>在接口下应用ACL的指令如下：<br>Ip access-group 表号 out (in)</p>
 </blockquote>
-<p><span id="inline-blue">注意</span>此实验二层交换机不需要做配置<br>
-配置三层交换机<code>S1</code></p>
+</li>
+</ol>
+<p><span id="inline-blue">注意</span>此实验二层交换机不需要做配置<br>配置三层交换机<code>S1</code></p>
 <blockquote>
-<p>Switch&gt;<br>
-Switch&gt;en<br>
-Switch#conf t<br>
-Switch(config)#vlan 2<br>
-Switch(config-vlan)#exit<br>
-Switch(config)#vlan 3<br>
-Switch(config-vlan)#exit<br>
-Switch(config)#vlan 4<br>
-Switch(config-vlan)#exit<br>
-Switch(config)#int fa 0/1<br>
-Switch(config-if)#sw acc vlan 1<br>
-Switch(config-if)#exit<br>
-Switch(config)#int fa 0/2<br>
-Switch(config-if)#sw acc vlan 2<br>
-Switch(config-if)#exit<br>
-Switch(config)#int fa 0/3<br>
-Switch(config-if)#sw acc vlan 3<br>
-Switch(config-if)#exit<br>
-Switch(config)#int fa 0/4<br>
-Switch(config-if)#sw acc vlan 4<br>
-Switch(config-if)#exit<br>
-Switch(config)#int vlan 1<br>
-Switch(config-if)#ip add 192.168.1.1 255.255.255.0<br>
-Switch(config-if)#no shutdown<br>
-Switch(config-if)#exit<br>
-Switch(config)#int vlan 2<br>
-Switch(config-if)#ip add 192.168.2.1 255.255.255.0<br>
-Switch(config-if)#no shutdown<br>
-Switch(config-if)#exit<br>
-Switch(config)#int vlan 3<br>
-Switch(config-if)#ip add 192.168.3.1 255.255.255.0<br>
-Switch(config-if)#no shutdown<br>
-Switch(config-if)#exit<br>
-Switch(config)#int vlan 4<br>
-Switch(config-if)#ip add 192.168.4.1 255.255.255.0<br>
-Switch(config-if)#no shutdown<br>
-Switch(config-if)#exit<br>
-Switch(config)#ip routing<br>
-Switch(config)#router rip<br>
-Switch(config-router)#network 192.168.1.0<br>
-Switch(config-router)#network 192.168.2.0<br>
-Switch(config-router)#network 192.168.3.0<br>
-Switch(config-router)#network 192.168.4.0<br>
-Switch(config-router)#version 2<br>
-Switch(config)#ip access-list extended 100<br>
-Switch(config-ext-nacl)#permit ip host 192.168.1.100 any<br>
-Switch(config-ext-nacl)#deny ip 192.168.1.100 0.0.0.255 host 192.168.4.60<br>
-Switch(config-ext-nacl)#deny ip 192.168.1.100 0.0.0.255 host 192.168.4.70<br>
-Switch(config-ext-nacl)#deny ip 192.168.1.100 0.0.0.255 host 192.168.3.100<br>
-Switch(config-ext-nacl)#permit ip any any<br>
-Switch(config-ext-nacl)#int vlan 1<br>
-Switch(config-if)#ip access-group 100 in<br>
-Switch(config-if)#ip access-list extended 101<br>
-Switch(config-ext-nacl)#permit ip host 192.168.2.100 any<br>
-Switch(config-ext-nacl)#deny ip 192.168.2.100 0.0.0.255 host 192.168.4.60<br>
-Switch(config-ext-nacl)#deny ip 192.168.2.100 0.0.0.255 host 192.168.4.70<br>
-Switch(config-ext-nacl)#permit ip any any<br>
-Switch(config-ext-nacl)#int vlan 2<br>
-Switch(config-if)#ip access-group 101 in</p>
+<p>Switch&gt;<br>Switch&gt;en<br>Switch#conf t<br>Switch(config)#vlan 2<br>Switch(config-vlan)#exit<br>Switch(config)#vlan 3<br>Switch(config-vlan)#exit<br>Switch(config)#vlan 4<br>Switch(config-vlan)#exit<br>Switch(config)#int fa 0/1<br>Switch(config-if)#sw acc vlan 1<br>Switch(config-if)#exit<br>Switch(config)#int fa 0/2<br>Switch(config-if)#sw acc vlan 2<br>Switch(config-if)#exit<br>Switch(config)#int fa 0/3<br>Switch(config-if)#sw acc vlan 3<br>Switch(config-if)#exit<br>Switch(config)#int fa 0/4<br>Switch(config-if)#sw acc vlan 4<br>Switch(config-if)#exit<br>Switch(config)#int vlan 1<br>Switch(config-if)#ip add 192.168.1.1 255.255.255.0<br>Switch(config-if)#no shutdown<br>Switch(config-if)#exit<br>Switch(config)#int vlan 2<br>Switch(config-if)#ip add 192.168.2.1 255.255.255.0<br>Switch(config-if)#no shutdown<br>Switch(config-if)#exit<br>Switch(config)#int vlan 3<br>Switch(config-if)#ip add 192.168.3.1 255.255.255.0<br>Switch(config-if)#no shutdown<br>Switch(config-if)#exit<br>Switch(config)#int vlan 4<br>Switch(config-if)#ip add 192.168.4.1 255.255.255.0<br>Switch(config-if)#no shutdown<br>Switch(config-if)#exit<br>Switch(config)#ip routing<br>Switch(config)#router rip<br>Switch(config-router)#network 192.168.1.0<br>Switch(config-router)#network 192.168.2.0<br>Switch(config-router)#network 192.168.3.0<br>Switch(config-router)#network 192.168.4.0<br>Switch(config-router)#version 2<br>Switch(config)#ip access-list extended 100<br>Switch(config-ext-nacl)#permit ip host 192.168.1.100 any<br>Switch(config-ext-nacl)#deny ip 192.168.1.100 0.0.0.255 host 192.168.4.60<br>Switch(config-ext-nacl)#deny ip 192.168.1.100 0.0.0.255 host 192.168.4.70<br>Switch(config-ext-nacl)#deny ip 192.168.1.100 0.0.0.255 host 192.168.3.100<br>Switch(config-ext-nacl)#permit ip any any<br>Switch(config-ext-nacl)#int vlan 1<br>Switch(config-if)#ip access-group 100 in<br>Switch(config-if)#ip access-list extended 101<br>Switch(config-ext-nacl)#permit ip host 192.168.2.100 any<br>Switch(config-ext-nacl)#deny ip 192.168.2.100 0.0.0.255 host 192.168.4.60<br>Switch(config-ext-nacl)#deny ip 192.168.2.100 0.0.0.255 host 192.168.4.70<br>Switch(config-ext-nacl)#permit ip any any<br>Switch(config-ext-nacl)#int vlan 2<br>Switch(config-if)#ip access-group 101 in</p>
 </blockquote>
 <p>配置路由器<code>R1</code></p>
 <blockquote>
-<p>Router&gt;en<br>
-Router#conf t<br>
-Router(config)#int fa 0/0<br>
-Router(config-if)#ip add 192.168.3.100 255.255.255.0<br>
-Router(config-if)#no shutdown<br>
-Router(config-if)#exit<br>
-Router(config)#int fa 0/1<br>
-Router(config-if)#ip add 192.168.5.1 255.255.255.0<br>
-Router(config-if)#no shutdown<br>
-Router(config)#router rip<br>
-Router(config-router)#network 192.168.3.0<br>
-Router(config-router)#network 192.168.5.0<br>
-Router(config-router)#version 2</p>
+<p>Router&gt;en<br>Router#conf t<br>Router(config)#int fa 0/0<br>Router(config-if)#ip add 192.168.3.100 255.255.255.0<br>Router(config-if)#no shutdown<br>Router(config-if)#exit<br>Router(config)#int fa 0/1<br>Router(config-if)#ip add 192.168.5.1 255.255.255.0<br>Router(config-if)#no shutdown<br>Router(config)#router rip<br>Router(config-router)#network 192.168.3.0<br>Router(config-router)#network 192.168.5.0<br>Router(config-router)#version 2</p>
 </blockquote>
-<p>结果验证<br>
-部门A经理上网—可以上网<br>
-Ping 192.168.3.100<br>
-<img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/A.png"><br>
-部门A经理访问Mail、FTP、VOD服务器—可以访问<br>
-<img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/B.png"><br>
-部门A用户上网—不能上网<br>
-<img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/C.png"><br>
-部门A用户访问Mail服务器—可以访问<br>
-<img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/D.png"><br>
-部门A用户访问FTP服务器和VOD服务器—不能访问<br>
-<img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/E.png"><br>
-部门B经理上网—可以上网<br>
-<img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/F.png"><br>
-部门B经理访问FTP、Mail、VOD服务器—可以访问<br>
-<img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/G.png"><br>
-部门B用户上网—可以上网<br>
-<img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/H.png"><br>
-部门B用户访问Mail服务器—可以访问<br>
-<img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/I.png"><br>
-部门B用户访问FTP服务器和VOD服务器—不能访问<br>
-<img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/J.png"></p>
-<h1>ospf及ACL综合实验</h1>
-<img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/Topology2.jpg">
+<p>结果验证<br>部门A经理上网—可以上网<br>Ping 192.168.3.100<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/A.png"><br>部门A经理访问Mail、FTP、VOD服务器—可以访问<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/B.png"><br>部门A用户上网—不能上网<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/C.png"><br>部门A用户访问Mail服务器—可以访问<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/D.png"><br>部门A用户访问FTP服务器和VOD服务器—不能访问<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/E.png"><br>部门B经理上网—可以上网<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/F.png"><br>部门B经理访问FTP、Mail、VOD服务器—可以访问<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/G.png"><br>部门B用户上网—可以上网<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/H.png"><br>部门B用户访问Mail服务器—可以访问<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/I.png"><br>部门B用户访问FTP服务器和VOD服务器—不能访问<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/J.png"></p>
+<h1 id="ospf及ACL综合实验"><a href="#ospf及ACL综合实验" class="headerlink" title="ospf及ACL综合实验"></a>ospf及ACL综合实验</h1><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/Topology2.jpg">
+
 <blockquote>
 <p>实验要求：</p>
 </blockquote>
@@ -319,116 +224,21 @@ Ping 192.168.3.100<br>
 </ol>
 <p>三层交换机<code>S1</code></p>
 <blockquote>
-<p>Switch&gt;en<br>
-Switch#conf t<br>
-Switch(config)#vlan 2<br>
-Switch(config-vlan)#exit<br>
-Switch(config)#vlan 3<br>
-Switch(config-vlan)#exit<br>
-Switch(config)#vlan 1<br>
-Switch(config-vlan)#exit<br>
-Switch(config)#int fa 0/1<br>
-Switch(config-if)#sw acc vlan 1<br>
-Switch(config-if)#exit<br>
-Switch(config)#int fa 0/2<br>
-Switch(config-if)#sw acc vlan 2<br>
-Switch(config-if)#exit<br>
-Switch(config)#int fa 0/3<br>
-Switch(config-if)#sw acc vlan 3<br>
-Switch(config-if)#exit<br>
-Switch(config)#int vlan 1<br>
-Switch(config-if)#ip add 192.168.11.1 255.255.255.0<br>
-Switch(config-if)#no shutdown<br>
-Switch(config-if)#exit<br>
-Switch(config)#int vlan 2<br>
-Switch(config-if)#ip add 192.168.22.1 255.255.255.0<br>
-Switch(config-if)#no shutdown<br>
-Switch(config-if)#exit<br>
-Switch(config)#int vlan 3<br>
-Switch(config-if)#ip add 13.0.0.1 255.255.255.0<br>
-Switch(config-if)#no shutdown<br>
-Switch(config-if)#exit<br>
-Switch(config)#ip routing<br>
-Switch(config)#router ospf 10<br>
-Switch(config-router)#network 192.168.11.0 0.0.0.255 area 1<br>
-Switch(config-router)#network 192.168.22.0 0.0.0.255 area 1<br>
-Switch(config-router)#network 13.0.0.0 0.0.0.255 area 1</p>
+<p>Switch&gt;en<br>Switch#conf t<br>Switch(config)#vlan 2<br>Switch(config-vlan)#exit<br>Switch(config)#vlan 3<br>Switch(config-vlan)#exit<br>Switch(config)#vlan 1<br>Switch(config-vlan)#exit<br>Switch(config)#int fa 0/1<br>Switch(config-if)#sw acc vlan 1<br>Switch(config-if)#exit<br>Switch(config)#int fa 0/2<br>Switch(config-if)#sw acc vlan 2<br>Switch(config-if)#exit<br>Switch(config)#int fa 0/3<br>Switch(config-if)#sw acc vlan 3<br>Switch(config-if)#exit<br>Switch(config)#int vlan 1<br>Switch(config-if)#ip add 192.168.11.1 255.255.255.0<br>Switch(config-if)#no shutdown<br>Switch(config-if)#exit<br>Switch(config)#int vlan 2<br>Switch(config-if)#ip add 192.168.22.1 255.255.255.0<br>Switch(config-if)#no shutdown<br>Switch(config-if)#exit<br>Switch(config)#int vlan 3<br>Switch(config-if)#ip add 13.0.0.1 255.255.255.0<br>Switch(config-if)#no shutdown<br>Switch(config-if)#exit<br>Switch(config)#ip routing<br>Switch(config)#router ospf 10<br>Switch(config-router)#network 192.168.11.0 0.0.0.255 area 1<br>Switch(config-router)#network 192.168.22.0 0.0.0.255 area 1<br>Switch(config-router)#network 13.0.0.0 0.0.0.255 area 1</p>
 </blockquote>
 <p>三层交换机<code>S2</code></p>
 <blockquote>
-<p>Switch&gt;en<br>
-Switch#conf t<br>
-Switch(config)#vlan 1<br>
-Switch(config-vlan)#exit<br>
-Switch(config)#vlan 2<br>
-Switch(config-vlan)#exit<br>
-Switch(config)#int fa 0/1<br>
-Switch(config-if)#sw acc vlan 1<br>
-Switch(config-if)#exit<br>
-Switch(config)#int vlan 1<br>
-Switch(config-if)#ip add 12.0.0.2 255.255.255.0<br>
-Switch(config-if)#no shutdown<br>
-Switch(config-if)#exit<br>
-Switch(config)#int fa 0/2<br>
-Switch(config-if)#sw acc vlan 2<br>
-Switch(config-if)#exit<br>
-Switch(config)#int vlan 2<br>
-Switch(config-if)#ip add 24.0.0.1 255.255.255.0<br>
-Switch(config-if)#no shutdown<br>
-Switch(config-if)#exit<br>
-Switch(config)#ip routing<br>
-Switch(config)#router ospf 10<br>
-Switch(config-router)#network 12.0.0.0 0.0.0.255 area 0<br>
-Switch(config-router)#network 24.0.0.0 0.0.0.255 area 2</p>
+<p>Switch&gt;en<br>Switch#conf t<br>Switch(config)#vlan 1<br>Switch(config-vlan)#exit<br>Switch(config)#vlan 2<br>Switch(config-vlan)#exit<br>Switch(config)#int fa 0/1<br>Switch(config-if)#sw acc vlan 1<br>Switch(config-if)#exit<br>Switch(config)#int vlan 1<br>Switch(config-if)#ip add 12.0.0.2 255.255.255.0<br>Switch(config-if)#no shutdown<br>Switch(config-if)#exit<br>Switch(config)#int fa 0/2<br>Switch(config-if)#sw acc vlan 2<br>Switch(config-if)#exit<br>Switch(config)#int vlan 2<br>Switch(config-if)#ip add 24.0.0.1 255.255.255.0<br>Switch(config-if)#no shutdown<br>Switch(config-if)#exit<br>Switch(config)#ip routing<br>Switch(config)#router ospf 10<br>Switch(config-router)#network 12.0.0.0 0.0.0.255 area 0<br>Switch(config-router)#network 24.0.0.0 0.0.0.255 area 2</p>
 </blockquote>
 <p>路由器<code>R1</code></p>
 <blockquote>
-<p>Router&gt;en<br>
-Router#conf t<br>
-Router(config)#int fa 0/0<br>
-Router(config-if)#ip add 13.0.0.2 255.255.255.0<br>
-Router(config-if)#no shutdown<br>
-Router(config-if)#exit<br>
-Router(config)#int fa 0/1<br>
-Router(config-if)#ip add 12.0.0.1 255.255.255.0<br>
-Router(config-if)#no shutdown<br>
-Router(config-if)#exit<br>
-Router(config)#router ospf 10<br>
-Router(config-router)#network 13.0.0.0 0.0.0.255 area 1<br>
-Router(config-router)#network 12.0.0.0 0.0.0.255 area 0<br>
-Router(config-router)#exit<br>
-Router(config)#ip access-list extended 100<br>
-Router(config-ext-nacl)#deny ip 192.168.11.0 0.0.0.255 host 8.8.8.8<br>
-Router(config-ext-nacl)#permit ip 192.168.11.0 0.0.0.255 any<br>
-Router(config-ext-nacl)#deny ip 192.168.22.0 0.0.0.255 any<br>
-Router(config-ext-nacl)#permit ip any any<br>
-Router(config-ext-nacl)#int fa 0/1<br>
-Router(config-if)#ip acc<br>
-Router(config-if)#ip access-group 100 out</p>
+<p>Router&gt;en<br>Router#conf t<br>Router(config)#int fa 0/0<br>Router(config-if)#ip add 13.0.0.2 255.255.255.0<br>Router(config-if)#no shutdown<br>Router(config-if)#exit<br>Router(config)#int fa 0/1<br>Router(config-if)#ip add 12.0.0.1 255.255.255.0<br>Router(config-if)#no shutdown<br>Router(config-if)#exit<br>Router(config)#router ospf 10<br>Router(config-router)#network 13.0.0.0 0.0.0.255 area 1<br>Router(config-router)#network 12.0.0.0 0.0.0.255 area 0<br>Router(config-router)#exit<br>Router(config)#ip access-list extended 100<br>Router(config-ext-nacl)#deny ip 192.168.11.0 0.0.0.255 host 8.8.8.8<br>Router(config-ext-nacl)#permit ip 192.168.11.0 0.0.0.255 any<br>Router(config-ext-nacl)#deny ip 192.168.22.0 0.0.0.255 any<br>Router(config-ext-nacl)#permit ip any any<br>Router(config-ext-nacl)#int fa 0/1<br>Router(config-if)#ip acc<br>Router(config-if)#ip access-group 100 out</p>
 </blockquote>
 <p>路由器<code>R2</code></p>
 <blockquote>
-<p>Router&gt;en<br>
-Router#conf t<br>
-Router(config)#int fa 0/0<br>
-Router(config-if)#ip add 24.0.0.2 255.255.255.0<br>
-Router(config-if)#no shutdown<br>
-Router(config-if)#exit<br>
-Router(config)#int fa 0/1<br>
-Router(config-if)#ip add 8.8.8.1 255.255.255.0<br>
-Router(config-if)#no shutdown<br>
-Router(config-if)#exit<br>
-Router(config)#router ospf 10<br>
-Router(config-router)#network 24.0.0.0 0.0.0.255 area 2<br>
-Router(config-router)#network 8.0.0.0 0.0.0.255 area 2</p>
+<p>Router&gt;en<br>Router#conf t<br>Router(config)#int fa 0/0<br>Router(config-if)#ip add 24.0.0.2 255.255.255.0<br>Router(config-if)#no shutdown<br>Router(config-if)#exit<br>Router(config)#int fa 0/1<br>Router(config-if)#ip add 8.8.8.1 255.255.255.0<br>Router(config-if)#no shutdown<br>Router(config-if)#exit<br>Router(config)#router ospf 10<br>Router(config-router)#network 24.0.0.0 0.0.0.255 area 2<br>Router(config-router)#network 8.0.0.0 0.0.0.255 area 2</p>
 </blockquote>
-<p>验证<br>
-<code>PC1</code>访问<code>R1</code>右侧公网—可以访问<br>
-<img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/1.png"><br>
-<code>PC1</code>访问服务器—不能访问<br>
-<img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/2.png"><br>
-<code>PC2</code>访问<code>R1</code>右侧公网—不能访问<br>
-<img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/3.png"></p>
+<p>验证<br><code>PC1</code>访问<code>R1</code>右侧公网—可以访问<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/1.png"><br><code>PC1</code>访问服务器—不能访问<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/2.png"><br><code>PC2</code>访问<code>R1</code>右侧公网—不能访问<br><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/ACL/3.png"></p>
 
   </div>
 </article>
@@ -714,7 +524,7 @@ div.vcontent p  img.vemoji {
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">ACL基础知识</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">ACL综合实验</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">ospf及ACL综合实验</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ACL基础知识"><span class="toc-text">ACL基础知识</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ACL综合实验"><span class="toc-text">ACL综合实验</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ospf及ACL综合实验"><span class="toc-text">ospf及ACL综合实验</span></a></li></ol>
     </div>
 
     <div id="actions-footer">

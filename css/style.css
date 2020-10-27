@@ -11,7 +11,7 @@
   --color-accent-1: #000;
   --color-accent-2: #1a1a1a;
   --color-quote: #f2690d;
-  --color-selection-background: #36c;
+  --color-selection-background: #ea5055;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -21,13 +21,13 @@
     --color-border: #999;
     --color-meta: #999;
     --color-background-code: #1f1f1f;
-    --color-link: #7094db;
-    --color-link-decoration: #7094db;
+    --color-link: #f08588;
+    --color-link-decoration: #f08588;
     --color-text: #ddd8d5;
     --color-accent-1: #000;
     --color-accent-2: #000;
     --color-quote: #f2690d;
-    --color-selection-background: #7094db;
+    --color-selection-background: #f08588;
   }
 }
 .inline {

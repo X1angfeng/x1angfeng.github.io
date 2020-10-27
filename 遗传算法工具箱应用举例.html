@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="简单一元函数优化 利用遗传算法计算以下函数的最小值：  选择二进制编码，遗传算法参数设置如表所示    种群大小 最大遗传代数 个体长度 代沟 交叉概率 变异概率     40 20 20 0.95 0.7 0.01    遗传算法优化代码： 12345678910111213141516171819202122232425262728293031323334353637383940414243">
+    <meta name="description" content="简单一元函数优化利用遗传算法计算以下函数的最小值：   选择二进制编码，遗传算法参数设置如表所示    种群大小 最大遗传代数 个体长度 代沟 交叉概率 变异概率    40 20 20 0.95 0.7 0.01   遗传算法优化代码： 123456789101112131415161718192021222324252627282930313233343536373839404142434">
 <meta name="keywords" content="matlab">
 <meta property="og:type" content="article">
 <meta property="og:title" content="遗传算法工具箱应用举例">
 <meta property="og:url" content="https:&#x2F;&#x2F;521.ooo&#x2F;%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95%E5%B7%A5%E5%85%B7%E7%AE%B1%E5%BA%94%E7%94%A8%E4%B8%BE%E4%BE%8B.html">
 <meta property="og:site_name" content="嘲弄i">
-<meta property="og:description" content="简单一元函数优化 利用遗传算法计算以下函数的最小值：  选择二进制编码，遗传算法参数设置如表所示    种群大小 最大遗传代数 个体长度 代沟 交叉概率 变异概率     40 20 20 0.95 0.7 0.01    遗传算法优化代码： 12345678910111213141516171819202122232425262728293031323334353637383940414243">
+<meta property="og:description" content="简单一元函数优化利用遗传算法计算以下函数的最小值：   选择二进制编码，遗传算法参数设置如表所示    种群大小 最大遗传代数 个体长度 代沟 交叉概率 变异概率    40 20 20 0.95 0.7 0.01   遗传算法优化代码： 123456789101112131415161718192021222324252627282930313233343536373839404142434">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;fx.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;521.ooo&#x2F;img&#x2F;min.png">
@@ -98,7 +98,7 @@
       <span id="i-top" class="info" style="display:none;">返回顶部</span>
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">简单一元函数优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">二元函数优化</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简单一元函数优化"><span class="toc-text">简单一元函数优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二元函数优化"><span class="toc-text">二元函数优化</span></a></li></ol>
     </div>
   </div>
 </div>
@@ -161,7 +161,7 @@
     
       <div class="outdated-warn">
         <i class="fas fa-exclamation-circle"></i>
-        这是一篇更新于 582 天前的文章，其中的信息可能已经有所发展或是发生改变。
+        这是一篇更新于 583 天前的文章，其中的信息可能已经有所发展或是发生改变。
       </div>
     
   
@@ -172,9 +172,10 @@
 
   <div class="content" itemprop="articleBody">
     <a id="more"></a>
-<h1>简单一元函数优化</h1>
-<p>利用遗传算法计算以下函数的最小值：</p>
+
+<h1 id="简单一元函数优化"><a href="#简单一元函数优化" class="headerlink" title="简单一元函数优化"></a>简单一元函数优化</h1><p>利用遗传算法计算以下函数的最小值：</p>
 <center><img src="/img/fx.png"></center>
+
 <p>选择二进制编码，遗传算法参数设置如表所示</p>
 <table>
 <thead>
@@ -187,8 +188,7 @@
 <th>变异概率</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>40</td>
 <td>20</td>
 <td>20</td>
@@ -196,18 +196,20 @@
 <td>0.7</td>
 <td>0.01</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>遗传算法优化代码：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">clc</span><br><span class="line">clear all</span><br><span class="line">close all</span><br><span class="line"><span class="comment">%%画函数图</span></span><br><span class="line"><span class="built_in">figure</span>(<span class="number">1</span>);</span><br><span class="line"><span class="built_in">hold</span> on;</span><br><span class="line">lb=<span class="number">1</span>;</span><br><span class="line">ub=<span class="number">2</span>;      <span class="comment">%函数自变量范围为[1,2]</span></span><br><span class="line">ezplot(<span class="string">'sin(10 * pi * X)/X'</span>,[lb,ub]);</span><br><span class="line">xlabel(<span class="string">'自变量/X'</span>)</span><br><span class="line">ylabel(<span class="string">'函数值/Y'</span>)</span><br><span class="line"><span class="comment">%%定义遗传算法参数</span></span><br><span class="line">NIND=<span class="number">40</span>;        <span class="comment">%种群大小</span></span><br><span class="line">MAXGEN=<span class="number">20</span>;     <span class="comment">%最大遗传代数</span></span><br><span class="line">PRECI=<span class="number">20</span>;      <span class="comment">%个体长度</span></span><br><span class="line">GGAP=<span class="number">0.95</span>;      <span class="comment">%代沟</span></span><br><span class="line">px=<span class="number">0.7</span>;         <span class="comment">%交叉概率</span></span><br><span class="line">pm=<span class="number">0.01</span>;        <span class="comment">%变异概率</span></span><br><span class="line">trace=<span class="built_in">zeros</span>(<span class="number">2</span>,MAXGEN);      <span class="comment">%寻优结果初始值</span></span><br><span class="line">FieldD=[PRECI;lb;ub;<span class="number">1</span>;<span class="number">0</span>;<span class="number">1</span>;<span class="number">1</span>];       <span class="comment">%区域描述器</span></span><br><span class="line">Chrom=crtbp(NIND,PRECI);            <span class="comment">%创建任意离散随机种群</span></span><br><span class="line"><span class="comment">%%优化</span></span><br><span class="line">gen=<span class="number">0</span>;      <span class="comment">%代计数器</span></span><br><span class="line">X=bs2rv(Chrom,FieldD);      <span class="comment">%初始种群二进制到十进制转换</span></span><br><span class="line">ObjV=<span class="built_in">sin</span>(<span class="number">10</span>*<span class="built_in">pi</span>*X)./X;       <span class="comment">%计算目标函数值</span></span><br><span class="line"><span class="keyword">while</span> gen&lt;MAXGEN</span><br><span class="line">    FitnV=ranking(ObjV);    <span class="comment">%分配适应度值</span></span><br><span class="line">    SelCh=select(<span class="string">'sus'</span>,Chrom,FitnV,GGAP);       <span class="comment">%选择</span></span><br><span class="line">    SelCh=recombin(<span class="string">'xovsp'</span>,SelCh,px);           <span class="comment">%重组</span></span><br><span class="line">    SelCh=mut(SelCh,pm);                        <span class="comment">%变异</span></span><br><span class="line">    X=bs2rv(SelCh,FieldD);                      <span class="comment">%子代个体的十进制转换</span></span><br><span class="line">    ObjVSel=<span class="built_in">sin</span>(<span class="number">10</span>*<span class="built_in">pi</span>*X)./X;                    <span class="comment">%计算子代的目标函数值</span></span><br><span class="line">    [Chrom,ObjV]=reins(Chrom,SelCh,<span class="number">1</span>,<span class="number">1</span>,ObjV,ObjVSel); <span class="comment">%重插入子代到父代，得到新种群</span></span><br><span class="line">    X=bs2rv(Chrom,FieldD);</span><br><span class="line">    gen=gen+<span class="number">1</span>;          <span class="comment">%代计数器增加</span></span><br><span class="line">    <span class="comment">%获取每代的最优解及其序号，Y为最优解，I为个体的序号</span></span><br><span class="line">    [Y,I]=<span class="built_in">min</span>(ObjV);</span><br><span class="line">    trace(<span class="number">1</span>,gen)=X(I);      <span class="comment">%记下每代的最优值</span></span><br><span class="line">    trace(<span class="number">2</span>,gen)=Y;         <span class="comment">%记下每代的最优值</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="built_in">plot</span>(trace(<span class="number">1</span>,:),trace(<span class="number">2</span>,:),<span class="string">'bo'</span>);           <span class="comment">%画出每代的最优点</span></span><br><span class="line">grid on;</span><br><span class="line"><span class="built_in">plot</span>(X,ObjV,<span class="string">'b*'</span>);          <span class="comment">%画出最后一代种群的hold off</span></span><br><span class="line"><span class="comment">%%画进化图</span></span><br><span class="line"><span class="built_in">figure</span>(<span class="number">2</span>);</span><br><span class="line"><span class="built_in">plot</span>(<span class="number">1</span>:MAXGEN,trace(<span class="number">2</span>,:));</span><br><span class="line">grid on;</span><br><span class="line">xlabel(<span class="string">'遗传代数'</span>);</span><br><span class="line">ylabel(<span class="string">'解的变化'</span>);</span><br><span class="line">title(<span class="string">'进化过程'</span>);</span><br><span class="line">bestY=trace(<span class="number">2</span>,<span class="keyword">end</span>);</span><br><span class="line">bestX=trace(<span class="number">1</span>,<span class="keyword">end</span>);</span><br><span class="line">fprintf([<span class="string">'最优解:\nX='</span>,num2str(bestX),<span class="string">'\nY='</span>,num2str(bestY),<span class="string">'\n'</span>])</span><br></pre></td></tr></table></figure>
+
 <p>最优解：</p>
 <p>X=1.1491</p>
 <p>Y=-0.8699</p>
 <img src="/img/min.png">
+
 <center>其中O是每代的最优解，*是20代以后的种群分布，图二为种群优化20代的进化图。</center>
-<h1>二元函数优化</h1>
-<p>利用遗传算法求下面函数的最大值：</p>
+
+<h1 id="二元函数优化"><a href="#二元函数优化" class="headerlink" title="二元函数优化"></a>二元函数优化</h1><p>利用遗传算法求下面函数的最大值：</p>
 <img src="/img/fy.jpg">
+
 <p>选择二进制编码，遗传算法参数设置如表所示</p>
 <table>
 <thead>
@@ -220,8 +222,7 @@
 <th>变异概率</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>40</td>
 <td>50</td>
 <td><center>40(2个自变量，每个长20)</center></td>
@@ -229,12 +230,13 @@
 <td>0.7</td>
 <td>0.01</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>程序代码：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">clc</span><br><span class="line">clear all</span><br><span class="line">close all</span><br><span class="line"><span class="comment">%%画出函数图</span></span><br><span class="line"><span class="built_in">figure</span>(<span class="number">1</span>);</span><br><span class="line">lbx=<span class="number">-2</span>;ubx=<span class="number">2</span>;       <span class="comment">%函数自变量x的范围为[-2,2]</span></span><br><span class="line">lby=<span class="number">-2</span>;uby=<span class="number">2</span>;       <span class="comment">%函数自变量y的范围为[-2,2]</span></span><br><span class="line">ezmesh(<span class="string">'y*sin(2*pi*x)+x*cos(2*pi*y)'</span>,[lbx,ubx,lby,uby],<span class="number">50</span>);     <span class="comment">%画出函数曲线</span></span><br><span class="line"><span class="built_in">hold</span> on;</span><br><span class="line"><span class="comment">%%定义遗传算法函数</span></span><br><span class="line">NIND=<span class="number">40</span>;        <span class="comment">%种群大小</span></span><br><span class="line">MAXGEN=<span class="number">50</span>;      <span class="comment">%最大遗传代数</span></span><br><span class="line">PRECI=<span class="number">20</span>;       <span class="comment">%个体长度</span></span><br><span class="line">GGAP=<span class="number">0.95</span>;      <span class="comment">%代沟</span></span><br><span class="line">px=<span class="number">0.07</span>;        <span class="comment">%交叉概率</span></span><br><span class="line">pm=<span class="number">0.01</span>;        <span class="comment">%变异概率</span></span><br><span class="line">trace=<span class="built_in">zeros</span>(<span class="number">3</span>,MAXGEN);      <span class="comment">%寻优结果初始值</span></span><br><span class="line">FieldD=[PRECI PRECI;lbx lby;ubx uby;<span class="number">1</span> <span class="number">1</span>;<span class="number">0</span> <span class="number">0</span>;<span class="number">1</span> <span class="number">1</span>;<span class="number">1</span> <span class="number">1</span>];       <span class="comment">%区域描述器</span></span><br><span class="line">Chrom=crtbp(NIND,PRECI*<span class="number">2</span>);      <span class="comment">%创建任意离散随机种群</span></span><br><span class="line"><span class="comment">%%优化</span></span><br><span class="line">gen=<span class="number">0</span>;      <span class="comment">%代计数器</span></span><br><span class="line">XY=bs2rv(Chrom,FieldD);     <span class="comment">%初始种群的十进制转换</span></span><br><span class="line">X=XY(:,<span class="number">1</span>);</span><br><span class="line">Y=XY(:,<span class="number">1</span>);</span><br><span class="line">ObjV=Y.*<span class="built_in">sin</span>(<span class="number">2</span>*<span class="built_in">pi</span>*X)+X.*<span class="built_in">cos</span>(<span class="number">2</span>*<span class="built_in">pi</span>*Y);     <span class="comment">%计算目标函数值</span></span><br><span class="line"><span class="keyword">while</span> gen&lt;MAXGEN</span><br><span class="line">    FitnV=ranking(-ObjV);       <span class="comment">%分配适应度值</span></span><br><span class="line">    SelCh=select(<span class="string">'sus'</span>,Chrom,FitnV,GGAP);       <span class="comment">%选择</span></span><br><span class="line">    SelCh=recombin(<span class="string">'xovsp'</span>,SelCh,px);       <span class="comment">%重组</span></span><br><span class="line">    SelCh=mut(SelCh,pm);        <span class="comment">%变异</span></span><br><span class="line">    XY=bs2rv(SelCh,FieldD);     <span class="comment">%子代个体的十进制转换</span></span><br><span class="line">    X=XY(:,<span class="number">1</span>);Y=XY(:,<span class="number">2</span>);</span><br><span class="line">    ObjVSel=Y.*<span class="built_in">sin</span>(<span class="number">2</span>*<span class="built_in">pi</span>*X)+X.*<span class="built_in">cos</span>(<span class="number">2</span>*<span class="built_in">pi</span>*Y);      <span class="comment">%计算子代的目标函数值</span></span><br><span class="line">    [Chrom,ObjV]=reins(Chrom,SelCh,<span class="number">1</span>,<span class="number">1</span>,ObjV,ObjVSel); <span class="comment">%重插入子代到父代，得到新种群</span></span><br><span class="line">    XY=bs2rv(Chrom,FieldD);</span><br><span class="line">    gen=gen+<span class="number">1</span>;      <span class="comment">%代计数器增加</span></span><br><span class="line">    <span class="comment">%%获取每代的最优解及其序号，Y为最优解，I为个体序号</span></span><br><span class="line">    [Y,I]=<span class="built_in">max</span>(ObjV);</span><br><span class="line">    trace(<span class="number">1</span>:<span class="number">2</span>,gen)=XY(I,:);     <span class="comment">%记下每代的最优值</span></span><br><span class="line">    trace(<span class="number">3</span>,gen)=Y;     <span class="comment">%记下每代的最优值</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="built_in">plot3</span>(trace(<span class="number">1</span>,:),trace(<span class="number">2</span>,:),trace(<span class="number">3</span>,:),<span class="string">'bo'</span>);       <span class="comment">%画出每代的最优点</span></span><br><span class="line">grid on;</span><br><span class="line"><span class="built_in">plot3</span>(XY(:,<span class="number">1</span>),XY(:,<span class="number">2</span>),ObjV,<span class="string">'bo'</span>);       <span class="comment">%画出最后一代种群</span></span><br><span class="line"><span class="built_in">hold</span> off</span><br><span class="line"><span class="comment">%%画进化图</span></span><br><span class="line"><span class="built_in">figure</span>(<span class="number">2</span>);</span><br><span class="line"><span class="built_in">plot</span>(<span class="number">1</span>:MAXGEN,trace(<span class="number">3</span>,:));</span><br><span class="line">grid on;</span><br><span class="line">xlabel(<span class="string">'遗传代数'</span>);</span><br><span class="line">ylabel(<span class="string">'解的变化'</span>);</span><br><span class="line">title(<span class="string">'进化过程'</span>);</span><br><span class="line">bestZ=trace(<span class="number">3</span>,<span class="keyword">end</span>);</span><br><span class="line">bestX=trace(<span class="number">1</span>,<span class="keyword">end</span>);</span><br><span class="line">bestY=trace(<span class="number">2</span>,<span class="keyword">end</span>);</span><br><span class="line">fprintf([<span class="string">'最优解：\nX='</span>,num2str(bestX),<span class="string">'\nY='</span>,num2str(bestY),<span class="string">'\nZ='</span>,num2str(bestZ),<span class="string">'\n'</span>])</span><br></pre></td></tr></table></figure>
+
 <p>运行结果为：<code>最优解： X=1.7609 Y=-1.999 Z=3.7552</code></p>
 <img src="/img/max.png">
+
 <center>其中O是每代的最优解,图二为种群优化50代的进化图。</center>
   </div>
 </article>
@@ -520,7 +522,7 @@ div.vcontent p  img.vemoji {
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">简单一元函数优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">二元函数优化</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简单一元函数优化"><span class="toc-text">简单一元函数优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二元函数优化"><span class="toc-text">二元函数优化</span></a></li></ol>
     </div>
 
     <div id="actions-footer">

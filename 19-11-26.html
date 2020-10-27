@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="之前曾写过一篇对于Windows挂在iSCSI的文章，在后面的学习中发现Esxi也可以挂载iSCSI。下面主要简单的记录一下基本流程。 配置openfiler 在openfiler的web管理界面点击system然后配置Network Access Configuration把Esxi的IP地址添加进去   然后配置iSCSI  Targets，由于之前已经配置过所以直接修改Network ACL">
+    <meta name="description" content="之前曾写过一篇对于Windows挂在iSCSI的文章，在后面的学习中发现Esxi也可以挂载iSCSI。下面主要简单的记录一下基本流程。 配置openfiler在openfiler的web管理界面点击system然后配置Network Access Configuration把Esxi的IP地址添加进去   然后配置iSCSI  Targets，由于之前已经配置过所以直接修改Network ACL">
 <meta name="keywords" content="虚拟化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Esxi挂载iSCSI">
 <meta property="og:url" content="https:&#x2F;&#x2F;521.ooo&#x2F;19-11-26.html">
 <meta property="og:site_name" content="嘲弄i">
-<meta property="og:description" content="之前曾写过一篇对于Windows挂在iSCSI的文章，在后面的学习中发现Esxi也可以挂载iSCSI。下面主要简单的记录一下基本流程。 配置openfiler 在openfiler的web管理界面点击system然后配置Network Access Configuration把Esxi的IP地址添加进去   然后配置iSCSI  Targets，由于之前已经配置过所以直接修改Network ACL">
+<meta property="og:description" content="之前曾写过一篇对于Windows挂在iSCSI的文章，在后面的学习中发现Esxi也可以挂载iSCSI。下面主要简单的记录一下基本流程。 配置openfiler在openfiler的web管理界面点击system然后配置Network Access Configuration把Esxi的IP地址添加进去   然后配置iSCSI  Targets，由于之前已经配置过所以直接修改Network ACL">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;11-26&#x2F;1.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;b-l.oss-cn-hongkong.aliyuncs.com&#x2F;photos&#x2F;11-26&#x2F;2.png">
@@ -111,7 +111,7 @@
       <span id="i-top" class="info" style="display:none;">返回顶部</span>
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">配置openfiler</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">配置Esxi</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#配置openfiler"><span class="toc-text">配置openfiler</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置Esxi"><span class="toc-text">配置Esxi</span></a></li></ol>
     </div>
   </div>
 </div>
@@ -141,7 +141,7 @@
     
    |
     <i class="far fa-file-word fa-fw"></i>
-    文章字数:<span class="post-count">262</span>
+    文章字数:<span class="post-count">260</span>
     |
     <i class="far fa-clock fa-fw"></i>
     阅读时长:<span class="post-count">1</span>min
@@ -180,36 +180,34 @@
 
   <div class="content" itemprop="articleBody">
     <p>之前曾写过一篇对于Windows挂在iSCSI的文章，在后面的学习中发现Esxi也可以挂载iSCSI。下面主要简单的记录一下基本流程。</p>
-<h1>配置openfiler</h1>
-<p>在openfiler的web管理界面点击system然后配置Network Access Configuration把Esxi的IP地址添加进去</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/1.png" alt=""></p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/2.png" alt=""></p>
+<h1 id="配置openfiler"><a href="#配置openfiler" class="headerlink" title="配置openfiler"></a>配置openfiler</h1><p>在openfiler的web管理界面点击system然后配置Network Access Configuration把Esxi的IP地址添加进去</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/1.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/2.png"></p>
 <p>然后配置iSCSI  Targets，由于之前已经配置过所以直接修改Network ACL 即可把Esxi主机🖥的IP地址改为allow</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/3.png" alt=""></p>
-<h1>配置Esxi</h1>
-<p>通过vSphere client连接Esxi服务器，连接成功如下图所示</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/4.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/3.png"></p>
+<h1 id="配置Esxi"><a href="#配置Esxi" class="headerlink" title="配置Esxi"></a>配置Esxi</h1><p>通过vSphere client连接Esxi服务器，连接成功如下图所示</p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/4.png"></p>
 <p>点击配置然后点击添加存储适配器，选择添加软件iSCSI适配器</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/5.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/5.png"></p>
 <p>添加成功后，会发现多了一个iSCSISoftware Adapter</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/6.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/6.png"></p>
 <p>右键点击属性对其进行配置</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/7.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/7.png"></p>
 <p>网络配置</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/8.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/8.png"></p>
 <p>设置动态发现</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/9.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/9.png"></p>
 <p>点击右侧的存储然后添加存储</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/10.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/10.png"></p>
 <p>选择Lun创建的数据存储</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/11.png" alt=""></p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/1.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/11.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/1.png"></p>
 <p>后面这里都采取默认设置，可以根据自己需求来进行配置</p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/12.png" alt=""></p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/13.png" alt=""></p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/14.png" alt=""></p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/15.png" alt=""></p>
-<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/17.png" alt=""></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/12.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/13.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/14.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/15.png"></p>
+<p><img src="https://b-l.oss-cn-hongkong.aliyuncs.com/photos/11-26/17.png"></p>
 <p>到此已经挂载成功，可以对数据存储进行操作。上传下载文件等等</p>
 
   </div>
@@ -496,7 +494,7 @@ div.vcontent p  img.vemoji {
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">配置openfiler</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">配置Esxi</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#配置openfiler"><span class="toc-text">配置openfiler</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置Esxi"><span class="toc-text">配置Esxi</span></a></li></ol>
     </div>
 
     <div id="actions-footer">
